@@ -57,7 +57,83 @@ public class Version1Api {
     	returnUser.setLastName(newUser.getLastName());
         return ("Hello " + returnUser.getFirstName() + " " + returnUser.getLastName());
     } 
+    
+    @GET
+    @Path("/AdvancedCharityItems")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String advancedCharitySearch(@QueryParam("charityItemId") String charityItemId, @QueryParam("listingType") String listingType) throws IOException {
+    	System.out.println("Advanced Charity Search");
+    	System.out.println("Charity Item Id: " + charityItemId + " Listing Type: " + listingType );
+    	String requestBody = "{\r\n" + 
+    			"    \"searchRequest\": {\r\n" + 
+    			"        \"sortOrder\": \"BestMatch\",\r\n" + 
+    			"        \"paginationInput\": {\r\n" + 
+    			"            \"pageNumber\": 1,\r\n" + 
+    			"            \"entriesPerPage\": 5\r\n" + 
+    			"        },\r\n" + 
+    			"        \"keyword\": \"phone\",\r\n" + 
+    			"        \"constraints\": {\r\n" + 
+    			"            \"globalAspect\": [\r\n" + 
+    			"                {\r\n" + 
+    			"                    \"constraintType\": \"CharityIds\",\r\n" + 
+    			"                    \"value\": ["+charityItemId+"]\r\n" + 
+    			"                },\r\n" + 
+    			"                {\r\n" + 
+    			"                    \"constraintType\": \"CharityOnly\",\r\n" + 
+    			"                    \"value\": [\"true\"]\r\n" + 
+    			"                },\r\n" + 
+    			"                {\r\n" + 
+    			"                    \"constraintType\": \"ListingType\",\r\n" + 
+    			"                    \"value\": [\""+listingType+"\"],\r\n" + 
+    			"                    \"paramNameValue\": [\r\n" + 
+    			"                        {\r\n" + 
+    			"                            \"name\": \"operator\",\r\n" + 
+    			"                            \"value\": \"exclusive\"\r\n" + 
+    			"                        }\r\n" + 
+    			"                    ]\r\n" + 
+    			"                }\r\n" + 
+    			"            ]\r\n" + 
+    			"        }\r\n" + 
+    			"    }\r\n" + 
+    			"}";
+    	System.out.println(requestBody);
+    	URL url = new URL("https://api.ebay.com/buying/search/v2");
+		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
+		// Set timeout as per needs
+		connection.setConnectTimeout(20000);
+		connection.setReadTimeout(20000);
+
+		// Set DoOutput to true if you want to use URLConnection for output.
+		// Default is false
+		connection.setDoOutput(true);
+		connection.setRequestMethod("POST");
+
+		// Set Headers
+		connection.setRequestProperty("Content-Type", "application/json");
+		connection.setRequestProperty("Accept", "application/json");
+		connection.setRequestProperty("X-EBAY-C-MARKETPLACE-ID", "EBAY-UK");
+		connection.setRequestProperty("Authorization", "APP EdwardMu-CharityP-PRD-538907625-4999b865");
+		
+		// Write XML
+		OutputStream outputStream = connection.getOutputStream();
+		outputStream.write(requestBody.getBytes("UTF-8"));
+		outputStream.flush();
+		outputStream.close();
+
+		// Read XML
+		InputStream inputStream = connection.getInputStream();
+		StringBuilder responseBuilder = new StringBuilder();
+		byte[] res = new byte[2048];
+		int i;
+		while ((i = inputStream.read(res)) != -1) {
+			responseBuilder.append(new String(res, 0, i));
+		}
+		inputStream.close();
+		System.out.println(responseBuilder.toString());
+    	return responseBuilder.toString();
+    }
+    
     @GET
     @Path("/FindCharityItems")
     @Produces(MediaType.APPLICATION_JSON)
