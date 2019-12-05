@@ -11,7 +11,7 @@ public class SpringBootMain {
 
     @Bean
     ResourceConfig resourceConfig() {
-        return new ResourceConfig().registerClasses(Version1Api.class, MyJaxRsResource.class);
+        return new ResourceConfig().registerClasses(Version1Api.class);
     }
 
     public static void main(String[] args) {

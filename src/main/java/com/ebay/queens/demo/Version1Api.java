@@ -1,63 +1,19 @@
 package com.ebay.queens.demo;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.ProtocolException;
-import java.net.URL;
-
-import javax.validation.Valid;
-import javax.websocket.server.PathParam;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
-import com.ebay.queens.demo.User;
-import com.ebay.queens.demo.Message;
-
 @CrossOrigin
 @Component
 @Path("/v1")
 public class Version1Api {
+	
+	Http httpClass = new Http();
 
-
-	// Calling this API simply returns the plaintext response "Hello World"
-    @GET
-    @Path("/{hello}")
-    public String getMessage() {
-        return "Hello World ";
-    }
-    
-    @POST 
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public String returnMessage(@Valid @RequestBody User newUser) {
-    	User returnUser = newUser; 
-    	returnUser.setFirstName(newUser.getFirstName());
-    	returnUser.setLastName(newUser.getLastName());
-        return ("Hello " + returnUser.getFirstName() + " " + returnUser.getLastName());
-    } 
-    
     @GET
     @Path("/AdvancedCharityItems")
     @Produces(MediaType.APPLICATION_JSON)
@@ -97,41 +53,9 @@ public class Version1Api {
     			"    }\r\n" + 
     			"}";
     	System.out.println(requestBody);
-    	URL url = new URL("https://api.ebay.com/buying/search/v2");
-		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
-		// Set timeout as per needs
-		connection.setConnectTimeout(20000);
-		connection.setReadTimeout(20000);
-
-		// Set DoOutput to true if you want to use URLConnection for output.
-		// Default is false
-		connection.setDoOutput(true);
-		connection.setRequestMethod("POST");
-
-		// Set Headers
-		connection.setRequestProperty("Content-Type", "application/json");
-		connection.setRequestProperty("Accept", "application/json");
-		connection.setRequestProperty("X-EBAY-C-MARKETPLACE-ID", "EBAY-UK");
-		connection.setRequestProperty("Authorization", "APP EdwardMu-CharityP-PRD-538907625-4999b865");
-		
-		// Write XML
-		OutputStream outputStream = connection.getOutputStream();
-		outputStream.write(requestBody.getBytes("UTF-8"));
-		outputStream.flush();
-		outputStream.close();
-
-		// Read XML
-		InputStream inputStream = connection.getInputStream();
-		StringBuilder responseBuilder = new StringBuilder();
-		byte[] res = new byte[2048];
-		int i;
-		while ((i = inputStream.read(res)) != -1) {
-			responseBuilder.append(new String(res, 0, i));
-		}
-		inputStream.close();
-		System.out.println(responseBuilder.toString());
-    	return responseBuilder.toString();
+    	String url = "https://api.ebay.com/buying/search/v2";
+    	String response = Http.genericSendPOST(url, requestBody, "charityItem");
+    	return response;
     }
     
     @GET
@@ -161,41 +85,9 @@ public class Version1Api {
     			"        }\r\n" + 
     			"    }\r\n" + 
     			"}";
-    	URL url = new URL("https://api.ebay.com/buying/search/v2");
-		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
-		// Set timeout as per needs
-		connection.setConnectTimeout(20000);
-		connection.setReadTimeout(20000);
-
-		// Set DoOutput to true if you want to use URLConnection for output.
-		// Default is false
-		connection.setDoOutput(true);
-		connection.setRequestMethod("POST");
-
-		// Set Headers
-		connection.setRequestProperty("Content-Type", "application/json");
-		connection.setRequestProperty("Accept", "application/json");
-		connection.setRequestProperty("X-EBAY-C-MARKETPLACE-ID", "EBAY-UK");
-		connection.setRequestProperty("Authorization", "APP EdwardMu-CharityP-PRD-538907625-4999b865");
-		
-		// Write XML
-		OutputStream outputStream = connection.getOutputStream();
-		outputStream.write(requestBody.getBytes("UTF-8"));
-		outputStream.flush();
-		outputStream.close();
-
-		// Read XML
-		InputStream inputStream = connection.getInputStream();
-		StringBuilder responseBuilder = new StringBuilder();
-		byte[] res = new byte[2048];
-		int i;
-		while ((i = inputStream.read(res)) != -1) {
-			responseBuilder.append(new String(res, 0, i));
-		}
-		inputStream.close();
-		System.out.println(responseBuilder.toString());
-    	return responseBuilder.toString();
+    	String url = "https://api.ebay.com/buying/search/v2";
+    	String response = Http.genericSendPOST(url, requestBody, "charityItem");
+    	return response.toString();
     }
     
     
@@ -211,51 +103,15 @@ public class Version1Api {
     			"  </RequesterCredentials>\r\n" + 
     			"  <ItemID>"+ input + "</ItemID>\r\n" + 
     			"</GetItemRequest>";
-    	URL url = new URL("https://api.ebay.com/ws/api.dll");
-		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
-		// Set timeout as per needs
-		connection.setConnectTimeout(20000);
-		connection.setReadTimeout(20000);
-
-		// Set DoOutput to true if you want to use URLConnection for output.
-		// Default is false
-		connection.setDoOutput(true);
-		connection.setRequestMethod("POST");
-
-		// Set Headers
-		connection.setRequestProperty("Content-Type", "application/xml");
-		connection.setRequestProperty("X-EBAY-SOA-SECURITY-APPNAME", "EdwardMu-CharityP-PRD-538907625-4999b865");
-		connection.setRequestProperty("X-EBAY-API-SITEID", "3");
-		connection.setRequestProperty("X-EBAY-API-CALL-NAME", "GetItem");
-		connection.setRequestProperty("X-EBAY-API-COMPATIBILITY-LEVEL", "1107");
-		connection.setRequestProperty("X-EBAY-API-APP-NAME", "EdwardMu-CharityP-PRD-538907625-4999b865");
-		connection.setRequestProperty("X-EBAY-API-DEV-NAME", "f21ad267-e241-4ed0-8943-721fa90bcf3a");
-		connection.setRequestProperty("X-EBAY-API-CERT-NAME", "PRD-38907625e4e8-b6b8-4c83-b069-68ac");
-		
-		// Write XML
-		OutputStream outputStream = connection.getOutputStream();
-		outputStream.write(requestBody.getBytes("UTF-8"));
-		outputStream.flush();
-		outputStream.close();
-
-		// Read XML
-		InputStream inputStream = connection.getInputStream();
-		StringBuilder responseBuilder = new StringBuilder();
-		byte[] res = new byte[2048];
-		int i;
-		while ((i = inputStream.read(res)) != -1) {
-			responseBuilder.append(new String(res, 0, i));
-		}
-		inputStream.close();
-    	return responseBuilder.toString();
+    	String url = "https://api.ebay.com/ws/api.dll";
+    	String response = Http.genericSendPOST(url, requestBody, "getItem");
+    	return response.toString();
     }
-  
     
     @GET
     @Path("/FindNonProfit")
     @Produces(MediaType.APPLICATION_XML)
-    public Response findNonProfit(@QueryParam("nonProfitInput")String nonProfitInput) throws IOException {
+    public String findNonProfit(@QueryParam("nonProfitInput")String nonProfitInput) throws IOException {
     	System.out.println("Find Non Profit Method");
     	String requestBody = 
     			"<findNonprofitRequest xmlns=\"http://www.ebay.com/marketplace/fundraising/v1/services\">\r\n" + 
@@ -273,40 +129,9 @@ public class Version1Api {
     			"        <pageSize>25</pageSize>\r\n" + 
     			"    </paginationInput>\r\n" + 
     			"</findNonprofitRequest>";
-    	URL url = new URL("http://svcs.ebay.com/services/fundraising/FundRaisingFindingService/v1");
-		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
-		// Set timeout as per needs
-		connection.setConnectTimeout(20000);
-		connection.setReadTimeout(20000);
-
-		// Set DoOutput to true if you want to use URLConnection for output.
-		// Default is false
-		connection.setDoOutput(true);
-		connection.setRequestMethod("POST");
-
-		// Set Headers
-		connection.setRequestProperty("Content-Type", "application/xml");
-		connection.setRequestProperty("X-EBAY-SOA-SECURITY-APPNAME", "EdwardMu-CharityP-PRD-538907625-4999b865");
-		connection.setRequestProperty("X-EBAY-SOA-OPERATION-NAME", "findNonprofit");
-		connection.setRequestProperty("X-EBAY-SOA-GLOBAL-ID", "EBAY-GB");
-		
-		// Write XML
-		OutputStream outputStream = connection.getOutputStream();
-		outputStream.write(requestBody.getBytes("UTF-8"));
-		outputStream.flush();
-		outputStream.close();
-
-		// Read XML
-		InputStream inputStream = connection.getInputStream();
-		StringBuilder responseBuilder = new StringBuilder();
-		byte[] res = new byte[2048];
-		int i;
-		while ((i = inputStream.read(res)) != -1) {
-			responseBuilder.append(new String(res, 0, i));
-		}
-		inputStream.close();
-		System.out.println(responseBuilder.toString());
-    	return Response.ok().entity(responseBuilder.toString()).build();
+    	String url = ("http://svcs.ebay.com/services/fundraising/FundRaisingFindingService/v1");
+    	String response = Http.genericSendPOST(url,requestBody,"nonProfit");
+    	System.out.println(response.toString());
+    	return response.toString();
     }
 }
