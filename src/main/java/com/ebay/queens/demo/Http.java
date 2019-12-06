@@ -65,6 +65,15 @@ public class Http {
 		CloseableHttpClient client = HttpClients.createDefault();
 	    HttpPost httpPost = new HttpPost(url);
 	    httpPost.setEntity(new StringEntity(requestBody));
+	    httpPost = selectHeader(httpPost, typeOfCall);
+	    CloseableHttpResponse response = client.execute(httpPost);
+        String result = EntityUtils.toString(response.getEntity());
+	    client.close();
+	    
+       return result.toString();
+   }
+	
+	public static HttpPost selectHeader(HttpPost httpPost,String typeOfCall) {
 	    switch(typeOfCall) {
 	    case "nonProfit" : 
 	    	httpPost.addHeader("Content-Type", "application/xml");
@@ -92,12 +101,9 @@ public class Http {
 	    	System.out.println("Default value");
 	    	break;
 	    }
-	    CloseableHttpResponse response = client.execute(httpPost);
-        String result = EntityUtils.toString(response.getEntity());
-	    client.close();
 	    
-       return result.toString();
-   }
+	    return httpPost;
+	}
 
 }
 
