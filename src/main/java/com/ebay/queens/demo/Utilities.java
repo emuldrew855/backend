@@ -9,14 +9,18 @@ public class Utilities {
 	String devName;
 	String certName;
 	String marktplaceId;
+	String paypalAuthorizationToken; 
+	String ebayAuth; 
 	HttpHeaders nonProfitHeaders = new HttpHeaders();
 	final int SITE_ID = 3;
-	Utilities(String devName, String securityAppName, String globalId, String marketplaceId, String certName) {
+	Utilities(String devName, String securityAppName, String globalId, String marketplaceId, String certName, String paypalAuth, String ebayAuth) {
 		this.devName = devName;
 		this.securityAppName= securityAppName; 
 		this.globalId = globalId;
 		this.certName = certName;
 		this.marktplaceId = marketplaceId;
+		this.paypalAuthorizationToken = paypalAuth;
+		this.ebayAuth = ebayAuth;
 		this.nonProfitHeaders.add("Content-Type", "application/xml");
 		this.nonProfitHeaders.add("X-EBAY-SOA-OPERATION-NAME", "findNonprofit");
 		this.nonProfitHeaders.add("X-EBAY-SOA-GLOBAL-ID", this.globalId);

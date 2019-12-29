@@ -14,6 +14,17 @@ public class Version1Api {
 	
 	Http httpClass = new Http();
 
+	@GET
+	@Path("/SearchItem")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String searchItem(@QueryParam("searchTerm") String searchTerm) throws IOException {
+		System.out.println("Search Item");
+    	System.out.println("Search Term: " + searchTerm );
+    	String url = "https://api.ebay.com/buy/browse/v1/item_summary/search?q=" + searchTerm;
+    	String response = Http.genericSendGET(url, "searchItem");
+    	return response;
+	}
+	
     @GET
     @Path("/AdvancedCharityItems")
     @Produces(MediaType.APPLICATION_JSON)
