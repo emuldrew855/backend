@@ -62,15 +62,15 @@ public class Paypal {
     }
     
     @GET
-    @Path("/AuthetnicationToken")
+    @Path("/AuthenticationToken")
     @Produces(MediaType.APPLICATION_JSON)
     @RequestMapping(value = "/patientdetails", method = RequestMethod.POST,consumes = MediaType.APPLICATION_FORM_URLENCODED)
     public String authenticationToken() throws IOException {
     	System.out.println("Authentication Token");
     	String requestBody = ""; 
     	System.out.println(requestBody);
-    	String url = "https://api.sandbox.paypal.com/v1/oauth2/token";
-    	String response = Http.genericSendPOST(url, requestBody, "Paypal");
+    	String url = "https://api.paypal.com/v1/oauth2/token";
+    	String response = Http.authenticationPost(url, requestBody, "PaypalAuth");
     	return response;
     }
     

@@ -13,11 +13,24 @@ import java.io.IOException;
 public class Version1Api {
 	
 	Http httpClass = new Http();
+	
+	public static void main(String [] args) throws IOException {
+		advancedFindCharityItems("1726");
+	}
+	
+	@GET
+	@Path("/")
+	@Produces(MediaType.APPLICATION_JSON)
+	public static String advancedFindCharityItems(@QueryParam("charityId") String charityId) throws IOException {
+		String response = findNonProfit(charityId);
+		System.out.println(response);
+		return "";
+	}
 
 	@GET
 	@Path("/SearchItem")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String searchItem(@QueryParam("searchTerm") String searchTerm) throws IOException {
+	public static String searchItem(@QueryParam("searchTerm") String searchTerm) throws IOException {
 		System.out.println("Search Item");
     	System.out.println("Search Term: " + searchTerm );
     	String url = "https://api.ebay.com/buy/browse/v1/item_summary/search?q=" + searchTerm;
@@ -28,7 +41,7 @@ public class Version1Api {
     @GET
     @Path("/AdvancedCharityItems")
     @Produces(MediaType.APPLICATION_JSON)
-    public String advancedCharitySearch(@QueryParam("charityItemId") String charityItemId, @QueryParam("listingType") String listingType) throws IOException {
+    public static String advancedCharitySearch(@QueryParam("charityItemId") String charityItemId, @QueryParam("listingType") String listingType) throws IOException {
     	System.out.println("Advanced Charity Search");
     	System.out.println("Charity Item Id: " + charityItemId + " Listing Type: " + listingType );
     	String requestBody = "{\r\n" + 
@@ -72,7 +85,7 @@ public class Version1Api {
     @GET
     @Path("/FindCharityItems")
     @Produces(MediaType.APPLICATION_JSON)
-    public String findCharityItems(@QueryParam("charityItemId") String charityItemId) throws IOException {
+    public static String findCharityItems(@QueryParam("charityItemId") String charityItemId) throws IOException {
     	System.out.println("Find Charity Items");
     	String requestBody = "{\r\n" + 
     			"    \"searchRequest\": {\r\n" + 
@@ -105,7 +118,7 @@ public class Version1Api {
     @GET
     @Path("/GetItem")
     @Produces(MediaType.APPLICATION_XML)
-    public String getItem(@QueryParam("input")String input) throws IOException {
+    public static String getItem(@QueryParam("input")String input) throws IOException {
     	System.out.println("Get Item Method");
     	String requestBody = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n" + 
     			"<GetItemRequest xmlns=\"urn:ebay:apis:eBLBaseComponents\">\r\n" + 
@@ -122,7 +135,7 @@ public class Version1Api {
     @GET
     @Path("/FindNonProfit")
     @Produces(MediaType.APPLICATION_XML)
-    public String findNonProfit(@QueryParam("nonProfitInput")String nonProfitInput) throws IOException {
+    public static String findNonProfit(@QueryParam("nonProfitInput")String nonProfitInput) throws IOException {
     	System.out.println("Find Non Profit Method");
     	String requestBody = 
     			"<findNonprofitRequest xmlns=\"http://www.ebay.com/marketplace/fundraising/v1/services\">\r\n" + 

@@ -31,6 +31,7 @@ public class Utilities {
 		
 	}
 
+
 	// Getters 
 	public String getDevName() {
 		return devName;
@@ -51,6 +52,14 @@ public class Utilities {
 		return nonProfitHeaders;
 	}
 	
+	public String getPaypalAuthorizationToken() {
+		return paypalAuthorizationToken;
+	}
+
+	public String getEbayAuth() {
+		return ebayAuth;
+	}
+	
 	// Setters
 	public void setDevName(String devName) {
 		this.devName = devName;
@@ -69,6 +78,14 @@ public class Utilities {
 	}
 	public void setNonProfitHeaders(HttpHeaders nonProfitHeaders) {
 		this.nonProfitHeaders = nonProfitHeaders;
+	}
+	
+	public void setPaypalAuthorizationToken(String paypalAuthorizationToken) {
+		this.paypalAuthorizationToken = paypalAuthorizationToken;
+	}
+
+	public void setEbayAuth(String ebayAuth) {
+		this.ebayAuth = ebayAuth;
 	}
 
 
