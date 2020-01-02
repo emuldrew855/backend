@@ -23,7 +23,10 @@ public class Version1Api {
 	@Produces(MediaType.APPLICATION_JSON)
 	public static String advancedFindCharityItems(@QueryParam("charityId") String charityId) throws IOException {
 		String response = findNonProfit(charityId);
-		System.out.println(response);
+		String nonProfitId = response.substring(response.indexOf("nonprofitId")+12, response.indexOf("nonprofitId")+16);
+		System.out.println(nonProfitId);
+		String response2 = findCharityItems(nonProfitId);
+		System.out.println(response2);
 		return "";
 	}
 
@@ -110,6 +113,7 @@ public class Version1Api {
     			"    }\r\n" + 
     			"}";
     	String url = "https://api.ebay.com/buying/search/v2";
+    	System.out.println("Request body: " + requestBody);
     	String response = Http.genericSendPOST(url, requestBody, "charityItem");
     	return response.toString();
     }
