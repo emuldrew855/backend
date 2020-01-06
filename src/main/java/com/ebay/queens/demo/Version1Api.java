@@ -19,7 +19,7 @@ public class Version1Api {
 	}
 	
 	@GET
-	@Path("/")
+	@Path("/AdvancedFindCharityItems")
 	@Produces(MediaType.APPLICATION_JSON)
 	public static String advancedFindCharityItems(@QueryParam("charityId") String charityId) throws IOException {
 		String response = findNonProfit(charityId);
@@ -27,7 +27,7 @@ public class Version1Api {
 		System.out.println(nonProfitId);
 		String response2 = findCharityItems(nonProfitId);
 		System.out.println(response2);
-		return "";
+		return response2;
 	}
 
 	@GET
