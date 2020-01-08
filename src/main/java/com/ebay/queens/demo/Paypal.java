@@ -21,11 +21,10 @@ public class Paypal {
 	
 	public Paypal() throws IOException {
 		logger.info("Paypal Constructor");
-		this.authenticationToken();
 	}
 	
 	@GET
-	@Path("/GetCharity")
+	@Path("/getcharity")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String charitySearch(@QueryParam("missionArea") String missionArea) throws IOException {
 		logger.info("Get Charity");
@@ -38,7 +37,7 @@ public class Paypal {
 	}
 		
 	@GET
-	@Path("/SearchCharityType")
+	@Path("/searchcharitytype")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String advancedCharitySearch(@QueryParam("missionArea") String missionArea) throws IOException {
 		logger.info("Advanced Charity Search");
@@ -54,26 +53,13 @@ public class Paypal {
 	}
 	
     @GET
-    @Path("/GetCharityType")
+    @Path("/getcharitytype")
     @Produces(MediaType.APPLICATION_JSON)
     public String getCharityType() throws IOException {
     	logger.info("Get Charity Type");
     	String url = "https://api.sandbox.paypal.com/v1/customer/charities";
     	String response = Http.genericSendGET(url, "Paypal");
     	return response;
-    }
-    
-    @GET
-    @Path("/AuthenticationToken")
-    @Produces(MediaType.APPLICATION_JSON)
-    @RequestMapping(value = "/patientdetails", method = RequestMethod.POST,consumes = MediaType.APPLICATION_FORM_URLENCODED)
-    public String authenticationToken() throws IOException {
-    	logger.info("Authentication Token");
-    	String requestBody = ""; 
-    	logger.info(requestBody);
-    	String url = "https://api.paypal.com/v1/oauth2/token";
-    	String response = Http.authenticationPost(url, requestBody, "PaypalAuth");
-    	return response;
-    }
+    }  
     
 }

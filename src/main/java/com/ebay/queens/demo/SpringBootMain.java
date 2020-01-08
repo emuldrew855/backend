@@ -11,7 +11,7 @@ public class SpringBootMain {
 
     @Bean
     ResourceConfig resourceConfig() {
-        return new ResourceConfig().registerClasses(Version1Api.class, Paypal.class);
+        return new ResourceConfig().registerClasses(Version1Api.class, Paypal.class, ExternalConfig.class);
     }
 
     public static void main(String[] args) {

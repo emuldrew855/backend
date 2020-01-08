@@ -2,7 +2,9 @@ package com.ebay.queens.demo;
 
 import org.springframework.http.HttpHeaders;
 
+
 public class Utilities {
+	ExternalConfig externalConfig = new ExternalConfig();
 	String securityAppName;
 	String globalId;
 	String devName;
@@ -14,7 +16,8 @@ public class Utilities {
 	final int SITE_ID = 3;
 	Utilities(String devName, String securityAppName, String globalId, String marketplaceId, String certName, 
 			String paypalAuth, String ebayAuth) {
-		this.devName = devName;
+		this.devName = externalConfig.getValue();
+		System.out.println("Utitlies dev name: " + this.devName);
 		this.securityAppName= securityAppName; 
 		this.globalId = globalId;
 		this.certName = certName;
