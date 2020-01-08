@@ -1,4 +1,5 @@
 package com.ebay.queens.demo;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,9 +17,10 @@ import java.io.IOException;
 public class Paypal {
 	
 	Http httpClass = new Http();
+	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Paypal.class);
 	
 	public Paypal() throws IOException {
-		System.out.println("Paypal Constructor");
+		logger.info("Paypal Constructor");
 		this.authenticationToken();
 	}
 	
@@ -26,12 +28,12 @@ public class Paypal {
 	@Path("/GetCharity")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String charitySearch(@QueryParam("missionArea") String missionArea) throws IOException {
-		System.out.println("Get Charity");
+		logger.info("Get Charity");
 		String charitySearchResponse = this.advancedCharitySearch(missionArea);
 		String queryId = charitySearchResponse.substring(13,49);
 		String url = "https://api.paypal.com/v1/customer/charities?query_id=" + queryId;
 		String response = Http.genericSendGET(url, "Paypal");
-		System.out.println(response);
+		logger.info(response);
 		return response;
 	}
 		
@@ -39,14 +41,14 @@ public class Paypal {
 	@Path("/SearchCharityType")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String advancedCharitySearch(@QueryParam("missionArea") String missionArea) throws IOException {
-		System.out.println("Advanced Charity Search");
+		logger.info("Advanced Charity Search");
 		String url = "https://api.paypal.com/v1/customer/charity-search-queries";
 		String requestBody = "{\r\n" + 
 				"    \"charity\": {\r\n" + 
 				"        \"mission_area\": \""+missionArea+"\"\r\n" + 
 				"    }\r\n" + 
 				"}";
-		System.out.println(requestBody);
+		logger.info(requestBody);
 		String response = Http.genericSendPOST(url, requestBody, "Paypal");
 		return response;
 	}
@@ -55,7 +57,7 @@ public class Paypal {
     @Path("/GetCharityType")
     @Produces(MediaType.APPLICATION_JSON)
     public String getCharityType() throws IOException {
-    	System.out.println("Get Charity Type");
+    	logger.info("Get Charity Type");
     	String url = "https://api.sandbox.paypal.com/v1/customer/charities";
     	String response = Http.genericSendGET(url, "Paypal");
     	return response;
@@ -66,9 +68,9 @@ public class Paypal {
     @Produces(MediaType.APPLICATION_JSON)
     @RequestMapping(value = "/patientdetails", method = RequestMethod.POST,consumes = MediaType.APPLICATION_FORM_URLENCODED)
     public String authenticationToken() throws IOException {
-    	System.out.println("Authentication Token");
+    	logger.info("Authentication Token");
     	String requestBody = ""; 
-    	System.out.println(requestBody);
+    	logger.info(requestBody);
     	String url = "https://api.paypal.com/v1/oauth2/token";
     	String response = Http.authenticationPost(url, requestBody, "PaypalAuth");
     	return response;

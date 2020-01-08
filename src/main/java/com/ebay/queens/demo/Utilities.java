@@ -1,6 +1,5 @@
 package com.ebay.queens.demo;
 
-import org.apache.http.Header;
 import org.springframework.http.HttpHeaders;
 
 public class Utilities {
@@ -13,7 +12,8 @@ public class Utilities {
 	String ebayAuth; 
 	HttpHeaders nonProfitHeaders = new HttpHeaders();
 	final int SITE_ID = 3;
-	Utilities(String devName, String securityAppName, String globalId, String marketplaceId, String certName, String paypalAuth, String ebayAuth) {
+	Utilities(String devName, String securityAppName, String globalId, String marketplaceId, String certName, 
+			String paypalAuth, String ebayAuth) {
 		this.devName = devName;
 		this.securityAppName= securityAppName; 
 		this.globalId = globalId;
