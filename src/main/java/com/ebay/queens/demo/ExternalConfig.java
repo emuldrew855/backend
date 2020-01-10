@@ -4,38 +4,28 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 
 
-@Configuration
-@PropertySource("classpath:application.properties") 
+//@PropertySource("classpath:application.properties") 
+/**
+ * Represents a class to hold all the external configuration details to gain access to api's and app configuration 
+ */
+@ConfigurationProperties(prefix = "app")
 public class ExternalConfig {
-	
-	@Autowired
-	private Environment env;
-
 	 
-	 public String getValue()
-	 {
-	  return developerName;
-	 }
-
-	
-	@Value("${app.developerName}")
     private String developerName;
-	
-	public static void main(String[] args) throws IOException {
-		
-	}
-	
-	ExternalConfig() {
-		System.out.println("Constructor");
-		System.out.println(this.developerName);
-	}
-	
 
-	
+	public String getDeveloperName() {
+		return developerName;
+	}
+
+	public void setDeveloperName(String developerName) {
+		this.developerName = developerName;
+	}
 	
 }
