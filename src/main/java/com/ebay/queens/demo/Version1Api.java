@@ -2,12 +2,19 @@ package com.ebay.queens.demo;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
+
+import com.ebay.queens.requests.GetItem;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import java.io.IOException;
+/**
+ * Represents a class to access and hit 
+ * all of the eBays api's 
+ */
 @CrossOrigin
 @Component
 @Path("/v1")
@@ -17,7 +24,9 @@ public class Version1Api {
 	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Version1Api.class);
 	
 	public static void main(String [] args) throws IOException {
-		advancedFindCharityItems("1726");
+		GetItem test = new GetItem();
+		//advancedFindCharityItems("1726");
+		//getItem("333460893922");
 		logger.info("Testing");
 	}
 	
@@ -135,6 +144,7 @@ public class Version1Api {
     			"</GetItemRequest>";
     	String url = "https://api.ebay.com/ws/api.dll";
     	String response = Http.genericSendPOST(url, requestBody, "getItem");
+    	GetItem test = new GetItem();
     	return response.toString();
     }
     

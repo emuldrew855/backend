@@ -11,6 +11,11 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import java.io.IOException;
+
+/**
+ * Represents a class to access and hit 
+ * all of the Paypal api's 
+ */
 @CrossOrigin
 @Component
 @Path("/Paypal")
@@ -23,6 +28,11 @@ public class Paypal {
 		logger.info("Paypal Constructor");
 	}
 	
+	 /**
+	   * Gets list of charities based off charity cause
+	   * @param missionArea is passed in to filter the charities returned
+	   * @return string of list of charities
+	   */
 	@GET
 	@Path("/getcharity")
 	@Produces(MediaType.APPLICATION_JSON)
