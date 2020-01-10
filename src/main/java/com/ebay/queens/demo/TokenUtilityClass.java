@@ -11,6 +11,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * Represents an object to hold all the authorization tokens
+ * needed to access the eBay & Paypal api's
+ */
 public class TokenUtilityClass {
 	
 	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Paypal.class);
