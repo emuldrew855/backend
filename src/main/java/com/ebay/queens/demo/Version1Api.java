@@ -30,6 +30,10 @@ public class Version1Api {
 		logger.info("Testing");
 	}
 	
+	 /**
+     * Represents an api to search for the nonprofit id which is then used to bring back the charity items 
+     * @param charityId - charityId is used to get information on the charity to obtain the external id to return a list of products
+     */
 	@GET
 	@Path("/advancedfindcharityitems")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -41,7 +45,11 @@ public class Version1Api {
 		logger.info("Response: " + response2);
 		return response2;
 	}
-
+	
+	 /**
+     * Represents an api to return a list of products matching the search term 
+     * @param searchTerm - uses the search term to return a list of products matching the search term
+     */
 	@GET
 	@Path("/searchitem")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -52,6 +60,10 @@ public class Version1Api {
     	return response;
 	}
 	
+	 /**
+     * Represents an api to return products from a specific charity with a specific listing type
+     * @param charityItemId - uses the charity item id to return list of products/inventory for that specific charity
+     */
     @GET
     @Path("/advancedcharityitems")
     @Produces(MediaType.APPLICATION_JSON)
@@ -96,6 +108,10 @@ public class Version1Api {
     	return response;
     }
     
+    /**
+     * Represents an api to return products from a specific charity
+     * @param charityItemId - uses the charity item id to return list of products/inventory for that specific charity
+     */
     @GET
     @Path("/findcharityitems")
     @Produces(MediaType.APPLICATION_JSON)
@@ -129,7 +145,10 @@ public class Version1Api {
     	return response.toString();
     }
     
-    
+    /**
+     * Represents an api to return specific product information 
+     * @param input - uses the input to search for a specific product in the itemId field
+     */
     @GET
     @Path("/GetItem")
     @Produces(MediaType.APPLICATION_XML)
@@ -148,6 +167,10 @@ public class Version1Api {
     	return response.toString();
     }
     
+    /**
+     * Represents an api to bring information on non profits 
+     * @param nonProfitInput - uses the externalId to bring up information on nonprofit 
+     */
     @GET
     @Path("/FindNonProfit")
     @Produces(MediaType.APPLICATION_XML)

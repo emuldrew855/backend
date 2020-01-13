@@ -62,7 +62,13 @@ public class Http {
     	logger.info("Authtoken: " + authToken);
        return result.toString();
 	}
-
+	
+	 /**
+     * Represents a method make a generic http post request to reach the api's
+     * @param url - uses url to reach specific api point
+     * @param requestBody - requestBody makes up the request that will be sent. 
+     * @param typeOfCall - typeOfCall is used to add specific headers to call
+     */
 	public static String genericSendPOST(String url, String requestBody, String typeOfCall) throws IOException {	
 		CloseableHttpClient client = HttpClients.createDefault();
 	    HttpPost httpPost = new HttpPost(url);
@@ -75,6 +81,11 @@ public class Http {
        return result.toString();
    }
 	
+	/**
+     * Represents a method to make a generic http get requests to reach the api's
+     * @param url - uses url to reach specific api point
+     * @param typeOfCall - typeOfCall is used to add specific headers to call
+     */
 	public static String genericSendGET(String url, String typeOfCall) throws IOException {	
 		CloseableHttpClient client = HttpClients.createDefault();
 	    HttpGet httpGet = new HttpGet(url);
