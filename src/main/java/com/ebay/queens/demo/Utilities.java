@@ -7,8 +7,9 @@ import org.springframework.http.HttpHeaders;
  * Represents a class to manage application information and promote code reusability
  */
 public class Utilities {
+
 	@Autowired
-    private ExternalConfig externalConfig = new ExternalConfig();
+    ExternalConfig externalConfig;
 	String securityAppName;
 	String globalId;
 	String devName;

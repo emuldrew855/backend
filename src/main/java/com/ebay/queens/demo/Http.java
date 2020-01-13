@@ -84,7 +84,7 @@ public class Http {
 	/**
      * Represents a method to make a generic http get requests to reach the api's
      * @param url - uses url to reach specific api point
-     * @param typeOfCall - typeOfCall is used to add specific headers to call
+     * @param typeOfCall - 
      */
 	public static String genericSendGET(String url, String typeOfCall) throws IOException {	
 		CloseableHttpClient client = HttpClients.createDefault();

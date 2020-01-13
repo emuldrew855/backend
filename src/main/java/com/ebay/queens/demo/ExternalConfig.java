@@ -9,15 +9,17 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RestController;
 
 
 //@PropertySource("classpath:application.properties") 
 /**
  * Represents a class to hold all the external configuration details to gain access to api's and app configuration 
  */
-@ConfigurationProperties(prefix = "app")
+@ConfigurationProperties(prefix="spring.boot.config")
+@Component
 public class ExternalConfig {
-	 
+
     private String developerName;
 
 	public String getDeveloperName() {
@@ -27,5 +29,6 @@ public class ExternalConfig {
 	public void setDeveloperName(String developerName) {
 		this.developerName = developerName;
 	}
-	
+
+    
 }

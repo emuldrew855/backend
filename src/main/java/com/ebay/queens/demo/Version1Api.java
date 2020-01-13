@@ -15,12 +15,10 @@ import java.io.IOException;
  * Represents a class to access and hit 
  * all of the eBays api's 
  */
-@CrossOrigin
 @Component
 @Path("/v1")
 public class Version1Api {
 	
-	Http httpClass = new Http();
 	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Version1Api.class);
 	
 	public static void main(String [] args) throws IOException {
@@ -35,7 +33,7 @@ public class Version1Api {
      * @param charityId - charityId is used to get information on the charity to obtain the external id to return a list of products
      */
 	@GET
-	@Path("/advancedfindcharityitems")
+	@Path("/advancedfindcharityItems")
 	@Produces(MediaType.APPLICATION_JSON)
 	public static String advancedFindCharityItems(@QueryParam("charityId") String charityId) throws IOException {
 		String response = findNonProfit(charityId);
@@ -51,7 +49,7 @@ public class Version1Api {
      * @param searchTerm - uses the search term to return a list of products matching the search term
      */
 	@GET
-	@Path("/searchitem")
+	@Path("/searchItem")
 	@Produces(MediaType.APPLICATION_JSON)
 	public static String searchItem(@QueryParam("searchTerm") String searchTerm) throws IOException {
 		logger.info("Search Item: " + searchTerm);
@@ -65,7 +63,7 @@ public class Version1Api {
      * @param charityItemId - uses the charity item id to return list of products/inventory for that specific charity
      */
     @GET
-    @Path("/advancedcharityitems")
+    @Path("/advancedcharityItems")
     @Produces(MediaType.APPLICATION_JSON)
     public static String advancedCharitySearch(@QueryParam("charityItemId") String charityItemId, @QueryParam("listingType") String listingType) throws IOException {
     	logger.info("Advanced Charity Search");
@@ -113,7 +111,7 @@ public class Version1Api {
      * @param charityItemId - uses the charity item id to return list of products/inventory for that specific charity
      */
     @GET
-    @Path("/findcharityitems")
+    @Path("/findcharityItems")
     @Produces(MediaType.APPLICATION_JSON)
     public static String findCharityItems(@QueryParam("charityItemId") String charityItemId) throws IOException {
     	logger.info("Find Charity Items");
@@ -150,7 +148,7 @@ public class Version1Api {
      * @param input - uses the input to search for a specific product in the itemId field
      */
     @GET
-    @Path("/GetItem")
+    @Path("/getItem")
     @Produces(MediaType.APPLICATION_XML)
     public static String getItem(@QueryParam("input")String input) throws IOException {
     	logger.info("Get Item Method");
@@ -172,7 +170,7 @@ public class Version1Api {
      * @param nonProfitInput - uses the externalId to bring up information on nonprofit 
      */
     @GET
-    @Path("/FindNonProfit")
+    @Path("/findnonProfit")
     @Produces(MediaType.APPLICATION_XML)
     public static String findNonProfit(@QueryParam("nonProfitInput")String nonProfitInput) throws IOException {
     	logger.info("Find Non Profit Method");

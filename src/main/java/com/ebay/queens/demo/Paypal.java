@@ -34,7 +34,7 @@ public class Paypal {
 	   * @return string of list of charities
 	   */
 	@GET
-	@Path("/getcharity")
+	@Path("/getCharity")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String charitySearch(@QueryParam("missionArea") String missionArea) throws IOException {
 		logger.info("Get Charity");
@@ -47,7 +47,7 @@ public class Paypal {
 	}
 		
 	@GET
-	@Path("/searchcharitytype")
+	@Path("/searchcharityType")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String advancedCharitySearch(@QueryParam("missionArea") String missionArea) throws IOException {
 		logger.info("Advanced Charity Search");
@@ -63,7 +63,7 @@ public class Paypal {
 	}
 	
     @GET
-    @Path("/getcharitytype")
+    @Path("/getcharityType")
     @Produces(MediaType.APPLICATION_JSON)
     public String getCharityType() throws IOException {
     	logger.info("Get Charity Type");

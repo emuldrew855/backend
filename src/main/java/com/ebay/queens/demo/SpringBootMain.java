@@ -1,16 +1,20 @@
 package com.ebay.queens.demo;
 
 import org.glassfish.jersey.server.ResourceConfig;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import com.ebay.queens.demo.Version1Api;
 
-@EnableConfigurationProperties(ExternalConfig.class)
 @SpringBootApplication
-public class SpringBootMain {
-
+public class SpringBootMain implements CommandLineRunner {
+	
+	@Autowired
+    ExternalConfig externalConfig;
+	
     @Bean
     ResourceConfig resourceConfig() {
         return new ResourceConfig().registerClasses(Version1Api.class, Paypal.class, ExternalConfig.class);
@@ -19,4 +23,11 @@ public class SpringBootMain {
     public static void main(String[] args) {
         SpringApplication.run(SpringBootMain.class);
     }
+
+	@Override
+	public void run(String... args) throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println(externalConfig.getDeveloperName());
+		
+	}  
 }
