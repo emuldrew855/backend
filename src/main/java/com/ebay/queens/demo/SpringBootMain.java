@@ -13,21 +13,22 @@ import com.ebay.queens.demo.Version1Api;
 public class SpringBootMain implements CommandLineRunner {
 	
 	@Autowired
-    ExternalConfig externalConfig;
+    private ExternalConfig externalConfig;
 	
     @Bean
     ResourceConfig resourceConfig() {
-        return new ResourceConfig().registerClasses(Version1Api.class, Paypal.class, ExternalConfig.class);
+        return new ResourceConfig().registerClasses(Version1Api.class, Paypal.class);
+    }
+    @Override
+    public void run(String... args) throws Exception {
+    	// TODO Auto-generated method stub
+    	System.out.println("RUN METHOD");
+    	System.out.println(externalConfig.getDeveloperName());
     }
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBootMain.class);
     }
+     
 
-	@Override
-	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
-		System.out.println(externalConfig.getDeveloperName());
-		
-	}  
 }
