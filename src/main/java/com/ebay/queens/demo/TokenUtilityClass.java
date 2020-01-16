@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class TokenUtilityClass {
 	
 	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Paypal.class);
+	Http httpClass = new Http();
 	
 	 @GET
 	    @Path("/authenticationtoken")
@@ -28,7 +29,7 @@ public class TokenUtilityClass {
 	    	String requestBody = ""; 
 	    	logger.info(requestBody);
 	    	String url = "https://api.paypal.com/v1/oauth2/token";
-	    	String response = Http.authenticationPost(url, requestBody, "PaypalAuth");
+	    	String response = httpClass.authenticationPost(url, requestBody, "PaypalAuth");
 	    	return response;
 	    }
 

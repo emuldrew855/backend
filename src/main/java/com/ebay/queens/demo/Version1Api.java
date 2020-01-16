@@ -20,7 +20,7 @@ import java.io.IOException;
 public class Version1Api {
 	
 	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Version1Api.class);
-	
+	Http httpClass = new Http();
 	public static void main(String [] args) throws IOException {
 		GetItem test = new GetItem();
 		//advancedFindCharityItems("1726");
@@ -35,7 +35,7 @@ public class Version1Api {
 	@GET
 	@Path("/advancedfindcharityItems")
 	@Produces(MediaType.APPLICATION_JSON)
-	public static String advancedFindCharityItems(@QueryParam("charityId") String charityId) throws IOException {
+	public String advancedFindCharityItems(@QueryParam("charityId") String charityId) throws IOException {
 		String response = findNonProfit(charityId);
 		String nonProfitId = response.substring(response.indexOf("nonprofitId")+12, response.indexOf("nonprofitId")+16);
 		logger.info("Non Profit Id: " + nonProfitId);
@@ -51,10 +51,10 @@ public class Version1Api {
 	@GET
 	@Path("/searchItem")
 	@Produces(MediaType.APPLICATION_JSON)
-	public static String searchItem(@QueryParam("searchTerm") String searchTerm) throws IOException {
+	public String searchItem(@QueryParam("searchTerm") String searchTerm) throws IOException {
 		logger.info("Search Item: " + searchTerm);
     	String url = "https://api.ebay.com/buy/browse/v1/item_summary/search?q=" + searchTerm;
-    	String response = Http.genericSendGET(url, "searchItem");
+    	String response = httpClass.genericSendGET(url, "searchItem");
     	return response;
 	}
 	
@@ -65,7 +65,7 @@ public class Version1Api {
     @GET
     @Path("/advancedcharityItems")
     @Produces(MediaType.APPLICATION_JSON)
-    public static String advancedCharitySearch(@QueryParam("charityItemId") String charityItemId, @QueryParam("listingType") String listingType) throws IOException {
+    public String advancedCharitySearch(@QueryParam("charityItemId") String charityItemId, @QueryParam("listingType") String listingType) throws IOException {
     	logger.info("Advanced Charity Search");
     	logger.info("Charity Item Id: " + charityItemId + " Listing Type: " + listingType );
     	String requestBody = "{\r\n" + 
@@ -102,7 +102,7 @@ public class Version1Api {
     			"}";
     	logger.info(requestBody);
     	String url = "https://api.ebay.com/buying/search/v2";
-    	String response = Http.genericSendPOST(url, requestBody, "charityItem");
+    	String response = httpClass.genericSendPOST(url, requestBody, "charityItem");
     	return response;
     }
     
@@ -113,7 +113,7 @@ public class Version1Api {
     @GET
     @Path("/findcharityItems")
     @Produces(MediaType.APPLICATION_JSON)
-    public static String findCharityItems(@QueryParam("charityItemId") String charityItemId) throws IOException {
+    public String findCharityItems(@QueryParam("charityItemId") String charityItemId) throws IOException {
     	logger.info("Find Charity Items");
     	String requestBody = "{\r\n" + 
     			"    \"searchRequest\": {\r\n" + 
@@ -139,7 +139,7 @@ public class Version1Api {
     			"}";
     	String url = "https://api.ebay.com/buying/search/v2";
     	logger.info("Request body: " + requestBody);
-    	String response = Http.genericSendPOST(url, requestBody, "charityItem");
+    	String response = httpClass.genericSendPOST(url, requestBody, "charityItem");
     	return response.toString();
     }
     
@@ -150,7 +150,7 @@ public class Version1Api {
     @GET
     @Path("/getItem")
     @Produces(MediaType.APPLICATION_XML)
-    public static String getItem(@QueryParam("input")String input) throws IOException {
+    public String getItem(@QueryParam("input")String input) throws IOException {
     	logger.info("Get Item Method");
     	String requestBody = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n" + 
     			"<GetItemRequest xmlns=\"urn:ebay:apis:eBLBaseComponents\">\r\n" + 
@@ -160,7 +160,7 @@ public class Version1Api {
     			"  <ItemID>"+ input + "</ItemID>\r\n" + 
     			"</GetItemRequest>";
     	String url = "https://api.ebay.com/ws/api.dll";
-    	String response = Http.genericSendPOST(url, requestBody, "getItem");
+    	String response = httpClass.genericSendPOST(url, requestBody, "getItem");
     	GetItem test = new GetItem();
     	return response.toString();
     }
@@ -172,7 +172,7 @@ public class Version1Api {
     @GET
     @Path("/findnonProfit")
     @Produces(MediaType.APPLICATION_XML)
-    public static String findNonProfit(@QueryParam("nonProfitInput")String nonProfitInput) throws IOException {
+    public String findNonProfit(@QueryParam("nonProfitInput")String nonProfitInput) throws IOException {
     	logger.info("Find Non Profit Method");
     	String requestBody = 
     			"<findNonprofitRequest xmlns=\"http://www.ebay.com/marketplace/fundraising/v1/services\">\r\n" + 
@@ -191,7 +191,7 @@ public class Version1Api {
     			"    </paginationInput>\r\n" + 
     			"</findNonprofitRequest>";
     	String url = ("http://svcs.ebay.com/services/fundraising/FundRaisingFindingService/v1");
-    	String response = Http.genericSendPOST(url,requestBody,"nonProfit");
+    	String response = httpClass.genericSendPOST(url,requestBody,"nonProfit");
     	logger.info(response.toString());
     	return response.toString();
     }

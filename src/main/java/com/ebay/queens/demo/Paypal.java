@@ -16,7 +16,6 @@ import java.io.IOException;
  * Represents a class to access and hit 
  * all of the Paypal api's 
  */
-@CrossOrigin
 @Component
 @Path("/Paypal")
 public class Paypal {
@@ -41,7 +40,7 @@ public class Paypal {
 		String charitySearchResponse = this.advancedCharitySearch(missionArea);
 		String queryId = charitySearchResponse.substring(13,49);
 		String url = "https://api.paypal.com/v1/customer/charities?query_id=" + queryId;
-		String response = Http.genericSendGET(url, "Paypal");
+		String response = httpClass.genericSendGET(url, "Paypal");
 		logger.info(response);
 		return response;
 	}
@@ -58,7 +57,7 @@ public class Paypal {
 				"    }\r\n" + 
 				"}";
 		logger.info(requestBody);
-		String response = Http.genericSendPOST(url, requestBody, "Paypal");
+		String response = httpClass.genericSendPOST(url, requestBody, "Paypal");
 		return response;
 	}
 	
@@ -68,7 +67,7 @@ public class Paypal {
     public String getCharityType() throws IOException {
     	logger.info("Get Charity Type");
     	String url = "https://api.sandbox.paypal.com/v1/customer/charities";
-    	String response = Http.genericSendGET(url, "Paypal");
+    	String response = httpClass.genericSendGET(url, "Paypal");
     	return response;
     }  
     

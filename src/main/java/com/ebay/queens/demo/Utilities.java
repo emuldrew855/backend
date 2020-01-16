@@ -7,9 +7,6 @@ import org.springframework.http.HttpHeaders;
  * Represents a class to manage application information and promote code reusability
  */
 public class Utilities {
-
-	@Autowired
-    ExternalConfig externalConfig;
 	String securityAppName;
 	String globalId;
 	String devName;
@@ -17,28 +14,22 @@ public class Utilities {
 	String marktplaceId;
 	String paypalAuthorizationToken; 
 	String ebayAuth; 
-	HttpHeaders nonProfitHeaders = new HttpHeaders();
 	final int SITE_ID = 3;
+	
 	Utilities(String devName, String securityAppName, String globalId, String marketplaceId, String certName, 
 			String paypalAuth, String ebayAuth) {
-		this.devName = externalConfig.getDeveloperName();
-		System.out.println("Utitlies dev name: " + this.devName);
+		this.devName = devName;
 		this.securityAppName= securityAppName; 
 		this.globalId = globalId;
 		this.certName = certName;
 		this.marktplaceId = marketplaceId;
 		this.paypalAuthorizationToken = paypalAuth;
 		this.ebayAuth = ebayAuth;
-		this.nonProfitHeaders.add("Content-Type", "application/xml");
-		this.nonProfitHeaders.add("X-EBAY-SOA-OPERATION-NAME", "findNonprofit");
-		this.nonProfitHeaders.add("X-EBAY-SOA-GLOBAL-ID", this.globalId);
-		this.nonProfitHeaders.add("X-EBAY-SOA-SECURITY-APPNAME", this.securityAppName);
 	}
 	
 	Utilities() {
 		
 	}
-
 
 	// Getters 
 	public String getDevName() {
@@ -56,9 +47,6 @@ public class Utilities {
 	public String getMarktplaceId() {
 		return marktplaceId;
 	}
-	public HttpHeaders getNonProfitHeaders() {
-		return nonProfitHeaders;
-	}
 	
 	public String getPaypalAuthorizationToken() {
 		return paypalAuthorizationToken;
@@ -71,21 +59,21 @@ public class Utilities {
 	// Setters
 	public void setDevName(String devName) {
 		this.devName = devName;
+		System.out.println("Utilities Dev name Setter: " + this.getDevName());
 	}
 	public void setSecurityAppName(String securityAppName) {
 		this.securityAppName = securityAppName;
 	}
 	public void setGlobalId(String globalId) {
 		this.globalId = globalId;
+		System.out.println("Utilities global id name Setter: " + this.getGlobalId());
 	}
 	public void setCertName(String certName) {
 		this.certName = certName;
+		System.out.println("Utilities cert name Setter: " + this.getCertName());
 	}
 	public void setMarktplaceId(String marktplaceId) {
 		this.marktplaceId = marktplaceId;
-	}
-	public void setNonProfitHeaders(HttpHeaders nonProfitHeaders) {
-		this.nonProfitHeaders = nonProfitHeaders;
 	}
 	
 	public void setPaypalAuthorizationToken(String paypalAuthorizationToken) {
