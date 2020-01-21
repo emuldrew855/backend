@@ -1,47 +1,40 @@
 package com.ebay.queens.demo;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@PropertySource("classpath:global.properties")
+@ConfigurationProperties(prefix = "queens.props")
 public class ExternalConfig {
 
-    @Value("${developerName}")
-    private String developerName;
-    
-    @Value("${globalId}")
-    private String globalId;
-    
-    @Value("${certName}")
-    private String certName;
+  private String developerName;
 
-	// Getters
-	public String getDeveloperName() {
-		return developerName;
-	}
-	
-    public String getGlobalId() {
-		return globalId;
-	}
-    
-    public String getCertName() {
-		return certName;
-	}
-    
-	// Setters
-	public void setDeveloperName(String developerName) {
-		this.developerName = developerName;
-	}
-	
-	public void setGlobalId(String globalId) {
-		this.globalId = globalId;
-	}
-	
-	public void setCertName(String certName) {
-		this.certName = certName;
-	}
+  private String globalId;
+
+  private String certName;
+
+  public String getDeveloperName() {
+    return developerName;
+  }
+
+  public void setDeveloperName(String developerName) {
+    this.developerName = developerName;
+  }
+
+  public String getGlobalId() {
+    return globalId;
+  }
+
+  public void setGlobalId(String globalId) {
+    this.globalId = globalId;
+  }
+
+  public String getCertName() {
+    return certName;
+  }
+
+  public void setCertName(String certName) {
+    this.certName = certName;
+  }
 
 }
-

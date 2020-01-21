@@ -22,7 +22,8 @@ public class GetItem {
 	 			"    <ItemID>333460893922</ItemID>\r\n" + 
 	 			"    <DetailLevel>ReturnAll</DetailLevel>\r\n" + 
 	 			"</GetItemRequest>";
-		// Create an object mapper and use it to write your object as a JSON string
+		
+	 	// Create an object mapper and use it to write your object as a JSON string
 		final ObjectMapper mapper = new ObjectMapper();
 		StringEntity body = new StringEntity(mapper.writeValueAsString(requestBody));
 		// Send the request

@@ -8,6 +8,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -16,21 +17,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * needed to access the eBay & Paypal api's
  */
 public class TokenUtilityClass {
-	
-	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Paypal.class);
-	Http httpClass = new Http();
-	
-	 @GET
-	    @Path("/authenticationtoken")
-	    @Produces(MediaType.APPLICATION_JSON)
-	    @RequestMapping(value = "/patientdetails", method = RequestMethod.POST,consumes = MediaType.APPLICATION_FORM_URLENCODED)
-	    public String authenticationToken() throws IOException {
-	    	logger.info("Authentication Token");
-	    	String requestBody = ""; 
-	    	logger.info(requestBody);
-	    	String url = "https://api.paypal.com/v1/oauth2/token";
-	    	String response = httpClass.authenticationPost(url, requestBody, "PaypalAuth");
-	    	return response;
-	    }
+
+  private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Paypal.class);
+
+  @Autowired
+  private Http httpClass;
+
+  @GET
+  @Path("/authenticationtoken")
+  @Produces(MediaType.APPLICATION_JSON)
+  @RequestMapping(value = "/patientdetails", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED)
+  public String authenticationToken() throws IOException {
+    logger.info("Authentication Token");
+    String requestBody = "";
+    logger.info(requestBody);
+    String url = "https://api.paypal.com/v1/oauth2/token";
+    String response = httpClass.authenticationPost(url, requestBody, "PaypalAuth");
+    return response;
+  }
 
 }
