@@ -17,11 +17,15 @@ import javax.xml.bind.Unmarshaller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import com.ebay.queens.requests.GetItem;
+import com.ebay.queens.requests.GetItemRequest;
+import com.ebay.queens.requests.RequestCredentials;
 import com.ebay.queens.requests.SampleRequest;
 import com.ebay.queens.requests.SampleSubRequest;
+import com.ebay.queens.responses.GetItemResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
@@ -30,10 +34,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 @Component
 @Path("/v1")
-public class Version1Api {
+public class Version1Api implements CommandLineRunner {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(Version1Api.class);
 
+  @Override
+  public void run(String... args) throws Exception {
+  	// TODO Auto-generated method stub
+	  LOGGER.info("Testing");
+	  this.getItem("333460893922");
+  }
+
+  
   @Autowired
   private Http httpClass;
 
@@ -43,7 +55,7 @@ public class Version1Api {
     //getItem("333460893922");
     LOGGER.info("Testing");
 
-    /* Sample Object Mapper (Object --> JSON String) Usage */
+/*     Sample Object Mapper (Object --> JSON String) Usage 
     final ObjectMapper mapper = new ObjectMapper();
     final SampleRequest req = new SampleRequest();
     final SampleSubRequest subReq = new SampleSubRequest();
@@ -56,7 +68,7 @@ public class Version1Api {
     System.out.println(mapper.writeValueAsString(req));
     System.out.println("---------------------------------");
 
-    /* Sample Object Mapper (JSON String --> Object) Usage */
+     Sample Object Mapper (JSON String --> Object) Usage 
     final String rawJsonStr = "{\"num\":100,\"name\":\"Ethan\",\"subReq\":{\"subName\":\"Rubinson\",\"flag\":true}}";
     final SampleRequest deserializedReqFromJson = mapper.readValue(rawJsonStr, SampleRequest.class);
     System.out.println("Deserialized JSON String --> Object");
@@ -90,7 +102,7 @@ public class Version1Api {
       System.out.println("---------------------------------");
     } catch (JAXBException e) {
       LOGGER.error("Failed to deserialize XML.", e);
-    }
+    }*/
   }
 
   /**
@@ -195,21 +207,18 @@ public class Version1Api {
   /**
    * Represents an api to return specific product information 
    * @param input - uses the input to search for a specific product in the itemId field
+ * @throws JAXBException 
    */
   @GET
   @Path("/getItem")
   @Produces(MediaType.APPLICATION_XML)
-  public String getItem(@QueryParam("input") String input) throws IOException {
+  public GetItemResponse getItem(@QueryParam("input") String input) throws IOException, JAXBException {
     LOGGER.info("Get Item Method");
-    String requestBody = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n"
-        + "<GetItemRequest xmlns=\"urn:ebay:apis:eBLBaseComponents\">\r\n"
-        + "  <RequesterCredentials>\r\n"
-        + "    <eBayAuthToken>AgAAAA**AQAAAA**aAAAAA**9enaXQ**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6AGmICpDZmDpwWdj6x9nY+seQ**OSoGAA**AAMAAA**mc4q0e94Onut08iyCeBQDC6u1QQokVs4kukRMxe2PSdQ4CsKUIxSGhgFHFraUV0VJ1fLgYmKg6kXDQh0idHTgKjcHFPcuPDmtwT5TSH+SAKHw6TaZkAgVLgOMBprmwgLAJNiTESHarSfuuJxUdILw3lB/rrGC3tQ3sFz8l3SxpCx6NXvuOQ0++3aZ2gB/EPeiT70bR/z87bVkZYoK/OAG/vRCBVch5xo2PiJWJl5xLYpG3iz6aauTiJur3TKC3cPriMLWDkLAOqhXZol9jp2cknPesRfDypOBzDnvECNP81F18t0/3u/Lgn9BWxYdefCm95Rkw3XjZwQTG1GVLqBHoWBpG3s8eLuQhChlbH52ecF7sFb3aSXdvTcOCSwVHMA0GRjPhcoNt91WOfI22tUaJJ7/H72IqosJw235lvgvqQ5UQSzh5BE/Wp0u9bGzpUHgODeRtfO45miC+5itGBs0r1KKjN0CEzQ8WsDzWK2eGmmnznW8f2osEa83C9sa41/dEC5U1Cy8vpMgp/nz+qjKf+wQ3OUsSEgOKrjvC3tZcWUivhyu/GPEhAHEF6XBOTOyMnspoZKWNL4RMxGxfpeG3ANoer4vmdizPK7C6h3eLyTTYfL0jcML9Ld+rFKMD7hVx8ATu32nQVt3GmXa9m8cp2rSNPdgRV36LMWRxW2aXMq+MksRZkNhhm4WxSGUykR3N8K8jFiD9LPrz0pEux8UXEfF8ZWEKlxn2jCn9Tjy1WLMQ5ljotGHt+eMsfkaWoC</eBayAuthToken>\r\n"
-        + "  </RequesterCredentials>\r\n" + "  <ItemID>" + input + "</ItemID>\r\n" + "</GetItemRequest>";
-    String url = "https://api.ebay.com/ws/api.dll";
-    String response = httpClass.genericSendPOST(url, requestBody, "getItem");
-    GetItem test = new GetItem();
-    return response.toString();
+	RequestCredentials reqCred = new RequestCredentials("v^1.1#i^1#r^0#f^0#I^3#p^3#t^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");
+	GetItemRequest getItemRequest = new GetItemRequest(reqCred,"333460893922","ReturnAll"); 
+	GetItem obj = new GetItem();
+	GetItemResponse getItemResponse = obj.sendMessage(getItemRequest);
+    return getItemResponse;
   }
 
   /**
