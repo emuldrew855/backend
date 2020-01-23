@@ -47,7 +47,7 @@ public class Http implements CommandLineRunner {
   public void run(String... args) throws Exception {
     // TODO Auto-generated method stub
     utilityClass.setDevName(externalConfig.getDeveloperName());
-    utilityClass.setGlobalId(externalConfig.getGlobalId());
+    utilityClass.setSecurityAppName(externalConfig.getSecurityAppName());
     utilityClass.setCertName(externalConfig.getCertName());
   }
 

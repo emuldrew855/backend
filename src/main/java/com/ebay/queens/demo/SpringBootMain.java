@@ -8,24 +8,22 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import com.ebay.queens.demo.Version1Api;
-import com.ebay.queens.requests.GetItem;
-import com.ebay.queens.requests.GetItemRequest;
-import com.ebay.queens.requests.RequestCredentials;
+import com.ebay.queens.requests.getitem.*;
 
 @SpringBootApplication
-public class SpringBootMain implements CommandLineRunner {	
-    @Bean
-    ResourceConfig resourceConfig() {
-        return new ResourceConfig().registerClasses(Version1Api.class, Paypal.class);
-    }
-    @Override
-    public void run(String... args) throws Exception {
-    	// TODO Auto-generated method stub
-    }
+public class SpringBootMain implements CommandLineRunner {
+	@Bean
+	ResourceConfig resourceConfig() {
+		return new ResourceConfig().registerClasses(Version1Api.class, Paypal.class);
+	}
 
-    public static void main(String[] args) {
-        SpringApplication.run(SpringBootMain.class);
-    }
-     
+	@Override
+	public void run(String... args) throws Exception {
+		// TODO Auto-generated method stub
+	}
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringBootMain.class);
+	}
 
 }

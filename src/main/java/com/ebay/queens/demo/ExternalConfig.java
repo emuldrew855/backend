@@ -7,34 +7,36 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "queens.props")
 public class ExternalConfig {
 
-  private String developerName;
+	private String developerName;
 
-  private String globalId;
+	private String securityAppName;
 
-  private String certName;
+	private String certName;
 
-  public String getDeveloperName() {
-    return developerName;
-  }
+	// Getters
+	public String getDeveloperName() {
+		return developerName;
+	}
 
-  public void setDeveloperName(String developerName) {
-    this.developerName = developerName;
-  }
+	public String getSecurityAppName() {
+		return securityAppName;
+	}
 
-  public String getGlobalId() {
-    return globalId;
-  }
+	public String getCertName() {
+		return certName;
+	}
 
-  public void setGlobalId(String globalId) {
-    this.globalId = globalId;
-  }
+	// Setters
+	public void setDeveloperName(String developerName) {
+		this.developerName = developerName;
+	}
 
-  public String getCertName() {
-    return certName;
-  }
+	public void setSecurityAppName(String securityAppName) {
+		this.securityAppName = securityAppName;
+	}
 
-  public void setCertName(String certName) {
-    this.certName = certName;
-  }
+	public void setCertName(String certName) {
+		this.certName = certName;
+	}
 
 }

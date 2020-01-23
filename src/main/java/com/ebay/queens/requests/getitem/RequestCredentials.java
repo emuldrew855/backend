@@ -1,4 +1,4 @@
-package com.ebay.queens.requests;
+package com.ebay.queens.requests.getitem;
 
 public class RequestCredentials {
 		    private String eBayAuthToken;

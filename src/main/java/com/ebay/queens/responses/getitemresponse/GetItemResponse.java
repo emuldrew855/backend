@@ -1,4 +1,4 @@
-package com.ebay.queens.responses;
+package com.ebay.queens.responses.getitemresponse;
 
 public class GetItemResponse {
 	private String timestamp;
