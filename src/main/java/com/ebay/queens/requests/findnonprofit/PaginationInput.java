@@ -1,4 +1,4 @@
-package com.ebay.queens.requests;
+package com.ebay.queens.requests.findnonprofit;
 
 public class PaginationInput {
 	private String pageNumber;

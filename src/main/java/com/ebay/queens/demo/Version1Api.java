@@ -20,7 +20,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import com.ebay.queens.requests.findnonprofit.*;
+import com.ebay.queens.requests.findnonprofit.FindNonProfitRequest;
 import com.ebay.queens.requests.getitem.*;
+import com.ebay.queens.responses.findnonprofitresponse.FindNonProfitResponse;
 import com.ebay.queens.responses.getitemresponse.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -108,14 +111,14 @@ public class Version1Api implements CommandLineRunner {
 	 * @param charityId
 	 *            - charityId is used to get information on the charity to obtain
 	 *            the external id to return a list of products
+	 * @throws JAXBException 
 	 */
 	@GET
 	@Path("/advancedfindcharityItems")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String advancedFindCharityItems(@QueryParam("charityId") String charityId) throws IOException {
-		String response = findNonProfit(charityId);
-		String nonProfitId = response.substring(response.indexOf("nonprofitId") + 12,
-				response.indexOf("nonprofitId") + 16);
+	public String advancedFindCharityItems(@QueryParam("charityId") String charityId) throws IOException, JAXBException {
+		FindNonProfitResponse response = findNonProfit(charityId);
+		String nonProfitId = response.getNonProfit().getNonProfitId();
 		LOGGER.info("Non Profit Id: " + nonProfitId);
 		String response2 = findCharityItems(nonProfitId);
 		LOGGER.info("Response: " + response2);
@@ -227,12 +230,19 @@ public class Version1Api implements CommandLineRunner {
 	 * 
 	 * @param nonProfitInput
 	 *            - uses the externalId to bring up information on nonprofit
+	 * @throws JAXBException
 	 */
 	@GET
 	@Path("/findnonProfit")
 	@Produces(MediaType.APPLICATION_XML)
-	public String findNonProfit(@QueryParam("nonProfitInput") String nonProfitInput) throws IOException {
+	public FindNonProfitResponse findNonProfit(@QueryParam("nonProfitInput") String nonProfitInput)
+			throws IOException, JAXBException {
 		LOGGER.info("Find Non Profit Method");
+		SearchFilter searchFilter = new SearchFilter(nonProfitInput);
+		PaginationInput paginationInput = new PaginationInput("1", "25");
+		FindNonProfitRequest findNonProfitRequest = new FindNonProfitRequest(searchFilter, paginationInput);
+		FindNonProfit findNonProfit = new FindNonProfit();
+		FindNonProfitResponse result = findNonProfit.sendMessage(findNonProfitRequest);
 		String requestBody = "<findNonprofitRequest xmlns=\"http://www.ebay.com/marketplace/fundraising/v1/services\">\r\n"
 				+ "    <searchFilter>\r\n" + "        <externalId>" + nonProfitInput + "</externalId>\r\n"
 				+ "    </searchFilter>\r\n" + "    <outputSelector>Mission</outputSelector>\r\n"
@@ -246,6 +256,6 @@ public class Version1Api implements CommandLineRunner {
 		String url = ("http://svcs.ebay.com/services/fundraising/FundRaisingFindingService/v1");
 		String response = httpClass.genericSendPOST(url, requestBody, "nonProfit");
 		LOGGER.info(response.toString());
-		return response.toString();
+		return result;
 	}
 }

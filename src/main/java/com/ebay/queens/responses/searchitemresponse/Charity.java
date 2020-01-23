@@ -1,4 +1,4 @@
-package com.ebay.queens.responses;
+package com.ebay.queens.responses.searchitemresponse;
 
 public class Charity {
 	private String charityName; 

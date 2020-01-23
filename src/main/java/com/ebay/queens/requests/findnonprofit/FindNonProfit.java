@@ -21,22 +21,22 @@ import org.slf4j.LoggerFactory;
 
 import com.ebay.queens.demo.Version1Api;
 import com.ebay.queens.requests.getitem.GetItemRequest;
-import com.ebay.queens.responses.SearchItemResponse;
+import com.ebay.queens.responses.findnonprofitresponse.FindNonProfitResponse;
 import com.ebay.queens.responses.getitemresponse.GetItemResponse;
 
 public class FindNonProfit {
 	private static final Logger LOGGER = LoggerFactory.getLogger(FindNonProfit.class);
 
-	FindNonProfit() {
+	public FindNonProfit() {
 
 	}
 
-	public SearchItemResponse sendMessage(FindNonProfitRequest findNonProfitRequest)
+	public FindNonProfitResponse sendMessage(FindNonProfitRequest findNonProfitRequest)
 			throws ClientProtocolException, IOException, JAXBException {
 		CloseableHttpClient httpClient = HttpClients.createDefault();
 		// Object to XML
 		String getItemRequestXmlString = "";
-		SearchItemResponse deserializedReqFromXml = null;
+		FindNonProfitResponse deserializedReqFromXml = null;
 		try {
 			JAXBContext jaxbContext = JAXBContext.newInstance(GetItemRequest.class);
 			Marshaller marshaller = jaxbContext.createMarshaller();
@@ -63,13 +63,14 @@ public class FindNonProfit {
 		String result = EntityUtils.toString(response.getEntity());
 		System.out.println("Result: " + result);
 		try {
-			JAXBContext jaxbContext = JAXBContext.newInstance(GetItemResponse.class);
+			JAXBContext jaxbContext = JAXBContext.newInstance(FindNonProfitResponse.class);
 			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-			deserializedReqFromXml = (SearchItemResponse) unmarshaller.unmarshal(new StringReader(result));
+			deserializedReqFromXml = (FindNonProfitResponse) unmarshaller.unmarshal(new StringReader(result));
 			System.out.println("Deserialized XML String --> Object");
-			System.out.println(deserializedReqFromXml.getHref());
-			System.out.println(deserializedReqFromXml.getTotal());
-			System.out.println(deserializedReqFromXml.getNext());
+			System.out.println(deserializedReqFromXml.getAck());
+			System.out.println(deserializedReqFromXml.getTimestamp());
+			System.out.println(deserializedReqFromXml.getVersion());
+			System.out.println(deserializedReqFromXml.getNonProfit());
 			System.out.println("---------------------------------");
 		} catch (JAXBException e) {
 			LOGGER.error("Failed to deserialize XML.", e);
