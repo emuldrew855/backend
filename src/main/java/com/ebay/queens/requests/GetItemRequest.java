@@ -1,5 +1,6 @@
 package com.ebay.queens.requests;
 
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "GetItemRequest")
@@ -15,16 +16,6 @@ public class GetItemRequest {
 	        this.detailLevel = detailLevel;
 	    }
 	
-	    @Override
-	    public String toString() {
-	        final StringBuffer sb = new StringBuffer("<GetItemRequest xmlns=\\\"urn:ebay:apis:eBLBaseComponents\\\"");
-	        sb.append(requestCredentials.toString());
-	        sb.append(", name='").append(itemID).append('\'');
-	        sb.append(", email='").append(detailLevel).append('\'');
-	        sb.append('}');
-	        return sb.toString();
-	    }
-	    
 	    // Getters
 		public RequestCredentials getRequestCredentials() {
 			return requestCredentials;

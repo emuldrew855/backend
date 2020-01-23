@@ -7,13 +7,11 @@ public class RequestCredentials {
 		    public RequestCredentials(String eBayAuthToken) {
 		        this.eBayAuthToken = eBayAuthToken;
 		    }
+			public String geteBayAuthToken() {
+				return eBayAuthToken;
+			}
+			public void seteBayAuthToken(String eBayAuthToken) {
+				this.eBayAuthToken = eBayAuthToken;
+			}
 		
-		    @Override
-		    public String toString() {
-		        final StringBuffer sb = new StringBuffer("<requesterCredentials>");
-		        sb.append("<eBayAuthToken>").append(eBayAuthToken);
-		        sb.append("</eBayAuthToken>");
-		        sb.append("</requesterCredentials>");
-		        return sb.toString();
-		    }
 		}

@@ -54,51 +54,57 @@ public class Version1Api implements CommandLineRunner {
     //advancedFindCharityItems("1726");
     //getItem("333460893922");
     LOGGER.info("Testing");
+    
+    RequestCredentials reqCred = new RequestCredentials("AgAAAA**AQAAAA**aAAAAA**9enaXQ**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6AGmICpDZmDpwWdj6x9nY+seQ**OSoGAA**AAMAAA**mc4q0e94Onut08iyCeBQDC6u1QQokVs4kukRMxe2PSdQ4CsKUIxSGhgFHFraUV0VJ1fLgYmKg6kXDQh0idHTgKjcHFPcuPDmtwT5TSH+SAKHw6TaZkAgVLgOMBprmwgLAJNiTESHarSfuuJxUdILw3lB/rrGC3tQ3sFz8l3SxpCx6NXvuOQ0++3aZ2gB/EPeiT70bR/z87bVkZYoK/OAG/vRCBVch5xo2PiJWJl5xLYpG3iz6aauTiJur3TKC3cPriMLWDkLAOqhXZol9jp2cknPesRfDypOBzDnvECNP81F18t0/3u/Lgn9BWxYdefCm95Rkw3XjZwQTG1GVLqBHoWBpG3s8eLuQhChlbH52ecF7sFb3aSXdvTcOCSwVHMA0GRjPhcoNt91WOfI22tUaJJ7/H72IqosJw235lvgvqQ5UQSzh5BE/Wp0u9bGzpUHgODeRtfO45miC+5itGBs0r1KKjN0CEzQ8WsDzWK2eGmmnznW8f2osEa83C9sa41/dEC5U1Cy8vpMgp/nz+qjKf+wQ3OUsSEgOKrjvC3tZcWUivhyu/GPEhAHEF6XBOTOyMnspoZKWNL4RMxGxfpeG3ANoer4vmdizPK7C6h3eLyTTYfL0jcML9Ld+rFKMD7hVx8ATu32nQVt3GmXa9m8cp2rSNPdgRV36LMWRxW2aXMq+MksRZkNhhm4WxSGUykR3N8K8jFiD9LPrz0pEux8UXEfF8ZWEKlxn2jCn9Tjy1WLMQ5ljotGHt+eMsfkaWoC");
+    GetItemRequest getItemReq = new GetItemRequest(reqCred,"333460893922","ReturnAll"); 
 
-/*     Sample Object Mapper (Object --> JSON String) Usage 
-    final ObjectMapper mapper = new ObjectMapper();
-    final SampleRequest req = new SampleRequest();
-    final SampleSubRequest subReq = new SampleSubRequest();
-    req.setName("Ethan");
-    req.setNum(100);
-    req.setSubReq(subReq);
-    subReq.setFlag(true);
-    subReq.setSubName("Rubinson");
+    // Sample Object Mapper (Object --> JSON String) Usage 
+ /*   final ObjectMapper mapper = new ObjectMapper();
+    GetItemRequest getItem = new GetItemRequest();
+    getItem.setDetailLevel("ReturnAll");
+    getItem.setItemID("333460893922");
+    getItem.setRequestCredentials(reqCred);
     System.out.println("Serialized Object --> JSON String");
-    System.out.println(mapper.writeValueAsString(req));
+    System.out.println(mapper.writeValueAsString(getItem));
     System.out.println("---------------------------------");
 
-     Sample Object Mapper (JSON String --> Object) Usage 
-    final String rawJsonStr = "{\"num\":100,\"name\":\"Ethan\",\"subReq\":{\"subName\":\"Rubinson\",\"flag\":true}}";
-    final SampleRequest deserializedReqFromJson = mapper.readValue(rawJsonStr, SampleRequest.class);
+//     Sample Object Mapper (JSON String --> Object) Usage 
+    final String rawJsonStr = "{\"requestCredentials\":{\"eBayAuthToken\":\"AgAAAA**AQAAAA**aAAAAA**9enaXQ**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6AGmICpDZmDpwWdj6x9nY+seQ**OSoGAA**AAMAAA**mc4q0e94Onut08iyCeBQDC6u1QQokVs4kukRMxe2PSdQ4CsKUIxSGhgFHFraUV0VJ1fLgYmKg6kXDQh0idHTgKjcHFPcuPDmtwT5TSH+SAKHw6TaZkAgVLgOMBprmwgLAJNiTESHarSfuuJxUdILw3lB/rrGC3tQ3sFz8l3SxpCx6NXvuOQ0++3aZ2gB/EPeiT70bR/z87bVkZYoK/OAG/vRCBVch5xo2PiJWJl5xLYpG3iz6aauTiJur3TKC3cPriMLWDkLAOqhXZol9jp2cknPesRfDypOBzDnvECNP81F18t0/3u/Lgn9BWxYdefCm95Rkw3XjZwQTG1GVLqBHoWBpG3s8eLuQhChlbH52ecF7sFb3aSXdvTcOCSwVHMA0GRjPhcoNt91WOfI22tUaJJ7/H72IqosJw235lvgvqQ5UQSzh5BE/Wp0u9bGzpUHgODeRtfO45miC+5itGBs0r1KKjN0CEzQ8WsDzWK2eGmmnznW8f2osEa83C9sa41/dEC5U1Cy8vpMgp/nz+qjKf+wQ3OUsSEgOKrjvC3tZcWUivhyu/GPEhAHEF6XBOTOyMnspoZKWNL4RMxGxfpeG3ANoer4vmdizPK7C6h3eLyTTYfL0jcML9Ld+rFKMD7hVx8ATu32nQVt3GmXa9m8cp2rSNPdgRV36LMWRxW2aXMq+MksRZkNhhm4WxSGUykR3N8K8jFiD9LPrz0pEux8UXEfF8ZWEKlxn2jCn9Tjy1WLMQ5ljotGHt+eMsfkaWoC\"},\"itemID\":\"333460893922\",\"detailLevel\":\"ReturnAll\"}";
+    final GetItemRequest deserializedReqFromJson = mapper.readValue(rawJsonStr, GetItemRequest.class);
     System.out.println("Deserialized JSON String --> Object");
-    System.out.println(deserializedReqFromJson.getName());
-    System.out.println(deserializedReqFromJson.getNum());
-    System.out.println(deserializedReqFromJson.getSubReq().getSubName());
-    System.out.println(deserializedReqFromJson.getSubReq().isFlag());
+    System.out.println(deserializedReqFromJson.getDetailLevel());
+    System.out.println(deserializedReqFromJson.getItemID());
+    System.out.println(deserializedReqFromJson.getRequestCredentials().geteBayAuthToken());
     System.out.println("---------------------------------");
 
+    // Object to XML
     try {
-      JAXBContext jaxbContext = JAXBContext.newInstance(SampleRequest.class);
-      Marshaller marshaller = jaxbContext.createMarshaller();
-      marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-      System.out.println("Serialized Object --> XML String ");
-      marshaller.marshal(deserializedReqFromJson, System.out);
-      System.out.println("---------------------------------");
-    } catch (JAXBException e) {
-      LOGGER.error("Failed to serialize XML.", e);
-    }
+        JAXBContext jaxbContext = JAXBContext.newInstance(GetItemRequest.class);
+        Marshaller marshaller = jaxbContext.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        System.out.println("Serialized Object --> XML String ");
+        marshaller.marshal(deserializedReqFromJson, System.out);
+        System.out.println("---------------------------------");
+      } catch (JAXBException e) {
+        LOGGER.error("Failed to serialize XML.", e);
+      }
 
     try {
-      JAXBContext jaxbContext = JAXBContext.newInstance(SampleRequest.class);
-      final String rawXmlStr = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><SampleRequest2><name>Ethan</name><num>100</num><subReq><flag>true</flag><subName>Rubinson</subName></subReq></SampleRequest2>";
+      JAXBContext jaxbContext = JAXBContext.newInstance(GetItemRequest.class);
+      final String rawXmlStr = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n" + 
+      		"<GetItemRequest>\r\n" + 
+      		"    <detailLevel>ReturnAll</detailLevel>\r\n" + 
+      		"    <itemID>333460893922</itemID>\r\n" + 
+      		"    <requestCredentials>\r\n" + 
+      		"        <eBayAuthToken>AgAAAA**AQAAAA**aAAAAA**9enaXQ**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6AGmICpDZmDpwWdj6x9nY+seQ**OSoGAA**AAMAAA**mc4q0e94Onut08iyCeBQDC6u1QQokVs4kukRMxe2PSdQ4CsKUIxSGhgFHFraUV0VJ1fLgYmKg6kXDQh0idHTgKjcHFPcuPDmtwT5TSH+SAKHw6TaZkAgVLgOMBprmwgLAJNiTESHarSfuuJxUdILw3lB/rrGC3tQ3sFz8l3SxpCx6NXvuOQ0++3aZ2gB/EPeiT70bR/z87bVkZYoK/OAG/vRCBVch5xo2PiJWJl5xLYpG3iz6aauTiJur3TKC3cPriMLWDkLAOqhXZol9jp2cknPesRfDypOBzDnvECNP81F18t0/3u/Lgn9BWxYdefCm95Rkw3XjZwQTG1GVLqBHoWBpG3s8eLuQhChlbH52ecF7sFb3aSXdvTcOCSwVHMA0GRjPhcoNt91WOfI22tUaJJ7/H72IqosJw235lvgvqQ5UQSzh5BE/Wp0u9bGzpUHgODeRtfO45miC+5itGBs0r1KKjN0CEzQ8WsDzWK2eGmmnznW8f2osEa83C9sa41/dEC5U1Cy8vpMgp/nz+qjKf+wQ3OUsSEgOKrjvC3tZcWUivhyu/GPEhAHEF6XBOTOyMnspoZKWNL4RMxGxfpeG3ANoer4vmdizPK7C6h3eLyTTYfL0jcML9Ld+rFKMD7hVx8ATu32nQVt3GmXa9m8cp2rSNPdgRV36LMWRxW2aXMq+MksRZkNhhm4WxSGUykR3N8K8jFiD9LPrz0pEux8UXEfF8ZWEKlxn2jCn9Tjy1WLMQ5ljotGHt+eMsfkaWoC</eBayAuthToken>\r\n" + 
+      		"    </requestCredentials>\r\n" + 
+      		"</GetItemRequest>";
       Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-      final SampleRequest deserializedReqFromXml = (SampleRequest) unmarshaller.unmarshal(new StringReader(rawXmlStr));
+      final GetItemRequest deserializedReqFromXml = (GetItemRequest) unmarshaller.unmarshal(new StringReader(rawXmlStr));
       System.out.println("Deserialized XML String --> Object");
-      System.out.println(deserializedReqFromXml.getName());
-      System.out.println(deserializedReqFromXml.getNum());
-      System.out.println(deserializedReqFromXml.getSubReq().getSubName());
-      System.out.println(deserializedReqFromXml.getSubReq().isFlag());
+      System.out.println(deserializedReqFromXml.getDetailLevel());
+      System.out.println(deserializedReqFromXml.getRequestCredentials().geteBayAuthToken());
+      System.out.println(deserializedReqFromXml.getItemID());
       System.out.println("---------------------------------");
     } catch (JAXBException e) {
       LOGGER.error("Failed to deserialize XML.", e);
@@ -214,7 +220,7 @@ public class Version1Api implements CommandLineRunner {
   @Produces(MediaType.APPLICATION_XML)
   public GetItemResponse getItem(@QueryParam("input") String input) throws IOException, JAXBException {
     LOGGER.info("Get Item Method");
-	RequestCredentials reqCred = new RequestCredentials("v^1.1#i^1#r^0#f^0#I^3#p^3#t^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");
+	RequestCredentials reqCred = new RequestCredentials("v^1.1#i^1#r^0#f^0#I^3#p^3#t^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");
 	GetItemRequest getItemRequest = new GetItemRequest(reqCred,"333460893922","ReturnAll"); 
 	GetItem obj = new GetItem();
 	GetItemResponse getItemResponse = obj.sendMessage(getItemRequest);
