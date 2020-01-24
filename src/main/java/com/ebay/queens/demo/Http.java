@@ -1,9 +1,15 @@
 package com.ebay.queens.demo;
 
 import java.io.IOException;
+import java.io.StringReader;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+
+import org.apache.http.HttpResponse;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -13,16 +19,22 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import com.ebay.queens.requests.getitem.GetItem;
+import com.ebay.queens.responses.PaypalTokenResponse;
+import com.ebay.queens.responses.getitemresponse.GetItemResponse;
 
 /**
  * Represents a class to manage all HTTP Get and post requests  
  */
 @Component
 public class Http implements CommandLineRunner {
+  private static final Logger LOGGER = LoggerFactory.getLogger(GetItem.class);
 
   private ExternalConfig externalConfig;
 
@@ -55,7 +67,7 @@ public class Http implements CommandLineRunner {
     logger.info("HTTP Class");
   }
 
-  public String authenticationPost(String url, String requestBody, String typeOfCall) throws IOException {
+  public PaypalTokenResponse authenticationPost(String url, String requestBody, String typeOfCall) throws IOException {
     CloseableHttpClient client = HttpClients.createDefault();
     HttpPost httpPost = new HttpPost(url);
     ArrayList<BasicNameValuePair> nvps = new ArrayList<BasicNameValuePair>();
@@ -64,11 +76,22 @@ public class Http implements CommandLineRunner {
     httpPost = selectHeader(httpPost, typeOfCall);
     CloseableHttpResponse response = client.execute(httpPost);
     String result = EntityUtils.toString(response.getEntity());
+	System.out.println("Result: " + result);
+	PaypalTokenResponse deserializedReqFromXml = null;
+	try {
+		JAXBContext jaxbContext = JAXBContext.newInstance(PaypalTokenResponse.class);
+		Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+		deserializedReqFromXml = (PaypalTokenResponse) unmarshaller.unmarshal(new StringReader(result));
+		System.out.println("Deserialized XML String --> Object");
+		System.out.println(deserializedReqFromXml.getAccessToken());
+		System.out.println(deserializedReqFromXml.getExpiresIn());
+		System.out.println("---------------------------------");
+	} catch (JAXBException e) {
+		LOGGER.error("Failed to deserialize XML.", e);
+	}
     client.close();
-    String authToken = result.substring(result.indexOf("access_token") + 15, result.indexOf("access_token") + 112);
-    utilityClass.setPaypalAuthorizationToken(authToken);
-    logger.info("Authtoken: " + authToken);
-    return result.toString();
+    utilityClass.setPaypalAuthorizationToken(deserializedReqFromXml.getAccessToken());
+    return deserializedReqFromXml;
   }
 
   /**

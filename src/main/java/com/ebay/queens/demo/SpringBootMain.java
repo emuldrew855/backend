@@ -12,6 +12,8 @@ import com.ebay.queens.requests.getitem.*;
 
 @SpringBootApplication
 public class SpringBootMain implements CommandLineRunner {
+	TokenUtilityClass test = new TokenUtilityClass();
+	
 	@Bean
 	ResourceConfig resourceConfig() {
 		return new ResourceConfig().registerClasses(Version1Api.class, Paypal.class);
@@ -19,7 +21,7 @@ public class SpringBootMain implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
+		test.authenticationToken();
 	}
 
 	public static void main(String[] args) {

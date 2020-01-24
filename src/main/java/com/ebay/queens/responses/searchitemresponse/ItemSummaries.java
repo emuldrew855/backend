@@ -1,4 +1,4 @@
-package com.ebay.queens.responses;
+package com.ebay.queens.responses.searchitemresponse;
 
 public class ItemSummaries {
 	private String itemID;

@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import com.ebay.queens.requests.PaginationInput;
 import com.ebay.queens.requests.findnonprofit.*;
 import com.ebay.queens.requests.findnonprofit.FindNonProfitRequest;
 import com.ebay.queens.requests.getitem.*;
@@ -40,68 +41,14 @@ public class Version1Api implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		LOGGER.info("Testing");
-		this.getItem("333460893922");
+		//this.getItem("333460893922");
 	}
 
 	@Autowired
 	private Http httpClass;
 
 	public static void main(String[] args) throws IOException {
-		GetItem test = new GetItem();
-		// advancedFindCharityItems("1726");
-		// getItem("333460893922");
-		LOGGER.info("Testing");
-
-		RequestCredentials reqCred = new RequestCredentials(
-				"AgAAAA**AQAAAA**aAAAAA**9enaXQ**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6AGmICpDZmDpwWdj6x9nY+seQ**OSoGAA**AAMAAA**mc4q0e94Onut08iyCeBQDC6u1QQokVs4kukRMxe2PSdQ4CsKUIxSGhgFHFraUV0VJ1fLgYmKg6kXDQh0idHTgKjcHFPcuPDmtwT5TSH+SAKHw6TaZkAgVLgOMBprmwgLAJNiTESHarSfuuJxUdILw3lB/rrGC3tQ3sFz8l3SxpCx6NXvuOQ0++3aZ2gB/EPeiT70bR/z87bVkZYoK/OAG/vRCBVch5xo2PiJWJl5xLYpG3iz6aauTiJur3TKC3cPriMLWDkLAOqhXZol9jp2cknPesRfDypOBzDnvECNP81F18t0/3u/Lgn9BWxYdefCm95Rkw3XjZwQTG1GVLqBHoWBpG3s8eLuQhChlbH52ecF7sFb3aSXdvTcOCSwVHMA0GRjPhcoNt91WOfI22tUaJJ7/H72IqosJw235lvgvqQ5UQSzh5BE/Wp0u9bGzpUHgODeRtfO45miC+5itGBs0r1KKjN0CEzQ8WsDzWK2eGmmnznW8f2osEa83C9sa41/dEC5U1Cy8vpMgp/nz+qjKf+wQ3OUsSEgOKrjvC3tZcWUivhyu/GPEhAHEF6XBOTOyMnspoZKWNL4RMxGxfpeG3ANoer4vmdizPK7C6h3eLyTTYfL0jcML9Ld+rFKMD7hVx8ATu32nQVt3GmXa9m8cp2rSNPdgRV36LMWRxW2aXMq+MksRZkNhhm4WxSGUykR3N8K8jFiD9LPrz0pEux8UXEfF8ZWEKlxn2jCn9Tjy1WLMQ5ljotGHt+eMsfkaWoC");
-		GetItemRequest getItemReq = new GetItemRequest(reqCred, "333460893922", "ReturnAll");
-
-		// Sample Object Mapper (Object --> JSON String) Usage
-		/*
-		 * final ObjectMapper mapper = new ObjectMapper(); GetItemRequest getItem = new
-		 * GetItemRequest(); getItem.setDetailLevel("ReturnAll");
-		 * getItem.setItemID("333460893922"); getItem.setRequestCredentials(reqCred);
-		 * System.out.println("Serialized Object --> JSON String");
-		 * System.out.println(mapper.writeValueAsString(getItem));
-		 * System.out.println("---------------------------------");
-		 * 
-		 * // Sample Object Mapper (JSON String --> Object) Usage final String
-		 * rawJsonStr =
-		 * "{\"requestCredentials\":{\"eBayAuthToken\":\"AgAAAA**AQAAAA**aAAAAA**9enaXQ**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6AGmICpDZmDpwWdj6x9nY+seQ**OSoGAA**AAMAAA**mc4q0e94Onut08iyCeBQDC6u1QQokVs4kukRMxe2PSdQ4CsKUIxSGhgFHFraUV0VJ1fLgYmKg6kXDQh0idHTgKjcHFPcuPDmtwT5TSH+SAKHw6TaZkAgVLgOMBprmwgLAJNiTESHarSfuuJxUdILw3lB/rrGC3tQ3sFz8l3SxpCx6NXvuOQ0++3aZ2gB/EPeiT70bR/z87bVkZYoK/OAG/vRCBVch5xo2PiJWJl5xLYpG3iz6aauTiJur3TKC3cPriMLWDkLAOqhXZol9jp2cknPesRfDypOBzDnvECNP81F18t0/3u/Lgn9BWxYdefCm95Rkw3XjZwQTG1GVLqBHoWBpG3s8eLuQhChlbH52ecF7sFb3aSXdvTcOCSwVHMA0GRjPhcoNt91WOfI22tUaJJ7/H72IqosJw235lvgvqQ5UQSzh5BE/Wp0u9bGzpUHgODeRtfO45miC+5itGBs0r1KKjN0CEzQ8WsDzWK2eGmmnznW8f2osEa83C9sa41/dEC5U1Cy8vpMgp/nz+qjKf+wQ3OUsSEgOKrjvC3tZcWUivhyu/GPEhAHEF6XBOTOyMnspoZKWNL4RMxGxfpeG3ANoer4vmdizPK7C6h3eLyTTYfL0jcML9Ld+rFKMD7hVx8ATu32nQVt3GmXa9m8cp2rSNPdgRV36LMWRxW2aXMq+MksRZkNhhm4WxSGUykR3N8K8jFiD9LPrz0pEux8UXEfF8ZWEKlxn2jCn9Tjy1WLMQ5ljotGHt+eMsfkaWoC\"},\"itemID\":\"333460893922\",\"detailLevel\":\"ReturnAll\"}";
-		 * final GetItemRequest deserializedReqFromJson = mapper.readValue(rawJsonStr,
-		 * GetItemRequest.class);
-		 * System.out.println("Deserialized JSON String --> Object");
-		 * System.out.println(deserializedReqFromJson.getDetailLevel());
-		 * System.out.println(deserializedReqFromJson.getItemID());
-		 * System.out.println(deserializedReqFromJson.getRequestCredentials().
-		 * geteBayAuthToken()); System.out.println("---------------------------------");
-		 * 
-		 * // Object to XML try { JAXBContext jaxbContext =
-		 * JAXBContext.newInstance(GetItemRequest.class); Marshaller marshaller =
-		 * jaxbContext.createMarshaller();
-		 * marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-		 * System.out.println("Serialized Object --> XML String ");
-		 * marshaller.marshal(deserializedReqFromJson, System.out);
-		 * System.out.println("---------------------------------"); } catch
-		 * (JAXBException e) { LOGGER.error("Failed to serialize XML.", e); }
-		 * 
-		 * try { JAXBContext jaxbContext =
-		 * JAXBContext.newInstance(GetItemRequest.class); final String rawXmlStr =
-		 * "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n" +
-		 * "<GetItemRequest>\r\n" + "    <detailLevel>ReturnAll</detailLevel>\r\n" +
-		 * "    <itemID>333460893922</itemID>\r\n" + "    <requestCredentials>\r\n" +
-		 * "        <eBayAuthToken>AgAAAA**AQAAAA**aAAAAA**9enaXQ**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6AGmICpDZmDpwWdj6x9nY+seQ**OSoGAA**AAMAAA**mc4q0e94Onut08iyCeBQDC6u1QQokVs4kukRMxe2PSdQ4CsKUIxSGhgFHFraUV0VJ1fLgYmKg6kXDQh0idHTgKjcHFPcuPDmtwT5TSH+SAKHw6TaZkAgVLgOMBprmwgLAJNiTESHarSfuuJxUdILw3lB/rrGC3tQ3sFz8l3SxpCx6NXvuOQ0++3aZ2gB/EPeiT70bR/z87bVkZYoK/OAG/vRCBVch5xo2PiJWJl5xLYpG3iz6aauTiJur3TKC3cPriMLWDkLAOqhXZol9jp2cknPesRfDypOBzDnvECNP81F18t0/3u/Lgn9BWxYdefCm95Rkw3XjZwQTG1GVLqBHoWBpG3s8eLuQhChlbH52ecF7sFb3aSXdvTcOCSwVHMA0GRjPhcoNt91WOfI22tUaJJ7/H72IqosJw235lvgvqQ5UQSzh5BE/Wp0u9bGzpUHgODeRtfO45miC+5itGBs0r1KKjN0CEzQ8WsDzWK2eGmmnznW8f2osEa83C9sa41/dEC5U1Cy8vpMgp/nz+qjKf+wQ3OUsSEgOKrjvC3tZcWUivhyu/GPEhAHEF6XBOTOyMnspoZKWNL4RMxGxfpeG3ANoer4vmdizPK7C6h3eLyTTYfL0jcML9Ld+rFKMD7hVx8ATu32nQVt3GmXa9m8cp2rSNPdgRV36LMWRxW2aXMq+MksRZkNhhm4WxSGUykR3N8K8jFiD9LPrz0pEux8UXEfF8ZWEKlxn2jCn9Tjy1WLMQ5ljotGHt+eMsfkaWoC</eBayAuthToken>\r\n"
-		 * + "    </requestCredentials>\r\n" + "</GetItemRequest>"; Unmarshaller
-		 * unmarshaller = jaxbContext.createUnmarshaller(); final GetItemRequest
-		 * deserializedReqFromXml = (GetItemRequest) unmarshaller.unmarshal(new
-		 * StringReader(rawXmlStr));
-		 * System.out.println("Deserialized XML String --> Object");
-		 * System.out.println(deserializedReqFromXml.getDetailLevel());
-		 * System.out.println(deserializedReqFromXml.getRequestCredentials().
-		 * geteBayAuthToken()); System.out.println(deserializedReqFromXml.getItemID());
-		 * System.out.println("---------------------------------"); } catch
-		 * (JAXBException e) { LOGGER.error("Failed to deserialize XML.", e); }
-		 */
+		
 	}
 
 	/**
@@ -239,7 +186,7 @@ public class Version1Api implements CommandLineRunner {
 			throws IOException, JAXBException {
 		LOGGER.info("Find Non Profit Method");
 		SearchFilter searchFilter = new SearchFilter(nonProfitInput);
-		PaginationInput paginationInput = new PaginationInput("1", "25");
+		PaginationInput paginationInput = new PaginationInput("1", "25","","","");
 		FindNonProfitRequest findNonProfitRequest = new FindNonProfitRequest(searchFilter, paginationInput);
 		FindNonProfit findNonProfit = new FindNonProfit();
 		FindNonProfitResponse result = findNonProfit.sendMessage(findNonProfitRequest);
