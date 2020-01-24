@@ -21,6 +21,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import com.ebay.queens.requests.PaginationInput;
+import com.ebay.queens.requests.charityitems.CharityItemRequest;
+import com.ebay.queens.requests.charityitems.Constraints;
+import com.ebay.queens.requests.charityitems.GlobalAspect;
+import com.ebay.queens.requests.charityitems.SearchRequest;
 import com.ebay.queens.requests.findnonprofit.*;
 import com.ebay.queens.requests.findnonprofit.FindNonProfitRequest;
 import com.ebay.queens.requests.getitem.*;
@@ -136,6 +140,10 @@ public class Version1Api implements CommandLineRunner {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String findCharityItems(@QueryParam("charityItemId") String charityItemId) throws IOException {
 		LOGGER.info("Find Charity Items");
+		SearchRequest searchRequest = new SearchRequest(charityItemId, null); 
+		Constraints constraints = new Constraints();
+		GlobalAspect globalAspect = new GlobalAspect(charityItemId, charityItemId);
+		CharityItemRequest charityItemRequest = new CharityItemRequest(searchRequest, "phone", constraints, globalAspect);
 		String requestBody = "{\r\n" + "    \"searchRequest\": {\r\n"
 				+ "        \"sortOrder\": \"StartTimeNewest\",\r\n" + "        \"paginationInput\": {\r\n"
 				+ "            \"pageNumber\": 1,\r\n" + "            \"entriesPerPage\": 25\r\n" + "        },\r\n"
