@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import com.ebay.queens.requests.PaginationInput;
 
-@XmlRootElement(name = "findNonprofitRequest")
+@XmlRootElement(name="findNonprofitRequest")
 public class FindNonProfitRequest {
 	private SearchFilter searchFilter;
 	private PaginationInput paginationInput;

@@ -6,12 +6,10 @@ public class CharityItemRequest {
 	private Constraints constraints;
 	private GlobalAspect globalAspect;
 
-	public CharityItemRequest(SearchRequest searchRequest, String keyword, Constraints constraints,
-			GlobalAspect globalAspect) {
+	public CharityItemRequest(SearchRequest searchRequest, String keyword, Constraints constraints) {
 		this.searchRequest = searchRequest;
 		this.keyword = keyword;
 		this.constraints = constraints;
-		this.globalAspect = globalAspect;
 	}
 
 	// Getters
@@ -27,10 +25,6 @@ public class CharityItemRequest {
 		return constraints;
 	}
 
-	public GlobalAspect getGlobalAspect() {
-		return globalAspect;
-	}
-
 	// Setters
 	public void setSearchRequest(SearchRequest searchRequest) {
 		this.searchRequest = searchRequest;
@@ -42,10 +36,6 @@ public class CharityItemRequest {
 
 	public void setConstraints(Constraints constraints) {
 		this.constraints = constraints;
-	}
-
-	public void setGlobalAspect(GlobalAspect globalAspect) {
-		this.globalAspect = globalAspect;
 	}
 
 }

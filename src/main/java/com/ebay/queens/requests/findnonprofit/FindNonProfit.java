@@ -38,7 +38,7 @@ public class FindNonProfit {
 		String getItemRequestXmlString = "";
 		FindNonProfitResponse deserializedReqFromXml = null;
 		try {
-			JAXBContext jaxbContext = JAXBContext.newInstance(GetItemRequest.class);
+			JAXBContext jaxbContext = JAXBContext.newInstance(FindNonProfitRequest.class);
 			Marshaller marshaller = jaxbContext.createMarshaller();
 			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			System.out.println("Serialized Object --> XML String ");
@@ -50,7 +50,7 @@ public class FindNonProfit {
 		} catch (JAXBException e) {
 			LOGGER.error("Failed to serialize XML.", e);
 		}
-
+		System.out.println(getItemRequestXmlString);
 		// Send the request
 		HttpPost request = new HttpPost("http://svcs.ebay.com/services/fundraising/FundRaisingFindingService/v1");
 		request.setEntity(new StringEntity(getItemRequestXmlString));

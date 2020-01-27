@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -20,6 +21,7 @@ import com.ebay.queens.responses.PaypalTokenResponse;
  * Represents an object to hold all the authorization tokens needed to access
  * the eBay & Paypal api's
  */
+@Component
 public class TokenUtilityClass {
 
 	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Paypal.class);
@@ -32,10 +34,8 @@ public class TokenUtilityClass {
 
 	}
 	
-	private ExternalConfig externalConfig;
-	
 	@Autowired
-	private Http httpClass = new Http(externalConfig);
+	private Http httpClass;
 
 	@GET
 	@Path("/authenticationtoken")

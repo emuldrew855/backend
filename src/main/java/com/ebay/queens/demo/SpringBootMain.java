@@ -21,7 +21,7 @@ public class SpringBootMain implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		test.authenticationToken();
+		//test.authenticationToken();
 	}
 
 	public static void main(String[] args) {

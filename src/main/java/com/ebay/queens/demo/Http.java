@@ -2,11 +2,13 @@ package com.ebay.queens.demo;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.io.StringWriter;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 import org.apache.http.HttpResponse;
@@ -26,14 +28,17 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import com.ebay.queens.requests.getitem.GetItem;
+import com.ebay.queens.requests.getitem.GetItemRequest;
 import com.ebay.queens.responses.PaypalTokenResponse;
 import com.ebay.queens.responses.getitemresponse.GetItemResponse;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * Represents a class to manage all HTTP Get and post requests  
+ * @param <T>
  */
 @Component
-public class Http implements CommandLineRunner {
+public class Http<T> implements CommandLineRunner {
   private static final Logger LOGGER = LoggerFactory.getLogger(GetItem.class);
 
   private ExternalConfig externalConfig;
@@ -100,10 +105,26 @@ public class Http implements CommandLineRunner {
     * @param requestBody - requestBody makes up the request that will be sent. 
     * @param typeOfCall - typeOfCall is used to add specific headers to call
     */
-  public String genericSendPOST(String url, String requestBody, String typeOfCall) throws IOException {
-    CloseableHttpClient client = HttpClients.createDefault();
-    HttpPost httpPost = new HttpPost(url);
-    httpPost.setEntity(new StringEntity(requestBody));
+  public <T> String genericXMLSendPOST(String url, T request, String typeOfCall) throws IOException {
+	// Object to XML
+	String getItemRequestXmlString = "";
+	try {
+		JAXBContext jaxbContext = JAXBContext.newInstance(request.getClass());
+		Marshaller marshaller = jaxbContext.createMarshaller();
+		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+		System.out.println("Serialized Object --> XML String ");
+		marshaller.marshal(request, System.out);
+		StringWriter sw = new StringWriter();
+		marshaller.marshal(request, sw);
+		getItemRequestXmlString = sw.toString();
+		System.out.println("---------------------------------");
+	} catch (JAXBException e) {
+		LOGGER.error("Failed to serialize XML.", e);
+	}
+
+	CloseableHttpClient client = HttpClients.createDefault();
+	HttpPost httpPost = new HttpPost(url);
+    httpPost.setEntity(new StringEntity(getItemRequestXmlString));
     httpPost = selectHeader(httpPost, typeOfCall);
     CloseableHttpResponse response = client.execute(httpPost);
     String result = EntityUtils.toString(response.getEntity());
@@ -111,6 +132,32 @@ public class Http implements CommandLineRunner {
 
     return result.toString();
   }
+  
+  /**
+   * Represents a method make a generic http post request to reach the api's
+   * @param url - uses url to reach specific api point
+   * @param requestBody - requestBody makes up the request that will be sent. 
+   * @param typeOfCall - typeOfCall is used to add specific headers to call
+   */
+ public <T> String genericJSONSendPOST(String url, T request, String typeOfCall) throws IOException {
+   // Object to JSON
+   String getItemRequestXmlString = "";
+   final ObjectMapper mapper = new ObjectMapper();
+   System.out.println("Serialized Object --> JSON String");
+   String getItemRequestJSONString = mapper.writeValueAsString(request);
+   System.out.println(getItemRequestJSONString);
+   System.out.println("---------------------------------");
+
+   CloseableHttpClient client = HttpClients.createDefault();
+   HttpPost httpPost = new HttpPost(url);
+   httpPost.setEntity(new StringEntity(getItemRequestXmlString));
+   httpPost = selectHeader(httpPost, typeOfCall);
+   CloseableHttpResponse response = client.execute(httpPost);
+   String result = EntityUtils.toString(response.getEntity());
+   client.close();
+
+   return result.toString();
+ }
 
   /**
      * Represents a method to make a generic http get requests to reach the api's
@@ -190,7 +237,6 @@ public class Http implements CommandLineRunner {
       break;
     case "getItem":
       httpPost.addHeader("Content-Type", "application/xml");
-      httpPost.addHeader("X-EBAY-SOA-SECURITY-APPNAME", "EdwardMu-CharityP-PRD-538907625-4999b865");
       httpPost.addHeader("X-EBAY-API-SITEID", "3");
       httpPost.addHeader("X-EBAY-API-CALL-NAME", "GetItem");
       httpPost.addHeader("X-EBAY-API-COMPATIBILITY-LEVEL", "1107");

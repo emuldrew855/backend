@@ -14,6 +14,8 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,7 @@ import com.ebay.queens.requests.charityitems.SearchRequest;
 import com.ebay.queens.requests.findnonprofit.*;
 import com.ebay.queens.requests.findnonprofit.FindNonProfitRequest;
 import com.ebay.queens.requests.getitem.*;
+import com.ebay.queens.responses.charityitemresponse.CharityItemResponse;
 import com.ebay.queens.responses.findnonprofitresponse.FindNonProfitResponse;
 import com.ebay.queens.responses.getitemresponse.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -45,7 +48,9 @@ public class Version1Api implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		LOGGER.info("Testing");
-		//this.getItem("333460893922");
+		this.getItem("333460893922");
+		//this.findNonProfit("10484");
+		this.findCharityItems("10484");
 	}
 
 	@Autowired
@@ -140,22 +145,21 @@ public class Version1Api implements CommandLineRunner {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String findCharityItems(@QueryParam("charityItemId") String charityItemId) throws IOException {
 		LOGGER.info("Find Charity Items");
-		SearchRequest searchRequest = new SearchRequest(charityItemId, null); 
-		Constraints constraints = new Constraints();
-		GlobalAspect globalAspect = new GlobalAspect(charityItemId, charityItemId);
-		CharityItemRequest charityItemRequest = new CharityItemRequest(searchRequest, "phone", constraints, globalAspect);
-		String requestBody = "{\r\n" + "    \"searchRequest\": {\r\n"
-				+ "        \"sortOrder\": \"StartTimeNewest\",\r\n" + "        \"paginationInput\": {\r\n"
-				+ "            \"pageNumber\": 1,\r\n" + "            \"entriesPerPage\": 25\r\n" + "        },\r\n"
-				+ "        \"constraints\": {\r\n" + "            \"globalAspect\": [\r\n" + "                {\r\n"
-				+ "                    \"constraintType\": \"CharityIds\",\r\n" + "                    \"value\": ["
-				+ charityItemId + "]\r\n" + "                    \r\n" + "                },\r\n"
-				+ "                {\r\n" + "                    \"constraintType\": \"CharityOnly\",\r\n"
-				+ "                    \"value\": [\"true\"]\r\n" + "                }\r\n" + "            ]\r\n"
-				+ "        }\r\n" + "    }\r\n" + "}";
-		String url = "https://api.ebay.com/buying/search/v2";
-		LOGGER.info("Request body: " + requestBody);
-		String response = httpClass.genericSendPOST(url, requestBody, "charityItem");
+		PaginationInput paginationInput = new PaginationInput("1", "1", "25", "", "");
+		SearchRequest searchRequest = new SearchRequest("StartTimeNewest", paginationInput); 
+		GlobalAspect globalAspect1 = new GlobalAspect("CharityIds", "19790");
+		GlobalAspect globalAspect2 = new GlobalAspect("CharityOnly", "true");
+		GlobalAspect globalAspectList[] = new GlobalAspect[2]; 
+		globalAspectList[0] = globalAspect1;
+		globalAspectList[1] = globalAspect2;
+		Constraints constraints = new Constraints(globalAspectList);
+		CharityItemRequest charityItemRequest = new CharityItemRequest(searchRequest, "phone", constraints);
+		String response = httpClass.genericJSONSendPOST("https://api.ebay.com/buying/search/v2", charityItemRequest, "charityItem");
+		final ObjectMapper mapper = new ObjectMapper();
+		final CharityItemResponse deserializedReqFromJson = mapper.readValue(response, CharityItemResponse.class);
+		System.out.println("Deserialized JSON String --> Object");
+		System.out.println( deserializedReqFromJson.getCharityItems());
+		System.out.println("---------------------------------");
 		return response.toString();
 	}
 
@@ -172,11 +176,25 @@ public class Version1Api implements CommandLineRunner {
 	@Produces(MediaType.APPLICATION_XML)
 	public GetItemResponse getItem(@QueryParam("input") String input) throws IOException, JAXBException {
 		LOGGER.info("Get Item Method");
+		GetItemResponse getItemResponse = null;
 		RequestCredentials reqCred = new RequestCredentials(
-				"v^1.1#i^1#r^0#f^0#I^3#p^3#t^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");
+				"v^1.1#i^1#p^3#I^3#f^0#r^0#t^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");
 		GetItemRequest getItemRequest = new GetItemRequest(reqCred, "333460893922", "ReturnAll");
-		GetItem obj = new GetItem();
-		GetItemResponse getItemResponse = obj.sendMessage(getItemRequest);
+		String result = httpClass.genericXMLSendPOST("https://api.ebay.com/ws/api.dll", getItemRequest, "getItem");
+		System.out.println("Result: " + result);
+		try {
+			JAXBContext jaxbContext = JAXBContext.newInstance(GetItemResponse.class);
+			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+			getItemResponse = (GetItemResponse) unmarshaller.unmarshal(new StringReader(result));
+			System.out.println("Deserialized XML String --> Object");
+			System.out.println(getItemResponse.getAck());
+			System.out.println(getItemResponse.getBuild());
+			System.out.println(getItemResponse.getTimestamp());
+			System.out.println(getItemResponse.getItem());
+			System.out.println("---------------------------------");
+		} catch (JAXBException e) {
+			LOGGER.error("Failed to deserialize XML.", e);
+		}
 		return getItemResponse;
 	}
 
@@ -190,27 +208,14 @@ public class Version1Api implements CommandLineRunner {
 	@GET
 	@Path("/findnonProfit")
 	@Produces(MediaType.APPLICATION_XML)
-	public FindNonProfitResponse findNonProfit(@QueryParam("nonProfitInput") String nonProfitInput)
+	public String findNonProfit(@QueryParam("nonProfitInput") String nonProfitInput)
 			throws IOException, JAXBException {
 		LOGGER.info("Find Non Profit Method");
 		SearchFilter searchFilter = new SearchFilter(nonProfitInput);
-		PaginationInput paginationInput = new PaginationInput("1", "25","","","");
+		PaginationInput paginationInput = new PaginationInput("1", "25","1","1","1");
 		FindNonProfitRequest findNonProfitRequest = new FindNonProfitRequest(searchFilter, paginationInput);
-		FindNonProfit findNonProfit = new FindNonProfit();
-		FindNonProfitResponse result = findNonProfit.sendMessage(findNonProfitRequest);
-		String requestBody = "<findNonprofitRequest xmlns=\"http://www.ebay.com/marketplace/fundraising/v1/services\">\r\n"
-				+ "    <searchFilter>\r\n" + "        <externalId>" + nonProfitInput + "</externalId>\r\n"
-				+ "    </searchFilter>\r\n" + "    <outputSelector>Mission</outputSelector>\r\n"
-				+ "    <outputSelector>Address</outputSelector>\r\n"
-				+ "    <outputSelector>LargeLogoURL</outputSelector>\r\n"
-				+ "    <outputSelector>PopularityIndex</outputSelector>\r\n"
-				+ "    <outputSelector>EIN</outputSelector>\r\n"
-				+ "    <outputSelector>Description</outputSelector>\r\n" + "    <paginationInput>\r\n"
-				+ "        <pageNumber>1</pageNumber>\r\n" + "        <pageSize>25</pageSize>\r\n"
-				+ "    </paginationInput>\r\n" + "</findNonprofitRequest>";
-		String url = ("http://svcs.ebay.com/services/fundraising/FundRaisingFindingService/v1");
-		String response = httpClass.genericSendPOST(url, requestBody, "nonProfit");
+		String response = httpClass.genericXMLSendPOST("http://svcs.ebay.com/services/fundraising/FundRaisingFindingService/v1", findNonProfitRequest, "nonProfit");
 		LOGGER.info(response.toString());
-		return result;
+		return response;
 	}
 }
