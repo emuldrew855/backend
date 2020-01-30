@@ -4,16 +4,23 @@ public class SearchItemResponse {
 	private String href;
 	private String total;
 	private String next; 
-	private ItemSummaries itemSummaries;
+	private String limit;
+	private String offset;
+	private ItemSummaries itemSummaries[];
 
-	public SearchItemResponse(String href, String total, String next, ItemSummaries itemSummaries) {
-		this.href = href;
-		this.total = total;
-		this.next = next;
-		this.itemSummaries = itemSummaries;
+	// Getters
+	public ItemSummaries[] getItemSummaries() {
+		return itemSummaries;
+	}
+
+	public String getOffset() {
+		return offset;
 	}
 	
-	// Getters
+	public String getLimit() {
+		return limit;
+	}
+	
 	public String getHref() {
 		return href;
 	}
@@ -25,12 +32,16 @@ public class SearchItemResponse {
 	public String getNext() {
 		return next;
 	}
-
-	public ItemSummaries getItemSummaries() {
-		return itemSummaries;
-	}
 	
 	// Setters
+	public void setOffset(String offset) {
+		this.offset = offset;
+	}
+	
+	public void setLimit(String limit) {
+		this.limit = limit;
+	}
+	
 	public void setHref(String href) {
 		this.href = href;
 	}
@@ -43,9 +54,10 @@ public class SearchItemResponse {
 		this.next = next;
 	}
 
-	public void setItemSummaries(ItemSummaries itemSummaries) {
+	public void setItemSummaries(ItemSummaries[] itemSummaries) {
 		this.itemSummaries = itemSummaries;
 	}
+
 	
 	
 }

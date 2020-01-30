@@ -4,7 +4,7 @@ public class FindNonProfitResponse {
 	private String ack;
 	private String version;
 	private String timestamp;
-	private NonProfit nonProfit;
+	private NonProfit nonProfit[];
 	
 	// Getters
 	public String getAck() {
@@ -16,7 +16,7 @@ public class FindNonProfitResponse {
 	public String getTimestamp() {
 		return timestamp;
 	}
-	public NonProfit getNonProfit() {
+	public NonProfit[] getNonProfit() {
 		return nonProfit;
 	}
 	
@@ -30,9 +30,9 @@ public class FindNonProfitResponse {
 	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
 	}
-	public void setNonProfit(NonProfit nonProfit) {
+	public void setNonProfit(NonProfit[] nonProfit) {
 		this.nonProfit = nonProfit;
-	} 
-	
+	}
+
 
 }

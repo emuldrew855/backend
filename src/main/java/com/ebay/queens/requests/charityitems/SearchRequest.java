@@ -1,16 +1,18 @@
 package com.ebay.queens.requests.charityitems;
 
-import com.ebay.queens.requests.PaginationInput;
+import com.ebay.queens.requests.findnonprofit.*;
 
 public class SearchRequest {
 	private String sortOrder;
 	private PaginationInput paginationInput;
-
-	public SearchRequest(String sortOrder, PaginationInput paginationInput) {
+	private Constraints constraints;
+	
+	public SearchRequest(String sortOrder, PaginationInput paginationInput, Constraints constraints) {
 		this.sortOrder = sortOrder;
 		this.paginationInput = paginationInput;
+		this.constraints = constraints;
 	}
-
+	
 	// Getters
 	public String getSortOrder() {
 		return sortOrder;
@@ -18,6 +20,10 @@ public class SearchRequest {
 
 	public PaginationInput getPaginationInput() {
 		return paginationInput;
+	}
+
+	public Constraints getConstraints() {
+		return constraints;
 	}
 	
 	// Setters
@@ -28,5 +34,10 @@ public class SearchRequest {
 	public void setPaginationInput(PaginationInput paginationInput) {
 		this.paginationInput = paginationInput;
 	}
+
+	public void setConstraints(Constraints constraints) {
+		this.constraints = constraints;
+	}
+
 
 }

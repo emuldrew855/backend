@@ -12,8 +12,14 @@ public class ExternalConfig {
 	private String securityAppName;
 
 	private String certName;
+	
+	private String ebayAuth; 
 
 	// Getters
+	public String getEbayAuth() {
+		return ebayAuth;
+	}
+	
 	public String getDeveloperName() {
 		return developerName;
 	}
@@ -37,6 +43,10 @@ public class ExternalConfig {
 
 	public void setCertName(String certName) {
 		this.certName = certName;
+	}
+	
+	public void setEbayAuth(String ebayAuth) {
+		this.ebayAuth = ebayAuth;
 	}
 
 }

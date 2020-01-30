@@ -5,11 +5,6 @@ public class Seller {
 	private String feedbackPercentage;
 	private String feedbackScore;
 	
-	public Seller(String username, String feedbackPercentage, String feedbackScore) {
-		this.username = username;
-		this.feedbackPercentage = feedbackPercentage;
-		this.feedbackScore = feedbackScore;
-	}
 	// Getters
 	public String getUsername() {
 		return username;

@@ -1,12 +1,7 @@
-package com.ebay.queens.responses;
+package com.ebay.queens.responses.searchitemresponse;
 
 public class Image {
 	private String imageUrl;
-
-	public Image(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-	
 	// Getters
 	public String getImageUrl() {
 		return imageUrl;

@@ -2,7 +2,7 @@ package com.ebay.queens.requests.findnonprofit;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.ebay.queens.requests.PaginationInput;
+import com.ebay.queens.requests.findnonprofit.PaginationInput;
 
 @XmlRootElement(name="findNonprofitRequest")
 public class FindNonProfitRequest {
@@ -12,6 +12,10 @@ public class FindNonProfitRequest {
 	public FindNonProfitRequest(SearchFilter searchFilter, PaginationInput paginationInput) {
 		this.searchFilter = searchFilter;
 		this.paginationInput = paginationInput;
+	}
+	
+	public FindNonProfitRequest() {
+		
 	}
 
 	// Getters

@@ -12,7 +12,6 @@ import com.ebay.queens.requests.getitem.*;
 
 @SpringBootApplication
 public class SpringBootMain implements CommandLineRunner {
-	TokenUtilityClass test = new TokenUtilityClass();
 	
 	@Bean
 	ResourceConfig resourceConfig() {

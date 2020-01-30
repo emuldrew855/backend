@@ -1,20 +1,25 @@
 package com.ebay.queens.responses.charityitemresponse;
 
 public class CharityItemResponse {
-	private CharityItem[] charityItems;
+	private Items items;
+	
+	public CharityItemResponse() {
+		
+	}
 
-	public CharityItemResponse(CharityItem[] charityItems) {
-		this.charityItems = charityItems;
+	public Items getItems() {
+		return items;
 	}
-	// Getters
-	public CharityItem[] getCharityItems() {
-		return charityItems;
+
+	public void setItems(Items items) {
+		this.items = items;
 	}
+
+	public CharityItemResponse(Items items) {
+		this.items = items;
+	}
+
 	
-	// Setters
-	public void setCharityItems(CharityItem[] charityItems) {
-		this.charityItems = charityItems;
-	} 
 	
-	
+
 }

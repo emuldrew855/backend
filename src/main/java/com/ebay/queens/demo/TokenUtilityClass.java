@@ -17,21 +17,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ebay.queens.responses.PaypalTokenResponse;
 
+import ch.qos.logback.classic.Logger;
+
 /**
  * Represents an object to hold all the authorization tokens needed to access
  * the eBay & Paypal api's
  */
 @Component
-public class TokenUtilityClass {
+public class TokenUtilityClass implements CommandLineRunner {
 
 	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Paypal.class);
 
 	public TokenUtilityClass() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	@Override
+	public void run(String... args) throws Exception {
+		logger.info("Token Utility Class");
+		//this.authenticationToken();
+		
+	}
 
 	public static void main(String[] args) {
-
+	
 	}
 	
 	@Autowired

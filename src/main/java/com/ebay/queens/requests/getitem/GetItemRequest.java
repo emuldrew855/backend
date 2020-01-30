@@ -5,22 +5,22 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="GetItemRequest")
 public class GetItemRequest {
-	private RequestCredentials requestCredentials;
+	private RequesterCredentials requesterCredentials;
 	private String itemID;
-	private String detailLevel;
+	private String DetailLevel;
 
 	public GetItemRequest() {
 	}
 
-	public GetItemRequest(RequestCredentials requestCredentials, String itemID, String detailLevel) {
-		this.requestCredentials = requestCredentials;
+	public GetItemRequest(RequesterCredentials requesterCredentials, String itemID, String detailLevel) {
+		this.requesterCredentials = requesterCredentials;
 		this.itemID = itemID;
-		this.detailLevel = detailLevel;
+		this.DetailLevel = detailLevel;
 	}
 
 	// Getters
-	public RequestCredentials getRequestCredentials() {
-		return requestCredentials;
+	public RequesterCredentials getRequesterCredentials() {
+		return requesterCredentials;
 	}
 
 	public String getItemID() {
@@ -28,19 +28,20 @@ public class GetItemRequest {
 	}
 
 	public String getDetailLevel() {
-		return detailLevel;
+		return DetailLevel;
 	}
 
 	// Setters
-	public void setRequestCredentials(RequestCredentials requestCredentials) {
-		this.requestCredentials = requestCredentials;
-	}
 
 	public void setItemID(String itemID) {
 		this.itemID = itemID;
 	}
 
+	public void setRequesterCredentials(RequesterCredentials requesterCredentials) {
+		this.requesterCredentials = requesterCredentials;
+	}
+
 	public void setDetailLevel(String detailLevel) {
-		this.detailLevel = detailLevel;
+		this.DetailLevel = detailLevel;
 	}
 }

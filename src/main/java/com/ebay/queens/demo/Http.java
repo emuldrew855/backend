@@ -58,7 +58,7 @@ public class Http<T> implements CommandLineRunner {
       "EBAY-UK",
       "test",
       "A21AAEU40OMhVHxkTsHNK9SfMUh75C-6KiYycLLogklKFxG_YKYz5pxDAK3H34A3NYT_y_5XMTJjkf0sjzK4jC1HLykcGMiFg",
-      "v^1.1#i^1#r^0#I^3#p^3#f^0#t^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");
+      "v^1.1#i^1#r^0#p^3#I^3#f^0#t^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");
 
   @Override
   public void run(String... args) throws Exception {
@@ -66,6 +66,7 @@ public class Http<T> implements CommandLineRunner {
     utilityClass.setDevName(externalConfig.getDeveloperName());
     utilityClass.setSecurityAppName(externalConfig.getSecurityAppName());
     utilityClass.setCertName(externalConfig.getCertName());
+    utilityClass.setEbayAuth(externalConfig.getEbayAuth());
   }
 
   public static void main(String[] args) throws IOException, URISyntaxException {
@@ -82,21 +83,15 @@ public class Http<T> implements CommandLineRunner {
     CloseableHttpResponse response = client.execute(httpPost);
     String result = EntityUtils.toString(response.getEntity());
 	System.out.println("Result: " + result);
-	PaypalTokenResponse deserializedReqFromXml = null;
-	try {
-		JAXBContext jaxbContext = JAXBContext.newInstance(PaypalTokenResponse.class);
-		Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-		deserializedReqFromXml = (PaypalTokenResponse) unmarshaller.unmarshal(new StringReader(result));
-		System.out.println("Deserialized XML String --> Object");
-		System.out.println(deserializedReqFromXml.getAccessToken());
-		System.out.println(deserializedReqFromXml.getExpiresIn());
-		System.out.println("---------------------------------");
-	} catch (JAXBException e) {
-		LOGGER.error("Failed to deserialize XML.", e);
-	}
+	final ObjectMapper mapper = new ObjectMapper();
+	final PaypalTokenResponse paypalTokenResponse = mapper.readValue(result, PaypalTokenResponse.class);
+	System.out.println("Deserialized JSON String --> Object");
+	System.out.println(paypalTokenResponse.getScope());
+	System.out.println(paypalTokenResponse.getAccessToken());
+	System.out.println(paypalTokenResponse.getExpiresIn());
     client.close();
-    utilityClass.setPaypalAuthorizationToken(deserializedReqFromXml.getAccessToken());
-    return deserializedReqFromXml;
+    utilityClass.setPaypalAuthorizationToken(paypalTokenResponse.getAccessToken());
+    return paypalTokenResponse;
   }
 
   /**
@@ -141,7 +136,6 @@ public class Http<T> implements CommandLineRunner {
    */
  public <T> String genericJSONSendPOST(String url, T request, String typeOfCall) throws IOException {
    // Object to JSON
-   String getItemRequestXmlString = "";
    final ObjectMapper mapper = new ObjectMapper();
    System.out.println("Serialized Object --> JSON String");
    String getItemRequestJSONString = mapper.writeValueAsString(request);
@@ -150,7 +144,7 @@ public class Http<T> implements CommandLineRunner {
 
    CloseableHttpClient client = HttpClients.createDefault();
    HttpPost httpPost = new HttpPost(url);
-   httpPost.setEntity(new StringEntity(getItemRequestXmlString));
+   httpPost.setEntity(new StringEntity(getItemRequestJSONString));
    httpPost = selectHeader(httpPost, typeOfCall);
    CloseableHttpResponse response = client.execute(httpPost);
    String result = EntityUtils.toString(response.getEntity());

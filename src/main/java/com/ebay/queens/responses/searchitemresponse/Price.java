@@ -1,13 +1,8 @@
-package com.ebay.queens.responses;
+package com.ebay.queens.responses.searchitemresponse;
 
 public class Price {
 	private String value;
 	private String currency;
-	
-	public Price(String value, String currency) {
-		this.value = value;
-		this.currency = currency;
-	}
 	
 	// Getters
 	public String getValue() {

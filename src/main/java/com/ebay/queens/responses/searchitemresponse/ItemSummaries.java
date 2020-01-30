@@ -1,27 +1,34 @@
 package com.ebay.queens.responses.searchitemresponse;
 
 public class ItemSummaries {
-	private String itemID;
+	private String condition;
+	private String conditionId;
+	private String itemId;
 	private String title;
+	private String itemHref; 
 	private Image image;
 	private Price price; 
 	private Seller seller;
 	
-	public ItemSummaries(String itemID, String title, Image image, Price price, Seller seller) {
-		this.itemID = itemID;
-		this.title = title;
-		this.image = image;
-		this.price = price;
-		this.seller = seller;
-	}
-	
 	// Getters
-	public String getItemID() {
-		return itemID;
+	public String getCondition() {
+		return condition;
 	}
 
+	public String getConditionId() {
+		return conditionId;
+	}
+	
 	public String getTitle() {
 		return title;
+	}
+
+	public String getItemId() {
+		return itemId;
+	}
+
+	public String getItemHref() {
+		return itemHref;
 	}
 
 	public Image getImage() {
@@ -37,8 +44,20 @@ public class ItemSummaries {
 	}
 	
 	// Setters
-	public void setItemID(String itemID) {
-		this.itemID = itemID;
+	public void setCondition(String condition) {
+		this.condition = condition;
+	}
+
+	public void setConditionId(String conditionId) {
+		this.conditionId = conditionId;
+	}
+
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
+	}
+
+	public void setItemHref(String itemHref) {
+		this.itemHref = itemHref;
 	}
 
 	public void setTitle(String title) {

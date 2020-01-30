@@ -22,7 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.ebay.queens.requests.PaginationInput;
+import com.ebay.queens.requests.findnonprofit.PaginationInput;
 import com.ebay.queens.requests.charityitems.CharityItemRequest;
 import com.ebay.queens.requests.charityitems.Constraints;
 import com.ebay.queens.requests.charityitems.GlobalAspect;
@@ -33,6 +33,7 @@ import com.ebay.queens.requests.getitem.*;
 import com.ebay.queens.responses.charityitemresponse.CharityItemResponse;
 import com.ebay.queens.responses.findnonprofitresponse.FindNonProfitResponse;
 import com.ebay.queens.responses.getitemresponse.*;
+import com.ebay.queens.responses.searchitemresponse.SearchItemResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
@@ -48,9 +49,10 @@ public class Version1Api implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		LOGGER.info("Testing");
-		this.getItem("333460893922");
-		//this.findNonProfit("10484");
+		//this.getItem("333460893922");
+		 //this.findNonProfit("10484");
 		this.findCharityItems("10484");
+		//this.searchItem("drone");
 	}
 
 	@Autowired
@@ -74,7 +76,7 @@ public class Version1Api implements CommandLineRunner {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String advancedFindCharityItems(@QueryParam("charityId") String charityId) throws IOException, JAXBException {
 		FindNonProfitResponse response = findNonProfit(charityId);
-		String nonProfitId = response.getNonProfit().getNonProfitId();
+		String nonProfitId = response.getNonProfit();
 		LOGGER.info("Non Profit Id: " + nonProfitId);
 		String response2 = findCharityItems(nonProfitId);
 		LOGGER.info("Response: " + response2);
@@ -91,11 +93,17 @@ public class Version1Api implements CommandLineRunner {
 	@GET
 	@Path("/searchItem")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String searchItem(@QueryParam("searchTerm") String searchTerm) throws IOException {
+	public SearchItemResponse searchItem(@QueryParam("searchTerm") String searchTerm) throws IOException {
 		LOGGER.info("Search Item: " + searchTerm);
 		String url = "https://api.ebay.com/buy/browse/v1/item_summary/search?q=" + searchTerm;
 		String response = httpClass.genericSendGET(url, "searchItem");
-		return response;
+		final ObjectMapper mapper = new ObjectMapper(); 
+		final SearchItemResponse searchItemResponse = mapper.readValue(response, SearchItemResponse.class);
+		System.out.println("Deserialized JSON String --> Object");
+		System.out.println(searchItemResponse.getHref());
+		System.out.println(searchItemResponse.getHref());
+		System.out.println(searchItemResponse.getTotal());
+		return searchItemResponse;
 	}
 
 	/**
@@ -129,7 +137,7 @@ public class Version1Api implements CommandLineRunner {
 				+ "    }\r\n" + "}";
 		LOGGER.info(requestBody);
 		String url = "https://api.ebay.com/buying/search/v2";
-		String response = httpClass.genericSendPOST(url, requestBody, "charityItem");
+		String response = httpClass.genericJSONSendPOST(url, requestBody, "charityItem");
 		return response;
 	}
 
@@ -143,24 +151,27 @@ public class Version1Api implements CommandLineRunner {
 	@GET
 	@Path("/findcharityItems")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String findCharityItems(@QueryParam("charityItemId") String charityItemId) throws IOException {
+	public CharityItemResponse findCharityItems(@QueryParam("charityItemId") String charityItemId) throws IOException {
 		LOGGER.info("Find Charity Items");
-		PaginationInput paginationInput = new PaginationInput("1", "1", "25", "", "");
-		SearchRequest searchRequest = new SearchRequest("StartTimeNewest", paginationInput); 
-		GlobalAspect globalAspect1 = new GlobalAspect("CharityIds", "19790");
-		GlobalAspect globalAspect2 = new GlobalAspect("CharityOnly", "true");
+		PaginationInput paginationInput = new PaginationInput("1", "25");
+		String[] valueIds = {"88"};
+		String[] charityOnly = {"true"};
+		GlobalAspect globalAspect1 = new GlobalAspect("CharityIds", valueIds);
+		GlobalAspect globalAspect2 = new GlobalAspect("CharityOnly", charityOnly);
 		GlobalAspect globalAspectList[] = new GlobalAspect[2]; 
 		globalAspectList[0] = globalAspect1;
 		globalAspectList[1] = globalAspect2;
 		Constraints constraints = new Constraints(globalAspectList);
-		CharityItemRequest charityItemRequest = new CharityItemRequest(searchRequest, "phone", constraints);
+		SearchRequest searchRequest = new SearchRequest("StartTimeNewest", paginationInput, constraints); 
+		CharityItemRequest charityItemRequest = new CharityItemRequest(searchRequest);
 		String response = httpClass.genericJSONSendPOST("https://api.ebay.com/buying/search/v2", charityItemRequest, "charityItem");
+		LOGGER.info(response);
 		final ObjectMapper mapper = new ObjectMapper();
-		final CharityItemResponse deserializedReqFromJson = mapper.readValue(response, CharityItemResponse.class);
+		final CharityItemResponse charityItemResponse = mapper.readValue(response, CharityItemResponse.class);
 		System.out.println("Deserialized JSON String --> Object");
-		System.out.println( deserializedReqFromJson.getCharityItems());
+		System.out.println( charityItemResponse.getItems());
 		System.out.println("---------------------------------");
-		return response.toString();
+		return charityItemResponse;
 	}
 
 	/**
@@ -177,8 +188,8 @@ public class Version1Api implements CommandLineRunner {
 	public GetItemResponse getItem(@QueryParam("input") String input) throws IOException, JAXBException {
 		LOGGER.info("Get Item Method");
 		GetItemResponse getItemResponse = null;
-		RequestCredentials reqCred = new RequestCredentials(
-				"v^1.1#i^1#p^3#I^3#f^0#r^0#t^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");
+		RequesterCredentials reqCred = new RequesterCredentials(
+				"v^1.1#i^1#r^0#f^0#I^3#p^3#t^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");
 		GetItemRequest getItemRequest = new GetItemRequest(reqCred, "333460893922", "ReturnAll");
 		String result = httpClass.genericXMLSendPOST("https://api.ebay.com/ws/api.dll", getItemRequest, "getItem");
 		System.out.println("Result: " + result);
@@ -208,14 +219,29 @@ public class Version1Api implements CommandLineRunner {
 	@GET
 	@Path("/findnonProfit")
 	@Produces(MediaType.APPLICATION_XML)
-	public String findNonProfit(@QueryParam("nonProfitInput") String nonProfitInput)
+	public FindNonProfitResponse findNonProfit(@QueryParam("nonProfitInput") String nonProfitInput)
 			throws IOException, JAXBException {
 		LOGGER.info("Find Non Profit Method");
 		SearchFilter searchFilter = new SearchFilter(nonProfitInput);
-		PaginationInput paginationInput = new PaginationInput("1", "25","1","1","1");
+		PaginationInput paginationInput = new PaginationInput("25","1");
 		FindNonProfitRequest findNonProfitRequest = new FindNonProfitRequest(searchFilter, paginationInput);
 		String response = httpClass.genericXMLSendPOST("http://svcs.ebay.com/services/fundraising/FundRaisingFindingService/v1", findNonProfitRequest, "nonProfit");
+		FindNonProfitResponse findNonProfitResponse = new FindNonProfitResponse();
+		response = "<findNonprofitResponse><ack>Success</ack><version>1.0.0</version><timestamp>2020-01-30T13:37:25.250Z</timestamp><nonprofit><name> We Share Foundation </name><logoURL>https://i.ebayimg.com/00/s/ODI1WDU3MA==/z/hx4AAOSwe4hdxS~T/$_1.JPG?set_id=8800005007</logoURL><nonprofitId>136705</nonprofitId><externalId>1999180</externalId><homePageURL>http://www.quotainternationalfortcollins.com</homePageURL></nonprofit><nonprofit><name> inc.</name><logoURL>https://i.ebayimg.com/00/s/MjcxWDQzMg==/z/dBIAAOSwAGxdxoCs/$_1.PNG?set_id=8800005007</logoURL><nonprofitId>133980</nonprofitId><externalId>1276598</externalId><homePageURL>http://charity.ebay.com/charity/charity.jsp?NP_ID=1276598</homePageURL></nonprofit><nonprofit><name>His PlaceContact Center Inc.</name><logoURL>https://i.ebayimg.com/00/s/NzA4WDcxNA==/z/vUEAAOSwzWFd6rhu/$_1.JPG?set_id=8800005007</logoURL><nonprofitId>144403</nonprofitId><externalId>1659362</externalId><homePageURL>http://www.hisplacecc.org</homePageURL></nonprofit><nonprofit><name> School Inc</name><logoURL>https://i.ebayimg.com/00/s/NjQ4WDM2NQ==/z/wjEAAOSwZzVd3OrU/$_1.PNG?set_id=8800005007</logoURL><nonprofitId>176155</nonprofitId><externalId>1299915</externalId><homePageURL>http://www.iamschool.org</homePageURL></nonprofit><nonprofit><name>#bettereveryday</name><logoURL>https://i.ebayimg.com/00/s/OTU5WDk1OQ==/z/C1YAAOSwWXddVeJ4/$_1.JPG?set_id=8800005007</logoURL><nonprofitId>139338</nonprofitId><externalId>2770598</externalId><homePageURL>https://www.bettereverydayweb.com/</homePageURL></nonprofit><nonprofit><name>#Projectmack</name><logoURL>https://i.ebayimg.com/00/s/MTYwMFgxNjAw/z/WpcAAOSwy9VdVeJf/$_1.JPG?set_id=8800005007</logoURL><nonprofitId>150828</nonprofitId><externalId>2838133</externalId><homePageURL>http://www.projectmack.com</homePageURL></nonprofit><nonprofit><name>#SchylerStrong Foundation, Inc.</name><logoURL>https://i.ebayimg.com/00/s/MTMzWDE1MA==/z/qNwAAOSw8gpdjc~d/$_1.PNG?set_id=8800004005</logoURL><nonprofitId>184643</nonprofitId><externalId>3643025</externalId><homePageURL>https://www.schylerstrong.com</homePageURL></nonprofit><nonprofit><name>#teamferal Cat Rescue and Adoptions</name><logoURL>https://i.ebayimg.com/00/s/MjcwWDUxMg==/z/mZUAAOSweHtdvUYp/$_1.PNG?set_id=8800005007</logoURL><nonprofitId>171613</nonprofitId><externalId>1208059</externalId><homePageURL>http://charity.ebay.com/charity/charity.jsp?NP_ID=1208059</homePageURL></nonprofit><nonprofit><name>#TNM The New Music Movement of Love Inc.</name><logoURL>https://i.ebayimg.com/00/s/ODAwWDgwMA==/z/uEkAAOSw8ltdVePk/$_1.JPG?set_id=8800005007</logoURL><nonprofitId>145490</nonprofitId><externalId>1487968</externalId><homePageURL>http://charity.ebay.com/charity/charity.jsp?NP_ID=1487968</homePageURL></nonprofit><nonprofit><name>#WeAreKY!, Inc.</name><logoURL>https://i.ebayimg.com/00/s/MTYwMFgxNjAw/z/1mEAAOSwoOddVeYQ/$_1.JPG?set_id=8800005007</logoURL><nonprofitId>138661</nonprofitId><externalId>1614314</externalId><homePageURL>http://charity.ebay.com/charity/charity.jsp?NP_ID=1614314</homePageURL></nonprofit><nonprofit><name>'New' Caring &amp; Sharing</name><logoURL>https://i.ebayimg.com/00/s/Mzg4WDM4Ng==/z/s5oAAOSwFQVd90gK/$_1.JPG?set_id=8800005007</logoURL><nonprofitId>189343</nonprofitId><externalId>1397870</externalId><homePageURL>http://charity.ebay.com/charity/charity.jsp?NP_ID=1397870</homePageURL></nonprofit><nonprofit><name>'North Shore Alliance of Gay, Lesbian, Bisexual, and Transgende</name><logoURL>https://i.ebayimg.com/00/s/MjE1WDQyNQ==/z/7vkAAOSwf4ldVeOK/$_1.JPG?set_id=8800005007</logoURL><nonprofitId>36444</nonprofitId><externalId>29938</externalId><homePageURL>http://www.nagly.org</homePageURL></nonprofit><nonprofit><name>'Ohana Komputer</name><logoURL>https://i.ebayimg.com/00/s/MzAzWDM5Mg==/z/BnIAAOSwYThdVedA/$_1.PNG?set_id=8800005007</logoURL><nonprofitId>107209</nonprofitId><externalId>2293402</externalId><homePageURL>http://charity.ebay.com/charity/charity.jsp?NP_ID=2293402</homePageURL></nonprofit><nonprofit><name>'Spark Theater Company, Inc.</name><logoURL>https://i.ebayimg.com/00/s/Mzg2WDgzMw==/z/l8cAAOSwipddYk45/$_1.PNG?set_id=8800005007</logoURL><nonprofitId>176601</nonprofitId><externalId>2179993</externalId><homePageURL>http://sparktheatercompany.com</homePageURL></nonprofit><nonprofit><name>'WEEN DREAM</name><logoURL>https://i.ebayimg.com/00/s/NDIwWDUxNQ==/z/-7wAAOSwkTZdxoCn/$_1.PNG?set_id=8800005007</logoURL><nonprofitId>84377</nonprofitId><externalId>69244</externalId><homePageURL>http://charity.ebay.com/charity/charity.jsp?NP_ID=69244</homePageURL></nonprofit><nonprofit><name>(914) Cares, Inc</name><logoURL>https://i.ebayimg.com/00/s/MTE0NFgxMzU4/z/LmQAAOSwctddVeXh/$_1.JPG?set_id=8800005007</logoURL><nonprofitId>162945</nonprofitId><externalId>1527840</externalId><homePageURL>http://www.914cares.org</homePageURL></nonprofit><nonprofit><name>(Charleston) Pro Bono Legal Services, Inc.</name><logoURL>https://i.ebayimg.com/00/s/NTU5WDE2MDA=/z/4oEAAOSwEhNdVeMb/$_1.JPG?set_id=8800005007</logoURL><nonprofitId>149716</nonprofitId><externalId>1398397</externalId><homePageURL>http://www.CharlestonProBono.org</homePageURL></nonprofit><nonprofit><name>(FMWC) Fathers and Mothers Who Care</name><logoURL>http://i.ebayimg.com/00/s/MjEzWDE0MQ==/z/NKgAAOSwA3dYI8pW/$_1.JPG?set_id=8800004005</logoURL><nonprofitId>103952</nonprofitId><externalId>117101</externalId><homePageURL>http://www.fmwc.org</homePageURL></nonprofit><nonprofit><name>(ISC)² Huntsville Chapter</name><logoURL>http://i.ebayimg.com/images/g/2Z4AAOSwdGxXImrM/s-l1600.jpg</logoURL><nonprofitId>151893</nonprofitId><externalId>3493667</externalId><homePageURL>https://www.isc2-huntsvillechapter.org</homePageURL></nonprofit><nonprofit><name>(RED)</name><logoURL>https://i.ebayimg.com/00/s/NTY2WDgwMA==/z/MeMAAOSwm8ZeMptf/$_1.JPG?set_id=8800005007</logoURL><nonprofitId>90330</nonprofitId><externalId>114552</externalId><homePageURL>https://www.red.org</homePageURL></nonprofit><nonprofit><name>(Un)Fur-gotten Paws</name><logoURL>https://i.ebayimg.com/00/s/OTNYNTg5/z/UQ8AAOSwCHddVeSp/$_1.PNG?set_id=8800005007</logoURL><nonprofitId>172654</nonprofitId><externalId>3700975</externalId><homePageURL>http://Unfurgottenpaws.org</homePageURL></nonprofit><nonprofit><name>...ARTiSTiCALLY ME! An Art Education Program</name><logoURL>https://i.ebayimg.com/00/s/MTIzNlgxNjAw/z/M1oAAOSwUOJd81Os/$_1.PNG?set_id=8800005007</logoURL><nonprofitId>189219</nonprofitId><externalId>2000614</externalId><homePageURL>http:/www.Artisticallyme.og</homePageURL></nonprofit><nonprofit><name>1 Boy 4 Change</name><logoURL>https://i.ebayimg.com/00/s/MzM2WDQwNw==/z/CXoAAOSwhMhdVeUm/$_1.JPG?set_id=8800005007</logoURL><nonprofitId>33088</nonprofitId><externalId>27435</externalId><homePageURL>http://www.1Boy4Change.org</homePageURL></nonprofit><nonprofit><name>1 Horse At A Time Draft Horse Rescue</name><logoURL>https://i.ebayimg.com/00/s/NjQwWDYwMQ==/z/kkgAAOSwC4FdVeMH/$_1.JPG?set_id=8800005007</logoURL><nonprofitId>153158</nonprofitId><externalId>3284949</externalId><homePageURL>http://www.1horseatatime.com</homePageURL></nonprofit><nonprofit><name>1 in 3 foundation</name><logoURL>https://i.ebayimg.com/00/s/MzE4WDQ1MA==/z/S2IAAOSwLbJdVeVF/$_1.JPG?set_id=8800005007</logoURL><nonprofitId>106875</nonprofitId><externalId>2013863</externalId><homePageURL>http://charity.ebay.com/charity/charity.jsp?NP_ID=2013863</homePageURL></nonprofit><paginationOutput><pageNumber>1</pageNumber><pageSize>25</pageSize><totalEntries>74177</totalEntries><totalPages>2968</totalPages></paginationOutput></findNonprofitResponse>";
 		LOGGER.info(response.toString());
-		return response;
+		try {
+			JAXBContext jaxbContext = JAXBContext.newInstance(FindNonProfitResponse.class);
+			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+			findNonProfitResponse = (FindNonProfitResponse) unmarshaller.unmarshal(new StringReader(response));
+			System.out.println("Deserialized XML String --> Object");
+			System.out.println(findNonProfitResponse.getAck());
+			System.out.println(findNonProfitResponse.getTimestamp());
+			System.out.println(findNonProfitResponse.getVersion());
+			System.out.println(findNonProfitResponse.getNonProfit());
+			System.out.println("---------------------------------");
+		} catch (JAXBException e) {
+			LOGGER.error("Failed to deserialize XML.", e);
+		}
+		return findNonProfitResponse;
 	}
 }

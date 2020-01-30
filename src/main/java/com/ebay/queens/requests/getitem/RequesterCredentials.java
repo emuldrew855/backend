@@ -1,10 +1,10 @@
 package com.ebay.queens.requests.getitem;
 
-public class RequestCredentials {
+public class RequesterCredentials {
 		    private String eBayAuthToken;
-		    public RequestCredentials() {
+		    public RequesterCredentials() {
 		    }
-		    public RequestCredentials(String eBayAuthToken) {
+		    public RequesterCredentials(String eBayAuthToken) {
 		        this.eBayAuthToken = eBayAuthToken;
 		    }
 			public String geteBayAuthToken() {

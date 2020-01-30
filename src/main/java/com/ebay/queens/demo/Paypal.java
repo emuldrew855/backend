@@ -11,6 +11,10 @@ import javax.ws.rs.core.MediaType;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.ebay.queens.responses.PaypalTokenResponse;
 
 /**
  * Represents a class to access and hit all of the Paypal api's
@@ -57,7 +61,7 @@ public class Paypal {
 		String requestBody = "{\r\n" + "    \"charity\": {\r\n" + "        \"mission_area\": \"" + missionArea
 				+ "\"\r\n" + "    }\r\n" + "}";
 		logger.info(requestBody);
-		String response = httpClass.genericSendPOST(url, requestBody, "Paypal");
+		String response = httpClass.genericJSONSendPOST(url, requestBody, "Paypal");
 		return response;
 	}
 
