@@ -1,5 +1,8 @@
 package com.ebay.queens.responses.getitemresponse;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="urn:ebay:apis:eBLBaseComponents")
 public class GetItemResponse {
 	private String timestamp;
 	private String ack;

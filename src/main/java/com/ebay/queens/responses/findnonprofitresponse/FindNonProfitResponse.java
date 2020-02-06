@@ -1,5 +1,8 @@
 package com.ebay.queens.responses.findnonprofitresponse;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class FindNonProfitResponse {
 	private String ack;
 	private String version;

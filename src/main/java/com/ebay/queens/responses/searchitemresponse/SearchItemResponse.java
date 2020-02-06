@@ -1,5 +1,6 @@
 package com.ebay.queens.responses.searchitemresponse;
 
+
 public class SearchItemResponse {
 	private String href;
 	private String total;
