@@ -6,6 +6,10 @@ import java.io.StringWriter;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -26,6 +30,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ebay.queens.requests.getitem.GetItem;
 import com.ebay.queens.requests.getitem.GetItemRequest;
@@ -87,10 +93,10 @@ public class Http<T> implements CommandLineRunner {
 	final PaypalTokenResponse paypalTokenResponse = mapper.readValue(result, PaypalTokenResponse.class);
 	System.out.println("Deserialized JSON String --> Object");
 	System.out.println(paypalTokenResponse.getScope());
-	System.out.println(paypalTokenResponse.getAccessToken());
-	System.out.println(paypalTokenResponse.getExpiresIn());
+	System.out.println(paypalTokenResponse.getacccess_token());
+	System.out.println(paypalTokenResponse.getexpires_in());
     client.close();
-    utilityClass.setPaypalAuthorizationToken(paypalTokenResponse.getAccessToken());
+    utilityClass.setPaypalAuthorizationToken(paypalTokenResponse.getacccess_token());
     return paypalTokenResponse;
   }
 

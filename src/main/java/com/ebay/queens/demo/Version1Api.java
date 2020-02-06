@@ -49,7 +49,7 @@ public class Version1Api implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		LOGGER.info("Testing");
-		this.getItem("333460893922");
+		//this.getItem("333460893922");
 		//this.findNonProfit("10484");
 		//this.findCharityItems("10484");
 		//this.searchItem("drone");
