@@ -27,6 +27,9 @@ import ch.qos.logback.classic.Logger;
 public class TokenUtilityClass implements CommandLineRunner {
 
 	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Paypal.class);
+	
+	@Autowired
+	private Http httpClass;
 
 	public TokenUtilityClass() {
 		// TODO Auto-generated constructor stub
@@ -35,6 +38,7 @@ public class TokenUtilityClass implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		logger.info("Token Utility Class");
+		this.authenticationToken();
 		//this.authenticationToken();
 		
 	}
@@ -43,8 +47,6 @@ public class TokenUtilityClass implements CommandLineRunner {
 	
 	}
 	
-	@Autowired
-	private Http httpClass;
 
 	@GET
 	@Path("/authenticationtoken")

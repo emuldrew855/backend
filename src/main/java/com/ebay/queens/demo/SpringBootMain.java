@@ -15,7 +15,7 @@ public class SpringBootMain implements CommandLineRunner {
 	
 	@Bean
 	ResourceConfig resourceConfig() {
-		return new ResourceConfig().registerClasses(Version1Api.class, Paypal.class);
+		return new ResourceConfig().registerClasses(Version1Api.class, Paypal.class,TokenUtilityClass.class);
 	}
 
 	@Override

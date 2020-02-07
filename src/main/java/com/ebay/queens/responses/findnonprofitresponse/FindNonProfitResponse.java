@@ -2,7 +2,7 @@ package com.ebay.queens.responses.findnonprofitresponse;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
+@XmlRootElement(name="findNonprofitResponse", namespace="http://www.ebay.com/marketplace/fundraising/v1/services")
 public class FindNonProfitResponse {
 	private String ack;
 	private String version;

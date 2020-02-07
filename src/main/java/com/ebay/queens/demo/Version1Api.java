@@ -32,6 +32,7 @@ import com.ebay.queens.requests.findnonprofit.FindNonProfitRequest;
 import com.ebay.queens.requests.getitem.*;
 import com.ebay.queens.responses.charityitemresponse.CharityItemResponse;
 import com.ebay.queens.responses.findnonprofitresponse.FindNonProfitResponse;
+import com.ebay.queens.responses.findnonprofitresponse.NonProfit;
 import com.ebay.queens.responses.getitemresponse.*;
 import com.ebay.queens.responses.searchitemresponse.SearchItemResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -191,12 +192,12 @@ public class Version1Api implements CommandLineRunner {
 		RequesterCredentials reqCred = new RequesterCredentials(
 				"AgAAAA**AQAAAA**aAAAAA**ChvUXQ**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6AEkYOiDpeKoQWdj6x9nY+seQ**AeEFAA**AAMAAA**om8bY77e+hYcxwwMwjnSs/PwlO2OBas/H1XmD9BuaRKJT8AqTUApb1bNnd9cpkcHT+ylWjnmiiHa1sHkBNSX8vICwZrMKdhu94xYz4fwl1r88hIUqXfyTpd0lLeKb9PvBTm/6lml/4MX1c5YENvcyRx9Dyan8WOMbIvM6ZsM8mQ7Sw7URdaZCEZwjee1WztIL9AEOUFKKsO9TYjArRZFN0rqGfgXqNdUd1e4BqK7qtNyRScWtHQ4+cJDEU+iH0d8yEGlg4KgJuPn17M0nOoOKzMrrNuwsojaBTYk3GIdPj0Eb18bJhnVvRm4xI138YDizMXEu8PIbAmp+4233hRE4wiOnAa80eMSgqxd1TZuRSOupGPdDIgVoRT+AuXHaXhEMQDkbxitHg4ZnsF9XYC1tpxo0lngZNf3NAFRu1yPdxWXSShaQpLXGcM/KISYvKoxgkYIBq3hn8LG52qA+ARJlo+Wc+Z74volMIFnCz51I8EkYqn3ntR1fuvkmoJL4HEy3cCse9XPPkIlgUk3aYW+i0/bNnLzJVa9N8es4FHsg6f1fyQ5I4feBC//ScF1qbkLOxs/BLL+cylOUKZBEKXxDzq0ieq5p0g9TwT13UTtmjFGhHzCMCOmbfP4S0jki9jCReyWIiIauAKLDbnGEqfk1AYYoZJvqPGVRDHdzU665zgfFrNYNljo0uGGUIqzxOtepQmL5G04uoOCdTanfSKKaKnriBNR35u2SlY6zevZjZ/gwbsQs1WAFkjujrkOPlbz");
 		GetItemRequest getItemRequest = new GetItemRequest(reqCred, "333460893922", "ReturnAll");
-		String result = httpClass.genericXMLSendPOST("https://api.ebay.com/ws/api.dll", getItemRequest, "getItem");
-		System.out.println("Result: " + result);
+		String response = httpClass.genericXMLSendPOST("https://api.ebay.com/ws/api.dll", getItemRequest, "getItem");
+		System.out.println("Result: " + response);
 		try {
 			JAXBContext jaxbContext = JAXBContext.newInstance(GetItemResponse.class);
 			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-			getItemResponse = (GetItemResponse) unmarshaller.unmarshal(new StringReader(result));
+			getItemResponse = (GetItemResponse) unmarshaller.unmarshal(new StringReader(response));
 			System.out.println("Deserialized XML String --> Object");
 			System.out.println(getItemResponse.getAck());
 			System.out.println(getItemResponse.getBuild());
@@ -227,6 +228,7 @@ public class Version1Api implements CommandLineRunner {
 		FindNonProfitRequest findNonProfitRequest = new FindNonProfitRequest(searchFilter, paginationInput);
 		String response = httpClass.genericXMLSendPOST("http://svcs.ebay.com/services/fundraising/FundRaisingFindingService/v1", findNonProfitRequest, "nonProfit");
 		FindNonProfitResponse findNonProfitResponse = new FindNonProfitResponse();
+		NonProfit nonProfit[] = null;
 		LOGGER.info(response.toString());
 		try {
 			JAXBContext jaxbContext = JAXBContext.newInstance(FindNonProfitResponse.class);
@@ -236,7 +238,11 @@ public class Version1Api implements CommandLineRunner {
 			System.out.println(findNonProfitResponse.getAck());
 			System.out.println(findNonProfitResponse.getTimestamp());
 			System.out.println(findNonProfitResponse.getVersion());
-			System.out.println(findNonProfitResponse.getNonProfit());
+			nonProfit = findNonProfitResponse.getNonProfit();
+			System.out.println(nonProfit.length);
+			for(int i = 0; i <= nonProfit.length; i++ ) {
+				System.out.println(nonProfit[i].getName());
+			}
 			System.out.println("---------------------------------");
 		} catch (JAXBException e) {
 			LOGGER.error("Failed to deserialize XML.", e);
