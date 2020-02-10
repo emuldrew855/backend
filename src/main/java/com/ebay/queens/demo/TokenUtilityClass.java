@@ -26,7 +26,7 @@ import ch.qos.logback.classic.Logger;
 @Component
 public class TokenUtilityClass implements CommandLineRunner {
 
-	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Paypal.class);
+	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(TokenUtilityClass.class);
 	
 	@Autowired
 	private Http httpClass;
@@ -38,7 +38,9 @@ public class TokenUtilityClass implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		logger.info("Token Utility Class");
-		this.authenticationToken();
+		PaypalTokenResponse test = this.authenticationToken();
+		int hoursToExpire = Integer.parseInt(test.getexpires_in());
+		logger.info("Expires in: " + test.getexpires_in());
 		//this.authenticationToken();
 		
 	}
@@ -58,7 +60,7 @@ public class TokenUtilityClass implements CommandLineRunner {
 		String requestBody = "";
 		String url = "https://api.paypal.com/v1/oauth2/token";
 		PaypalTokenResponse response = new PaypalTokenResponse();
-		httpClass.authenticationPost(url, requestBody, "PaypalAuth");
+		response = httpClass.authenticationPost(url, requestBody, "PaypalAuth");
 		return response;
 	}
 

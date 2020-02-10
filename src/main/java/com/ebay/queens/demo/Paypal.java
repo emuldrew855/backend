@@ -10,27 +10,35 @@ import javax.ws.rs.core.MediaType;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.ebay.queens.requests.paypalcharitysearch.Charity;
+import com.ebay.queens.requests.paypalcharitysearch.PaypalCharity;
+import com.ebay.queens.requests.paypalcharitysearch.PaypalCharitySearchRequest;
 import com.ebay.queens.responses.PaypalTokenResponse;
+import com.ebay.queens.responses.charityitemresponse.CharityItemResponse;
+import com.ebay.queens.responses.paypalcharitysearchresponse.PaypalCharitySearchResponse;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * Represents a class to access and hit all of the Paypal api's
  */
 @Component
 @Path("/Paypal")
-public class Paypal {
-
+public class Paypal implements CommandLineRunner {	
 	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Paypal.class);
-
+	
 	@Autowired
 	private Http httpClass;
-
-	public Paypal() throws IOException {
-		logger.info("Paypal Constructor");
+	
+	@Override
+	public void run(String... args) throws Exception {
+		//this.advancedCharitySearch("animals");	
 	}
+
 
 	/**
 	 * Gets list of charities based off charity cause
@@ -40,12 +48,12 @@ public class Paypal {
 	 * @return string of list of charities
 	 */
 	@GET
-	@Path("/getCharity")
+	@Path("/GetCharity")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String charitySearch(@QueryParam("missionArea") String missionArea) throws IOException {
 		logger.info("Get Charity");
-		String charitySearchResponse = this.advancedCharitySearch(missionArea);
-		String queryId = charitySearchResponse.substring(13, 49);
+		PaypalCharitySearchResponse charitySearchResponse = this.advancedCharitySearch(missionArea);
+		String queryId = charitySearchResponse.getQuery_id();
 		String url = "https://api.paypal.com/v1/customer/charities?query_id=" + queryId;
 		String response = httpClass.genericSendGET(url, "Paypal");
 		logger.info(response);
@@ -53,16 +61,24 @@ public class Paypal {
 	}
 
 	@GET
-	@Path("/searchcharityType")
+	@Path("/SearchCharityType")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String advancedCharitySearch(@QueryParam("missionArea") String missionArea) throws IOException {
+	public PaypalCharitySearchResponse advancedCharitySearch(@QueryParam("missionArea") String missionArea) throws IOException {
 		logger.info("Advanced Charity Search");
 		String url = "https://api.paypal.com/v1/customer/charity-search-queries";
-		String requestBody = "{\r\n" + "    \"charity\": {\r\n" + "        \"mission_area\": \"" + missionArea
-				+ "\"\r\n" + "    }\r\n" + "}";
-		logger.info(requestBody);
-		String response = httpClass.genericJSONSendPOST(url, requestBody, "Paypal");
-		return response;
+		PaypalCharitySearchRequest paypalCharitySearchRequest = new PaypalCharitySearchRequest();
+		PaypalCharity paypalCharity = new PaypalCharity();
+		paypalCharity.setMissionArea(missionArea);
+		Charity charity = new Charity();
+		charity.setPaypalCharity(paypalCharity);
+		paypalCharitySearchRequest.setCharity(charity);
+		String response = httpClass.genericJSONSendPOST(url, charity, "Paypal");
+		final ObjectMapper mapper = new ObjectMapper();
+		final PaypalCharitySearchResponse charityItemResponse = mapper.readValue(response, PaypalCharitySearchResponse.class);
+		System.out.println("Deserialized JSON String --> Object");
+		System.out.println( charityItemResponse.getQuery_id());
+		System.out.println("---------------------------------");
+		return charityItemResponse;
 	}
 
 	@GET
