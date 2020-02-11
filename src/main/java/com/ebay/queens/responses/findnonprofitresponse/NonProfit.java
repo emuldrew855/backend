@@ -1,10 +1,11 @@
 package com.ebay.queens.responses.findnonprofitresponse;
 
+import javax.xml.bind.annotation.XmlElement;
+
 public class NonProfit {
 	private String name;
-	private String mission;
 	private String logoURL;
-	private String nonProfitId; 
+	private String nonprofitId; 
 	private String externalId;
 	private String homePageURL;
 	
@@ -12,14 +13,12 @@ public class NonProfit {
 	public String getName() {
 		return name;
 	}
-	public String getMission() {
-		return mission;
-	}
 	public String getLogoURL() {
 		return logoURL;
 	}
+	@XmlElement(name="nonprofitId")
 	public String getNonProfitId() {
-		return nonProfitId;
+		return nonprofitId;
 	}
 	public String getExternalId() {
 		return externalId;
@@ -32,14 +31,11 @@ public class NonProfit {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public void setMission(String mission) {
-		this.mission = mission;
-	}
 	public void setLogoURL(String logoURL) {
 		this.logoURL = logoURL;
 	}
 	public void setNonProfitId(String nonProfitId) {
-		this.nonProfitId = nonProfitId;
+		this.nonprofitId = nonProfitId;
 	}
 	public void setExternalId(String externalId) {
 		this.externalId = externalId;

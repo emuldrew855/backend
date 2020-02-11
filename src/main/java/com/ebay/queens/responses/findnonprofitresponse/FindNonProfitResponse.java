@@ -1,5 +1,6 @@
 package com.ebay.queens.responses.findnonprofitresponse;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="findNonprofitResponse", namespace="http://www.ebay.com/marketplace/fundraising/v1/services")
@@ -19,6 +20,7 @@ public class FindNonProfitResponse {
 	public String getTimestamp() {
 		return timestamp;
 	}
+	@XmlElement(name="nonprofit")
 	public NonProfit[] getNonProfit() {
 		return nonProfit;
 	}

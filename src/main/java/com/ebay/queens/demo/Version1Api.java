@@ -51,7 +51,7 @@ public class Version1Api implements CommandLineRunner {
 		// TODO Auto-generated method stub
 		LOGGER.info("Testing");
 		//this.getItem("333460893922");
-		//this.findNonProfit("10484");
+		this.findNonProfit("10484");
 		//this.findCharityItems("10484");
 		//this.searchItem("drone");
 	}
@@ -202,7 +202,7 @@ public class Version1Api implements CommandLineRunner {
 			System.out.println(getItemResponse.getAck());
 			System.out.println(getItemResponse.getBuild());
 			System.out.println(getItemResponse.getTimestamp());
-			System.out.println(getItemResponse.getItem());
+			System.out.println(getItemResponse.getItem().getCharity().getCharityName());
 			System.out.println("---------------------------------");
 		} catch (JAXBException e) {
 			LOGGER.error("Failed to deserialize XML.", e);
@@ -238,11 +238,6 @@ public class Version1Api implements CommandLineRunner {
 			System.out.println(findNonProfitResponse.getAck());
 			System.out.println(findNonProfitResponse.getTimestamp());
 			System.out.println(findNonProfitResponse.getVersion());
-			nonProfit = findNonProfitResponse.getNonProfit();
-			System.out.println(nonProfit.length);
-			for(int i = 0; i <= nonProfit.length; i++ ) {
-				System.out.println(nonProfit[i].getName());
-			}
 			System.out.println("---------------------------------");
 		} catch (JAXBException e) {
 			LOGGER.error("Failed to deserialize XML.", e);

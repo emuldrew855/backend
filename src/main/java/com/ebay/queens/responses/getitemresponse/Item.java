@@ -1,5 +1,7 @@
 package com.ebay.queens.responses.getitemresponse;
 
+import javax.xml.bind.annotation.XmlElement;
+
 public class Item {
 	private String autoPay;
 	private String buyerProtection; 
@@ -8,37 +10,28 @@ public class Item {
 	private String country; 
 	private String description;
 	
-	public Item(String autoPay, String buyerProtection, String buyItNowPrice, Charity charity, String country,
-			String description) {
-		this.autoPay = autoPay;
-		this.buyerProtection = buyerProtection;
-		this.buyItNowPrice = buyItNowPrice;
-		this.charity = charity;
-		this.country = country;
-		this.description = description;
-	}
-	
 	// Getters
+	@XmlElement(name="AutoPay")
 	public String getAutoPay() {
 		return autoPay;
 	}
-
+	@XmlElement(name="BuyerProtection")
 	public String getBuyerProtection() {
 		return buyerProtection;
 	}
-
+	@XmlElement(name="BuyItNowPrice")
 	public String getBuyItNowPrice() {
 		return buyItNowPrice;
 	}
-
+	@XmlElement(name="Charity")
 	public Charity getCharity() {
 		return charity;
 	}
-
+	@XmlElement(name="Country")
 	public String getCountry() {
 		return country;
 	}
-
+	@XmlElement(name="Description")
 	public String getDescription() {
 		return description;
 	}

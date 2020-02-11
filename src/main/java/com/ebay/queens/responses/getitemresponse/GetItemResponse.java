@@ -1,5 +1,6 @@
 package com.ebay.queens.responses.getitemresponse;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="GetItemResponse", namespace="urn:ebay:apis:eBLBaseComponents")
@@ -11,18 +12,23 @@ public class GetItemResponse {
 	private Item item;
 	
 	// Getters
+	@XmlElement(name="Timestamp")
 	public String getTimestamp() {
 		return timestamp;
 	}
+	@XmlElement(name="Ack")
 	public String getAck() {
 		return ack;
 	}
+	@XmlElement(name="Version")
 	public String getVersion() {
 		return version;
 	}
+	@XmlElement(name="Build")
 	public String getBuild() {
 		return build;
 	}
+	@XmlElement(name="Item")
 	public Item getItem() {
 		return item;
 	}

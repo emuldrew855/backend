@@ -1,4 +1,6 @@
-package com.ebay.queens.responses.searchitemresponse;
+package com.ebay.queens.responses.getitemresponse;
+
+import javax.xml.bind.annotation.XmlElement;
 
 public class Charity {
 	private String charityName; 
@@ -8,36 +10,33 @@ public class Charity {
 	private String mission; 
 	private String logoURL;
 	private String status;
-	public Charity(String charityName, String charityNumber, String donationPercent, String charityID, String mission,
-			String logoURL, String status) {
-		this.charityName = charityName;
-		this.charityNumber = charityNumber;
-		this.donationPercent = donationPercent;
-		this.charityID = charityID;
-		this.mission = mission;
-		this.logoURL = logoURL;
-		this.status = status;
-	}
 	
 	// Getters
+	@XmlElement(name="CharityName")
 	public String getCharityName() {
 		return charityName;
 	}
+	@XmlElement(name="CharityNumber")
 	public String getCharityNumber() {
 		return charityNumber;
 	}
+	@XmlElement(name="DonationPercent")
 	public String getDonationPercent() {
 		return donationPercent;
 	}
+	@XmlElement(name="CharityID")
 	public String getCharityID() {
 		return charityID;
 	}
+	@XmlElement(name="Mission")
 	public String getMission() {
 		return mission;
 	}
+	@XmlElement(name="LogoURL")
 	public String getLogoURL() {
 		return logoURL;
 	}
+	@XmlElement(name="Status")
 	public String getStatus() {
 		return status;
 	}

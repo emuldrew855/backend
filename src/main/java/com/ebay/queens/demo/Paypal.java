@@ -21,6 +21,8 @@ import com.ebay.queens.requests.paypalcharitysearch.PaypalCharitySearchRequest;
 import com.ebay.queens.responses.PaypalTokenResponse;
 import com.ebay.queens.responses.charityitemresponse.CharityItemResponse;
 import com.ebay.queens.responses.paypalcharitysearchresponse.PaypalCharitySearchResponse;
+import com.ebay.queens.responses.paypalgetcharityresponse.PaypalGetCharityResponse;
+import com.ebay.queens.responses.searchitemresponse.SearchItemResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
@@ -50,14 +52,16 @@ public class Paypal implements CommandLineRunner {
 	@GET
 	@Path("/GetCharity")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String charitySearch(@QueryParam("missionArea") String missionArea) throws IOException {
+	public PaypalGetCharityResponse charitySearch(@QueryParam("missionArea") String missionArea) throws IOException {
 		logger.info("Get Charity");
 		PaypalCharitySearchResponse charitySearchResponse = this.advancedCharitySearch(missionArea);
 		String queryId = charitySearchResponse.getQuery_id();
 		String url = "https://api.paypal.com/v1/customer/charities?query_id=" + queryId;
 		String response = httpClass.genericSendGET(url, "Paypal");
-		logger.info(response);
-		return response;
+		//logger.info(response);
+		final ObjectMapper mapper = new ObjectMapper(); 
+		final PaypalGetCharityResponse paypalGetCharityResponse = mapper.readValue(response, PaypalGetCharityResponse.class);
+		return paypalGetCharityResponse;
 	}
 
 	@GET
