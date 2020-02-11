@@ -1,22 +1,16 @@
 package com.ebay.queens.responses.charityitemresponse;
 
-import java.awt.List;
+import java.util.List;
 
-public class Items<T> {
-	private List items;
-	
-	public Items() {
-		
-	}
+public class Items {
+	private List<CharityItem> items;
 
-	public List getItems() {
+	public List<CharityItem> getItems() {
 		return items;
 	}
 
-	public void setItems(List items) {
+	public void setItems(List<CharityItem> items) {
 		this.items = items;
 	}
-
-
 
 }

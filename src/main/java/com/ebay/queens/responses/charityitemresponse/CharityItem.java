@@ -8,16 +8,6 @@ public class CharityItem {
 	private Category[] categories;
 	private ListingInfo listingInfo;
 
-	public CharityItem(String itemID, String title, String listingSiteId, String brand, Category[] categories,
-			ListingInfo listingInfo) {
-		this.itemID = itemID;
-		this.title = title;
-		this.listingSiteId = listingSiteId;
-		this.brand = brand;
-		this.categories = categories;
-		this.listingInfo = listingInfo;
-	}
-
 	// Getters
 	public String getItemID() {
 		return itemID;

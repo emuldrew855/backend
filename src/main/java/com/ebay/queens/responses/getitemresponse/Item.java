@@ -4,38 +4,43 @@ import javax.xml.bind.annotation.XmlElement;
 
 public class Item {
 	private String autoPay;
-	private String buyerProtection; 
+	private String buyerProtection;
 	private String buyItNowPrice;
-	private Charity charity; 
-	private String country; 
+	private Charity charity;
+	private String country;
 	private String description;
-	
+
 	// Getters
-	@XmlElement(name="AutoPay")
+	@XmlElement(name = "AutoPay")
 	public String getAutoPay() {
 		return autoPay;
 	}
-	@XmlElement(name="BuyerProtection")
+
+	@XmlElement(name = "BuyerProtection")
 	public String getBuyerProtection() {
 		return buyerProtection;
 	}
-	@XmlElement(name="BuyItNowPrice")
+
+	@XmlElement(name = "BuyItNowPrice")
 	public String getBuyItNowPrice() {
 		return buyItNowPrice;
 	}
-	@XmlElement(name="Charity")
+
+	@XmlElement(name = "Charity")
 	public Charity getCharity() {
 		return charity;
 	}
-	@XmlElement(name="Country")
+
+	@XmlElement(name = "Country")
 	public String getCountry() {
 		return country;
 	}
-	@XmlElement(name="Description")
+
+	@XmlElement(name = "Description")
 	public String getDescription() {
 		return description;
 	}
-	
+
 	// Setters
 	public void setAutoPay(String autoPay) {
 		this.autoPay = autoPay;
@@ -59,6 +64,6 @@ public class Item {
 
 	public void setDescription(String description) {
 		this.description = description;
-	} 
+	}
 
 }

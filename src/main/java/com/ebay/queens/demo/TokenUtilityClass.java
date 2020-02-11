@@ -27,28 +27,27 @@ import ch.qos.logback.classic.Logger;
 public class TokenUtilityClass implements CommandLineRunner {
 
 	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(TokenUtilityClass.class);
-	
+
 	@Autowired
 	private Http httpClass;
 
 	public TokenUtilityClass() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Override
 	public void run(String... args) throws Exception {
 		logger.info("Token Utility Class");
 		PaypalTokenResponse test = this.authenticationToken();
 		int hoursToExpire = Integer.parseInt(test.getexpires_in());
 		logger.info("Expires in: " + test.getexpires_in());
-		//this.authenticationToken();
-		
+		// this.authenticationToken();
+
 	}
 
 	public static void main(String[] args) {
-	
+
 	}
-	
 
 	@GET
 	@Path("/authenticationtoken")

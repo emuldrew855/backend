@@ -30,17 +30,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 @Component
 @Path("/Paypal")
-public class Paypal implements CommandLineRunner {	
+public class Paypal implements CommandLineRunner {
 	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Paypal.class);
-	
+
 	@Autowired
 	private Http httpClass;
-	
+
 	@Override
 	public void run(String... args) throws Exception {
-		//this.advancedCharitySearch("animals");	
+		// this.advancedCharitySearch("animals");
 	}
-
 
 	/**
 	 * Gets list of charities based off charity cause
@@ -58,16 +57,17 @@ public class Paypal implements CommandLineRunner {
 		String queryId = charitySearchResponse.getQuery_id();
 		String url = "https://api.paypal.com/v1/customer/charities?query_id=" + queryId;
 		String response = httpClass.genericSendGET(url, "Paypal");
-		//logger.info(response);
-		final ObjectMapper mapper = new ObjectMapper(); 
-		final PaypalGetCharityResponse paypalGetCharityResponse = mapper.readValue(response, PaypalGetCharityResponse.class);
+		final ObjectMapper mapper = new ObjectMapper();
+		final PaypalGetCharityResponse paypalGetCharityResponse = mapper.readValue(response,
+				PaypalGetCharityResponse.class);
 		return paypalGetCharityResponse;
 	}
 
 	@GET
 	@Path("/SearchCharityType")
 	@Produces(MediaType.APPLICATION_JSON)
-	public PaypalCharitySearchResponse advancedCharitySearch(@QueryParam("missionArea") String missionArea) throws IOException {
+	public PaypalCharitySearchResponse advancedCharitySearch(@QueryParam("missionArea") String missionArea)
+			throws IOException {
 		logger.info("Advanced Charity Search");
 		String url = "https://api.paypal.com/v1/customer/charity-search-queries";
 		PaypalCharitySearchRequest paypalCharitySearchRequest = new PaypalCharitySearchRequest();
@@ -78,21 +78,23 @@ public class Paypal implements CommandLineRunner {
 		paypalCharitySearchRequest.setCharity(charity);
 		String response = httpClass.genericJSONSendPOST(url, charity, "Paypal");
 		final ObjectMapper mapper = new ObjectMapper();
-		final PaypalCharitySearchResponse charityItemResponse = mapper.readValue(response, PaypalCharitySearchResponse.class);
+		final PaypalCharitySearchResponse charityItemResponse = mapper.readValue(response,
+				PaypalCharitySearchResponse.class);
 		System.out.println("Deserialized JSON String --> Object");
-		System.out.println( charityItemResponse.getQuery_id());
+		System.out.println(charityItemResponse.getQuery_id());
 		System.out.println("---------------------------------");
 		return charityItemResponse;
 	}
 
-	@GET
-	@Path("/getcharityType")
-	@Produces(MediaType.APPLICATION_JSON)
-	public String getCharityType() throws IOException {
-		logger.info("Get Charity Type");
-		String url = "https://api.sandbox.paypal.com/v1/customer/charities";
-		String response = httpClass.genericSendGET(url, "Paypal");
-		return response;
-	}
+	/*
+	 * @GET
+	 * 
+	 * @Path("/getcharityType")
+	 * 
+	 * @Produces(MediaType.APPLICATION_JSON) public String getCharityType() throws
+	 * IOException { logger.info("Get Charity Type"); String url =
+	 * "https://api.paypal.com/v1/customer/charities"; String response =
+	 * httpClass.genericSendGET(url, "Paypal"); return response; }
+	 */
 
 }

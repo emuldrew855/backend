@@ -51,8 +51,8 @@ public class Version1Api implements CommandLineRunner {
 		// TODO Auto-generated method stub
 		LOGGER.info("Testing");
 		//this.getItem("333460893922");
-		this.findNonProfit("10484");
-		//this.findCharityItems("10484");
+		//this.findNonProfit("10484");
+		this.findCharityItems("10484");
 		//this.searchItem("drone");
 	}
 
@@ -75,13 +75,12 @@ public class Version1Api implements CommandLineRunner {
 	@GET
 	@Path("/advancedfindcharityItems")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String advancedFindCharityItems(@QueryParam("charityId") String charityId) throws IOException, JAXBException {
-		FindNonProfitResponse response = findNonProfit(charityId);
-		String nonProfitId = response.getNonProfit();
+	public CharityItemResponse advancedFindCharityItems(@QueryParam("charityId") String charityId) throws IOException, JAXBException {
+		FindNonProfitResponse findNonProfitResponse = findNonProfit(charityId);
+		String nonProfitId = ""; //findNonProfitResponse.getNonProfit();
 		LOGGER.info("Non Profit Id: " + nonProfitId);
-		String response2 = findCharityItems(nonProfitId);
-		LOGGER.info("Response: " + response2);
-		return response2;
+		CharityItemResponse charityItemResponse = findCharityItems(nonProfitId);
+		return charityItemResponse;
 	}
 
 	/**
@@ -198,12 +197,6 @@ public class Version1Api implements CommandLineRunner {
 			JAXBContext jaxbContext = JAXBContext.newInstance(GetItemResponse.class);
 			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 			getItemResponse = (GetItemResponse) unmarshaller.unmarshal(new StringReader(response));
-			System.out.println("Deserialized XML String --> Object");
-			System.out.println(getItemResponse.getAck());
-			System.out.println(getItemResponse.getBuild());
-			System.out.println(getItemResponse.getTimestamp());
-			System.out.println(getItemResponse.getItem().getCharity().getCharityName());
-			System.out.println("---------------------------------");
 		} catch (JAXBException e) {
 			LOGGER.error("Failed to deserialize XML.", e);
 		}
@@ -228,17 +221,11 @@ public class Version1Api implements CommandLineRunner {
 		FindNonProfitRequest findNonProfitRequest = new FindNonProfitRequest(searchFilter, paginationInput);
 		String response = httpClass.genericXMLSendPOST("http://svcs.ebay.com/services/fundraising/FundRaisingFindingService/v1", findNonProfitRequest, "nonProfit");
 		FindNonProfitResponse findNonProfitResponse = new FindNonProfitResponse();
-		NonProfit nonProfit[] = null;
 		LOGGER.info(response.toString());
 		try {
 			JAXBContext jaxbContext = JAXBContext.newInstance(FindNonProfitResponse.class);
 			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 			findNonProfitResponse = (FindNonProfitResponse) unmarshaller.unmarshal(new StringReader(response));
-			System.out.println("Deserialized XML String --> Object");
-			System.out.println(findNonProfitResponse.getAck());
-			System.out.println(findNonProfitResponse.getTimestamp());
-			System.out.println(findNonProfitResponse.getVersion());
-			System.out.println("---------------------------------");
 		} catch (JAXBException e) {
 			LOGGER.error("Failed to deserialize XML.", e);
 		}
