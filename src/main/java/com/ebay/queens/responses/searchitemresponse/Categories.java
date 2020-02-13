@@ -10,7 +10,5 @@ public class Categories {
 	public void setCategoryId(String categoryId) {
 		this.categoryId = categoryId;
 	}
-	
-	
 
 }

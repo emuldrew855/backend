@@ -13,8 +13,6 @@ public class Constraints {
 
 	public void setGlobalAspect(GlobalAspect[] globalAspect) {
 		this.globalAspect = globalAspect;
-	} 
-	
-	
+	}
 
 }

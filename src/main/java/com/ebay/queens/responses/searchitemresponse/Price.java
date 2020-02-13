@@ -3,7 +3,7 @@ package com.ebay.queens.responses.searchitemresponse;
 public class Price {
 	private String value;
 	private String currency;
-	
+
 	// Getters
 	public String getValue() {
 		return value;
@@ -12,7 +12,7 @@ public class Price {
 	public String getCurrency() {
 		return currency;
 	}
-	
+
 	// Setters
 	public void setValue(String value) {
 		this.value = value;
@@ -21,6 +21,5 @@ public class Price {
 	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
-	
-	
+
 }

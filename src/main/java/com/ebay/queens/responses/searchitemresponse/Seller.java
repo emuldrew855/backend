@@ -4,7 +4,7 @@ public class Seller {
 	private String username;
 	private String feedbackPercentage;
 	private String feedbackScore;
-	
+
 	// Getters
 	public String getUsername() {
 		return username;
@@ -17,7 +17,7 @@ public class Seller {
 	public String getFeedbackScore() {
 		return feedbackScore;
 	}
-	
+
 	// Setters
 	public void setUsername(String username) {
 		this.username = username;

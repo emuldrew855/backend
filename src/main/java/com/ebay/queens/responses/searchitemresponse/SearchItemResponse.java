@@ -1,10 +1,9 @@
 package com.ebay.queens.responses.searchitemresponse;
 
-
 public class SearchItemResponse {
 	private String href;
 	private String total;
-	private String next; 
+	private String next;
 	private String limit;
 	private String offset;
 	private ItemSummaries itemSummaries[];
@@ -17,11 +16,11 @@ public class SearchItemResponse {
 	public String getOffset() {
 		return offset;
 	}
-	
+
 	public String getLimit() {
 		return limit;
 	}
-	
+
 	public String getHref() {
 		return href;
 	}
@@ -33,16 +32,16 @@ public class SearchItemResponse {
 	public String getNext() {
 		return next;
 	}
-	
+
 	// Setters
 	public void setOffset(String offset) {
 		this.offset = offset;
 	}
-	
+
 	public void setLimit(String limit) {
 		this.limit = limit;
 	}
-	
+
 	public void setHref(String href) {
 		this.href = href;
 	}
@@ -59,6 +58,4 @@ public class SearchItemResponse {
 		this.itemSummaries = itemSummaries;
 	}
 
-	
-	
 }

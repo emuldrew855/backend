@@ -1,12 +1,12 @@
 package com.ebay.queens.responses.charityitemresponse;
 
 public class ListingInfo {
-	private String buyItNowAvailable; 
-	private String bestOfferEnabled; 
+	private String buyItNowAvailable;
+	private String bestOfferEnabled;
 	private String listedTime;
 	private String endTime;
 	private String listingType;
-	
+
 	public ListingInfo(String buyItNowAvailable, String bestOfferEnabled, String listedTime, String endTime,
 			String listingType) {
 		this.buyItNowAvailable = buyItNowAvailable;
@@ -15,7 +15,7 @@ public class ListingInfo {
 		this.endTime = endTime;
 		this.listingType = listingType;
 	}
-	
+
 	// Getters
 	public String getBuyItNowAvailable() {
 		return buyItNowAvailable;
@@ -36,7 +36,7 @@ public class ListingInfo {
 	public String getListingType() {
 		return listingType;
 	}
-	
+
 	// Setters
 	public void setBuyItNowAvailable(String buyItNowAvailable) {
 		this.buyItNowAvailable = buyItNowAvailable;
@@ -58,5 +58,4 @@ public class ListingInfo {
 		this.listingType = listingType;
 	}
 
-	
 }

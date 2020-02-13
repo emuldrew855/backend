@@ -3,14 +3,13 @@ package com.ebay.queens.responses.charityitemresponse;
 import java.util.List;
 
 public class Items {
-	private List<CharityItem> items;
+	private CharityItem item;
 
-	public List<CharityItem> getItems() {
-		return items;
+	public CharityItem getItem() {
+		return item;
 	}
 
-	public void setItems(List<CharityItem> items) {
-		this.items = items;
+	public void setItem(CharityItem item) {
+		this.item = item;
 	}
-
 }

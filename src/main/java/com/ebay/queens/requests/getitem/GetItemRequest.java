@@ -1,9 +1,8 @@
 package com.ebay.queens.requests.getitem;
 
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name="GetItemRequest")
+@XmlRootElement(name = "GetItemRequest")
 public class GetItemRequest {
 	private RequesterCredentials requesterCredentials;
 	private String itemID;

@@ -2,7 +2,7 @@ package com.ebay.queens.responses.paypalgetcharityresponse;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties({"links"})
+@JsonIgnoreProperties({ "links" })
 public class PaypalGetCharityResponse {
 	GetCharityResult results[];
 

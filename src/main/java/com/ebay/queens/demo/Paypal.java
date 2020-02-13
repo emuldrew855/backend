@@ -12,17 +12,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ebay.queens.requests.paypalcharitysearch.Charity;
 import com.ebay.queens.requests.paypalcharitysearch.PaypalCharity;
 import com.ebay.queens.requests.paypalcharitysearch.PaypalCharitySearchRequest;
-import com.ebay.queens.responses.PaypalTokenResponse;
-import com.ebay.queens.responses.charityitemresponse.CharityItemResponse;
 import com.ebay.queens.responses.paypalcharitysearchresponse.PaypalCharitySearchResponse;
 import com.ebay.queens.responses.paypalgetcharityresponse.PaypalGetCharityResponse;
-import com.ebay.queens.responses.searchitemresponse.SearchItemResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
@@ -35,10 +30,14 @@ public class Paypal implements CommandLineRunner {
 
 	@Autowired
 	private Http httpClass;
+	
+	@Autowired
+	TokenUtilityClass test = new TokenUtilityClass();
 
 	@Override
 	public void run(String... args) throws Exception {
-		// this.advancedCharitySearch("animals");
+		 this.advancedCharitySearch("animals");
+		// test.authenticationToken();
 	}
 
 	/**
@@ -57,6 +56,7 @@ public class Paypal implements CommandLineRunner {
 		String queryId = charitySearchResponse.getQuery_id();
 		String url = "https://api.paypal.com/v1/customer/charities?query_id=" + queryId;
 		String response = httpClass.genericSendGET(url, "Paypal");
+		System.out.println("Response" + response);
 		final ObjectMapper mapper = new ObjectMapper();
 		final PaypalGetCharityResponse paypalGetCharityResponse = mapper.readValue(response,
 				PaypalGetCharityResponse.class);

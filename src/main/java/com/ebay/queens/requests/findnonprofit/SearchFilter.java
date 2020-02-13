@@ -6,16 +6,15 @@ public class SearchFilter {
 	public SearchFilter(String externalID) {
 		this.externalID = externalID;
 	}
-	
+
 	// Getters
 	public String getExternalID() {
 		return externalID;
 	}
+
 	// Setters
 	public void setExternalID(String externalID) {
 		this.externalID = externalID;
 	}
-	
-	
 
 }

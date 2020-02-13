@@ -1,6 +1,9 @@
 package com.ebay.queens.demo;
 
 import java.io.IOException;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -10,14 +13,11 @@ import javax.ws.rs.core.MediaType;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ebay.queens.responses.PaypalTokenResponse;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * Represents an object to hold all the authorization tokens needed to access
@@ -28,12 +28,12 @@ public class TokenUtilityClass implements CommandLineRunner {
 
 	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(TokenUtilityClass.class);
 
-	@Autowired
-	private Http httpClass;
-
 	public TokenUtilityClass() {
 		// TODO Auto-generated constructor stub
 	}
+	@Autowired
+	private Http httpClass;
+
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -47,6 +47,19 @@ public class TokenUtilityClass implements CommandLineRunner {
 
 	public static void main(String[] args) {
 
+	}
+	
+	public void givenUsingTimer_whenSchedulingDailyTask_thenCorrect() {
+	    TimerTask repeatedTask = new TimerTask() {
+	        public void run() {
+	            System.out.println("Task performed on " + new Date());
+	        }
+	    };
+	    Timer timer = new Timer("Timer");
+	     
+	    long delay = 1000L;
+	    long period = 1000L * 60L * 60L * 24L;
+	    timer.scheduleAtFixedRate(repeatedTask, delay, period);
 	}
 
 	@GET

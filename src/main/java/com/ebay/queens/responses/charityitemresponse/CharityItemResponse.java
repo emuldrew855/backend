@@ -3,20 +3,18 @@ package com.ebay.queens.responses.charityitemresponse;
 import java.util.List;
 
 public class CharityItemResponse {
-	private List<Items> items;
-	
+	private List<CharityItem> items;
+
 	public CharityItemResponse() {
-		
+
 	}
 
-	public List<Items> getItems() {
+	public List<CharityItem> getItems() {
 		return items;
 	}
 
-	public void setItems(List<Items> items) {
+	public void setItems(List<CharityItem> items) {
 		this.items = items;
 	}
-
-
 
 }

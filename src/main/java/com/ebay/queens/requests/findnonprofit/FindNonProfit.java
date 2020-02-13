@@ -19,10 +19,7 @@ import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.ebay.queens.demo.Version1Api;
-import com.ebay.queens.requests.getitem.GetItemRequest;
 import com.ebay.queens.responses.findnonprofitresponse.FindNonProfitResponse;
-import com.ebay.queens.responses.getitemresponse.GetItemResponse;
 
 public class FindNonProfit {
 	private static final Logger LOGGER = LoggerFactory.getLogger(FindNonProfit.class);
