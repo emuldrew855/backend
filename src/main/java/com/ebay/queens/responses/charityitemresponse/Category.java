@@ -5,13 +5,7 @@ public class Category {
 	private String name;
 	private String leafCategory;
 	private String categoryGroup;
-
-	public Category(String id, String name, String leafCategory, String categoryGroup) {
-		this.id = id;
-		this.name = name;
-		this.leafCategory = leafCategory;
-		this.categoryGroup = categoryGroup;
-	}
+	private String localizedName;
 
 	// Getters
 	public String getId() {
@@ -29,6 +23,10 @@ public class Category {
 	public String getCategoryGroup() {
 		return categoryGroup;
 	}
+	
+	public String getLocalizedName() {
+		return localizedName;
+	}
 
 	// Setters
 	public void setId(String id) {
@@ -45,6 +43,10 @@ public class Category {
 
 	public void setCategoryGroup(String categoryGroup) {
 		this.categoryGroup = categoryGroup;
+	}
+
+	public void setLocalizedName(String localizedName) {
+		this.localizedName = localizedName;
 	}
 
 }

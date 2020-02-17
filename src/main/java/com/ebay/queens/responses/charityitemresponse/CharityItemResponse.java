@@ -2,19 +2,23 @@ package com.ebay.queens.responses.charityitemresponse;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties({"answers","layout"})
 public class CharityItemResponse {
-	private List<CharityItem> items;
+	private ItemsHolder items;
 
 	public CharityItemResponse() {
 
 	}
 
-	public List<CharityItem> getItems() {
+	public ItemsHolder getItems() {
 		return items;
 	}
 
-	public void setItems(List<CharityItem> items) {
+	public void setItems(ItemsHolder items) {
 		this.items = items;
 	}
+
 
 }

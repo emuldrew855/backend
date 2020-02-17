@@ -1,20 +1,14 @@
 package com.ebay.queens.responses.charityitemresponse;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties({"buyItNowPrice","buyItNowConvertedPrice"}) 
 public class ListingInfo {
 	private String buyItNowAvailable;
 	private String bestOfferEnabled;
 	private String listedTime;
 	private String endTime;
 	private String listingType;
-
-	public ListingInfo(String buyItNowAvailable, String bestOfferEnabled, String listedTime, String endTime,
-			String listingType) {
-		this.buyItNowAvailable = buyItNowAvailable;
-		this.bestOfferEnabled = bestOfferEnabled;
-		this.listedTime = listedTime;
-		this.endTime = endTime;
-		this.listingType = listingType;
-	}
 
 	// Getters
 	public String getBuyItNowAvailable() {

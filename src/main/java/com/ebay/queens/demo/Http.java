@@ -77,10 +77,6 @@ public class Http<T> implements CommandLineRunner {
 		System.out.println("Result: " + result);
 		final ObjectMapper mapper = new ObjectMapper();
 		final PaypalTokenResponse paypalTokenResponse = mapper.readValue(result, PaypalTokenResponse.class);
-		System.out.println("Deserialized JSON String --> Object");
-		System.out.println(paypalTokenResponse.getScope());
-		System.out.println(paypalTokenResponse.getacccess_token());
-		System.out.println(paypalTokenResponse.getexpires_in());
 		client.close();
 		utilityClass.setPaypalAuthorizationToken(paypalTokenResponse.getacccess_token());
 		return paypalTokenResponse;

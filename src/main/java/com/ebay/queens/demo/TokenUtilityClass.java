@@ -38,27 +38,33 @@ public class TokenUtilityClass implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		logger.info("Token Utility Class");
-		PaypalTokenResponse test = this.authenticationToken();
-		int hoursToExpire = Integer.parseInt(test.getexpires_in());
-		logger.info("Expires in: " + test.getexpires_in());
+		//PaypalTokenResponse test = this.authenticationToken();
+		//int hoursToExpire = Integer.parseInt(test.getexpires_in());
+		//logger.info("Expires in: " + test.getexpires_in());
 		// this.authenticationToken();
-
+		tokenTimer();
 	}
 
 	public static void main(String[] args) {
 
 	}
 	
-	public void givenUsingTimer_whenSchedulingDailyTask_thenCorrect() {
+	public void tokenTimer() {
 	    TimerTask repeatedTask = new TimerTask() {
 	        public void run() {
-	            System.out.println("Task performed on " + new Date());
+	            System.out.println("Token Generated at: " + new Date());
+	            try {
+					authenticationToken();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 	        }
 	    };
 	    Timer timer = new Timer("Timer");
 	     
-	    long delay = 1000L;
-	    long period = 1000L * 60L * 60L * 24L;
+	    long delay = 1L;
+	    long period = 2000000L;
 	    timer.scheduleAtFixedRate(repeatedTask, delay, period);
 	}
 

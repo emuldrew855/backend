@@ -44,11 +44,11 @@ public class Version1Api implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		LOGGER.info("Version 1 API");
 		// TODO Auto-generated method stub
-		LOGGER.info("Testing");
 		//this.getItem("333460893922");
 		// this.findNonProfit("10484");
-		//this.findCharityItems("10484");
+		this.findCharityItems("10484");
 		// this.searchItem("drone");
 	}
 
@@ -96,10 +96,6 @@ public class Version1Api implements CommandLineRunner {
 		String response = httpClass.genericSendGET(url, "searchItem");
 		final ObjectMapper mapper = new ObjectMapper();
 		final SearchItemResponse searchItemResponse = mapper.readValue(response, SearchItemResponse.class);
-		System.out.println("Deserialized JSON String --> Object");
-		System.out.println(searchItemResponse.getHref());
-		System.out.println(searchItemResponse.getHref());
-		System.out.println(searchItemResponse.getTotal());
 		return searchItemResponse;
 	}
 
@@ -132,7 +128,6 @@ public class Version1Api implements CommandLineRunner {
 				+ "                            \"value\": \"exclusive\"\r\n" + "                        }\r\n"
 				+ "                    ]\r\n" + "                }\r\n" + "            ]\r\n" + "        }\r\n"
 				+ "    }\r\n" + "}";
-		LOGGER.info(requestBody);
 		String url = "https://api.ebay.com/buying/search/v2";
 		String response = httpClass.genericJSONSendPOST(url, requestBody, "charityItem");
 		return response;
@@ -166,9 +161,6 @@ public class Version1Api implements CommandLineRunner {
 		LOGGER.info(response);
 		final ObjectMapper mapper = new ObjectMapper();
 		final CharityItemResponse charityItemResponse = mapper.readValue(response, CharityItemResponse.class);
-		System.out.println("Deserialized JSON String --> Object");
-		System.out.println(charityItemResponse.getItems());
-		System.out.println("---------------------------------");
 		return charityItemResponse;
 	}
 
@@ -221,7 +213,6 @@ public class Version1Api implements CommandLineRunner {
 				"http://svcs.ebay.com/services/fundraising/FundRaisingFindingService/v1", findNonProfitRequest,
 				"nonProfit");
 		FindNonProfitResponse findNonProfitResponse = new FindNonProfitResponse();
-		LOGGER.info(response.toString());
 		try {
 			JAXBContext jaxbContext = JAXBContext.newInstance(FindNonProfitResponse.class);
 			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
