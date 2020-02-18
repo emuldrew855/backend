@@ -81,6 +81,18 @@ public class Http<T> implements CommandLineRunner {
 		utilityClass.setPaypalAuthorizationToken(paypalTokenResponse.getacccess_token());
 		return paypalTokenResponse;
 	}
+	
+	public String sendPOST(String url, String request, String typeOfCall) throws IOException {
+		CloseableHttpClient client = HttpClients.createDefault();
+		HttpPost httpPost = new HttpPost(url);
+		httpPost.setEntity(new StringEntity(request));
+		httpPost = selectHeader(httpPost, typeOfCall);
+		CloseableHttpResponse response = client.execute(httpPost);
+		String result = EntityUtils.toString(response.getEntity());
+		client.close();
+
+		return result.toString();
+	}
 
 	/**
 	 * Represents a method make a generic http post request to reach the api's
@@ -133,14 +145,12 @@ public class Http<T> implements CommandLineRunner {
 	public <T> String genericJSONSendPOST(String url, T request, String typeOfCall) throws IOException {
 		// Object to JSON
 		final ObjectMapper mapper = new ObjectMapper();
-		System.out.println("Serialized Object --> JSON String");
-		String getItemRequestJSONString = mapper.writeValueAsString(request);
-		System.out.println(getItemRequestJSONString);
-		System.out.println("---------------------------------");
+		String requestJSONString = mapper.writeValueAsString(request);
+		LOGGER.info(requestJSONString);
 
 		CloseableHttpClient client = HttpClients.createDefault();
 		HttpPost httpPost = new HttpPost(url);
-		httpPost.setEntity(new StringEntity(getItemRequestJSONString));
+		httpPost.setEntity(new StringEntity(requestJSONString));
 		httpPost = selectHeader(httpPost, typeOfCall);
 		CloseableHttpResponse response = client.execute(httpPost);
 		String result = EntityUtils.toString(response.getEntity());

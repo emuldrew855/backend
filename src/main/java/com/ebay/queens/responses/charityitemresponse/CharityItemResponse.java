@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties({"answers","layout"})
+@JsonIgnoreProperties({"answers","layout","errorMessage"})
 public class CharityItemResponse {
 	private ItemsHolder items;
 

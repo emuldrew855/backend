@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlElement;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties({"sellingStatus", "unitPrice", "itemImageInfo","paymentMethod","autoPay","shippingInfo","itemFeature","gtcItem","cbtItem",
+@JsonIgnoreProperties({"sellingStatus", "unitPrice","paymentMethod","autoPay","shippingInfo","itemFeature","gtcItem","cbtItem",
 	"errorMessage", "adult","returnPolicyInfo","itemLocation","topRatedListing","viewItemURL","watchCount","productInfo","discountPriceInfo",
 	"superGalleryImageInfo", "subtitle"})
 public class CharityItem {
@@ -14,6 +14,7 @@ public class CharityItem {
 	private String brand;
 	private Category[] category;
 	private ListingInfo listingInfo;
+	private ItemImageInfo[] itemImageInfo;
 	
 	// Getters
 	public String getItemId() {
@@ -35,6 +36,10 @@ public class CharityItem {
 		return listingInfo;
 	}
 	
+	public ItemImageInfo[] getItemImageInfo() {
+		return itemImageInfo;
+	}
+	
 	// Setters
 	public void setItemId(String itemId) {
 		this.itemId = itemId;
@@ -53,6 +58,9 @@ public class CharityItem {
 	}
 	public void setListingInfo(ListingInfo listingInfo) {
 		this.listingInfo = listingInfo;
+	}
+	public void setItemImageInfo(ItemImageInfo[] itemImageInfo) {
+		this.itemImageInfo = itemImageInfo;
 	}
 
 	

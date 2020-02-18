@@ -47,9 +47,10 @@ public class Version1Api implements CommandLineRunner {
 		LOGGER.info("Version 1 API");
 		// TODO Auto-generated method stub
 		//this.getItem("333460893922");
-		// this.findNonProfit("10484");
+		// this.findSingleNonProfit("10484");
 		//this.findCharityItems("10484");
 		// this.searchItem("drone");
+		//this.advancedFindCharityItems("64163");  
 	}
 
 	@Autowired
@@ -69,14 +70,16 @@ public class Version1Api implements CommandLineRunner {
 	 * @throws JAXBException
 	 */
 	@GET
-	@Path("/advancedfindcharityItems")
+	@Path("/AdvancedFindCharityItems")
 	@Produces(MediaType.APPLICATION_JSON)
 	public CharityItemResponse advancedFindCharityItems(@QueryParam("charityId") String charityId)
 			throws IOException, JAXBException {
 		FindNonProfitResponse findNonProfitResponse = findNonProfit(charityId);
-		String nonProfitId = ""; // findNonProfitResponse.getNonProfit();
+		String nonProfitId = findNonProfitResponse.getNonProfit().getExternalId();
 		LOGGER.info("Non Profit Id: " + nonProfitId);
 		CharityItemResponse charityItemResponse = findCharityItems(nonProfitId);
+		System.out.println("Advanced find charity item: " + charityItemResponse.toString());
+		LOGGER.info(charityItemResponse.toString());
 		return charityItemResponse;
 	}
 
@@ -108,29 +111,37 @@ public class Version1Api implements CommandLineRunner {
 	 *            for that specific charity
 	 */
 	@GET
-	@Path("/advancedcharityItems")
+	@Path("/FindSingleNonProfit")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String advancedCharitySearch(@QueryParam("charityItemId") String charityItemId,
-			@QueryParam("listingType") String listingType) throws IOException {
-		LOGGER.info("Advanced Charity Search");
-		LOGGER.info("Charity Item Id: " + charityItemId + " Listing Type: " + listingType);
-		String requestBody = "{\r\n" + "    \"searchRequest\": {\r\n" + "        \"sortOrder\": \"BestMatch\",\r\n"
-				+ "        \"paginationInput\": {\r\n" + "            \"pageNumber\": 1,\r\n"
-				+ "            \"entriesPerPage\": 5\r\n" + "        },\r\n" + "        \"keyword\": \"phone\",\r\n"
-				+ "        \"constraints\": {\r\n" + "            \"globalAspect\": [\r\n" + "                {\r\n"
-				+ "                    \"constraintType\": \"CharityIds\",\r\n" + "                    \"value\": ["
-				+ charityItemId + "]\r\n" + "                },\r\n" + "                {\r\n"
-				+ "                    \"constraintType\": \"CharityOnly\",\r\n"
-				+ "                    \"value\": [\"true\"]\r\n" + "                },\r\n" + "                {\r\n"
-				+ "                    \"constraintType\": \"ListingType\",\r\n" + "                    \"value\": [\""
-				+ listingType + "\"],\r\n" + "                    \"paramNameValue\": [\r\n"
-				+ "                        {\r\n" + "                            \"name\": \"operator\",\r\n"
-				+ "                            \"value\": \"exclusive\"\r\n" + "                        }\r\n"
-				+ "                    ]\r\n" + "                }\r\n" + "            ]\r\n" + "        }\r\n"
-				+ "    }\r\n" + "}";
-		String url = "https://api.ebay.com/buying/search/v2";
-		String response = httpClass.genericJSONSendPOST(url, requestBody, "charityItem");
-		return response;
+	public FindNonProfitResponse findSingleNonProfit(@QueryParam("charityItemId") String charityItemId) throws IOException {
+		LOGGER.info("FindSingleNonProfit: " + charityItemId);
+		String requestBody = "<findNonprofitRequest xmlns=\"http://www.ebay.com/marketplace/fundraising/v1/services\">\r\n" + 
+				"    <searchFilter>\r\n" + 
+				"        <externalId>"+charityItemId+"</externalId>\r\n" + 
+				"    </searchFilter>\r\n" + 
+				"    <outputSelector>Mission</outputSelector>\r\n" + 
+				"    <outputSelector>Address</outputSelector>\r\n" + 
+				"    <outputSelector>LargeLogoURL</outputSelector>\r\n" + 
+				"    <outputSelector>PopularityIndex</outputSelector>\r\n" + 
+				"    <outputSelector>EIN</outputSelector>\r\n" + 
+				"    <outputSelector>Description</outputSelector>\r\n" + 
+				"    <paginationInput>\r\n" + 
+				"        <pageNumber>1</pageNumber>\r\n" + 
+				"        <pageSize>25</pageSize>\r\n" + 
+				"    </paginationInput>\r\n" + 
+				"</findNonprofitRequest>";
+		String url = "http://svcs.ebay.com/services/fundraising/FundRaisingFindingService/v1";
+		String response = httpClass.sendPOST(url, requestBody, "nonProfit");
+		FindNonProfitResponse findNonProfitResponse = new FindNonProfitResponse();
+		
+		try {
+			JAXBContext jaxbContext = JAXBContext.newInstance(FindNonProfitResponse.class);
+			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+			findNonProfitResponse = (FindNonProfitResponse) unmarshaller.unmarshal(new StringReader(response));
+		} catch (JAXBException e) {
+			LOGGER.error("Failed to deserialize XML.", e);
+		}
+		return findNonProfitResponse;
 	}
 
 	/**
