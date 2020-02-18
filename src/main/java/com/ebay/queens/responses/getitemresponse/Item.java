@@ -1,15 +1,22 @@
 package com.ebay.queens.responses.getitemresponse;
 
 import javax.xml.bind.annotation.XmlElement;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties("Description")
 public class Item {
 	private String autoPay;
 	private String buyerProtection;
 	private String buyItNowPrice;
 	private Charity charity;
 	private String country;
-	private String description;
-
+	private String startPrice; 
+	private String conditionDescription;
+	private String title;
+	private PrimaryCategory primarycategory;
+	private String startprice;
+	private PictureDetails pictureDetails;
+	
 	// Getters
 	@XmlElement(name = "AutoPay")
 	public String getAutoPay() {
@@ -35,10 +42,32 @@ public class Item {
 	public String getCountry() {
 		return country;
 	}
-
-	@XmlElement(name = "Description")
-	public String getDescription() {
-		return description;
+	
+	@XmlElement(name = "StartPrice")
+	public String getStartPrice() {
+		return startPrice;
+	}
+	
+	@XmlElement(name = "ConditionDescription")
+	public String getConditionDescription() {
+		return conditionDescription;
+	}
+	@XmlElement(name = "Title")
+	public String getTitle() {
+		return title;
+	}
+	
+	@XmlElement(name = "PrimaryCategory")
+	public PrimaryCategory getPrimarycategory() {
+		return primarycategory;
+	}
+	@XmlElement(name = "StartPrice")
+	public String getStartprice() {
+		return startprice;
+	}
+	@XmlElement(name = "PictureDetails")
+	public PictureDetails getPictureDetails() {
+		return pictureDetails;
 	}
 
 	// Setters
@@ -61,9 +90,30 @@ public class Item {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-
-	public void setDescription(String description) {
-		this.description = description;
+	
+	public void setStartPrice(String startPrice) {
+		this.startPrice = startPrice;
 	}
+
+	public void setConditionDescription(String conditionDescription) {
+		this.conditionDescription = conditionDescription;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void setPrimarycategory(PrimaryCategory primarycategory) {
+		this.primarycategory = primarycategory;
+	}
+
+	public void setStartprice(String startprice) {
+		this.startprice = startprice;
+	}
+
+	public void setPictureDetails(PictureDetails pictureDetails) {
+		this.pictureDetails = pictureDetails;
+	}
+
 
 }

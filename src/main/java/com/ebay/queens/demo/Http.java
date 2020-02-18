@@ -94,7 +94,7 @@ public class Http<T> implements CommandLineRunner {
 	 */
 	public <T> String genericXMLSendPOST(String url, T request, String typeOfCall) throws IOException {
 		// Object to XML
-		String getItemRequestXmlString = "";
+		String requestXMLString = "";
 		try {
 			JAXBContext jaxbContext = JAXBContext.newInstance(request.getClass());
 			Marshaller marshaller = jaxbContext.createMarshaller();
@@ -103,7 +103,7 @@ public class Http<T> implements CommandLineRunner {
 			marshaller.marshal(request, System.out);
 			StringWriter sw = new StringWriter();
 			marshaller.marshal(request, sw);
-			getItemRequestXmlString = sw.toString();
+			requestXMLString = sw.toString();
 			System.out.println("---------------------------------");
 		} catch (JAXBException e) {
 			LOGGER.error("Failed to serialize XML.", e);
@@ -111,7 +111,7 @@ public class Http<T> implements CommandLineRunner {
 
 		CloseableHttpClient client = HttpClients.createDefault();
 		HttpPost httpPost = new HttpPost(url);
-		httpPost.setEntity(new StringEntity(getItemRequestXmlString));
+		httpPost.setEntity(new StringEntity(requestXMLString));
 		httpPost = selectHeader(httpPost, typeOfCall);
 		CloseableHttpResponse response = client.execute(httpPost);
 		String result = EntityUtils.toString(response.getEntity());
@@ -226,7 +226,7 @@ public class Http<T> implements CommandLineRunner {
 			break;
 		case "getItem":
 			httpPost.addHeader("Content-Type", "application/xml");
-			httpPost.addHeader("X-EBAY-API-SITEID", "3");
+			httpPost.addHeader("X-EBAY-API-SITEID", "0");
 			httpPost.addHeader("X-EBAY-API-CALL-NAME", "GetItem");
 			httpPost.addHeader("X-EBAY-API-COMPATIBILITY-LEVEL", "1107");
 			httpPost.addHeader("X-EBAY-API-APP-NAME", utilityClass.securityAppName);

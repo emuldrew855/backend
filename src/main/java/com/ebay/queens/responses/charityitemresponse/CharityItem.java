@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties({"sellingStatus", "unitPrice", "itemImageInfo","paymentMethod","autoPay","shippingInfo","itemFeature","gtcItem","cbtItem",
 	"errorMessage", "adult","returnPolicyInfo","itemLocation","topRatedListing","viewItemURL","watchCount","productInfo","discountPriceInfo",
-	"superGalleryImageInfo"})
+	"superGalleryImageInfo", "subtitle"})
 public class CharityItem {
 	private String itemId;
 	private String title;

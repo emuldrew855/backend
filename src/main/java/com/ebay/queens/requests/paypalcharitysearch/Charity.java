@@ -1,9 +1,11 @@
 package com.ebay.queens.requests.paypalcharitysearch;
 
+import javax.xml.bind.annotation.XmlElement;
+
 public class Charity {
 	PaypalCharity charity;
-
-	public PaypalCharity getPaypalCharity() {
+	@XmlElement(name="Charity")
+	public PaypalCharity getCharity() {
 		return charity;
 	}
 

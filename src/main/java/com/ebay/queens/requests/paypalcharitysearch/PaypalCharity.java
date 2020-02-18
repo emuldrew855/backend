@@ -1,14 +1,16 @@
 package com.ebay.queens.requests.paypalcharitysearch;
 
-public class PaypalCharity {
-	String missionArea;
+import javax.xml.bind.annotation.XmlElement;
 
-	public String getMissionArea() {
-		return missionArea;
+public class PaypalCharity {
+	String mission_area;
+	@XmlElement(name ="mission_area")
+	public String getmission_area() {
+		return mission_area;
 	}
 
-	public void setMissionArea(String missionArea) {
-		this.missionArea = missionArea;
+	public void setMissionArea(String mission_area) {
+		this.mission_area = mission_area;
 	}
 
 }
