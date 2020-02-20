@@ -74,14 +74,14 @@ public class Http<T> implements CommandLineRunner {
 		httpPost = selectHeader(httpPost, typeOfCall);
 		CloseableHttpResponse response = client.execute(httpPost);
 		String result = EntityUtils.toString(response.getEntity());
-		System.out.println("Result: " + result);
+
 		final ObjectMapper mapper = new ObjectMapper();
 		final PaypalTokenResponse paypalTokenResponse = mapper.readValue(result, PaypalTokenResponse.class);
 		client.close();
 		utilityClass.setPaypalAuthorizationToken(paypalTokenResponse.getacccess_token());
 		return paypalTokenResponse;
 	}
-	
+
 	public String sendPOST(String url, String request, String typeOfCall) throws IOException {
 		CloseableHttpClient client = HttpClients.createDefault();
 		HttpPost httpPost = new HttpPost(url);

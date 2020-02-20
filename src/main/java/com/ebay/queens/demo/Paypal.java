@@ -41,11 +41,13 @@ public class Paypal implements CommandLineRunner {
 	}
 
 	/**
-	 * Gets list of charities based off charity cause
+	 * API which fetches a list of charities based off their charity cause area 
 	 * 
-	 * @param missionArea
-	 *            is passed in to filter the charities returned
-	 * @return string of list of charities
+	 * @param missionArea - String containing the name of the mission area the user wishes to search for 
+	 * 
+	 * @returns a PaypalGetCharityResponse object which contains JSON of a list of charities related to the mission area input
+	 * 
+	 * @throws IOException
 	 */
 	@GET
 	@Path("/GetCharity")
@@ -56,19 +58,28 @@ public class Paypal implements CommandLineRunner {
 		String queryId = charitySearchResponse.getQuery_id();
 		String url = "https://api.paypal.com/v1/customer/charities?query_id=" + queryId;
 		String response = httpClass.genericSendGET(url, "Paypal");
-		System.out.println("Response" + response);
+		logger.info("Response: " + response);
 		final ObjectMapper mapper = new ObjectMapper();
 		final PaypalGetCharityResponse paypalGetCharityResponse = mapper.readValue(response,
 				PaypalGetCharityResponse.class);
 		return paypalGetCharityResponse;
 	}
-
+	
+	/**
+	 * API which fetches a query id to facilitate the next api call of finding a list of charities
+	 * 
+	 * @param missionArea - String containing the name of the mission area the user wishes to search for 
+	 * 
+	 * @return a PaypalCharitySearchResponse - object of JSON containing a query id 
+	 * 
+	 * @throws IOException
+	 */
 	@GET
 	@Path("/SearchCharityType")
 	@Produces(MediaType.APPLICATION_JSON)
 	public PaypalCharitySearchResponse advancedCharitySearch(@QueryParam("missionArea") String missionArea)
 			throws IOException {
-		logger.info("Advanced Charity Search");
+		logger.info("Searching for api queryid");
 		String url = "https://api.paypal.com/v1/customer/charity-search-queries";
 		PaypalCharitySearchRequest paypalCharitySearchRequest = new PaypalCharitySearchRequest();
 		PaypalCharity paypalCharity = new PaypalCharity();
@@ -80,9 +91,6 @@ public class Paypal implements CommandLineRunner {
 		final ObjectMapper mapper = new ObjectMapper();
 		final PaypalCharitySearchResponse charityItemResponse = mapper.readValue(response,
 				PaypalCharitySearchResponse.class);
-		System.out.println("Deserialized JSON String --> Object");
-		System.out.println(charityItemResponse.getQuery_id());
-		System.out.println("---------------------------------");
 		return charityItemResponse;
 	}
 

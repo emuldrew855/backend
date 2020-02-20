@@ -9,6 +9,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.xml.bind.JAXBException;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,14 +68,21 @@ public class TokenUtilityClass implements CommandLineRunner {
 	    long period = 2000000L;
 	    timer.scheduleAtFixedRate(repeatedTask, delay, period);
 	}
-
+	
+	
+	/**
+	 * Represents an api to retrieve the paypal authentication token which allows access to Paypals' API
+	 *            
+	 * @returns - PaypalToken response which is a JSON response which contains an authorization token 
+	 * 
+	 * @throws IOException
+	 */
 	@GET
-	@Path("/authenticationtoken")
+	@Path("/AuthenticationToken")
 	@Produces(MediaType.APPLICATION_JSON)
 	@RequestMapping(value = "/patientdetails", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED)
 	public PaypalTokenResponse authenticationToken() throws IOException {
 		logger.info("Authentication Token");
-		System.out.println(httpClass);
 		String requestBody = "";
 		String url = "https://api.paypal.com/v1/oauth2/token";
 		PaypalTokenResponse response = new PaypalTokenResponse();
