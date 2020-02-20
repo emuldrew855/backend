@@ -39,18 +39,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Component
 @Path("/v1")
 public class Version1Api implements CommandLineRunner {
-
+	final ObjectMapper mapper = new ObjectMapper();
 	private static final Logger LOGGER = LoggerFactory.getLogger(Version1Api.class);
 
 	@Override
 	public void run(String... args) throws Exception {
 		LOGGER.info("Version 1 API");
 		// TODO Auto-generated method stub
-		//this.getItem("333460893922");
+		// this.getItem("333460893922");
 		// this.findSingleNonProfit("10484");
-		//this.findCharityItems("10484");
-		 this.searchItem("drone");
-		//this.advancedFindCharityItems("64163");  
+		// this.findCharityItems("10484");
+		// this.searchItem("snake");
+		// this.advancedFindCharityItems("64163");
+		// this.getAllItemResponses();
 	}
 
 	@Autowired
@@ -65,10 +66,11 @@ public class Version1Api implements CommandLineRunner {
 	 * back all the charity items sold by that nonprofit
 	 * 
 	 * @param charityId
-	 *            - charityId is a String input of numbers using the nonprofitid used to get information on the charity to obtain
-	 *            the external id to return a list of products
-	 * @return CharityItemResponse object which is a JSON object containing a list of items which 
-	 *			the charity sells
+	 *            - charityId is a String input of numbers using the nonprofitid
+	 *            used to get information on the charity to obtain the external id
+	 *            to return a list of products
+	 * @return CharityItemResponse object which is a JSON object containing a list
+	 *         of items which the charity sells
 	 * @throws JAXBException
 	 */
 	@GET
@@ -88,11 +90,15 @@ public class Version1Api implements CommandLineRunner {
 	/**
 	 * Represents an api to return a list of products matching the search term
 	 * 
-	 * @param searchTerm - uses a string input search term to return a list of products matching the search term
+	 * @param searchTerm
+	 *            - uses a string input search term to return a list of products
+	 *            matching the search term
 	 * 
-	 * @return - SearchItemResponse objects which contains a list of items relating to the input search terms
+	 * @return - SearchItemResponse objects which contains a list of items relating
+	 *         to the input search terms
 	 * 
-	 * @throws - IOException
+	 * @throws -
+	 *             IOException
 	 */
 	@GET
 	@Path("/SearchItem")
@@ -102,45 +108,53 @@ public class Version1Api implements CommandLineRunner {
 		String url = "https://api.ebay.com/buy/browse/v1/item_summary/search?q=" + searchTerm;
 		String response = httpClass.genericSendGET(url, "searchItem");
 		LOGGER.info(response.toString());
-		final ObjectMapper mapper = new ObjectMapper();
 		final SearchItemResponse searchItemResponse = mapper.readValue(response, SearchItemResponse.class);
 		return searchItemResponse;
+	}
+
+	public void getAllItemResponses() throws IOException {
+		SearchItemResponse itemResponse = this.searchItem("drone");
+		String url = itemResponse.getNext();
+		for (int i = 0; i < 100; i++) {
+			String response = httpClass.genericSendGET(url, "searchItem");
+			SearchItemResponse searchItemResponse = mapper.readValue(response, SearchItemResponse.class);
+			url = searchItemResponse.getNext();
+			LOGGER.info(url);
+		}
 	}
 
 	/**
 	 * Represents an api to return infomation about a given charity/nonprofit
 	 * 
 	 * @param charityItemId
-	 *            - uses a String of numbers which is the nonprofit id to return details about the given charity/nonprofit
-	 *            
-	 *  @return - returns a FindNonProfitResponse object containing an XML response of charity details
-	 *  
-	 *  @throws IOException
+	 *            - uses a String of numbers which is the nonprofit id to return
+	 *            details about the given charity/nonprofit
+	 * 
+	 * @return - returns a FindNonProfitResponse object containing an XML response
+	 *         of charity details
+	 * 
+	 * @throws IOException
 	 */
 	@GET
 	@Path("/FindSingleNonProfit")
 	@Produces(MediaType.APPLICATION_JSON)
-	public FindNonProfitResponse findSingleNonProfit(@QueryParam("charityItemId") String charityItemId) throws IOException {
+	public FindNonProfitResponse findSingleNonProfit(@QueryParam("charityItemId") String charityItemId)
+			throws IOException {
 		LOGGER.info("FindSingleNonProfit: " + charityItemId);
-		String requestBody = "<findNonprofitRequest xmlns=\"http://www.ebay.com/marketplace/fundraising/v1/services\">\r\n" + 
-				"    <searchFilter>\r\n" + 
-				"        <externalId>"+charityItemId+"</externalId>\r\n" + 
-				"    </searchFilter>\r\n" + 
-				"    <outputSelector>Mission</outputSelector>\r\n" + 
-				"    <outputSelector>Address</outputSelector>\r\n" + 
-				"    <outputSelector>LargeLogoURL</outputSelector>\r\n" + 
-				"    <outputSelector>PopularityIndex</outputSelector>\r\n" + 
-				"    <outputSelector>EIN</outputSelector>\r\n" + 
-				"    <outputSelector>Description</outputSelector>\r\n" + 
-				"    <paginationInput>\r\n" + 
-				"        <pageNumber>1</pageNumber>\r\n" + 
-				"        <pageSize>25</pageSize>\r\n" + 
-				"    </paginationInput>\r\n" + 
-				"</findNonprofitRequest>";
+		String requestBody = "<findNonprofitRequest xmlns=\"http://www.ebay.com/marketplace/fundraising/v1/services\">\r\n"
+				+ "    <searchFilter>\r\n" + "        <externalId>" + charityItemId + "</externalId>\r\n"
+				+ "    </searchFilter>\r\n" + "    <outputSelector>Mission</outputSelector>\r\n"
+				+ "    <outputSelector>Address</outputSelector>\r\n"
+				+ "    <outputSelector>LargeLogoURL</outputSelector>\r\n"
+				+ "    <outputSelector>PopularityIndex</outputSelector>\r\n"
+				+ "    <outputSelector>EIN</outputSelector>\r\n"
+				+ "    <outputSelector>Description</outputSelector>\r\n" + "    <paginationInput>\r\n"
+				+ "        <pageNumber>1</pageNumber>\r\n" + "        <pageSize>25</pageSize>\r\n"
+				+ "    </paginationInput>\r\n" + "</findNonprofitRequest>";
 		String url = "http://svcs.ebay.com/services/fundraising/FundRaisingFindingService/v1";
 		String response = httpClass.sendPOST(url, requestBody, "nonProfit");
 		FindNonProfitResponse findNonProfitResponse = new FindNonProfitResponse();
-		
+
 		try {
 			JAXBContext jaxbContext = JAXBContext.newInstance(FindNonProfitResponse.class);
 			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
@@ -154,9 +168,11 @@ public class Version1Api implements CommandLineRunner {
 	/**
 	 * Represents an api to return products from multiple charities.
 	 * 
-	 * @param needs to accept an a charity item id
+	 * @param needs
+	 *            to accept an a charity item id
 	 * 
-	 * @return needs to return a CharityItemResponse which is JSON response of products related to that specific charity
+	 * @return needs to return a CharityItemResponse which is JSON response of
+	 *         products related to that specific charity
 	 * 
 	 * @throws IOException
 	 */
@@ -179,17 +195,19 @@ public class Version1Api implements CommandLineRunner {
 		String response = httpClass.genericJSONSendPOST("https://api.ebay.com/buying/search/v2", charityItemRequest,
 				"charityItem");
 		LOGGER.info(response);
-		final ObjectMapper mapper = new ObjectMapper();
 		final CharityItemResponse charityItemResponse = mapper.readValue(response, CharityItemResponse.class);
 		return charityItemResponse;
 	}
 
 	/**
-	 * Represents an api to return specific product information about a specific product
+	 * Represents an api to return specific product information about a specific
+	 * product
 	 * 
-	 * @param input - accepts an item id 
+	 * @param input
+	 *            - accepts an item id
 	 * 
-	 * @returns a GetItemResponse object which contains an xml response of details about a specific choosen product
+	 * @returns a GetItemResponse object which contains an xml response of details
+	 *          about a specific choosen product
 	 * 
 	 * @throws JAXBException
 	 */
@@ -219,9 +237,9 @@ public class Version1Api implements CommandLineRunner {
 	 * Represents an api to bring information on non profits [NOT CURRENTLY WORKING]
 	 * 
 	 * @param nonProfitInput
-	 *            - uses the externalId to bring up information on nonprofits 
-	 *            
-	 * @returns - a list of non profits. 
+	 *            - uses the externalId to bring up information on nonprofits
+	 * 
+	 * @returns - a list of non profits.
 	 * 
 	 * @throws JAXBException
 	 */

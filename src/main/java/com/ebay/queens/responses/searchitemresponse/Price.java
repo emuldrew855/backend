@@ -1,5 +1,8 @@
 package com.ebay.queens.responses.searchitemresponse;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties({"convertedFromValue","convertedFromCurrency"})
 public class Price {
 	private String value;
 	private String currency;

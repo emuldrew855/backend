@@ -4,6 +4,7 @@ public class SearchItemResponse {
 	private String href;
 	private String total;
 	private String next;
+	private String prev;
 	private String limit;
 	private String offset;
 	private ItemSummaries itemSummaries[];
@@ -32,6 +33,10 @@ public class SearchItemResponse {
 	public String getNext() {
 		return next;
 	}
+	
+	public String getPrev() {
+		return prev;
+	}
 
 	// Setters
 	public void setOffset(String offset) {
@@ -56,6 +61,10 @@ public class SearchItemResponse {
 
 	public void setItemSummaries(ItemSummaries[] itemSummaries) {
 		this.itemSummaries = itemSummaries;
+	}
+
+	public void setPrev(String prev) {
+		this.prev = prev;
 	}
 
 }

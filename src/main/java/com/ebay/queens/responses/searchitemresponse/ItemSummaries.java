@@ -3,7 +3,7 @@ package com.ebay.queens.responses.searchitemresponse;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties({ "itemAffiliateWebUrl", "categories", "adultOnly", "marketingPrice", "priceDisplayCondition",
-		"itemGroupHref", "itemGroupType" ,"bidCount", "currentBidPrice"})
+		"itemGroupHref", "itemGroupType" ,"bidCount", "currentBidPrice","pickupOptions"})
 public class ItemSummaries {
 	private String itemId;
 	private String title;

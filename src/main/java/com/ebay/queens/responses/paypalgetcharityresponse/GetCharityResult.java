@@ -6,7 +6,7 @@ package com.ebay.queens.responses.paypalgetcharityresponse;
 import com.ebay.queens.responses.paypalcharitysearchresponse.Links;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties({ "cause_area", "address", "mission_area" })
+@JsonIgnoreProperties({"address", "mission_area" })
 public class GetCharityResult {
 	private String nonprofit_id;
 	private String name;
@@ -20,10 +20,7 @@ public class GetCharityResult {
 	private String slogan;
 	private String logo_url;
 	private Links links[];
-	/*
-	 * private CauseArea cause_area; private Address address; private MissionArea
-	 * mission_area
-	 */
+	private CauseArea cause_area[];
 
 	// Getters
 	public String getNonprofit_id() {
@@ -73,6 +70,11 @@ public class GetCharityResult {
 	public Links[] getLinks() {
 		return links;
 	}
+	
+	public CauseArea[] getCause_area() {
+		return cause_area;
+	}
+
 
 	// Setters
 	public void setNonprofit_id(String nonprofit_id) {
@@ -121,6 +123,10 @@ public class GetCharityResult {
 
 	public void setLinks(Links links[]) {
 		this.links = links;
+	}
+
+	public void setCause_area(CauseArea cause_area[]) {
+		this.cause_area = cause_area;
 	}
 
 }

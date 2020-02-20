@@ -17,8 +17,11 @@ import com.ebay.queens.requests.paypalcharitysearch.Charity;
 import com.ebay.queens.requests.paypalcharitysearch.PaypalCharity;
 import com.ebay.queens.requests.paypalcharitysearch.PaypalCharitySearchRequest;
 import com.ebay.queens.responses.paypalcharitysearchresponse.PaypalCharitySearchResponse;
+import com.ebay.queens.responses.paypalgetcharityresponse.Links;
 import com.ebay.queens.responses.paypalgetcharityresponse.PaypalGetCharityResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import ch.qos.logback.classic.Logger;
 
 /**
  * Represents a class to access and hit all of the Paypal api's
@@ -27,25 +30,28 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Path("/Paypal")
 public class Paypal implements CommandLineRunner {
 	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Paypal.class);
-
+	final ObjectMapper mapper = new ObjectMapper();
 	@Autowired
 	private Http httpClass;
-	
+
 	@Autowired
 	TokenUtilityClass test = new TokenUtilityClass();
 
 	@Override
 	public void run(String... args) throws Exception {
-		//this.advancedCharitySearch("animals");
+		// this.advancedCharitySearch("animals");
 		// test.authenticationToken();
 	}
 
 	/**
-	 * API which fetches a list of charities based off their charity cause area 
+	 * API which fetches a list of charities based off their charity cause area
 	 * 
-	 * @param missionArea - String containing the name of the mission area the user wishes to search for 
+	 * @param missionArea
+	 *            - String containing the name of the mission area the user wishes
+	 *            to search for
 	 * 
-	 * @returns a PaypalGetCharityResponse object which contains JSON of a list of charities related to the mission area input
+	 * @returns a PaypalGetCharityResponse object which contains JSON of a list of
+	 *          charities related to the mission area input
 	 * 
 	 * @throws IOException
 	 */
@@ -59,18 +65,20 @@ public class Paypal implements CommandLineRunner {
 		String url = "https://api.paypal.com/v1/customer/charities?query_id=" + queryId;
 		String response = httpClass.genericSendGET(url, "Paypal");
 		logger.info("Response: " + response);
-		final ObjectMapper mapper = new ObjectMapper();
 		final PaypalGetCharityResponse paypalGetCharityResponse = mapper.readValue(response,
 				PaypalGetCharityResponse.class);
 		return paypalGetCharityResponse;
 	}
-	
+
 	/**
-	 * API which fetches a query id to facilitate the next api call of finding a list of charities
+	 * API which fetches a query id to facilitate the next api call of finding a
+	 * list of charities
 	 * 
-	 * @param missionArea - String containing the name of the mission area the user wishes to search for 
+	 * @param missionArea
+	 *            - String containing the name of the mission area the user wishes
+	 *            to search for
 	 * 
-	 * @return a PaypalCharitySearchResponse - object of JSON containing a query id 
+	 * @return a PaypalCharitySearchResponse - object of JSON containing a query id
 	 * 
 	 * @throws IOException
 	 */
@@ -88,21 +96,47 @@ public class Paypal implements CommandLineRunner {
 		charity.setPaypalCharity(paypalCharity);
 		paypalCharitySearchRequest.setCharity(charity);
 		String response = httpClass.genericJSONSendPOST(url, charity, "Paypal");
-		final ObjectMapper mapper = new ObjectMapper();
 		final PaypalCharitySearchResponse charityItemResponse = mapper.readValue(response,
 				PaypalCharitySearchResponse.class);
 		return charityItemResponse;
 	}
 
-	/*
-	 * @GET
-	 * 
-	 * @Path("/getcharityType")
-	 * 
-	 * @Produces(MediaType.APPLICATION_JSON) public String getCharityType() throws
-	 * IOException { logger.info("Get Charity Type"); String url =
-	 * "https://api.paypal.com/v1/customer/charities"; String response =
-	 * httpClass.genericSendGET(url, "Paypal"); return response; }
-	 */
+	@GET
+	@Path("/GetAllCharity")
+	@Produces(MediaType.APPLICATION_JSON)
+	public PaypalGetCharityResponse getAllCharity() throws IOException {
+		logger.info("Get Charity");
+		String url = "https://api.paypal.com/v1/customer/charities";
+		String response = httpClass.genericSendGET(url, "Paypal");
+		final PaypalGetCharityResponse charityItemResponse = mapper.readValue(response,PaypalGetCharityResponse.class);
+		return charityItemResponse;
+	}
+	
+	@GET
+	@Path("/GetAllCharityCause")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String[] getCharityCause() throws IOException {
+		PaypalGetCharityResponse getCharityResponse = this.getAllCharity(); 
+		Links[] links = getCharityResponse.getLinks();
+		String[] lastLink = null;
+		int lastReference = 0;
+		// Getting last reference number
+		for(Links link: links) {
+			if(link.getRel().equals("last")) {
+				lastLink = link.getHref().split("page=");
+				lastReference = Integer.parseInt(lastLink[1]);
+			}
+		}
+		// Getting all urls for all charities
+		String url = "https://api.paypal.com/v1/customer/charities?page_size=15&page=";
+		for(int i = 0; i < lastReference; i++) {
+			String num = String.valueOf(i); 
+			System.out.println(num);
+			url = url + num;
+			System.out.println(url);
+		}
+		return lastLink;
+		
+	}
 
 }
