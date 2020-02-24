@@ -112,17 +112,6 @@ public class Version1Api implements CommandLineRunner {
 		return searchItemResponse;
 	}
 
-	public void getAllItemResponses() throws IOException {
-		SearchItemResponse itemResponse = this.searchItem("drone");
-		String url = itemResponse.getNext();
-		for (int i = 0; i < 100; i++) {
-			String response = httpClass.genericSendGET(url, "searchItem");
-			SearchItemResponse searchItemResponse = mapper.readValue(response, SearchItemResponse.class);
-			url = searchItemResponse.getNext();
-			LOGGER.info(url);
-		}
-	}
-
 	/**
 	 * Represents an api to return infomation about a given charity/nonprofit
 	 * 

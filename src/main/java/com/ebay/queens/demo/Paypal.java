@@ -1,6 +1,9 @@
 package com.ebay.queens.demo;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -16,7 +19,10 @@ import org.springframework.stereotype.Component;
 import com.ebay.queens.requests.paypalcharitysearch.Charity;
 import com.ebay.queens.requests.paypalcharitysearch.PaypalCharity;
 import com.ebay.queens.requests.paypalcharitysearch.PaypalCharitySearchRequest;
+import com.ebay.queens.responses.CharityCache;
 import com.ebay.queens.responses.paypalcharitysearchresponse.PaypalCharitySearchResponse;
+import com.ebay.queens.responses.paypalgetcharityresponse.CauseArea;
+import com.ebay.queens.responses.paypalgetcharityresponse.GetCharityResult;
 import com.ebay.queens.responses.paypalgetcharityresponse.Links;
 import com.ebay.queens.responses.paypalgetcharityresponse.PaypalGetCharityResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -108,35 +114,51 @@ public class Paypal implements CommandLineRunner {
 		logger.info("Get Charity");
 		String url = "https://api.paypal.com/v1/customer/charities";
 		String response = httpClass.genericSendGET(url, "Paypal");
-		final PaypalGetCharityResponse charityItemResponse = mapper.readValue(response,PaypalGetCharityResponse.class);
+		final PaypalGetCharityResponse charityItemResponse = mapper.readValue(response, PaypalGetCharityResponse.class);
 		return charityItemResponse;
 	}
-	
+
 	@GET
 	@Path("/GetAllCharityCause")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String[] getCharityCause() throws IOException {
-		PaypalGetCharityResponse getCharityResponse = this.getAllCharity(); 
+		logger.info("GetAllCharityMethod");
+		PaypalGetCharityResponse getCharityResponse = this.getAllCharity();
 		Links[] links = getCharityResponse.getLinks();
 		String[] lastLink = null;
 		int lastReference = 0;
 		// Getting last reference number
-		for(Links link: links) {
-			if(link.getRel().equals("last")) {
+		for (Links link : links) {
+			if (link.getRel().equals("last")) {
 				lastLink = link.getHref().split("page=");
 				lastReference = Integer.parseInt(lastLink[1]);
 			}
 		}
 		// Getting all urls for all charities
+		CharityCache charityCache = new CharityCache();
 		String url = "https://api.paypal.com/v1/customer/charities?page_size=15&page=";
-		for(int i = 0; i < lastReference; i++) {
-			String num = String.valueOf(i); 
-			System.out.println(num);
-			url = url + num;
-			System.out.println(url);
+		String newUrl = "";
+		for (int i = 1; i <= lastReference; i++) {
+			String num = String.valueOf(i);
+			newUrl = (url + num);
+			logger.info(newUrl);
+			String response = httpClass.genericSendGET(newUrl, "Paypal");
+			PaypalGetCharityResponse charityResponse = mapper.readValue(response, PaypalGetCharityResponse.class);
+			// Add charity objects to cache
+			for (GetCharityResult charity : charityResponse.getResults()) {
+				charityCache.addCharity(charity);
+				if (charity.getCause_area() == null) {
+					logger.info("Cause Area Null");
+				} else {
+					for (CauseArea causeArea : charity.getCause_area()) {
+						charityCache.addCharityCause(causeArea.getName());
+					}
+				}
+			}
 		}
+		logger.info("All Charities Method Complete");
 		return lastLink;
-		
+
 	}
 
 }

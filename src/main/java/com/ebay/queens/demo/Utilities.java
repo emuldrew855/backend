@@ -68,7 +68,6 @@ public class Utilities {
 	// Setters
 	public void setDevName(String devName) {
 		this.devName = devName;
-		System.out.println("Utilities Dev name Setter: " + this.getDevName());
 	}
 
 	public void setSecurityAppName(String securityAppName) {
@@ -77,12 +76,10 @@ public class Utilities {
 
 	public void setGlobalId(String globalId) {
 		this.globalId = globalId;
-		System.out.println("Utilities global id name Setter: " + this.getGlobalId());
 	}
 
 	public void setCertName(String certName) {
 		this.certName = certName;
-		System.out.println("Utilities cert name Setter: " + this.getCertName());
 	}
 
 	public void setMarktplaceId(String marktplaceId) {
