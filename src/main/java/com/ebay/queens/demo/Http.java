@@ -63,7 +63,17 @@ public class Http<T> implements CommandLineRunner {
 	public static void main(String[] args) throws IOException, URISyntaxException {
 		logger.info("HTTP Class");
 	}
-
+	
+	/**
+	 * Represents a method to make a call to Paypal's api to set the authorization token
+	 * 
+	 * @param url
+	 *            - uses url to reach specific api point
+	 * @param requestBody
+	 *            - requestBody makes up the request that will be sent.
+	 * @param typeOfCall
+	 *            - typeOfCall is used to add specific headers to call
+	 */
 	public PaypalTokenResponse authenticationPost(String url, String requestBody, String typeOfCall)
 			throws IOException {
 		CloseableHttpClient client = HttpClients.createDefault();

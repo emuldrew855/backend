@@ -28,52 +28,42 @@ import com.ebay.queens.responses.PaypalTokenResponse;
 public class TokenUtilityClass implements CommandLineRunner {
 
 	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(TokenUtilityClass.class);
-
+	public boolean validToken = false; 
 	public TokenUtilityClass() {
-		// TODO Auto-generated constructor stub
+		logger.info("Token Utility Class");
 	}
+
 	@Autowired
 	private Http httpClass;
 
-
 	@Override
 	public void run(String... args) throws Exception {
-		logger.info("Token Utility Class");
-		//PaypalTokenResponse test = this.authenticationToken();
-		//int hoursToExpire = Integer.parseInt(test.getexpires_in());
-		//logger.info("Expires in: " + test.getexpires_in());
-		// this.authenticationToken();
 		tokenTimer();
 	}
 
-	public static void main(String[] args) {
-
-	}
-	
 	public void tokenTimer() {
-	    TimerTask repeatedTask = new TimerTask() {
-	        public void run() {
-	            System.out.println("Token Generated at: " + new Date());
-	            try {
-					authenticationToken();
+		TimerTask repeatedTask = new TimerTask() {
+			public void run() {
+				try {
+				 authenticationToken();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-	        }
-	    };
-	    Timer timer = new Timer("Timer");
-	     
-	    long delay = 1L;
-	    long period = 2000000L;
-	    timer.scheduleAtFixedRate(repeatedTask, delay, period);
+			}
+		};
+		Timer timer = new Timer("Timer");
+
+		long delay = 1L;
+		long period = 3600000L; // Task repeats every hour
+		timer.scheduleAtFixedRate(repeatedTask, delay, period);
 	}
-	
-	
+
 	/**
-	 * Represents an api to retrieve the paypal authentication token which allows access to Paypals' API
-	 *            
-	 * @returns - PaypalToken response which is a JSON response which contains an authorization token 
+	 * Represents an api to retrieve the paypal authentication token which allows
+	 * access to Paypals' API
+	 * 
+	 * @returns - PaypalToken response which is a JSON response which contains an
+	 *          authorization token
 	 * 
 	 * @throws IOException
 	 */
@@ -81,13 +71,18 @@ public class TokenUtilityClass implements CommandLineRunner {
 	@Path("/AuthenticationToken")
 	@Produces(MediaType.APPLICATION_JSON)
 	@RequestMapping(value = "/patientdetails", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED)
-	public PaypalTokenResponse authenticationToken() throws IOException {
+	public boolean authenticationToken() throws IOException {
 		logger.info("Authentication Token");
-		String requestBody = "";
+		boolean tokenReceived = false;
 		String url = "https://api.paypal.com/v1/oauth2/token";
 		PaypalTokenResponse response = new PaypalTokenResponse();
-		response = httpClass.authenticationPost(url, requestBody, "PaypalAuth");
-		return response;
+		response = httpClass.authenticationPost(url, "", "PaypalAuth");
+		logger.info(response.getacccess_token());
+		if(response.getacccess_token() != null) {
+			tokenReceived = true;
+			this.validToken = true;
+		}
+		return tokenReceived;
 	}
 
 }

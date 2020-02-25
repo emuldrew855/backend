@@ -5,6 +5,8 @@ import java.sql.Date;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -15,6 +17,7 @@ import javax.ws.rs.core.MediaType;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 
 import com.ebay.queens.requests.paypalcharitysearch.Charity;
@@ -42,8 +45,16 @@ public class Paypal implements CommandLineRunner {
 	private Http httpClass;
 
 	@Autowired
-	TokenUtilityClass test = new TokenUtilityClass();
-
+	TokenUtilityClass tokenUtilityClass = new TokenUtilityClass();
+	
+	Paypal() {
+		logger.info("Paypal Class");
+//	/	tokenUtilityClass.tokenTimer();
+		if(tokenUtilityClass.validToken) {			
+			tokenTimer();
+		}
+	}
+	
 	@Override
 	public void run(String... args) throws Exception {
 		// this.advancedCharitySearch("animals");
@@ -108,6 +119,15 @@ public class Paypal implements CommandLineRunner {
 		return charityItemResponse;
 	}
 
+	/**
+	 * API which fetches a list of charities with links to all the charities for the
+	 * system to search through
+	 * 
+	 * @return a PaypalGetCharityResponse - object of JSON containing a list of
+	 *         charities and links object
+	 * 
+	 * @throws IOException
+	 */
 	@GET
 	@Path("/GetAllCharity")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -118,15 +138,48 @@ public class Paypal implements CommandLineRunner {
 		final PaypalGetCharityResponse charityItemResponse = mapper.readValue(response, PaypalGetCharityResponse.class);
 		return charityItemResponse;
 	}
-	
+
+	/**
+	 * API which returns a static list of Cause Area's
+	 * 
+	 * @return Map<Integer, String> - Map object containing a list of all the
+	 *         Charity Cause areas available
+	 */
 	@GET
 	@Path("/GetCharityCauses")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Map<Integer, String> getAllCharityCause() throws IOException {
+	public Map<Integer, String> getAllCharityCause() {
 		CharityCache charityCache = new CharityCache();
 		return charityCache.getCurrentCauseAreas();
 	}
 
+	/**
+	 * Runs the GetAllCharityCause method on a timer
+	 */
+	public void tokenTimer() {
+		TimerTask repeatedTask = new TimerTask() {
+			public void run() {
+				try {
+					getCharityCause();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		};
+		Timer timer = new Timer("Timer");
+
+		long delay = 1L;
+		long period = 3600000L; // Task repeats every hour
+		timer.scheduleAtFixedRate(repeatedTask, delay, period);
+	}
+
+	/**
+	 * API which iterates through all charities available from Paypal's api and adds
+	 * them to a charity cache object also adds all charity cause areas to an object
+	 * 
+	 * Shouldn't need to return anything as it's purpose is to run and gather all
+	 * charity data.
+	 */
 	@GET
 	@Path("/GetAllCharityCause")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -150,15 +203,12 @@ public class Paypal implements CommandLineRunner {
 		for (int i = 1; i <= lastReference; i++) {
 			String num = String.valueOf(i);
 			newUrl = (url + num);
-			logger.info(newUrl);
 			String response = httpClass.genericSendGET(newUrl, "Paypal");
 			PaypalGetCharityResponse charityResponse = mapper.readValue(response, PaypalGetCharityResponse.class);
 			// Add charity objects to cache
 			for (GetCharityResult charity : charityResponse.getResults()) {
-				//charityCache.addCharity(charity);
-				if (charity.getCause_area() == null) {
-					logger.info("Cause Area Null");
-				} else {
+				charityCache.addCharity(charity);
+				if (charity.getCause_area() != null) {
 					for (CauseArea causeArea : charity.getCause_area()) {
 						charityCache.addCharityCause(causeArea.getName());
 					}
@@ -166,10 +216,11 @@ public class Paypal implements CommandLineRunner {
 			}
 		}
 		logger.info("All Charities Method Complete");
-		
-		 for (Map.Entry<Integer, String> entry : charityCache.getCurrentCauseAreas().entrySet())  {
-	            System.out.println(  "Cause Area = " + entry.getValue()); 
-	    } 
+		// Printing all Charity Causes
+		for (Map.Entry<Integer, String> entry : charityCache.getCurrentCauseAreas().entrySet()) {
+			System.out.println("Cause Area = " + entry.getValue());
+		}
+		logger.info("Amount of Charities: " + charityCache.getCurrentCharityResponses().size());
 		return lastLink;
 
 	}

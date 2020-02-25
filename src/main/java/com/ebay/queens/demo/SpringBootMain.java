@@ -6,15 +6,29 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.DependsOn;
 
 @SpringBootConfiguration
 @SpringBootApplication
 public class SpringBootMain implements CommandLineRunner {
-
+/*	
 	@Bean
 	ResourceConfig resourceConfig() {
-		return new ResourceConfig().registerClasses(Version1Api.class, TokenUtilityClass.class, Paypal.class);
-	}
+		return new ResourceConfig().registerClasses(TokenUtilityClass.class, Version1Api.class, Paypal.class);
+	}*/
+	
+	 public TokenUtilityClass returnTokenUtilityClass () {
+        return new TokenUtilityClass();
+    }
+	
+    @DependsOn("TokenUtilityClass")
+    public Paypal eventPublisherBean () {
+        return new Paypal();
+    }
+
+    public Version1Api eventListenerBean () {
+        return new Version1Api();
+    }
 
 	@Override
 	public void run(String... args) throws Exception {
