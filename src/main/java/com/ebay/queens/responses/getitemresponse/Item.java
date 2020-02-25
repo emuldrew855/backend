@@ -1,6 +1,7 @@
 package com.ebay.queens.responses.getitemresponse;
 
 import javax.xml.bind.annotation.XmlElement;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties("Description")

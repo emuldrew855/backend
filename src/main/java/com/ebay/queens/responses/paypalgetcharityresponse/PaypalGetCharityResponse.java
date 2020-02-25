@@ -1,7 +1,5 @@
 package com.ebay.queens.responses.paypalgetcharityresponse;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 public class PaypalGetCharityResponse {
 	private GetCharityResult results[];
 	private Links links[];

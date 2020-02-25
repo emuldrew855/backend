@@ -45,7 +45,6 @@ public class Version1Api implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		LOGGER.info("Version 1 API");
-		// TODO Auto-generated method stub
 		// this.getItem("333460893922");
 		// this.findSingleNonProfit("10484");
 		// this.findCharityItems("10484");

@@ -1,7 +1,5 @@
 package com.ebay.queens.responses.charityitemresponse;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties({"answers","layout","errorMessage"})

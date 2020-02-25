@@ -1,7 +1,5 @@
 package com.ebay.queens.responses.charityitemresponse;
 
-import javax.xml.bind.annotation.XmlElement;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties({"sellingStatus", "unitPrice","paymentMethod","autoPay","shippingInfo","itemFeature","gtcItem","cbtItem",

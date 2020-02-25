@@ -1,7 +1,6 @@
 package com.ebay.queens.demo;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -9,7 +8,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.xml.bind.JAXBException;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +26,8 @@ import com.ebay.queens.responses.PaypalTokenResponse;
 public class TokenUtilityClass implements CommandLineRunner {
 
 	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(TokenUtilityClass.class);
-	public boolean validToken = false; 
+	public boolean validToken = false;
+
 	public TokenUtilityClass() {
 		logger.info("Token Utility Class");
 	}
@@ -43,9 +42,10 @@ public class TokenUtilityClass implements CommandLineRunner {
 
 	public void tokenTimer() {
 		TimerTask repeatedTask = new TimerTask() {
+			@Override
 			public void run() {
 				try {
-				 authenticationToken();
+					authenticationToken();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -78,7 +78,7 @@ public class TokenUtilityClass implements CommandLineRunner {
 		PaypalTokenResponse response = new PaypalTokenResponse();
 		response = httpClass.authenticationPost(url, "", "PaypalAuth");
 		logger.info(response.getacccess_token());
-		if(response.getacccess_token() != null) {
+		if (response.getacccess_token() != null) {
 			tokenReceived = true;
 			this.validToken = true;
 		}

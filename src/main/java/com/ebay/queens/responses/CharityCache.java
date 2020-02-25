@@ -1,7 +1,7 @@
 package com.ebay.queens.responses;
 import java.util.HashMap;
 import java.util.Map;
-import com.ebay.queens.responses.paypalgetcharityresponse.CauseArea;
+
 import com.ebay.queens.responses.paypalgetcharityresponse.GetCharityResult;
 
 public class CharityCache {

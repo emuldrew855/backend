@@ -1,9 +1,6 @@
 package com.ebay.queens.demo;
 
 import java.io.IOException;
-import java.sql.Date;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -17,7 +14,6 @@ import javax.ws.rs.core.MediaType;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 
 import com.ebay.queens.requests.paypalcharitysearch.Charity;
@@ -30,8 +26,6 @@ import com.ebay.queens.responses.paypalgetcharityresponse.GetCharityResult;
 import com.ebay.queens.responses.paypalgetcharityresponse.Links;
 import com.ebay.queens.responses.paypalgetcharityresponse.PaypalGetCharityResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * Represents a class to access and hit all of the Paypal api's
@@ -46,15 +40,15 @@ public class Paypal implements CommandLineRunner {
 
 	@Autowired
 	TokenUtilityClass tokenUtilityClass = new TokenUtilityClass();
-	
+
 	Paypal() {
 		logger.info("Paypal Class");
-//	/	tokenUtilityClass.tokenTimer();
-		if(tokenUtilityClass.validToken) {			
+		// / tokenUtilityClass.tokenTimer();
+		if (tokenUtilityClass.validToken) {
 			tokenTimer();
 		}
 	}
-	
+
 	@Override
 	public void run(String... args) throws Exception {
 		// this.advancedCharitySearch("animals");
@@ -158,6 +152,7 @@ public class Paypal implements CommandLineRunner {
 	 */
 	public void tokenTimer() {
 		TimerTask repeatedTask = new TimerTask() {
+			@Override
 			public void run() {
 				try {
 					getCharityCause();
