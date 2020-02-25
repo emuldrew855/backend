@@ -10,12 +10,33 @@ public class CharityCache {
 	private Map<Integer, String> currentCauseAreas;
 	private Map<Integer, String> _tempCurrentCauseAreas;
 	int charityKey = 0;
-	int causeAreaKey = 0;
+	int causeAreaKey = 18;
 	
 	public CharityCache() {
 		Map<Integer, GetCharityResult> currentCharityResponses = new HashMap<>();
 		this.currentCharityResponses = currentCharityResponses;
 		Map<Integer, String> currentCauseArea = new HashMap<>();
+		Map<Integer, String> causeAreas  = new HashMap<Integer, String>() {{
+		    put(1, "Animals");
+		    put(2, "Arts and Culture");
+		    put(3, "Children and Youth Development");
+		    put(4, "Crime Prevention and Justice");
+		    put(5, "Disaster Relief");
+		    put(6, "Environment");
+		    put(7, "Employment and Professional Associations");
+		    put(8, "Health and Medicine");
+		    put(9, "Human Services");
+		    put(10, "Housing, Homelessness and Hunger");
+		    put(11, "International");
+		    put(12, "Military and Veterans");
+		    put(13, "Philanthropy, Grants, Other");
+		    put(14, "Religion and Spirituality");
+		    put(15, "Schools and Education");
+		    put(16, "Science and Research");
+		    put(17, "Schools and Education");
+		    put(18, "Sports and Recreation");
+		}};
+		currentCauseArea.putAll(causeAreas);
 		this.currentCauseAreas = currentCauseArea;
 	}
 
@@ -25,8 +46,10 @@ public class CharityCache {
 	}
 	
 	public void addCharityCause(String causeArea) {
-		charityKey = charityKey + 1;
-		currentCauseAreas.put(charityKey, causeArea);
+		if(!this.currentCauseAreas.containsValue(causeArea)) {			
+			charityKey = charityKey + 1;
+			currentCauseAreas.put(charityKey, causeArea);
+		}
 	}
 	
 	// Setters

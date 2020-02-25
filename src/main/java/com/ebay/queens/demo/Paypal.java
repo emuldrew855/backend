@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Map;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -117,6 +118,14 @@ public class Paypal implements CommandLineRunner {
 		final PaypalGetCharityResponse charityItemResponse = mapper.readValue(response, PaypalGetCharityResponse.class);
 		return charityItemResponse;
 	}
+	
+	@GET
+	@Path("/GetCharityCauses")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Map<Integer, String> getAllCharityCause() throws IOException {
+		CharityCache charityCache = new CharityCache();
+		return charityCache.getCurrentCauseAreas();
+	}
 
 	@GET
 	@Path("/GetAllCharityCause")
@@ -146,7 +155,7 @@ public class Paypal implements CommandLineRunner {
 			PaypalGetCharityResponse charityResponse = mapper.readValue(response, PaypalGetCharityResponse.class);
 			// Add charity objects to cache
 			for (GetCharityResult charity : charityResponse.getResults()) {
-				charityCache.addCharity(charity);
+				//charityCache.addCharity(charity);
 				if (charity.getCause_area() == null) {
 					logger.info("Cause Area Null");
 				} else {
@@ -157,6 +166,10 @@ public class Paypal implements CommandLineRunner {
 			}
 		}
 		logger.info("All Charities Method Complete");
+		
+		 for (Map.Entry<Integer, String> entry : charityCache.getCurrentCauseAreas().entrySet())  {
+	            System.out.println(  "Cause Area = " + entry.getValue()); 
+	    } 
 		return lastLink;
 
 	}
