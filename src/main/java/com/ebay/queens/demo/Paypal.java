@@ -14,6 +14,8 @@ import javax.ws.rs.core.MediaType;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import com.ebay.queens.requests.paypalcharitysearch.Charity;
@@ -30,6 +32,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * Represents a class to access and hit all of the Paypal api's
  */
+@Order(3)
+@Lazy(true)
 @Component
 @Path("/Paypal")
 public class Paypal implements CommandLineRunner {
@@ -43,10 +47,19 @@ public class Paypal implements CommandLineRunner {
 
 	Paypal() {
 		logger.info("Paypal Class");
-		// / tokenUtilityClass.tokenTimer();
-		if (tokenUtilityClass.validToken) {
-			tokenTimer();
-		}
+		TimerTask repeatedTask = new TimerTask() {
+			@Override
+			public void run() {
+				if(tokenUtilityClass.validToken) {
+					tokenTimer();
+				}
+			}
+		};
+		Timer timer = new Timer("Timer");
+
+		long delay = 1L;
+		long period = 20000L; // Task repeats every hour
+		timer.scheduleAtFixedRate(repeatedTask, delay, period);
 	}
 
 	@Override

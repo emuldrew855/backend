@@ -16,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import com.ebay.queens.requests.charityitems.CharityItemRequest;
@@ -37,6 +38,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * Represents a class to access and hit all of the eBays api's
  */
 @Component
+@Order(2)
 @Path("/v1")
 public class Version1Api implements CommandLineRunner {
 	final ObjectMapper mapper = new ObjectMapper();
