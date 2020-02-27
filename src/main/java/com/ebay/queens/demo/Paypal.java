@@ -51,7 +51,7 @@ public class Paypal implements CommandLineRunner {
 			@Override
 			public void run() {
 				if(tokenUtilityClass.validToken) {
-					tokenTimer();
+					//tokenTimer();
 				}
 			}
 		};

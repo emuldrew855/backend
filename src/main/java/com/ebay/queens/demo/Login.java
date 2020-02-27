@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Path("/auth")
 public class Login {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Login.class);
-	
+
 	Login() {
 		LOGGER.info("Login");
 	}
@@ -29,10 +29,13 @@ public class Login {
 	public String logIn(@QueryParam("username") String username, @QueryParam("password") String password) { 
 		LOGGER.info("Log In Method" + username + " " + password);
 		String response = "";
-		if(username.equals("username") && password.equals("password")) {
-			response = "GrantAccess";
-		}else {
-			response = "NoAccess";
+		System.out.println(SignUp.users);
+		for(User user: SignUp.users) {
+			if(username.equals(user.getUsername()) && password.equals(user.getPassword())) {
+				response = "GrantAccess";
+			}else {
+				response = "NoAccess";
+			}
 		}
 		
 		return response;

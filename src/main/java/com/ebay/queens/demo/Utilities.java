@@ -1,22 +1,22 @@
 package com.ebay.queens.demo;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
 /**
  * Represents a class to manage application information and promote code
  * reusability
  */
+@Component
 public class Utilities {
 	String securityAppName;
-
 	String globalId;
-
 	String devName;
-
 	String certName;
-
 	String marktplaceId;
-
 	String paypalAuthorizationToken;
-
 	String ebayAuth;
 
 	final int SITE_ID = 3;

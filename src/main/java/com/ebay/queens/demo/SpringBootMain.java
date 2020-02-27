@@ -1,5 +1,8 @@
 package com.ebay.queens.demo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
 import org.glassfish.jersey.server.ResourceConfig;
@@ -16,6 +19,7 @@ import org.springframework.context.annotation.Lazy;
 @SpringBootConfiguration
 @SpringBootApplication
 public class SpringBootMain implements CommandLineRunner {
+	public List<User> users = new ArrayList<User>();
 	
 	@Autowired
 	private TokenUtilityClass tokenUtilityClass;
@@ -26,7 +30,7 @@ public class SpringBootMain implements CommandLineRunner {
 		
 	}
 	  @Bean ResourceConfig resourceConfig() {
-		  return new ResourceConfig().registerClasses(Version1Api.class, Login.class, SignUp.class); }
+		  return new ResourceConfig().registerClasses(Version1Api.class, Login.class, SignUp.class, Paypal.class); }
 
 
 
