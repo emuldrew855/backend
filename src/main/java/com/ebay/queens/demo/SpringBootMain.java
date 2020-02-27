@@ -26,7 +26,7 @@ public class SpringBootMain implements CommandLineRunner {
 		
 	}
 	  @Bean ResourceConfig resourceConfig() {
-		  return new ResourceConfig().registerClasses(Version1Api.class, Login.class); }
+		  return new ResourceConfig().registerClasses(Version1Api.class, Login.class, SignUp.class); }
 
 
 
