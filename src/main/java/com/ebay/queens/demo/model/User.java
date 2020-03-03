@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Users")
 public class User {
 	@Id
-	private int id;
+	private String id;
 	private String username;
 	private String password;
 	private UserGroup userGroup;
@@ -20,7 +20,7 @@ public class User {
 	    return UserGroup.values()[pick];
 	}
 	
-	public User(int id, String username, String password) {
+	public User(String id, String username, String password) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
@@ -29,7 +29,7 @@ public class User {
 	
 	
 	// Getters
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -46,7 +46,7 @@ public class User {
 	}
 	
 	// Setters
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

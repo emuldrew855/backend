@@ -26,9 +26,9 @@ private static final Logger LOGGER = LoggerFactory.getLogger(SignUp.class);
 
 	SignUp() {
 		LOGGER.info("SignUp");
-		User userA = new User(1,"userA","userA");
+		User userA = new User("1","userA","userA");
 		userA.setUserGroup(UserGroup.A);
-		User userB = new User(2,"userB","userB");
+		User userB = new User("2","userB","userB");
 		userB.setUserGroup(UserGroup.B);
 		users.add(userA);
 		users.add(userB);
@@ -43,7 +43,7 @@ private static final Logger LOGGER = LoggerFactory.getLogger(SignUp.class);
 		User newUser = null;
 		if(username.equals("username") && password.equals(password)) {
 			LOGGER.info("User Signed Up");
-			newUser = new User(1,username, password);
+			newUser = new User("1",username, password);
 			users.add(newUser);
 		}else {
 			LOGGER.info("User Not Signed Up");

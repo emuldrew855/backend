@@ -17,7 +17,7 @@ import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.Lazy;
 
 @SpringBootConfiguration
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.ebay.queens.demo","com.ebay.queens.demo.resource"})
 public class SpringBootMain implements CommandLineRunner {
 	@Autowired
 	private TokenUtilityClass tokenUtilityClass;
