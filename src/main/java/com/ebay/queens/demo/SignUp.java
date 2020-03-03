@@ -15,6 +15,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import com.ebay.queens.main.model.User;
+import com.ebay.queens.main.model.UserGroup;
+
 @Component
 @Path("/signup")
 public class SignUp {
@@ -23,6 +26,12 @@ private static final Logger LOGGER = LoggerFactory.getLogger(SignUp.class);
 
 	SignUp() {
 		LOGGER.info("SignUp");
+		User userA = new User(1,"userA","userA");
+		userA.setUserGroup(UserGroup.A);
+		User userB = new User(2,"userB","userB");
+		userB.setUserGroup(UserGroup.B);
+		users.add(userA);
+		users.add(userB);
 	}
 
 
@@ -38,8 +47,7 @@ private static final Logger LOGGER = LoggerFactory.getLogger(SignUp.class);
 			users.add(newUser);
 		}else {
 			LOGGER.info("User Not Signed Up");
-		}
-		
+		}	
 		return newUser;
 	}
 }

@@ -1,4 +1,5 @@
-package com.ebay.queens.demo;
+package com.ebay.queens.main;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,19 +17,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.Lazy;
 
+import com.ebay.queens.demo.*;
+
+
 @SpringBootConfiguration
 @SpringBootApplication
-public class SpringBootMain implements CommandLineRunner {
-	@Autowired
-	private TokenUtilityClass tokenUtilityClass;
-	
-	@Bean ResourceConfig resourceConfig() {
-	return new ResourceConfig().registerClasses(Version1Api.class, Login.class, SignUp.class, Paypal.class); }
+public class SpringBootMain {
 
-	@Override
-	public void run(String... args) throws Exception {
-		// test.authenticationToken();
-	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootMain.class, args);

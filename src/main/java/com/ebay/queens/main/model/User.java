@@ -1,10 +1,15 @@
-package com.ebay.queens.demo;
+package com.ebay.queens.main.model;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+
+@Document(collection = "Users")
 public class User {
+	@Id
 	private int id;
 	private String username;
 	private String password;
