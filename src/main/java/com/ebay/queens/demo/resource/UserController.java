@@ -1,12 +1,12 @@
-package com.ebay.queens.main.resource;
+package com.ebay.queens.demo.resource;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.ebay.queens.main.model.User;
-import com.ebay.queens.main.repository.UserRepository;
+import com.ebay.queens.demo.model.User;
+import com.ebay.queens.demo.repository.UserRepository;
 
 
 @RestController

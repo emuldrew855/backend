@@ -1,4 +1,4 @@
-package com.ebay.queens.main.model;
+package com.ebay.queens.demo.model;
 
 import java.util.Arrays;
 import java.util.Collections;

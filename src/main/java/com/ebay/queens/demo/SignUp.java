@@ -15,8 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.ebay.queens.main.model.User;
-import com.ebay.queens.main.model.UserGroup;
+import com.ebay.queens.demo.model.User;
+import com.ebay.queens.demo.model.UserGroup;
 
 @Component
 @Path("/signup")

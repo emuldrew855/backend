@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import com.ebay.queens.main.model.User;
+import com.ebay.queens.demo.model.User;
 
 @Component
 @Path("/auth")
