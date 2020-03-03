@@ -10,6 +10,6 @@ import com.ebay.queens.main.model.User;
 
 
 @Repository
-public interface UserRepository  extends MongoRepository<User,String>{
+public interface UserRepository  extends MongoRepository<User,Integer>{
 	
 }
