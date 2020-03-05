@@ -13,33 +13,42 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.ebay.queens.demo.model.User;
 
 @Component
-@Path("/auth")
+@RestController
+@RequestMapping("/auth")
 public class Login {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Login.class);
 
 	Login() {
 		LOGGER.info("Login");
 	}
-	
+
 	@GET
-	@Path("/LogIn")
+	@GetMapping("/LogIn")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String logIn(@QueryParam("username") String username, @QueryParam("password") String password) { 
+	public String logIn(@QueryParam("username") String username, @QueryParam("password") String password) {
 		LOGGER.info("Log In Method" + username + " " + password);
 		String response = "";
 		System.out.println(SignUp.users);
-		for(User user: SignUp.users) {
-			if(username.equals(user.getUsername()) && password.equals(user.getPassword())) {
-				response = "GrantAccess";
-			}else {
-				response = "NoAccess";
+		for (User user : SignUp.users) {
+			if (username.equals("admin") && password.equals("admin")) {
+				response = "Admin";
+			} else {
+				if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
+					response = "GrantAccess";
+				} else {
+					response = "NoAccess";
+				}
 			}
 		}
-		
+
 		return response;
 	}
 }

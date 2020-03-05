@@ -14,12 +14,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.ebay.queens.demo.model.User;
 import com.ebay.queens.demo.model.UserGroup;
 
 @Component
-@Path("/signup")
+@RestController
+@RequestMapping("/signup")
 public class SignUp {
 private static final Logger LOGGER = LoggerFactory.getLogger(SignUp.class);
 	public static List<User> users = new ArrayList<User>();
@@ -30,13 +34,16 @@ private static final Logger LOGGER = LoggerFactory.getLogger(SignUp.class);
 		userA.setUserGroup(UserGroup.A);
 		User userB = new User("2","userB","userB");
 		userB.setUserGroup(UserGroup.B);
+		User admin = new User("3","admin","admin");
+		admin.setUserGroup(UserGroup.B);
 		users.add(userA);
 		users.add(userB);
+		users.add(admin);
 	}
 
 
 	@GET
-	@Path("/RegisterUser")
+	@PostMapping("/RegisterUser")
 	@Produces(MediaType.APPLICATION_JSON)
 	public User resgiterUser(@QueryParam("username") String username, @QueryParam("password") String password) { 
 		LOGGER.info("Sign Up Method" + username + " " + password);
