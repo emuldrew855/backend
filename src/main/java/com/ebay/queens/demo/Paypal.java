@@ -17,6 +17,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ebay.queens.requests.paypalcharitysearch.Charity;
 import com.ebay.queens.requests.paypalcharitysearch.PaypalCharity;
@@ -35,6 +37,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Order(3)
 @Lazy(true)
 @Component
+@RequestMapping
 @Path("/Paypal")
 public class Paypal implements CommandLineRunner {
 	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Paypal.class);
@@ -81,7 +84,7 @@ public class Paypal implements CommandLineRunner {
 	 * @throws IOException
 	 */
 	@GET
-	@Path("/GetCharity")
+	@PostMapping("/GetCharity")
 	@Produces(MediaType.APPLICATION_JSON)
 	public PaypalGetCharityResponse charitySearch(@QueryParam("missionArea") String missionArea) throws IOException {
 		logger.info("Get Charity");
@@ -108,7 +111,7 @@ public class Paypal implements CommandLineRunner {
 	 * @throws IOException
 	 */
 	@GET
-	@Path("/SearchCharityType")
+	@PostMapping("/SearchCharityType")
 	@Produces(MediaType.APPLICATION_JSON)
 	public PaypalCharitySearchResponse advancedCharitySearch(@QueryParam("missionArea") String missionArea)
 			throws IOException {
@@ -136,7 +139,7 @@ public class Paypal implements CommandLineRunner {
 	 * @throws IOException
 	 */
 	@GET
-	@Path("/GetAllCharity")
+	@PostMapping("/GetAllCharity")
 	@Produces(MediaType.APPLICATION_JSON)
 	public PaypalGetCharityResponse getAllCharity() throws IOException {
 		logger.info("Get Charity");
@@ -153,7 +156,7 @@ public class Paypal implements CommandLineRunner {
 	 *         Charity Cause areas available
 	 */
 	@GET
-	@Path("/GetCharityCauses")
+	@PostMapping("/GetCharityCauses")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Map<Integer, String> getAllCharityCause() {
 		CharityCache charityCache = new CharityCache();
@@ -189,7 +192,7 @@ public class Paypal implements CommandLineRunner {
 	 * charity data.
 	 */
 	@GET
-	@Path("/GetAllCharityCause")
+	@PostMapping("/GetAllCharityCause")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String[] getCharityCause() throws IOException {
 		logger.info("GetAllCharityMethod");

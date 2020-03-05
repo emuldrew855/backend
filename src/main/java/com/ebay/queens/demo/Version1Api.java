@@ -18,6 +18,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.ebay.queens.requests.charityitems.CharityItemRequest;
 import com.ebay.queens.requests.charityitems.Constraints;
@@ -39,7 +42,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 @Component
 @Order(2)
-@Path("/v1")
+@RestController
+@RequestMapping("/v1")
 public class Version1Api implements CommandLineRunner {
 	final ObjectMapper mapper = new ObjectMapper();
 	private static final Logger LOGGER = LoggerFactory.getLogger(Version1Api.class);
@@ -76,7 +80,7 @@ public class Version1Api implements CommandLineRunner {
 	 */
 	@GET
 	@Path("/AdvancedFindCharityItems")
-	@Produces(MediaType.APPLICATION_JSON)
+	@PostMapping(MediaType.APPLICATION_JSON)
 	public CharityItemResponse advancedFindCharityItems(@QueryParam("charityId") String charityId)
 			throws IOException, JAXBException {
 		FindNonProfitResponse findNonProfitResponse = findNonProfit(charityId);
@@ -102,7 +106,7 @@ public class Version1Api implements CommandLineRunner {
 	 *             IOException
 	 */
 	@GET
-	@Path("/SearchItem")
+	@PostMapping("/SearchItem")
 	@Produces(MediaType.APPLICATION_JSON)
 	public SearchItemResponse searchItem(@QueryParam("searchTerm") String searchTerm) throws IOException {
 		LOGGER.info("Search Item: " + searchTerm);
@@ -126,7 +130,7 @@ public class Version1Api implements CommandLineRunner {
 	 * @throws IOException
 	 */
 	@GET
-	@Path("/FindSingleNonProfit")
+	@PostMapping("/FindSingleNonProfit")
 	@Produces(MediaType.APPLICATION_JSON)
 	public FindNonProfitResponse findSingleNonProfit(@QueryParam("charityItemId") String charityItemId)
 			throws IOException {
@@ -167,7 +171,7 @@ public class Version1Api implements CommandLineRunner {
 	 * @throws IOException
 	 */
 	@GET
-	@Path("/findcharityItems")
+	@PostMapping("/findcharityItems")
 	@Produces(MediaType.APPLICATION_JSON)
 	public CharityItemResponse findCharityItems(@QueryParam("charityItemId") String charityItemId) throws IOException {
 		LOGGER.info("Find Charity Items");
@@ -202,7 +206,7 @@ public class Version1Api implements CommandLineRunner {
 	 * @throws JAXBException
 	 */
 	@GET
-	@Path("/GetItem")
+	@PostMapping("/GetItem")
 	@Produces(MediaType.APPLICATION_XML)
 	public GetItemResponse getItem(@QueryParam("input") String input) throws IOException, JAXBException {
 		LOGGER.info("Get Item Method: " + input);
@@ -234,7 +238,7 @@ public class Version1Api implements CommandLineRunner {
 	 * @throws JAXBException
 	 */
 	@GET
-	@Path("/FindNonProfit")
+	@PostMapping("/FindNonProfit")
 	@Produces(MediaType.APPLICATION_XML)
 	public FindNonProfitResponse findNonProfit(@QueryParam("nonProfitInput") String nonProfitInput)
 			throws IOException, JAXBException {

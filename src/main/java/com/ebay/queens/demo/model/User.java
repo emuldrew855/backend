@@ -1,5 +1,6 @@
 package com.ebay.queens.demo.model;
 
+import java.awt.List;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
@@ -14,7 +15,8 @@ public class User {
 	private String username;
 	private String password;
 	private UserGroup userGroup;
-	
+	private List userActions;
+
 	private static UserGroup randomUserGroup() {
 	    int pick = new Random().nextInt(2);
 	    return UserGroup.values()[pick];
@@ -49,6 +51,10 @@ public class User {
 		return userGroup;
 	}
 	
+	public List getUserActions() {
+		return userActions;
+	}
+	
 	// Setters
 	public void setId(String id) {
 		this.id = id;
@@ -65,7 +71,10 @@ public class User {
 	public void setUserGroup(UserGroup userGroup) {
 		this.userGroup = userGroup;
 	} 
-
+	
+	public void setUserActions(List userActions) {
+		this.userActions = userActions;
+	}
 	
 	
 	

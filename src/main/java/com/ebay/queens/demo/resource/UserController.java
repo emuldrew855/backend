@@ -17,12 +17,11 @@ import com.ebay.queens.demo.model.User;
 import com.ebay.queens.demo.repository.UserRepository;
 import com.ebay.queens.responses.findnonprofitresponse.FindNonProfitResponse;
 
-
 @RestController
 @RequestMapping("/v2")
 public class UserController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
-	
+
 	@Autowired
 	private UserRepository userRepository;
 
@@ -33,32 +32,44 @@ public class UserController {
 		return "Added user with id: " + user.getId();
 	}
 
-    @GetMapping("/GetUsers")
-    public List<User> getAll(){
-        List<User> users = this.userRepository.findAll();
-        for(int i =0; i <= this.userRepository.findAll().size()-1; i++) {
-    		LOGGER.info("User: " + users.get(i).getUsername());
-    	}
-        return users;
-    }
-    
-    @GetMapping("/DeleteAllUsers")
-    public String deleteAll(){
-    	String deletedUsers = "Users deleted: ";
-    	List<User> users = this.userRepository.findAll();
-    	for(int i =0; i <= this.userRepository.findAll().size()-1; i++) {
-    		LOGGER.info("User deleted: " + users.get(i).getUsername());
-    		deletedUsers += users.get(i).getUsername();
-    	}
-        this.userRepository.deleteAll();
-        return deletedUsers;
-    }
-    
-    @GetMapping("/DeleteUser")
-    public String deleteUser(User user){
-    	String deletedUser = "User: " + user.getUsername() + " deleted!";
-        this.userRepository.delete(user);
-        LOGGER.info(deletedUser);
-        return deletedUser;
-    }
+	@PostMapping("/AddAllUser")
+	public String saveUser(@RequestBody List<User> users) {
+		System.out.println("User: " + users);
+		String addedUsers = "Users added: ";
+		userRepository.saveAll(users);
+		for (int i = 0; i <= users.size() - 1; i++) {
+			LOGGER.info("User: " + users.get(i).getUsername());
+			addedUsers += users.get(i).getUsername();
+		}
+		return addedUsers;
+	}
+
+	@GetMapping("/GetUsers")
+	public List<User> getAll() {
+		List<User> users = this.userRepository.findAll();
+		for (int i = 0; i <= this.userRepository.findAll().size() - 1; i++) {
+			LOGGER.info("User: " + users.get(i).getUsername());
+		}
+		return users;
+	}
+
+	@GetMapping("/DeleteAllUsers")
+	public String deleteAll() {
+		String deletedUsers = "Users deleted: ";
+		List<User> users = this.userRepository.findAll();
+		for (int i = 0; i <= this.userRepository.findAll().size() - 1; i++) {
+			LOGGER.info("User deleted: " + users.get(i).getUsername());
+			deletedUsers += users.get(i).getUsername();
+		}
+		this.userRepository.deleteAll();
+		return deletedUsers;
+	}
+
+	@GetMapping("/DeleteUser")
+	public String deleteUser(User user) {
+		String deletedUser = "User: " + user.getUsername() + " deleted!";
+		this.userRepository.delete(user);
+		LOGGER.info(deletedUser);
+		return deletedUser;
+	}
 }
