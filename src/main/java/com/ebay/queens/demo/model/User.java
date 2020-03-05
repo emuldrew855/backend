@@ -28,6 +28,10 @@ public class User {
 	}
 	
 	
+	public User() {
+		
+	}
+	
 	// Getters
 	public String getId() {
 		return id;
