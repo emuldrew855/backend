@@ -36,19 +36,18 @@ public class Login {
 	public String logIn(@QueryParam("username") String username, @QueryParam("password") String password) {
 		LOGGER.info("Log In Method" + username + " " + password);
 		String response = "";
-		System.out.println(SignUp.users);
 		for (User user : SignUp.users) {
 			if (username.equals("admin") && password.equals("admin")) {
 				response = "Admin";
 			} else {
 				if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
-					response = "GrantAccess";
+					return "GrantAccess";
 				} else {
 					response = "NoAccess";
 				}
 			}
 		}
-
+		System.out.println(response);
 		return response;
 	}
 }

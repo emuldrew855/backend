@@ -79,8 +79,8 @@ public class Version1Api implements CommandLineRunner {
 	 * @throws JAXBException
 	 */
 	@GET
-	@Path("/AdvancedFindCharityItems")
-	@PostMapping(MediaType.APPLICATION_JSON)
+	@PostMapping("/AdvancedFindCharityItems")
+	@Produces(MediaType.APPLICATION_JSON)
 	public CharityItemResponse advancedFindCharityItems(@QueryParam("charityId") String charityId)
 			throws IOException, JAXBException {
 		FindNonProfitResponse findNonProfitResponse = findNonProfit(charityId);

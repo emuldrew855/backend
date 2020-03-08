@@ -39,6 +39,7 @@ private static final Logger LOGGER = LoggerFactory.getLogger(SignUp.class);
 		users.add(userA);
 		users.add(userB);
 		users.add(admin);
+		LOGGER.info("Users" + users);
 	}
 
 
