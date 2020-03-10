@@ -17,6 +17,10 @@ public class Item {
 	private PrimaryCategory primarycategory;
 	private String startprice;
 	private PictureDetails pictureDetails;
+	private ListingDetails listingDetails;
+	private SellingStatus sellingStatus; 
+	private String quantity; 
+	private ProductListingDetails productListingDetails; 
 	
 	// Getters
 	@XmlElement(name = "AutoPay")
@@ -70,6 +74,26 @@ public class Item {
 	public PictureDetails getPictureDetails() {
 		return pictureDetails;
 	}
+	
+	@XmlElement(name ="ListingDetails")
+	public ListingDetails getListingDetails() {
+		return listingDetails;
+	}
+	
+	@XmlElement(name ="SellingStatus")
+	public SellingStatus getSellingStatus() {
+		return sellingStatus;
+	}
+	
+	@XmlElement(name ="ProductListingDetails")
+	public ProductListingDetails getProductListingDetails() {
+		return productListingDetails;
+	}
+	
+	@XmlElement(name ="Quantity")
+	public String getQuantity() {
+		return quantity;
+	}
 
 	// Setters
 	public void setAutoPay(String autoPay) {
@@ -114,6 +138,22 @@ public class Item {
 
 	public void setPictureDetails(PictureDetails pictureDetails) {
 		this.pictureDetails = pictureDetails;
+	}
+
+	public void setListingDetails(ListingDetails listingDetails) {
+		this.listingDetails = listingDetails;
+	}
+
+	public void setSellingStatus(SellingStatus sellingStatus) {
+		this.sellingStatus = sellingStatus;
+	}
+
+	public void setQuantity(String quantity) {
+		this.quantity = quantity;
+	}
+
+	public void setProductListingDetails(ProductListingDetails productListingDetails) {
+		this.productListingDetails = productListingDetails;
 	}
 
 
