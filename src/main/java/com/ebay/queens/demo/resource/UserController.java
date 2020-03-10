@@ -28,6 +28,9 @@ import com.ebay.queens.responses.findnonprofitresponse.FindNonProfitResponse;
 public class UserController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 	public ArrayList userViewedItemOnEbay = new ArrayList();
+	public ArrayList searchTypeList = new ArrayList(); 
+	int index = 0;
+	int searchTypeIndex = 0;
 	
 	UserController(){
 		HashMap<String, Boolean> userActionA = new HashMap<>();
@@ -37,7 +40,6 @@ public class UserController {
 		userViewedItemOnEbay.add(userActionA);
 		userViewedItemOnEbay.add(userActionB);
 	}
-	int index = 0;
 	
 	@Autowired
 	private UserRepository userRepository;
