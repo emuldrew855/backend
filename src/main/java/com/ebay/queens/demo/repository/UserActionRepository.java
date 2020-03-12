@@ -8,6 +8,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import com.ebay.queens.demo.model.UserActions;
 import com.ebay.queens.demo.model.ViewOnEbay;
 
-public interface UserActionRepository extends MongoRepository<ArrayList<HashMap<String, Boolean>>,Integer> {
+public interface UserActionRepository extends MongoRepository<ViewOnEbay,Integer> {
 
 }

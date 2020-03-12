@@ -5,13 +5,34 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ViewOnEbay {
-	private HashMap<String, Boolean> userViewedItemOnEbay = new HashMap<String, Boolean>();
-
-	public HashMap<String, Boolean> getUserViewedItemOnEbay() {
-		return userViewedItemOnEbay;
+	private UserGroup userGroup; 
+	private boolean viewedOnEbay;
+	
+	
+	public ViewOnEbay(UserGroup userGroup, boolean viewedOnEbay) {
+		this.userGroup = userGroup;
+		this.viewedOnEbay = viewedOnEbay;
+	}
+	
+	public ViewOnEbay() {
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setUserViewedItemOnEbay(HashMap<String, Boolean> userViewedItemOnEbay) {
-		this.userViewedItemOnEbay = userViewedItemOnEbay;
+	// Getters
+	public UserGroup getUserGroup() {
+		return userGroup;
 	}
+	public boolean isViewedOnEbay() {
+		return viewedOnEbay;
+	}
+	
+	// Setters
+	public void setUserGroup(UserGroup userGroup) {
+		this.userGroup = userGroup;
+	}
+	public void setViewedOnEbay(boolean viewedOnEbay) {
+		this.viewedOnEbay = viewedOnEbay;
+	}
+	
+	
 }

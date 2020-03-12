@@ -96,19 +96,4 @@ public class UserController {
 		LOGGER.info(deletedUser);
 		return deletedUser;
 	}
-
-	@GetMapping("/AddUserAction")
-	public String deleteUser(@QueryParam("userGroup") String userGroup, @QueryParam("viewOnEbay") boolean viewOnEbay) {
-		LOGGER.info("User Group: " + userGroup + " View On Ebay? " + viewOnEbay);
-		HashMap<String, Boolean> userAction = new HashMap<>();
-		userAction.put(userGroup, viewOnEbay);
-		userViewedItemOnEbay.add(index,userAction);
-		index = index + 1;
-		return "User action added";
-	}
-	
-	@GetMapping("/GetUserActions")
-	public List getUserActions() {
-		return userViewedItemOnEbay;
-	}
 }
