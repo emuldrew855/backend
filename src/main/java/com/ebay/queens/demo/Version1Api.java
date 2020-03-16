@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -106,11 +107,11 @@ public class Version1Api implements CommandLineRunner {
 	 *             IOException
 	 */
 	@GET
-	@PostMapping("/SearchItem")
+	@GetMapping("/SearchItem")
 	@Produces(MediaType.APPLICATION_JSON)
-	public SearchItemResponse searchItem(@QueryParam("searchTerm") String searchTerm) throws IOException {
+	public SearchItemResponse searchItem(@QueryParam("searchTerm") String searchTerm,@QueryParam("limitOffset") String limitOffset) throws IOException {
 		LOGGER.info("Search Item: " + searchTerm);
-		String url = "https://api.ebay.com/buy/browse/v1/item_summary/search?q=" + searchTerm;
+		String url = "https://api.ebay.com/buy/browse/v1/item_summary/search?q=" + searchTerm+"&limit="+ limitOffset + "&offset=" + limitOffset;
 		String response = httpClass.genericSendGET(url, "searchItem");
 		LOGGER.info(response.toString());
 		final SearchItemResponse searchItemResponse = mapper.readValue(response, SearchItemResponse.class);
