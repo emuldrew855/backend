@@ -50,15 +50,15 @@ public class TokenUtilityClass implements CommandLineRunner {
 
 	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(TokenUtilityClass.class);
 	public static Handler fileHandler  = null;
-	//private static final Logger LOGGER = Logger.getLogger(TokenUtilityClass.class.getName());
-	//fileHandler  = new FileHandler("./Assignment.log");
-	//LOGGER.addHandler(consoleHandler);
-//	/LOGGER.addHandler(fileHandler);
+	private static final Logger LOGGER = Logger.getLogger(TokenUtilityClass.class.getName());
 	
 	public boolean validToken = false;	
 
-	public TokenUtilityClass() {
+	public TokenUtilityClass() throws SecurityException, IOException {
 		logger.info("Token Utility Class");
+		fileHandler  = new FileHandler("./Assignment.log");
+		LOGGER.addHandler(fileHandler);
+		LOGGER.info("Token Class");
 	}
 	
 	  @PostConstruct
