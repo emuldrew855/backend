@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -18,8 +19,6 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -35,17 +34,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 @Component
 public class Http<T> implements CommandLineRunner {
-	private static final Logger LOGGER = LoggerFactory.getLogger(GetItem.class);
-
 	private ExternalConfig externalConfig;
+	private Logger logger;
 
 	@Autowired
 	Http(ExternalConfig externalConfig) {
+		logger = Utilities.LOGGER;
+		logger.info("HTTP Class");
 		System.out.println(externalConfig.getCertName());
 		this.externalConfig = externalConfig;
 	}
-
-	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Version1Api.class);
 
 	public Utilities utilityClass = new Utilities("test", "test", "EBAY-US", "EBAY-UK", "test",
 			"A21AAEU40OMhVHxkTsHNK9SfMUh75C-6KiYycLLogklKFxG_YKYz5pxDAK3H34A3NYT_y_5XMTJjkf0sjzK4jC1HLykcGMiFg",
@@ -58,10 +56,6 @@ public class Http<T> implements CommandLineRunner {
 		utilityClass.setSecurityAppName(externalConfig.getSecurityAppName());
 		utilityClass.setCertName(externalConfig.getCertName());
 		utilityClass.setEbayAuth(externalConfig.getEbayAuth());
-	}
-
-	public static void main(String[] args) throws IOException, URISyntaxException {
-		logger.info("HTTP Class");
 	}
 
 	/**
@@ -129,7 +123,7 @@ public class Http<T> implements CommandLineRunner {
 			requestXMLString = sw.toString();
 			System.out.println("---------------------------------");
 		} catch (JAXBException e) {
-			LOGGER.error("Failed to serialize XML.", e);
+			logger.severe("Failed to serialize XML." + e.toString());
 		}
 
 		CloseableHttpClient client = HttpClients.createDefault();
@@ -157,7 +151,7 @@ public class Http<T> implements CommandLineRunner {
 		// Object to JSON
 		final ObjectMapper mapper = new ObjectMapper();
 		String requestJSONString = mapper.writeValueAsString(request);
-		LOGGER.info(requestJSONString);
+		logger.info(requestJSONString);
 
 		CloseableHttpClient client = HttpClients.createDefault();
 		HttpPost httpPost = new HttpPost(url);

@@ -1,5 +1,8 @@
 package com.ebay.queens.demo;
 
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

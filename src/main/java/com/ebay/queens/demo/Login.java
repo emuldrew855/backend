@@ -1,6 +1,9 @@
 package com.ebay.queens.demo;
 
 import java.io.IOException;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Logger;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -9,8 +12,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.xml.bind.JAXBException;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,9 +26,11 @@ import com.ebay.queens.demo.model.User;
 @RestController
 @RequestMapping("/auth")
 public class Login {
-	private static final Logger LOGGER = LoggerFactory.getLogger(Login.class);
+	private Logger LOGGER; 
 
 	Login() {
+		LOGGER = Utilities.LOGGER;
+		LOGGER.addHandler(Utilities.fileHandler);
 		LOGGER.info("Login");
 	}
 

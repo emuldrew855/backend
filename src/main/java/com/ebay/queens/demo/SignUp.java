@@ -2,6 +2,7 @@ package com.ebay.queens.demo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -9,8 +10,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -25,10 +24,11 @@ import com.ebay.queens.demo.model.UserGroup;
 @RestController
 @RequestMapping("/signup")
 public class SignUp {
-private static final Logger LOGGER = LoggerFactory.getLogger(SignUp.class);
+	private Logger LOGGER;
 	public static List<User> users = new ArrayList<User>();
 
 	SignUp() {
+		LOGGER = Utilities.LOGGER;
 		LOGGER.info("SignUp");
 		User userA = new User("1","userA","userA");
 		userA.setUserGroup(UserGroup.A);

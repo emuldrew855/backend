@@ -1,7 +1,11 @@
 package com.ebay.queens.demo;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Logger;
 
 import org.springframework.stereotype.Component;
 
@@ -11,6 +15,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class Utilities {
+	public static Logger LOGGER = Logger.getLogger(Utilities.class.getName());
+	public static Handler fileHandler  = null;
 	String securityAppName;
 	String globalId;
 	String devName;
@@ -30,6 +36,15 @@ public class Utilities {
 		this.marktplaceId = marketplaceId;
 		this.paypalAuthorizationToken = paypalAuth;
 		this.ebayAuth = ebayAuth;
+		try {
+			fileHandler  = new FileHandler("./BackendLogs.log");
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	Utilities() {

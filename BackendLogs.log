@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-03-17T12:41:16</date>
+  <millis>1584448876248</millis>
+  <sequence>5</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Login</class>
+  <method>&lt;init&gt;</method>
+  <thread>12</thread>
+  <message>Login</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:18</date>
+  <millis>1584448878351</millis>
+  <sequence>6</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.SignUp</class>
+  <method>&lt;init&gt;</method>
+  <thread>12</thread>
+  <message>SignUp</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:18</date>
+  <millis>1584448878356</millis>
+  <sequence>7</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.SignUp</class>
+  <method>&lt;init&gt;</method>
+  <thread>12</thread>
+  <message>Users[com.ebay.queens.demo.model.User@6078558, com.ebay.queens.demo.model.User@5a15af47, com.ebay.queens.demo.model.User@3d8c5111]</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:18</date>
+  <millis>1584448878363</millis>
+  <sequence>8</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>12</thread>
+  <message>Token Utility Class</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:18</date>
+  <millis>1584448878364</millis>
+  <sequence>9</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>12</thread>
+  <message>Token Class</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:18</date>
+  <millis>1584448878364</millis>
+  <sequence>9</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>12</thread>
+  <message>Token Class</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:18</date>
+  <millis>1584448878372</millis>
+  <sequence>10</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>authenticationToken</method>
+  <thread>22</thread>
+  <message>Authentication token</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:18</date>
+  <millis>1584448878372</millis>
+  <sequence>10</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>authenticationToken</method>
+  <thread>22</thread>
+  <message>Authentication token</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:20</date>
+  <millis>1584448880496</millis>
+  <sequence>11</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>authenticationToken</method>
+  <thread>22</thread>
+  <message>A21AAGJfzi-sM6vE9gskJHN8iGN1HuSieLlowoIXXus6GnIWX3aEvwB3CTGOZDeh1TPHXZi2MvEaZ17yIOl2-1J6PO5MDGO0A</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:20</date>
+  <millis>1584448880496</millis>
+  <sequence>11</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>authenticationToken</method>
+  <thread>22</thread>
+  <message>A21AAGJfzi-sM6vE9gskJHN8iGN1HuSieLlowoIXXus6GnIWX3aEvwB3CTGOZDeh1TPHXZi2MvEaZ17yIOl2-1J6PO5MDGO0A</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:21</date>
+  <millis>1584448881852</millis>
+  <sequence>12</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>12</thread>
+  <message>Token Utility Class</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:21</date>
+  <millis>1584448881852</millis>
+  <sequence>12</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>12</thread>
+  <message>Token Utility Class</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:21</date>
+  <millis>1584448881853</millis>
+  <sequence>13</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>12</thread>
+  <message>Token Class</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:21</date>
+  <millis>1584448881853</millis>
+  <sequence>13</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>12</thread>
+  <message>Token Class</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:21</date>
+  <millis>1584448881853</millis>
+  <sequence>13</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>12</thread>
+  <message>Token Class</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:21</date>
+  <millis>1584448881853</millis>
+  <sequence>14</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Paypal</class>
+  <method>&lt;init&gt;</method>
+  <thread>12</thread>
+  <message>Paypal Class</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:21</date>
+  <millis>1584448881853</millis>
+  <sequence>14</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Paypal</class>
+  <method>&lt;init&gt;</method>
+  <thread>12</thread>
+  <message>Paypal Class</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:21</date>
+  <millis>1584448881853</millis>
+  <sequence>14</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Paypal</class>
+  <method>&lt;init&gt;</method>
+  <thread>12</thread>
+  <message>Paypal Class</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:21</date>
+  <millis>1584448881877</millis>
+  <sequence>15</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>Version 1 API</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:21</date>
+  <millis>1584448881877</millis>
+  <sequence>15</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>Version 1 API</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:21</date>
+  <millis>1584448881877</millis>
+  <sequence>15</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>Version 1 API</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:43</date>
+  <millis>1584448903515</millis>
+  <sequence>17</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>searchItem</method>
+  <thread>35</thread>
+  <message>Search Item: Drone</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:43</date>
+  <millis>1584448903515</millis>
+  <sequence>17</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>searchItem</method>
+  <thread>35</thread>
+  <message>Search Item: Drone</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:43</date>
+  <millis>1584448903515</millis>
+  <sequence>17</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>searchItem</method>
+  <thread>35</thread>
+  <message>Search Item: Drone</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:44</date>
+  <millis>1584448904303</millis>
+  <sequence>18</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>searchItem</method>
+  <thread>35</thread>
+  <message>{
+  "errors" : [ {
+    "errorId" : 1001,
+    "domain" : "OAuth",
+    "category" : "REQUEST",
+    "message" : "Invalid access token",
+    "longMessage" : "Invalid access token. Check the value of the Authorization HTTP request header."
+  } ]
+}</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:44</date>
+  <millis>1584448904303</millis>
+  <sequence>18</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>searchItem</method>
+  <thread>35</thread>
+  <message>{
+  "errors" : [ {
+    "errorId" : 1001,
+    "domain" : "OAuth",
+    "category" : "REQUEST",
+    "message" : "Invalid access token",
+    "longMessage" : "Invalid access token. Check the value of the Authorization HTTP request header."
+  } ]
+}</message>
+</record>
+<record>
+  <date>2020-03-17T12:41:44</date>
+  <millis>1584448904303</millis>
+  <sequence>18</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>searchItem</method>
+  <thread>35</thread>
+  <message>{
+  "errors" : [ {
+    "errorId" : 1001,
+    "domain" : "OAuth",
+    "category" : "REQUEST",
+    "message" : "Invalid access token",
+    "longMessage" : "Invalid access token. Check the value of the Authorization HTTP request header."
+  } ]
+}</message>
+</record>

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Logger;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -41,7 +42,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @RestController
 @RequestMapping("/Paypal")
 public class Paypal implements CommandLineRunner {
-	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Paypal.class);
+	private Logger logger;
 	final ObjectMapper mapper = new ObjectMapper();
 	@Autowired
 	private Http httpClass;
@@ -50,6 +51,7 @@ public class Paypal implements CommandLineRunner {
 	TokenUtilityClass tokenUtilityClass = new TokenUtilityClass();
 
 	Paypal() {
+		logger = Utilities.LOGGER;
 		logger.info("Paypal Class");
 		TimerTask repeatedTask = new TimerTask() {
 			@Override

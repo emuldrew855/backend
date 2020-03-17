@@ -2,6 +2,7 @@ package com.ebay.queens.demo;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.logging.Logger;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -11,9 +12,6 @@ import javax.ws.rs.core.MediaType;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
@@ -36,7 +34,7 @@ import com.ebay.queens.responses.charityitemresponse.CharityItemResponse;
 import com.ebay.queens.responses.findnonprofitresponse.FindNonProfitResponse;
 import com.ebay.queens.responses.getitemresponse.GetItemResponse;
 import com.ebay.queens.responses.searchitemresponse.SearchItemResponse;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;import ch.qos.logback.classic.Level;
 
 /**
  * Represents a class to access and hit all of the eBays api's
@@ -47,10 +45,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @RequestMapping("/v1")
 public class Version1Api implements CommandLineRunner {
 	final ObjectMapper mapper = new ObjectMapper();
-	private static final Logger LOGGER = LoggerFactory.getLogger(Version1Api.class);
+	private Logger LOGGER;
 
 	@Override
 	public void run(String... args) throws Exception {
+		LOGGER = Utilities.LOGGER;
 		LOGGER.info("Version 1 API");
 		// this.getItem("333460893922");
 		// this.findSingleNonProfit("10484");
@@ -155,7 +154,7 @@ public class Version1Api implements CommandLineRunner {
 			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 			findNonProfitResponse = (FindNonProfitResponse) unmarshaller.unmarshal(new StringReader(response));
 		} catch (JAXBException e) {
-			LOGGER.error("Failed to deserialize XML.", e);
+			LOGGER.severe("Failed to deserialize XML." + e.toString());
 		}
 		return findNonProfitResponse;
 	}
@@ -223,7 +222,7 @@ public class Version1Api implements CommandLineRunner {
 			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 			getItemResponse = (GetItemResponse) unmarshaller.unmarshal(new StringReader(response));
 		} catch (JAXBException e) {
-			LOGGER.error("Failed to deserialize XML.", e);
+			LOGGER.severe("Failed to deserialize XML."+ e.toString());
 		}
 		return getItemResponse;
 	}
@@ -256,7 +255,7 @@ public class Version1Api implements CommandLineRunner {
 			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 			findNonProfitResponse = (FindNonProfitResponse) unmarshaller.unmarshal(new StringReader(response));
 		} catch (JAXBException e) {
-			LOGGER.error("Failed to deserialize XML.", e);
+			LOGGER.severe("Failed to deserialize XML." + e.toString());
 		}
 		return findNonProfitResponse;
 	}
