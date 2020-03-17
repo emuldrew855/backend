@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2020-03-17T12:41:16</date>
-  <millis>1584448876248</millis>
+  <date>2020-03-17T21:50:39</date>
+  <millis>1584481839197</millis>
   <sequence>5</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -13,8 +13,8 @@
   <message>Login</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:18</date>
-  <millis>1584448878351</millis>
+  <date>2020-03-17T21:50:40</date>
+  <millis>1584481840751</millis>
   <sequence>6</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -24,19 +24,19 @@
   <message>SignUp</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:18</date>
-  <millis>1584448878356</millis>
+  <date>2020-03-17T21:50:40</date>
+  <millis>1584481840752</millis>
   <sequence>7</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.SignUp</class>
   <method>&lt;init&gt;</method>
   <thread>12</thread>
-  <message>Users[com.ebay.queens.demo.model.User@6078558, com.ebay.queens.demo.model.User@5a15af47, com.ebay.queens.demo.model.User@3d8c5111]</message>
+  <message>Users[com.ebay.queens.demo.model.User@556dda1, com.ebay.queens.demo.model.User@36eadad3, com.ebay.queens.demo.model.User@439eb39]</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:18</date>
-  <millis>1584448878363</millis>
+  <date>2020-03-17T21:50:40</date>
+  <millis>1584481840761</millis>
   <sequence>8</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -46,8 +46,8 @@
   <message>Token Utility Class</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:18</date>
-  <millis>1584448878364</millis>
+  <date>2020-03-17T21:50:40</date>
+  <millis>1584481840762</millis>
   <sequence>9</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -57,8 +57,8 @@
   <message>Token Class</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:18</date>
-  <millis>1584448878364</millis>
+  <date>2020-03-17T21:50:40</date>
+  <millis>1584481840762</millis>
   <sequence>9</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -68,8 +68,8 @@
   <message>Token Class</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:18</date>
-  <millis>1584448878372</millis>
+  <date>2020-03-17T21:50:40</date>
+  <millis>1584481840772</millis>
   <sequence>10</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -79,8 +79,8 @@
   <message>Authentication token</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:18</date>
-  <millis>1584448878372</millis>
+  <date>2020-03-17T21:50:40</date>
+  <millis>1584481840772</millis>
   <sequence>10</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -90,30 +90,30 @@
   <message>Authentication token</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:20</date>
-  <millis>1584448880496</millis>
+  <date>2020-03-17T21:50:42</date>
+  <millis>1584481842677</millis>
   <sequence>11</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.TokenUtilityClass</class>
   <method>authenticationToken</method>
   <thread>22</thread>
-  <message>A21AAGJfzi-sM6vE9gskJHN8iGN1HuSieLlowoIXXus6GnIWX3aEvwB3CTGOZDeh1TPHXZi2MvEaZ17yIOl2-1J6PO5MDGO0A</message>
+  <message>A21AAHZMVJ9sw_wJLAROiOBQtbgA0hhJ4fcGGAAFfKy45JhhOrz4gJzIphfWsJ7cgdbxCqzFPN0k4AK5l8aoyNaTn_0GqxpRw</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:20</date>
-  <millis>1584448880496</millis>
+  <date>2020-03-17T21:50:42</date>
+  <millis>1584481842677</millis>
   <sequence>11</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.TokenUtilityClass</class>
   <method>authenticationToken</method>
   <thread>22</thread>
-  <message>A21AAGJfzi-sM6vE9gskJHN8iGN1HuSieLlowoIXXus6GnIWX3aEvwB3CTGOZDeh1TPHXZi2MvEaZ17yIOl2-1J6PO5MDGO0A</message>
+  <message>A21AAHZMVJ9sw_wJLAROiOBQtbgA0hhJ4fcGGAAFfKy45JhhOrz4gJzIphfWsJ7cgdbxCqzFPN0k4AK5l8aoyNaTn_0GqxpRw</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:21</date>
-  <millis>1584448881852</millis>
+  <date>2020-03-17T21:50:44</date>
+  <millis>1584481844058</millis>
   <sequence>12</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -123,8 +123,8 @@
   <message>Token Utility Class</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:21</date>
-  <millis>1584448881852</millis>
+  <date>2020-03-17T21:50:44</date>
+  <millis>1584481844058</millis>
   <sequence>12</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -134,8 +134,8 @@
   <message>Token Utility Class</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:21</date>
-  <millis>1584448881853</millis>
+  <date>2020-03-17T21:50:44</date>
+  <millis>1584481844059</millis>
   <sequence>13</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -145,8 +145,8 @@
   <message>Token Class</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:21</date>
-  <millis>1584448881853</millis>
+  <date>2020-03-17T21:50:44</date>
+  <millis>1584481844059</millis>
   <sequence>13</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -156,8 +156,8 @@
   <message>Token Class</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:21</date>
-  <millis>1584448881853</millis>
+  <date>2020-03-17T21:50:44</date>
+  <millis>1584481844059</millis>
   <sequence>13</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -167,8 +167,8 @@
   <message>Token Class</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:21</date>
-  <millis>1584448881853</millis>
+  <date>2020-03-17T21:50:44</date>
+  <millis>1584481844061</millis>
   <sequence>14</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -178,8 +178,8 @@
   <message>Paypal Class</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:21</date>
-  <millis>1584448881853</millis>
+  <date>2020-03-17T21:50:44</date>
+  <millis>1584481844061</millis>
   <sequence>14</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -189,8 +189,8 @@
   <message>Paypal Class</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:21</date>
-  <millis>1584448881853</millis>
+  <date>2020-03-17T21:50:44</date>
+  <millis>1584481844061</millis>
   <sequence>14</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -200,8 +200,8 @@
   <message>Paypal Class</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:21</date>
-  <millis>1584448881877</millis>
+  <date>2020-03-17T21:50:44</date>
+  <millis>1584481844084</millis>
   <sequence>15</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -211,8 +211,8 @@
   <message>Version 1 API</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:21</date>
-  <millis>1584448881877</millis>
+  <date>2020-03-17T21:50:44</date>
+  <millis>1584481844084</millis>
   <sequence>15</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -222,8 +222,8 @@
   <message>Version 1 API</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:21</date>
-  <millis>1584448881877</millis>
+  <date>2020-03-17T21:50:44</date>
+  <millis>1584481844084</millis>
   <sequence>15</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -233,92 +233,926 @@
   <message>Version 1 API</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:43</date>
-  <millis>1584448903515</millis>
+  <date>2020-03-17T21:52:48</date>
+  <millis>1584481968858</millis>
   <sequence>17</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.Version1Api</class>
-  <method>searchItem</method>
-  <thread>35</thread>
-  <message>Search Item: Drone</message>
+  <method>getItem</method>
+  <thread>36</thread>
+  <message>Get Item Method: 264495064174</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:43</date>
-  <millis>1584448903515</millis>
+  <date>2020-03-17T21:52:48</date>
+  <millis>1584481968858</millis>
   <sequence>17</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.Version1Api</class>
-  <method>searchItem</method>
-  <thread>35</thread>
-  <message>Search Item: Drone</message>
+  <method>getItem</method>
+  <thread>36</thread>
+  <message>Get Item Method: 264495064174</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:43</date>
-  <millis>1584448903515</millis>
+  <date>2020-03-17T21:52:48</date>
+  <millis>1584481968858</millis>
   <sequence>17</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>36</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T21:53:49</date>
+  <millis>1584482029256</millis>
+  <sequence>19</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>34</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T21:53:49</date>
+  <millis>1584482029256</millis>
+  <sequence>19</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>34</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T21:53:49</date>
+  <millis>1584482029256</millis>
+  <sequence>19</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>34</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T21:56:22</date>
+  <millis>1584482182983</millis>
+  <sequence>21</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>31</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T21:56:22</date>
+  <millis>1584482182983</millis>
+  <sequence>21</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>31</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T21:56:22</date>
+  <millis>1584482182983</millis>
+  <sequence>21</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>31</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T21:57:39</date>
+  <millis>1584482259998</millis>
+  <sequence>23</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>29</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T21:57:39</date>
+  <millis>1584482259998</millis>
+  <sequence>23</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>29</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T21:57:39</date>
+  <millis>1584482259998</millis>
+  <sequence>23</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>29</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T21:59:29</date>
+  <millis>1584482369968</millis>
+  <sequence>25</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>34</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T21:59:29</date>
+  <millis>1584482369968</millis>
+  <sequence>25</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>34</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T21:59:29</date>
+  <millis>1584482369968</millis>
+  <sequence>25</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>34</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:03:22</date>
+  <millis>1584482602354</millis>
+  <sequence>27</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>31</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:03:22</date>
+  <millis>1584482602354</millis>
+  <sequence>27</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>31</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:03:22</date>
+  <millis>1584482602354</millis>
+  <sequence>27</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>31</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:04:17</date>
+  <millis>1584482657269</millis>
+  <sequence>28</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>30</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:04:17</date>
+  <millis>1584482657269</millis>
+  <sequence>28</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>30</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:04:17</date>
+  <millis>1584482657269</millis>
+  <sequence>28</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>30</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:10</date>
+  <millis>1584482710273</millis>
+  <sequence>35</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Http</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>HTTP Class</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:10</date>
+  <millis>1584482710273</millis>
+  <sequence>35</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Http</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>HTTP Class</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:10</date>
+  <millis>1584482710273</millis>
+  <sequence>35</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Http</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>HTTP Class</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:10</date>
+  <millis>1584482710280</millis>
+  <sequence>36</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Login</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>Login</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:10</date>
+  <millis>1584482710280</millis>
+  <sequence>36</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Login</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>Login</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:10</date>
+  <millis>1584482710280</millis>
+  <sequence>36</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Login</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>Login</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:10</date>
+  <millis>1584482710699</millis>
+  <sequence>37</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.SignUp</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>SignUp</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:10</date>
+  <millis>1584482710699</millis>
+  <sequence>37</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.SignUp</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>SignUp</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:10</date>
+  <millis>1584482710699</millis>
+  <sequence>37</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.SignUp</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>SignUp</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:10</date>
+  <millis>1584482710702</millis>
+  <sequence>38</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.SignUp</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>Users[com.ebay.queens.demo.model.User@4d300bb0, com.ebay.queens.demo.model.User@2c711ead, com.ebay.queens.demo.model.User@49ed11ad]</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:10</date>
+  <millis>1584482710702</millis>
+  <sequence>38</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.SignUp</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>Users[com.ebay.queens.demo.model.User@4d300bb0, com.ebay.queens.demo.model.User@2c711ead, com.ebay.queens.demo.model.User@49ed11ad]</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:10</date>
+  <millis>1584482710702</millis>
+  <sequence>38</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.SignUp</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>Users[com.ebay.queens.demo.model.User@4d300bb0, com.ebay.queens.demo.model.User@2c711ead, com.ebay.queens.demo.model.User@49ed11ad]</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:10</date>
+  <millis>1584482710710</millis>
+  <sequence>39</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>Token Utility Class</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:10</date>
+  <millis>1584482710710</millis>
+  <sequence>39</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>Token Utility Class</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:10</date>
+  <millis>1584482710710</millis>
+  <sequence>39</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>Token Utility Class</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:10</date>
+  <millis>1584482710711</millis>
+  <sequence>40</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>Token Class</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:10</date>
+  <millis>1584482710711</millis>
+  <sequence>40</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>Token Class</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:10</date>
+  <millis>1584482710711</millis>
+  <sequence>40</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>Token Class</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:10</date>
+  <millis>1584482710728</millis>
+  <sequence>41</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>authenticationToken</method>
+  <thread>56</thread>
+  <message>Authentication token</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:10</date>
+  <millis>1584482710728</millis>
+  <sequence>41</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>authenticationToken</method>
+  <thread>56</thread>
+  <message>Authentication token</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:10</date>
+  <millis>1584482710728</millis>
+  <sequence>41</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>authenticationToken</method>
+  <thread>56</thread>
+  <message>Authentication token</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:11</date>
+  <millis>1584482711220</millis>
+  <sequence>42</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>authenticationToken</method>
+  <thread>56</thread>
+  <message>A21AAFVuuzykFTLLt_xzXywBxgOhE-qsRhhb3SkY1wq4VnWmtPK0hyddMem0Yflc7nqtO58qvTfLzCf0MN9ap8-2acMs1A6Wg</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:11</date>
+  <millis>1584482711220</millis>
+  <sequence>42</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>authenticationToken</method>
+  <thread>56</thread>
+  <message>A21AAFVuuzykFTLLt_xzXywBxgOhE-qsRhhb3SkY1wq4VnWmtPK0hyddMem0Yflc7nqtO58qvTfLzCf0MN9ap8-2acMs1A6Wg</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:11</date>
+  <millis>1584482711220</millis>
+  <sequence>42</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>authenticationToken</method>
+  <thread>56</thread>
+  <message>A21AAFVuuzykFTLLt_xzXywBxgOhE-qsRhhb3SkY1wq4VnWmtPK0hyddMem0Yflc7nqtO58qvTfLzCf0MN9ap8-2acMs1A6Wg</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:11</date>
+  <millis>1584482711250</millis>
+  <sequence>43</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>Token Utility Class</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:11</date>
+  <millis>1584482711250</millis>
+  <sequence>43</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>Token Utility Class</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:11</date>
+  <millis>1584482711250</millis>
+  <sequence>43</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>Token Utility Class</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:11</date>
+  <millis>1584482711253</millis>
+  <sequence>44</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>Token Class</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:11</date>
+  <millis>1584482711253</millis>
+  <sequence>44</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>Token Class</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:11</date>
+  <millis>1584482711253</millis>
+  <sequence>44</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>Token Class</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:11</date>
+  <millis>1584482711256</millis>
+  <sequence>45</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Paypal</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>Paypal Class</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:11</date>
+  <millis>1584482711256</millis>
+  <sequence>45</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Paypal</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>Paypal Class</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:11</date>
+  <millis>1584482711256</millis>
+  <sequence>45</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Paypal</class>
+  <method>&lt;init&gt;</method>
+  <thread>48</thread>
+  <message>Paypal Class</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:11</date>
+  <millis>1584482711263</millis>
+  <sequence>46</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>run</method>
+  <thread>48</thread>
+  <message>Version 1 API</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:11</date>
+  <millis>1584482711263</millis>
+  <sequence>46</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>run</method>
+  <thread>48</thread>
+  <message>Version 1 API</message>
+</record>
+<record>
+  <date>2020-03-17T22:05:11</date>
+  <millis>1584482711263</millis>
+  <sequence>46</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>run</method>
+  <thread>48</thread>
+  <message>Version 1 API</message>
+</record>
+<record>
+  <date>2020-03-17T22:08:07</date>
+  <millis>1584482887820</millis>
+  <sequence>49</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>60</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:08:07</date>
+  <millis>1584482887820</millis>
+  <sequence>49</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>60</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:08:07</date>
+  <millis>1584482887820</millis>
+  <sequence>49</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>60</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:13:04</date>
+  <millis>1584483184351</millis>
+  <sequence>50</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Login</class>
+  <method>logIn</method>
+  <thread>66</thread>
+  <message>Log In MethoduserA userA</message>
+</record>
+<record>
+  <date>2020-03-17T22:13:04</date>
+  <millis>1584483184351</millis>
+  <sequence>50</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Login</class>
+  <method>logIn</method>
+  <thread>66</thread>
+  <message>Log In MethoduserA userA</message>
+</record>
+<record>
+  <date>2020-03-17T22:13:04</date>
+  <millis>1584483184351</millis>
+  <sequence>50</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Login</class>
+  <method>logIn</method>
+  <thread>66</thread>
+  <message>Log In MethoduserA userA</message>
+</record>
+<record>
+  <date>2020-03-17T22:13:11</date>
+  <millis>1584483191911</millis>
+  <sequence>51</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
   <method>searchItem</method>
-  <thread>35</thread>
+  <thread>67</thread>
   <message>Search Item: Drone</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:44</date>
-  <millis>1584448904303</millis>
-  <sequence>18</sequence>
+  <date>2020-03-17T22:13:11</date>
+  <millis>1584483191911</millis>
+  <sequence>51</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.Version1Api</class>
   <method>searchItem</method>
-  <thread>35</thread>
-  <message>{
-  "errors" : [ {
-    "errorId" : 1001,
-    "domain" : "OAuth",
-    "category" : "REQUEST",
-    "message" : "Invalid access token",
-    "longMessage" : "Invalid access token. Check the value of the Authorization HTTP request header."
-  } ]
-}</message>
+  <thread>67</thread>
+  <message>Search Item: Drone</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:44</date>
-  <millis>1584448904303</millis>
-  <sequence>18</sequence>
+  <date>2020-03-17T22:13:11</date>
+  <millis>1584483191911</millis>
+  <sequence>51</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.Version1Api</class>
   <method>searchItem</method>
-  <thread>35</thread>
-  <message>{
-  "errors" : [ {
-    "errorId" : 1001,
-    "domain" : "OAuth",
-    "category" : "REQUEST",
-    "message" : "Invalid access token",
-    "longMessage" : "Invalid access token. Check the value of the Authorization HTTP request header."
-  } ]
-}</message>
+  <thread>67</thread>
+  <message>Search Item: Drone</message>
 </record>
 <record>
-  <date>2020-03-17T12:41:44</date>
-  <millis>1584448904303</millis>
-  <sequence>18</sequence>
+  <date>2020-03-17T22:13:12</date>
+  <millis>1584483192856</millis>
+  <sequence>52</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.Version1Api</class>
   <method>searchItem</method>
-  <thread>35</thread>
-  <message>{
-  "errors" : [ {
-    "errorId" : 1001,
-    "domain" : "OAuth",
-    "category" : "REQUEST",
-    "message" : "Invalid access token",
-    "longMessage" : "Invalid access token. Check the value of the Authorization HTTP request header."
-  } ]
-}</message>
+  <thread>67</thread>
+  <message>{"href":"https://api.ebay.com/buy/browse/v1/item_summary/search?q=Drone&amp;limit=10&amp;offset=10","total":206621,"next":"https://api.ebay.com/buy/browse/v1/item_summary/search?q=Drone&amp;limit=10&amp;offset=20","prev":"https://api.ebay.com/buy/browse/v1/item_summary/search?q=Drone&amp;limit=10&amp;offset=0","limit":10,"offset":10,"itemSummaries":[{"itemId":"v1|264495064174|0","title":"Holy Stone HS110G FPV Drone with 1080P HD Video Camera Quadcopter GPS Follow Me","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/fTcAAOSwDyRd1ePF/s-l225.jpg"},"price":{"value":"99.99","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|264495064174|0","seller":{"username":"holystonedirect","feedbackPercentage":"99.6","feedbackScore":2276},"marketingPrice":{"originalPrice":{"value":"129.99","currency":"USD"},"discountPercentage":"23","discountAmount":{"value":"30.00","currency":"USD"},"priceTreatment":"MARKDOWN"},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/fTcAAOSwDyRd1ePF/$_0.JPG?set_id=8800005007"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE","BEST_OFFER"],"epid":"9035648312","itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FHoly-Stone-HS110G-FPV-Drone-with-1080P-HD-Video-Camera-Quadcopter-GPS-Follow-Me%2F264495064174%3Fhash%3Ditem3d9522646e%3Ag%3AfTcAAOSwDyRd1ePF","itemWebUrl":"https://www.ebay.com/itm/Holy-Stone-HS110G-FPV-Drone-with-1080P-HD-Video-Camera-Quadcopter-GPS-Follow-Me/264495064174?hash=item3d9522646e:g:fTcAAOSwDyRd1ePF","itemLocation":{"country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"182185"},{"categoryId":"220"},{"categoryId":"625"},{"categoryId":"2562"},{"categoryId":"182181"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_10_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_11_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_12_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|313016736669|611708371530","title":"KY909 Foldable Camera Drone 4K 1080P HD WiFi FPV Wide Angle Flow RC Quadcopter","itemGroupHref":"https://api.ebay.com/buy/browse/v1/item/get_items_by_item_group?item_group_id=313016736669","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/m/mIHUayWpSTLB58SmdtUPt5w/s-l225.jpg"},"price":{"value":"41.49","currency":"USD"},"itemGroupType":"SELLER_DEFINED_VARIATIONS","itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|313016736669|611708371530","seller":{"username":"nolindavi-0","feedbackPercentage":"100.0","feedbackScore":87},"condition":"New","conditionId":"1000","shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE"],"itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FKY909-Foldable-Camera-Drone-4K-1080P-HD-WiFi-FPV-Wide-Angle-Flow-RC-Quadcopter%2F313016736669%3Fhash%3Ditem48e1405b9d%3Am%3AmIHUayWpSTLB58SmdtUPt5w","itemWebUrl":"https://www.ebay.com/itm/KY909-Foldable-Camera-Drone-4K-1080P-HD-WiFi-FPV-Wide-Angle-Flow-RC-Quadcopter/313016736669?hash=item48e1405b9d:m:mIHUayWpSTLB58SmdtUPt5w","itemLocation":{"postalCode":"337**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"182186"},{"categoryId":"220"},{"categoryId":"625"},{"categoryId":"2562"},{"categoryId":"182181"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_10_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_11_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|263901481949|0","title":"Holy Stone HS700D GPS FPV Drone With 2K HD Camera WIFI Brushless RC Quadcopter","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/yK4AAOSwveheTUuL/s-l225.jpg"},"price":{"value":"189.99","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|263901481949|0","seller":{"username":"holystonedirect","feedbackPercentage":"99.6","feedbackScore":2280},"marketingPrice":{"originalPrice":{"value":"199.99","currency":"USD"},"discountPercentage":"5","discountAmount":{"value":"10.00","currency":"USD"},"priceTreatment":"MARKDOWN"},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/yK4AAOSwveheTUuL/$_0.JPG?set_id=880000500F"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE","BEST_OFFER"],"epid":"3026516349","itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FHoly-Stone-HS700D-GPS-FPV-Drone-With-2K-HD-Camera-WIFI-Brushless-RC-Quadcopter%2F263901481949%3Fhash%3Ditem3d71c10bdd%3Ag%3AyK4AAOSwveheTUuL","itemWebUrl":"https://www.ebay.com/itm/Holy-Stone-HS700D-GPS-FPV-Drone-With-2K-HD-Camera-WIFI-Brushless-RC-Quadcopter/263901481949?hash=item3d71c10bdd:g:yK4AAOSwveheTUuL","itemLocation":{"country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"182185"},{"categoryId":"220"},{"categoryId":"625"},{"categoryId":"2562"},{"categoryId":"182181"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_10_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_11_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_12_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|401837774752|0","title":"Drone X Pro Foldable Quadcopter WIFI FPV 1080P Wide-Angle HD Camera Batteries US","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/QRwAAOSw~BldHvLS/s-l225.jpg"},"price":{"value":"60.99","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|401837774752|0","seller":{"username":"forgetthewater","feedbackPercentage":"97.1","feedbackScore":1884},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/QRwAAOSw~BldHvLS/$_0.JPG"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE"],"itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FDrone-X-Pro-Foldable-Quadcopter-WIFI-FPV-1080P-Wide-Angle-HD-Camera-Batteries-US%2F401837774752%3Fhash%3Ditem5d8f65d7a0%3Ag%3AQRwAAOSw%7EBldHvLS","itemWebUrl":"https://www.ebay.com/itm/Drone-X-Pro-Foldable-Quadcopter-WIFI-FPV-1080P-Wide-Angle-HD-Camera-Batteries-US/401837774752?hash=item5d8f65d7a0:g:QRwAAOSw~BldHvLS","itemLocation":{"postalCode":"337**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"182213"},{"categoryId":"220"},{"categoryId":"625"},{"categoryId":"2562"},{"categoryId":"182187"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/401837774752_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/401837774752_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/401837774752_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/401837774752_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/401837774752_6_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|283751635516|0","title":"Holy Stone HS720 Foldable RC Drone with HD Camera 2K 5G Brushless GPS Quadcopter","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/CaMAAOSwOb9eJpaq/s-l225.jpg"},"price":{"value":"218.49","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|283751635516|0","seller":{"username":"mitangdirect-us","feedbackPercentage":"100.0","feedbackScore":7},"marketingPrice":{"originalPrice":{"value":"229.99","currency":"USD"},"discountPercentage":"5","discountAmount":{"value":"11.50","currency":"USD"},"priceTreatment":"MARKDOWN"},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/CaMAAOSwOb9eJpaq/$_0.JPG?set_id=8800005007"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE","BEST_OFFER"],"itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FHoly-Stone-HS720-Foldable-RC-Drone-with-HD-Camera-2K-5G-Brushless-GPS-Quadcopter%2F283751635516%3Fhash%3Ditem4210ea5a3c%3Ag%3ACaMAAOSwOb9eJpaq","itemWebUrl":"https://www.ebay.com/itm/Holy-Stone-HS720-Foldable-RC-Drone-with-HD-Camera-2K-5G-Brushless-GPS-Quadcopter/283751635516?hash=item4210ea5a3c:g:CaMAAOSwOb9eJpaq","itemLocation":{"postalCode":"410**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"625"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_10_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_11_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_12_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|274116067290|0","title":"Cooligg S168 FPV Wifi HD Camera Drone Aircraft Foldable Quadcopter Selfie Toys","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/OmMAAOSw9PNeYdN0/s-l225.jpg"},"price":{"value":"59.95","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|274116067290|0","seller":{"username":"elec-king","feedbackPercentage":"99.1","feedbackScore":58707},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/ODAwWDgwMA==/z/OmMAAOSw9PNeYdN0/$_0.JPG?set_id=8800005007"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE"],"itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FCooligg-S168-FPV-Wifi-HD-Camera-Drone-Aircraft-Foldable-Quadcopter-Selfie-Toys%2F274116067290%3Fhash%3Ditem3fd2973fda%3Ag%3AOmMAAOSw9PNeYdN0","itemWebUrl":"https://www.ebay.com/itm/Cooligg-S168-FPV-Wifi-HD-Camera-Drone-Aircraft-Foldable-Quadcopter-Selfie-Toys/274116067290?hash=item3fd2973fda:g:OmMAAOSw9PNeYdN0","itemLocation":{"postalCode":"085**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"625"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_10_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_11_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_12_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|264272531765|0","title":"Holy Stone HS700 FPV Drone with 1080P HD Camera RC Drones Brushless Motor GPS","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/72gAAOSwNixcqVQZ/s-l225.jpg"},"price":{"value":"182.99","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|264272531765|0","seller":{"username":"holystonedirect","feedbackPercentage":"99.6","feedbackScore":2280},"marketingPrice":{"originalPrice":{"value":"202.99","currency":"USD"},"discountPercentage":"10","discountAmount":{"value":"20.00","currency":"USD"},"priceTreatment":"MARKDOWN"},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/MTIwMFgxMjAw/z/72gAAOSwNixcqVQZ/$_0.JPG?set_id=880000500F"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE","BEST_OFFER"],"epid":"3033166487","itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FHoly-Stone-HS700-FPV-Drone-with-1080P-HD-Camera-RC-Drones-Brushless-Motor-GPS%2F264272531765%3Fhash%3Ditem3d87ded135%3Ag%3A72gAAOSwNixcqVQZ","itemWebUrl":"https://www.ebay.com/itm/Holy-Stone-HS700-FPV-Drone-with-1080P-HD-Camera-RC-Drones-Brushless-Motor-GPS/264272531765?hash=item3d87ded135:g:72gAAOSwNixcqVQZ","itemLocation":{"postalCode":"410**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"182185"},{"categoryId":"220"},{"categoryId":"625"},{"categoryId":"2562"},{"categoryId":"182181"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_10_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|303153652740|0","title":"DJI Tello RC Drone FPV Quadcopter With 720 HD WIFI Camera In Stock from USA","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/kTwAAOSwn8pbIubo/s-l225.jpg"},"price":{"value":"79.00","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|303153652740|0","seller":{"username":"dronesuperstore","feedbackPercentage":"99.4","feedbackScore":5747},"condition":"Open box","conditionId":"1500","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/NDgwWDcyMA==/z/kTwAAOSwn8pbIubo/$_0.JPG?set_id=8800005007"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE"],"epid":"23027545274","itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FDJI-Tello-RC-Drone-FPV-Quadcopter-With-720-HD-WIFI-Camera-In-Stock-from-USA%2F303153652740%3Fhash%3Ditem46955da404%3Ag%3AkTwAAOSwn8pbIubo","itemWebUrl":"https://www.ebay.com/itm/DJI-Tello-RC-Drone-FPV-Quadcopter-With-720-HD-WIFI-Camera-In-Stock-from-USA/303153652740?hash=item46955da404:g:kTwAAOSwn8pbIubo","itemLocation":{"postalCode":"100**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"625"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/303153652740_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/303153652740_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/303153652740_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/303153652740_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/303153652740_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/303153652740_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/303153652740_8_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|264537017902|0","title":"Holy Stone HS720 Foldable FPV Drone with 2K HD Camera Quadcopter Brushless GPS","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/S7cAAOSw7Z5d00FW/s-l225.jpg"},"price":{"value":"233.10","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|264537017902|0","seller":{"username":"holystonedirect","feedbackPercentage":"99.6","feedbackScore":2278},"marketingPrice":{"originalPrice":{"value":"259.00","currency":"USD"},"discountPercentage":"10","discountAmount":{"value":"25.90","currency":"USD"},"priceTreatment":"MARKDOWN"},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/S7cAAOSw7Z5d00FW/$_0.JPG?set_id=8800005007"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE","BEST_OFFER"],"itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FHoly-Stone-HS720-Foldable-FPV-Drone-with-2K-HD-Camera-Quadcopter-Brushless-GPS%2F264537017902%3Fhash%3Ditem3d97a28e2e%3Ag%3AS7cAAOSw7Z5d00FW","itemWebUrl":"https://www.ebay.com/itm/Holy-Stone-HS720-Foldable-FPV-Drone-with-2K-HD-Camera-Quadcopter-Brushless-GPS/264537017902?hash=item3d97a28e2e:g:S7cAAOSw7Z5d00FW","itemLocation":{"postalCode":"410**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"182185"},{"categoryId":"220"},{"categoryId":"625"},{"categoryId":"2562"},{"categoryId":"182181"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_10_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_11_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_12_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|193192978974|0","title":"DJI Mavic Mini Camera Drone with SanDisk 64GB SD, Landing Pad, Signal Booster","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/JB0AAOSwHbldwIHH/s-l225.jpg"},"price":{"value":"429.99","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|193192978974|0","seller":{"username":"vancityuav","feedbackPercentage":"99.6","feedbackScore":1243},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/MTUwMFgxNTAw/z/JB0AAOSwHbldwIHH/$_0.JPG?set_id=8800005007"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE"],"epid":"25034998428","itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FDJI-Mavic-Mini-Camera-Drone-with-SanDisk-64GB-SD-Landing-Pad-Signal-Booster%2F193192978974%3Fhash%3Ditem2cfb32ea1e%3Ag%3AJB0AAOSwHbldwIHH","itemWebUrl":"https://www.ebay.com/itm/DJI-Mavic-Mini-Camera-Drone-with-SanDisk-64GB-SD-Landing-Pad-Signal-Booster/193192978974?hash=item2cfb32ea1e:g:JB0AAOSwHbldwIHH","itemLocation":{"postalCode":"980**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"625"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_10_0_1/225x225.jpg"}],"adultOnly":false}]}</message>
+</record>
+<record>
+  <date>2020-03-17T22:13:12</date>
+  <millis>1584483192856</millis>
+  <sequence>52</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>searchItem</method>
+  <thread>67</thread>
+  <message>{"href":"https://api.ebay.com/buy/browse/v1/item_summary/search?q=Drone&amp;limit=10&amp;offset=10","total":206621,"next":"https://api.ebay.com/buy/browse/v1/item_summary/search?q=Drone&amp;limit=10&amp;offset=20","prev":"https://api.ebay.com/buy/browse/v1/item_summary/search?q=Drone&amp;limit=10&amp;offset=0","limit":10,"offset":10,"itemSummaries":[{"itemId":"v1|264495064174|0","title":"Holy Stone HS110G FPV Drone with 1080P HD Video Camera Quadcopter GPS Follow Me","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/fTcAAOSwDyRd1ePF/s-l225.jpg"},"price":{"value":"99.99","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|264495064174|0","seller":{"username":"holystonedirect","feedbackPercentage":"99.6","feedbackScore":2276},"marketingPrice":{"originalPrice":{"value":"129.99","currency":"USD"},"discountPercentage":"23","discountAmount":{"value":"30.00","currency":"USD"},"priceTreatment":"MARKDOWN"},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/fTcAAOSwDyRd1ePF/$_0.JPG?set_id=8800005007"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE","BEST_OFFER"],"epid":"9035648312","itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FHoly-Stone-HS110G-FPV-Drone-with-1080P-HD-Video-Camera-Quadcopter-GPS-Follow-Me%2F264495064174%3Fhash%3Ditem3d9522646e%3Ag%3AfTcAAOSwDyRd1ePF","itemWebUrl":"https://www.ebay.com/itm/Holy-Stone-HS110G-FPV-Drone-with-1080P-HD-Video-Camera-Quadcopter-GPS-Follow-Me/264495064174?hash=item3d9522646e:g:fTcAAOSwDyRd1ePF","itemLocation":{"country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"182185"},{"categoryId":"220"},{"categoryId":"625"},{"categoryId":"2562"},{"categoryId":"182181"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_10_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_11_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_12_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|313016736669|611708371530","title":"KY909 Foldable Camera Drone 4K 1080P HD WiFi FPV Wide Angle Flow RC Quadcopter","itemGroupHref":"https://api.ebay.com/buy/browse/v1/item/get_items_by_item_group?item_group_id=313016736669","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/m/mIHUayWpSTLB58SmdtUPt5w/s-l225.jpg"},"price":{"value":"41.49","currency":"USD"},"itemGroupType":"SELLER_DEFINED_VARIATIONS","itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|313016736669|611708371530","seller":{"username":"nolindavi-0","feedbackPercentage":"100.0","feedbackScore":87},"condition":"New","conditionId":"1000","shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE"],"itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FKY909-Foldable-Camera-Drone-4K-1080P-HD-WiFi-FPV-Wide-Angle-Flow-RC-Quadcopter%2F313016736669%3Fhash%3Ditem48e1405b9d%3Am%3AmIHUayWpSTLB58SmdtUPt5w","itemWebUrl":"https://www.ebay.com/itm/KY909-Foldable-Camera-Drone-4K-1080P-HD-WiFi-FPV-Wide-Angle-Flow-RC-Quadcopter/313016736669?hash=item48e1405b9d:m:mIHUayWpSTLB58SmdtUPt5w","itemLocation":{"postalCode":"337**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"182186"},{"categoryId":"220"},{"categoryId":"625"},{"categoryId":"2562"},{"categoryId":"182181"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_10_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_11_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|263901481949|0","title":"Holy Stone HS700D GPS FPV Drone With 2K HD Camera WIFI Brushless RC Quadcopter","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/yK4AAOSwveheTUuL/s-l225.jpg"},"price":{"value":"189.99","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|263901481949|0","seller":{"username":"holystonedirect","feedbackPercentage":"99.6","feedbackScore":2280},"marketingPrice":{"originalPrice":{"value":"199.99","currency":"USD"},"discountPercentage":"5","discountAmount":{"value":"10.00","currency":"USD"},"priceTreatment":"MARKDOWN"},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/yK4AAOSwveheTUuL/$_0.JPG?set_id=880000500F"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE","BEST_OFFER"],"epid":"3026516349","itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FHoly-Stone-HS700D-GPS-FPV-Drone-With-2K-HD-Camera-WIFI-Brushless-RC-Quadcopter%2F263901481949%3Fhash%3Ditem3d71c10bdd%3Ag%3AyK4AAOSwveheTUuL","itemWebUrl":"https://www.ebay.com/itm/Holy-Stone-HS700D-GPS-FPV-Drone-With-2K-HD-Camera-WIFI-Brushless-RC-Quadcopter/263901481949?hash=item3d71c10bdd:g:yK4AAOSwveheTUuL","itemLocation":{"country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"182185"},{"categoryId":"220"},{"categoryId":"625"},{"categoryId":"2562"},{"categoryId":"182181"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_10_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_11_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_12_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|401837774752|0","title":"Drone X Pro Foldable Quadcopter WIFI FPV 1080P Wide-Angle HD Camera Batteries US","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/QRwAAOSw~BldHvLS/s-l225.jpg"},"price":{"value":"60.99","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|401837774752|0","seller":{"username":"forgetthewater","feedbackPercentage":"97.1","feedbackScore":1884},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/QRwAAOSw~BldHvLS/$_0.JPG"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE"],"itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FDrone-X-Pro-Foldable-Quadcopter-WIFI-FPV-1080P-Wide-Angle-HD-Camera-Batteries-US%2F401837774752%3Fhash%3Ditem5d8f65d7a0%3Ag%3AQRwAAOSw%7EBldHvLS","itemWebUrl":"https://www.ebay.com/itm/Drone-X-Pro-Foldable-Quadcopter-WIFI-FPV-1080P-Wide-Angle-HD-Camera-Batteries-US/401837774752?hash=item5d8f65d7a0:g:QRwAAOSw~BldHvLS","itemLocation":{"postalCode":"337**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"182213"},{"categoryId":"220"},{"categoryId":"625"},{"categoryId":"2562"},{"categoryId":"182187"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/401837774752_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/401837774752_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/401837774752_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/401837774752_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/401837774752_6_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|283751635516|0","title":"Holy Stone HS720 Foldable RC Drone with HD Camera 2K 5G Brushless GPS Quadcopter","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/CaMAAOSwOb9eJpaq/s-l225.jpg"},"price":{"value":"218.49","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|283751635516|0","seller":{"username":"mitangdirect-us","feedbackPercentage":"100.0","feedbackScore":7},"marketingPrice":{"originalPrice":{"value":"229.99","currency":"USD"},"discountPercentage":"5","discountAmount":{"value":"11.50","currency":"USD"},"priceTreatment":"MARKDOWN"},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/CaMAAOSwOb9eJpaq/$_0.JPG?set_id=8800005007"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE","BEST_OFFER"],"itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FHoly-Stone-HS720-Foldable-RC-Drone-with-HD-Camera-2K-5G-Brushless-GPS-Quadcopter%2F283751635516%3Fhash%3Ditem4210ea5a3c%3Ag%3ACaMAAOSwOb9eJpaq","itemWebUrl":"https://www.ebay.com/itm/Holy-Stone-HS720-Foldable-RC-Drone-with-HD-Camera-2K-5G-Brushless-GPS-Quadcopter/283751635516?hash=item4210ea5a3c:g:CaMAAOSwOb9eJpaq","itemLocation":{"postalCode":"410**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"625"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_10_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_11_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_12_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|274116067290|0","title":"Cooligg S168 FPV Wifi HD Camera Drone Aircraft Foldable Quadcopter Selfie Toys","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/OmMAAOSw9PNeYdN0/s-l225.jpg"},"price":{"value":"59.95","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|274116067290|0","seller":{"username":"elec-king","feedbackPercentage":"99.1","feedbackScore":58707},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/ODAwWDgwMA==/z/OmMAAOSw9PNeYdN0/$_0.JPG?set_id=8800005007"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE"],"itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FCooligg-S168-FPV-Wifi-HD-Camera-Drone-Aircraft-Foldable-Quadcopter-Selfie-Toys%2F274116067290%3Fhash%3Ditem3fd2973fda%3Ag%3AOmMAAOSw9PNeYdN0","itemWebUrl":"https://www.ebay.com/itm/Cooligg-S168-FPV-Wifi-HD-Camera-Drone-Aircraft-Foldable-Quadcopter-Selfie-Toys/274116067290?hash=item3fd2973fda:g:OmMAAOSw9PNeYdN0","itemLocation":{"postalCode":"085**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"625"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_10_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_11_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_12_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|264272531765|0","title":"Holy Stone HS700 FPV Drone with 1080P HD Camera RC Drones Brushless Motor GPS","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/72gAAOSwNixcqVQZ/s-l225.jpg"},"price":{"value":"182.99","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|264272531765|0","seller":{"username":"holystonedirect","feedbackPercentage":"99.6","feedbackScore":2280},"marketingPrice":{"originalPrice":{"value":"202.99","currency":"USD"},"discountPercentage":"10","discountAmount":{"value":"20.00","currency":"USD"},"priceTreatment":"MARKDOWN"},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/MTIwMFgxMjAw/z/72gAAOSwNixcqVQZ/$_0.JPG?set_id=880000500F"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE","BEST_OFFER"],"epid":"3033166487","itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FHoly-Stone-HS700-FPV-Drone-with-1080P-HD-Camera-RC-Drones-Brushless-Motor-GPS%2F264272531765%3Fhash%3Ditem3d87ded135%3Ag%3A72gAAOSwNixcqVQZ","itemWebUrl":"https://www.ebay.com/itm/Holy-Stone-HS700-FPV-Drone-with-1080P-HD-Camera-RC-Drones-Brushless-Motor-GPS/264272531765?hash=item3d87ded135:g:72gAAOSwNixcqVQZ","itemLocation":{"postalCode":"410**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"182185"},{"categoryId":"220"},{"categoryId":"625"},{"categoryId":"2562"},{"categoryId":"182181"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_10_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|303153652740|0","title":"DJI Tello RC Drone FPV Quadcopter With 720 HD WIFI Camera In Stock from USA","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/kTwAAOSwn8pbIubo/s-l225.jpg"},"price":{"value":"79.00","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|303153652740|0","seller":{"username":"dronesuperstore","feedbackPercentage":"99.4","feedbackScore":5747},"condition":"Open box","conditionId":"1500","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/NDgwWDcyMA==/z/kTwAAOSwn8pbIubo/$_0.JPG?set_id=8800005007"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE"],"epid":"23027545274","itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FDJI-Tello-RC-Drone-FPV-Quadcopter-With-720-HD-WIFI-Camera-In-Stock-from-USA%2F303153652740%3Fhash%3Ditem46955da404%3Ag%3AkTwAAOSwn8pbIubo","itemWebUrl":"https://www.ebay.com/itm/DJI-Tello-RC-Drone-FPV-Quadcopter-With-720-HD-WIFI-Camera-In-Stock-from-USA/303153652740?hash=item46955da404:g:kTwAAOSwn8pbIubo","itemLocation":{"postalCode":"100**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"625"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/303153652740_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/303153652740_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/303153652740_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/303153652740_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/303153652740_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/303153652740_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/303153652740_8_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|264537017902|0","title":"Holy Stone HS720 Foldable FPV Drone with 2K HD Camera Quadcopter Brushless GPS","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/S7cAAOSw7Z5d00FW/s-l225.jpg"},"price":{"value":"233.10","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|264537017902|0","seller":{"username":"holystonedirect","feedbackPercentage":"99.6","feedbackScore":2278},"marketingPrice":{"originalPrice":{"value":"259.00","currency":"USD"},"discountPercentage":"10","discountAmount":{"value":"25.90","currency":"USD"},"priceTreatment":"MARKDOWN"},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/S7cAAOSw7Z5d00FW/$_0.JPG?set_id=8800005007"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE","BEST_OFFER"],"itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FHoly-Stone-HS720-Foldable-FPV-Drone-with-2K-HD-Camera-Quadcopter-Brushless-GPS%2F264537017902%3Fhash%3Ditem3d97a28e2e%3Ag%3AS7cAAOSw7Z5d00FW","itemWebUrl":"https://www.ebay.com/itm/Holy-Stone-HS720-Foldable-FPV-Drone-with-2K-HD-Camera-Quadcopter-Brushless-GPS/264537017902?hash=item3d97a28e2e:g:S7cAAOSw7Z5d00FW","itemLocation":{"postalCode":"410**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"182185"},{"categoryId":"220"},{"categoryId":"625"},{"categoryId":"2562"},{"categoryId":"182181"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_10_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_11_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_12_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|193192978974|0","title":"DJI Mavic Mini Camera Drone with SanDisk 64GB SD, Landing Pad, Signal Booster","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/JB0AAOSwHbldwIHH/s-l225.jpg"},"price":{"value":"429.99","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|193192978974|0","seller":{"username":"vancityuav","feedbackPercentage":"99.6","feedbackScore":1243},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/MTUwMFgxNTAw/z/JB0AAOSwHbldwIHH/$_0.JPG?set_id=8800005007"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE"],"epid":"25034998428","itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FDJI-Mavic-Mini-Camera-Drone-with-SanDisk-64GB-SD-Landing-Pad-Signal-Booster%2F193192978974%3Fhash%3Ditem2cfb32ea1e%3Ag%3AJB0AAOSwHbldwIHH","itemWebUrl":"https://www.ebay.com/itm/DJI-Mavic-Mini-Camera-Drone-with-SanDisk-64GB-SD-Landing-Pad-Signal-Booster/193192978974?hash=item2cfb32ea1e:g:JB0AAOSwHbldwIHH","itemLocation":{"postalCode":"980**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"625"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_10_0_1/225x225.jpg"}],"adultOnly":false}]}</message>
+</record>
+<record>
+  <date>2020-03-17T22:13:12</date>
+  <millis>1584483192856</millis>
+  <sequence>52</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>searchItem</method>
+  <thread>67</thread>
+  <message>{"href":"https://api.ebay.com/buy/browse/v1/item_summary/search?q=Drone&amp;limit=10&amp;offset=10","total":206621,"next":"https://api.ebay.com/buy/browse/v1/item_summary/search?q=Drone&amp;limit=10&amp;offset=20","prev":"https://api.ebay.com/buy/browse/v1/item_summary/search?q=Drone&amp;limit=10&amp;offset=0","limit":10,"offset":10,"itemSummaries":[{"itemId":"v1|264495064174|0","title":"Holy Stone HS110G FPV Drone with 1080P HD Video Camera Quadcopter GPS Follow Me","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/fTcAAOSwDyRd1ePF/s-l225.jpg"},"price":{"value":"99.99","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|264495064174|0","seller":{"username":"holystonedirect","feedbackPercentage":"99.6","feedbackScore":2276},"marketingPrice":{"originalPrice":{"value":"129.99","currency":"USD"},"discountPercentage":"23","discountAmount":{"value":"30.00","currency":"USD"},"priceTreatment":"MARKDOWN"},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/fTcAAOSwDyRd1ePF/$_0.JPG?set_id=8800005007"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE","BEST_OFFER"],"epid":"9035648312","itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FHoly-Stone-HS110G-FPV-Drone-with-1080P-HD-Video-Camera-Quadcopter-GPS-Follow-Me%2F264495064174%3Fhash%3Ditem3d9522646e%3Ag%3AfTcAAOSwDyRd1ePF","itemWebUrl":"https://www.ebay.com/itm/Holy-Stone-HS110G-FPV-Drone-with-1080P-HD-Video-Camera-Quadcopter-GPS-Follow-Me/264495064174?hash=item3d9522646e:g:fTcAAOSwDyRd1ePF","itemLocation":{"country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"182185"},{"categoryId":"220"},{"categoryId":"625"},{"categoryId":"2562"},{"categoryId":"182181"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_10_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_11_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264495064174_12_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|313016736669|611708371530","title":"KY909 Foldable Camera Drone 4K 1080P HD WiFi FPV Wide Angle Flow RC Quadcopter","itemGroupHref":"https://api.ebay.com/buy/browse/v1/item/get_items_by_item_group?item_group_id=313016736669","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/m/mIHUayWpSTLB58SmdtUPt5w/s-l225.jpg"},"price":{"value":"41.49","currency":"USD"},"itemGroupType":"SELLER_DEFINED_VARIATIONS","itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|313016736669|611708371530","seller":{"username":"nolindavi-0","feedbackPercentage":"100.0","feedbackScore":87},"condition":"New","conditionId":"1000","shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE"],"itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FKY909-Foldable-Camera-Drone-4K-1080P-HD-WiFi-FPV-Wide-Angle-Flow-RC-Quadcopter%2F313016736669%3Fhash%3Ditem48e1405b9d%3Am%3AmIHUayWpSTLB58SmdtUPt5w","itemWebUrl":"https://www.ebay.com/itm/KY909-Foldable-Camera-Drone-4K-1080P-HD-WiFi-FPV-Wide-Angle-Flow-RC-Quadcopter/313016736669?hash=item48e1405b9d:m:mIHUayWpSTLB58SmdtUPt5w","itemLocation":{"postalCode":"337**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"182186"},{"categoryId":"220"},{"categoryId":"625"},{"categoryId":"2562"},{"categoryId":"182181"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_10_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/313016736669_11_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|263901481949|0","title":"Holy Stone HS700D GPS FPV Drone With 2K HD Camera WIFI Brushless RC Quadcopter","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/yK4AAOSwveheTUuL/s-l225.jpg"},"price":{"value":"189.99","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|263901481949|0","seller":{"username":"holystonedirect","feedbackPercentage":"99.6","feedbackScore":2280},"marketingPrice":{"originalPrice":{"value":"199.99","currency":"USD"},"discountPercentage":"5","discountAmount":{"value":"10.00","currency":"USD"},"priceTreatment":"MARKDOWN"},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/yK4AAOSwveheTUuL/$_0.JPG?set_id=880000500F"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE","BEST_OFFER"],"epid":"3026516349","itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FHoly-Stone-HS700D-GPS-FPV-Drone-With-2K-HD-Camera-WIFI-Brushless-RC-Quadcopter%2F263901481949%3Fhash%3Ditem3d71c10bdd%3Ag%3AyK4AAOSwveheTUuL","itemWebUrl":"https://www.ebay.com/itm/Holy-Stone-HS700D-GPS-FPV-Drone-With-2K-HD-Camera-WIFI-Brushless-RC-Quadcopter/263901481949?hash=item3d71c10bdd:g:yK4AAOSwveheTUuL","itemLocation":{"country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"182185"},{"categoryId":"220"},{"categoryId":"625"},{"categoryId":"2562"},{"categoryId":"182181"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_10_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_11_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/263901481949_12_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|401837774752|0","title":"Drone X Pro Foldable Quadcopter WIFI FPV 1080P Wide-Angle HD Camera Batteries US","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/QRwAAOSw~BldHvLS/s-l225.jpg"},"price":{"value":"60.99","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|401837774752|0","seller":{"username":"forgetthewater","feedbackPercentage":"97.1","feedbackScore":1884},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/QRwAAOSw~BldHvLS/$_0.JPG"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE"],"itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FDrone-X-Pro-Foldable-Quadcopter-WIFI-FPV-1080P-Wide-Angle-HD-Camera-Batteries-US%2F401837774752%3Fhash%3Ditem5d8f65d7a0%3Ag%3AQRwAAOSw%7EBldHvLS","itemWebUrl":"https://www.ebay.com/itm/Drone-X-Pro-Foldable-Quadcopter-WIFI-FPV-1080P-Wide-Angle-HD-Camera-Batteries-US/401837774752?hash=item5d8f65d7a0:g:QRwAAOSw~BldHvLS","itemLocation":{"postalCode":"337**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"182213"},{"categoryId":"220"},{"categoryId":"625"},{"categoryId":"2562"},{"categoryId":"182187"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/401837774752_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/401837774752_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/401837774752_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/401837774752_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/401837774752_6_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|283751635516|0","title":"Holy Stone HS720 Foldable RC Drone with HD Camera 2K 5G Brushless GPS Quadcopter","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/CaMAAOSwOb9eJpaq/s-l225.jpg"},"price":{"value":"218.49","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|283751635516|0","seller":{"username":"mitangdirect-us","feedbackPercentage":"100.0","feedbackScore":7},"marketingPrice":{"originalPrice":{"value":"229.99","currency":"USD"},"discountPercentage":"5","discountAmount":{"value":"11.50","currency":"USD"},"priceTreatment":"MARKDOWN"},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/CaMAAOSwOb9eJpaq/$_0.JPG?set_id=8800005007"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE","BEST_OFFER"],"itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FHoly-Stone-HS720-Foldable-RC-Drone-with-HD-Camera-2K-5G-Brushless-GPS-Quadcopter%2F283751635516%3Fhash%3Ditem4210ea5a3c%3Ag%3ACaMAAOSwOb9eJpaq","itemWebUrl":"https://www.ebay.com/itm/Holy-Stone-HS720-Foldable-RC-Drone-with-HD-Camera-2K-5G-Brushless-GPS-Quadcopter/283751635516?hash=item4210ea5a3c:g:CaMAAOSwOb9eJpaq","itemLocation":{"postalCode":"410**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"625"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_10_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_11_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/283751635516_12_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|274116067290|0","title":"Cooligg S168 FPV Wifi HD Camera Drone Aircraft Foldable Quadcopter Selfie Toys","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/OmMAAOSw9PNeYdN0/s-l225.jpg"},"price":{"value":"59.95","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|274116067290|0","seller":{"username":"elec-king","feedbackPercentage":"99.1","feedbackScore":58707},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/ODAwWDgwMA==/z/OmMAAOSw9PNeYdN0/$_0.JPG?set_id=8800005007"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE"],"itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FCooligg-S168-FPV-Wifi-HD-Camera-Drone-Aircraft-Foldable-Quadcopter-Selfie-Toys%2F274116067290%3Fhash%3Ditem3fd2973fda%3Ag%3AOmMAAOSw9PNeYdN0","itemWebUrl":"https://www.ebay.com/itm/Cooligg-S168-FPV-Wifi-HD-Camera-Drone-Aircraft-Foldable-Quadcopter-Selfie-Toys/274116067290?hash=item3fd2973fda:g:OmMAAOSw9PNeYdN0","itemLocation":{"postalCode":"085**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"625"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_10_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_11_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/274116067290_12_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|264272531765|0","title":"Holy Stone HS700 FPV Drone with 1080P HD Camera RC Drones Brushless Motor GPS","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/72gAAOSwNixcqVQZ/s-l225.jpg"},"price":{"value":"182.99","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|264272531765|0","seller":{"username":"holystonedirect","feedbackPercentage":"99.6","feedbackScore":2280},"marketingPrice":{"originalPrice":{"value":"202.99","currency":"USD"},"discountPercentage":"10","discountAmount":{"value":"20.00","currency":"USD"},"priceTreatment":"MARKDOWN"},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/MTIwMFgxMjAw/z/72gAAOSwNixcqVQZ/$_0.JPG?set_id=880000500F"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE","BEST_OFFER"],"epid":"3033166487","itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FHoly-Stone-HS700-FPV-Drone-with-1080P-HD-Camera-RC-Drones-Brushless-Motor-GPS%2F264272531765%3Fhash%3Ditem3d87ded135%3Ag%3A72gAAOSwNixcqVQZ","itemWebUrl":"https://www.ebay.com/itm/Holy-Stone-HS700-FPV-Drone-with-1080P-HD-Camera-RC-Drones-Brushless-Motor-GPS/264272531765?hash=item3d87ded135:g:72gAAOSwNixcqVQZ","itemLocation":{"postalCode":"410**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"182185"},{"categoryId":"220"},{"categoryId":"625"},{"categoryId":"2562"},{"categoryId":"182181"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264272531765_10_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|303153652740|0","title":"DJI Tello RC Drone FPV Quadcopter With 720 HD WIFI Camera In Stock from USA","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/kTwAAOSwn8pbIubo/s-l225.jpg"},"price":{"value":"79.00","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|303153652740|0","seller":{"username":"dronesuperstore","feedbackPercentage":"99.4","feedbackScore":5747},"condition":"Open box","conditionId":"1500","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/NDgwWDcyMA==/z/kTwAAOSwn8pbIubo/$_0.JPG?set_id=8800005007"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE"],"epid":"23027545274","itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FDJI-Tello-RC-Drone-FPV-Quadcopter-With-720-HD-WIFI-Camera-In-Stock-from-USA%2F303153652740%3Fhash%3Ditem46955da404%3Ag%3AkTwAAOSwn8pbIubo","itemWebUrl":"https://www.ebay.com/itm/DJI-Tello-RC-Drone-FPV-Quadcopter-With-720-HD-WIFI-Camera-In-Stock-from-USA/303153652740?hash=item46955da404:g:kTwAAOSwn8pbIubo","itemLocation":{"postalCode":"100**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"625"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/303153652740_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/303153652740_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/303153652740_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/303153652740_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/303153652740_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/303153652740_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/303153652740_8_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|264537017902|0","title":"Holy Stone HS720 Foldable FPV Drone with 2K HD Camera Quadcopter Brushless GPS","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/S7cAAOSw7Z5d00FW/s-l225.jpg"},"price":{"value":"233.10","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|264537017902|0","seller":{"username":"holystonedirect","feedbackPercentage":"99.6","feedbackScore":2278},"marketingPrice":{"originalPrice":{"value":"259.00","currency":"USD"},"discountPercentage":"10","discountAmount":{"value":"25.90","currency":"USD"},"priceTreatment":"MARKDOWN"},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/MTAwMFgxMDAw/z/S7cAAOSw7Z5d00FW/$_0.JPG?set_id=8800005007"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE","BEST_OFFER"],"itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FHoly-Stone-HS720-Foldable-FPV-Drone-with-2K-HD-Camera-Quadcopter-Brushless-GPS%2F264537017902%3Fhash%3Ditem3d97a28e2e%3Ag%3AS7cAAOSw7Z5d00FW","itemWebUrl":"https://www.ebay.com/itm/Holy-Stone-HS720-Foldable-FPV-Drone-with-2K-HD-Camera-Quadcopter-Brushless-GPS/264537017902?hash=item3d97a28e2e:g:S7cAAOSw7Z5d00FW","itemLocation":{"postalCode":"410**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"182185"},{"categoryId":"220"},{"categoryId":"625"},{"categoryId":"2562"},{"categoryId":"182181"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_10_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_11_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/264537017902_12_0_1/225x225.jpg"}],"adultOnly":false},{"itemId":"v1|193192978974|0","title":"DJI Mavic Mini Camera Drone with SanDisk 64GB SD, Landing Pad, Signal Booster","image":{"imageUrl":"https://i.ebayimg.com/thumbs/images/g/JB0AAOSwHbldwIHH/s-l225.jpg"},"price":{"value":"429.99","currency":"USD"},"itemHref":"https://api.ebay.com/buy/browse/v1/item/v1|193192978974|0","seller":{"username":"vancityuav","feedbackPercentage":"99.6","feedbackScore":1243},"condition":"New","conditionId":"1000","thumbnailImages":[{"imageUrl":"https://i.ebayimg.com/00/s/MTUwMFgxNTAw/z/JB0AAOSwHbldwIHH/$_0.JPG?set_id=8800005007"}],"shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"USD"}}],"buyingOptions":["FIXED_PRICE"],"epid":"25034998428","itemAffiliateWebUrl":"https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=%3CePNCampaignId%3E&amp;customid=%3CreferenceId%3E&amp;toolid=10049&amp;mpre=https%3A%2F%2Fwww.ebay.com%2Fitm%2FDJI-Mavic-Mini-Camera-Drone-with-SanDisk-64GB-SD-Landing-Pad-Signal-Booster%2F193192978974%3Fhash%3Ditem2cfb32ea1e%3Ag%3AJB0AAOSwHbldwIHH","itemWebUrl":"https://www.ebay.com/itm/DJI-Mavic-Mini-Camera-Drone-with-SanDisk-64GB-SD-Landing-Pad-Signal-Booster/193192978974?hash=item2cfb32ea1e:g:JB0AAOSwHbldwIHH","itemLocation":{"postalCode":"980**","country":"US"},"categories":[{"categoryId":"179697"},{"categoryId":"625"}],"additionalImages":[{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_2_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_3_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_4_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_5_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_6_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_7_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_8_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_9_0_1/225x225.jpg"},{"imageUrl":"https://galleryplus.ebayimg.com/ws/web/193192978974_10_0_1/225x225.jpg"}],"adultOnly":false}]}</message>
+</record>
+<record>
+  <date>2020-03-17T22:13:15</date>
+  <millis>1584483195729</millis>
+  <sequence>53</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>59</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:13:15</date>
+  <millis>1584483195729</millis>
+  <sequence>53</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>59</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:13:15</date>
+  <millis>1584483195729</millis>
+  <sequence>53</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>59</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:14:16</date>
+  <millis>1584483256790</millis>
+  <sequence>54</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>61</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:14:16</date>
+  <millis>1584483256790</millis>
+  <sequence>54</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>61</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:14:16</date>
+  <millis>1584483256790</millis>
+  <sequence>54</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>61</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:16:29</date>
+  <millis>1584483389662</millis>
+  <sequence>56</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>66</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:16:29</date>
+  <millis>1584483389662</millis>
+  <sequence>56</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>66</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:16:29</date>
+  <millis>1584483389662</millis>
+  <sequence>56</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>66</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:17:21</date>
+  <millis>1584483441871</millis>
+  <sequence>58</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>64</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:17:21</date>
+  <millis>1584483441871</millis>
+  <sequence>58</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>64</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:17:21</date>
+  <millis>1584483441871</millis>
+  <sequence>58</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>64</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:20:27</date>
+  <millis>1584483627691</millis>
+  <sequence>60</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>62</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:20:27</date>
+  <millis>1584483627691</millis>
+  <sequence>60</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>62</thread>
+  <message>Get Item Method: 264495064174</message>
+</record>
+<record>
+  <date>2020-03-17T22:20:27</date>
+  <millis>1584483627691</millis>
+  <sequence>60</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Version1Api</class>
+  <method>getItem</method>
+  <thread>62</thread>
+  <message>Get Item Method: 264495064174</message>
 </record>

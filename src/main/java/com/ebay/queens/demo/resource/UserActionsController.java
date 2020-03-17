@@ -41,9 +41,16 @@ public class UserActionsController {
 	}
 	
 	@PostMapping("/AddUserAction")
-	public String addUser(@QueryParam("userGroup") String userGroup, @QueryParam("viewOnEbay") boolean viewOnEbay) {
-		LOGGER.info("User Group: " + userGroup + " View On Ebay? " + viewOnEbay);
-		userViewedItemOnEbay.setViewedOnEbay(viewOnEbay);
+	public String addUser(@QueryParam("userGroup") String userGroup, @QueryParam("viewOnEbay") String viewOnEbay) {
+		boolean trueFalseValue = false; 
+		System.out.println(viewOnEbay);
+		if(viewOnEbay.equals("true")) {
+			trueFalseValue=true;
+		}else {
+			trueFalseValue=false;
+		}
+		LOGGER.info("User Group: " + userGroup + " View On Ebay? " + trueFalseValue);
+		userViewedItemOnEbay.setViewedOnEbay(trueFalseValue);
 		if(userGroup.equals("A")) {
 			userViewedItemOnEbay.setUserGroup(UserGroup.A);
 		}else {
