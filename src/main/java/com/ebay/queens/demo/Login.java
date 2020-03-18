@@ -48,7 +48,7 @@ public class Login {
 				response = "Admin";
 			} else {
 				if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
-					return "GrantAccess";
+					return username;
 				} else {
 					response = "NoAccess";
 				}

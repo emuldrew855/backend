@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import com.ebay.queens.demo.Version1Api;
 import com.ebay.queens.demo.model.User;
 import com.ebay.queens.demo.model.UserActions;
+import com.ebay.queens.demo.model.UserGroup;
 import com.ebay.queens.demo.repository.UserRepository;
 import com.ebay.queens.responses.findnonprofitresponse.FindNonProfitResponse;
 
@@ -35,27 +36,45 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 	
+	UserController() {
+		/*User userA = new User("1","userA","userA");
+		userA.setUserGroup(UserGroup.A);
+		User userB = new User("2","userB","userB");
+		userB.setUserGroup(UserGroup.B);
+		User admin = new User("3","admin","admin");
+		admin.setUserGroup(UserGroup.B);
+		this.userRepository.save(userA);
+		this.userRepository.save(userB);
+		this.userRepository.save(admin);*/
+	}
+	
 	@PostMapping("/GetUser")
-	public Optional<User> getUser(int i) {
-		return userRepository.findById(i);
+	public User getUser(String username) {
+		User findUser = null;
+		for(User user: userRepository.findAll()) {
+			if(user.getUsername().equals(username)) {
+				findUser = user;
+				LOGGER.info("Found user: " + user.getUsername());
+			}
+		}
+		return findUser;
 	}
 
 	@PostMapping("/AddUser")
 	public String saveUser(@RequestBody User user) {
-		System.out.println("User: " + user);
 		this.userRepository.save(user);
-		return "Added user with id: " + user.getId();
+		LOGGER.info("Added user: " + user.getUsername());
+		return "Added user: " + user.getUsername();
 	}
 
 	@PostMapping("/AddAllUser")
 	public String saveUser(@RequestBody List<User> users) {
-		System.out.println("User: " + users);
 		String addedUsers = "Users added: ";
 		this.userRepository.saveAll(users);
 		for (int i = 0; i <= users.size() - 1; i++) {
-			LOGGER.info("User: " + users.get(i).getUsername());
-			addedUsers += users.get(i).getUsername();
+			addedUsers += users.get(i).getUsername() + " ";
 		}
+		LOGGER.info("Added Users: " + addedUsers);
 		return addedUsers;
 	}
 
@@ -73,9 +92,9 @@ public class UserController {
 		String deletedUsers = "Users deleted: ";
 		List<User> users = this.userRepository.findAll();
 		for (int i = 0; i <= this.userRepository.findAll().size() - 1; i++) {
-			LOGGER.info("User deleted: " + users.get(i).getUsername());
-			deletedUsers += users.get(i).getUsername();
+			deletedUsers += users.get(i).getUsername() + " ";
 		}
+		LOGGER.info("Users deleted: " + deletedUsers);
 		this.userRepository.deleteAll();
 		return deletedUsers;
 	}
@@ -84,7 +103,7 @@ public class UserController {
 	public String deleteUser(User user) {
 		String deletedUser = "User: " + user.getUsername() + " deleted!";
 		this.userRepository.delete(user);
-		LOGGER.info(deletedUser);
+		LOGGER.info("Deleted User: " + deletedUser);
 		return deletedUser;
 	}
 }

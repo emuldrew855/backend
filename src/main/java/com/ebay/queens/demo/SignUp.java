@@ -32,41 +32,35 @@ import com.ebay.queens.demo.resource.UserController;
 @Component
 public class SignUp {
 	private Logger LOGGER;
-	public static List<User> users = new ArrayList<User>();
 	@Autowired
 	private UserController userController;
-
+	int userIndex = 3;
 
 	SignUp() throws IOException {
 		LOGGER = Utilities.LOGGER;
 		LOGGER.info("SignUp");
-		User userA = new User("1","userA","userA");
-		userA.setUserGroup(UserGroup.A);
-		User userB = new User("2","userB","userB");
-		userB.setUserGroup(UserGroup.B);
-		User admin = new User("3","admin","admin");
-		admin.setUserGroup(UserGroup.B);
-		users.add(userA);
-		users.add(userB);
-		users.add(admin);
-		LOGGER.info("Users" + users);
 	}
 
 	@PostMapping("/RegisterUser")
 	@Produces(MediaType.APPLICATION_JSON)
-	public User resgiterUser(@QueryParam("username") String username, @QueryParam("password") String password) throws IOException { 
-		LOGGER.info("Sign Up Method" + username + " " + password);
+	public String resgiterUser(@QueryParam("username") String username, @QueryParam("password") String password) throws IOException { 
+		LOGGER.info("Sign Up: Username: " + username + " Password: " + password);
 		User newUser = null;
+		boolean createNewUser = true;
 		for(User activeUser: userController.getAllUsers()) {
-			if(!username.equals(activeUser.getUsername())) {
-				LOGGER.info("User Signed Up: " + username );
-				newUser = new User("1",username, password);
-				users.add(newUser);
-				userController.saveUser(newUser);
-			}else {
+			if(username.equals(activeUser.getUsername())) {
+				createNewUser = false;
 				LOGGER.warning(username + " already exists");
 			}	
 		}
-		return newUser;
+		if(createNewUser) {
+			LOGGER.info("User Signed Up: " + username );
+			this.userIndex = this.userIndex + 1;
+			newUser = new User(Integer.toString(userIndex),username, password);
+			userController.saveUser(newUser);
+			return "UserSignedUp";
+		}else {
+			return "UserExists";
+		}
 	}
 }
