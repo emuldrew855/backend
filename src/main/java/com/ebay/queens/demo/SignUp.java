@@ -1,5 +1,6 @@
 package com.ebay.queens.demo;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -10,6 +11,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -19,15 +25,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ebay.queens.demo.model.User;
 import com.ebay.queens.demo.model.UserGroup;
+import com.ebay.queens.demo.resource.UserController;
 
-@Component
 @RestController
 @RequestMapping("/signup")
+@Component
 public class SignUp {
 	private Logger LOGGER;
 	public static List<User> users = new ArrayList<User>();
+	@Autowired
+	private UserController userController;
 
-	SignUp() {
+
+	SignUp() throws IOException {
 		LOGGER = Utilities.LOGGER;
 		LOGGER.info("SignUp");
 		User userA = new User("1","userA","userA");
@@ -42,20 +52,21 @@ public class SignUp {
 		LOGGER.info("Users" + users);
 	}
 
-
-	@GET
 	@PostMapping("/RegisterUser")
 	@Produces(MediaType.APPLICATION_JSON)
-	public User resgiterUser(@QueryParam("username") String username, @QueryParam("password") String password) { 
+	public User resgiterUser(@QueryParam("username") String username, @QueryParam("password") String password) throws IOException { 
 		LOGGER.info("Sign Up Method" + username + " " + password);
 		User newUser = null;
-		if(username.equals("username") && password.equals(password)) {
-			LOGGER.info("User Signed Up");
-			newUser = new User("1",username, password);
-			users.add(newUser);
-		}else {
-			LOGGER.info("User Not Signed Up");
-		}	
+		for(User activeUser: userController.getAllUsers()) {
+			if(!username.equals(activeUser.getUsername())) {
+				LOGGER.info("User Signed Up: " + username );
+				newUser = new User("1",username, password);
+				users.add(newUser);
+				userController.saveUser(newUser);
+			}else {
+				LOGGER.warning(username + " already exists");
+			}	
+		}
 		return newUser;
 	}
 }

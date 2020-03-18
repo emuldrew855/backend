@@ -15,6 +15,7 @@ import javax.xml.bind.Unmarshaller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import com.ebay.queens.demo.Version1Api;
@@ -23,24 +24,14 @@ import com.ebay.queens.demo.model.UserActions;
 import com.ebay.queens.demo.repository.UserRepository;
 import com.ebay.queens.responses.findnonprofitresponse.FindNonProfitResponse;
 
+@Component
 @RestController
 @RequestMapping("/v2")
 public class UserController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
-	public ArrayList userViewedItemOnEbay = new ArrayList();
-	public ArrayList searchTypeList = new ArrayList(); 
 	int index = 0;
 	int searchTypeIndex = 0;
-	
-	UserController(){
-		HashMap<String, Boolean> userActionA = new HashMap<>();
-		userActionA.put("A", true);
-		HashMap<String, Boolean> userActionB = new HashMap<>();
-		userActionB.put("B", true);
-		userViewedItemOnEbay.add(userActionA);
-		userViewedItemOnEbay.add(userActionB);
-	}
-	
+
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -52,7 +43,7 @@ public class UserController {
 	@PostMapping("/AddUser")
 	public String saveUser(@RequestBody User user) {
 		System.out.println("User: " + user);
-		userRepository.save(user);
+		this.userRepository.save(user);
 		return "Added user with id: " + user.getId();
 	}
 
@@ -60,7 +51,7 @@ public class UserController {
 	public String saveUser(@RequestBody List<User> users) {
 		System.out.println("User: " + users);
 		String addedUsers = "Users added: ";
-		userRepository.saveAll(users);
+		this.userRepository.saveAll(users);
 		for (int i = 0; i <= users.size() - 1; i++) {
 			LOGGER.info("User: " + users.get(i).getUsername());
 			addedUsers += users.get(i).getUsername();
@@ -69,7 +60,7 @@ public class UserController {
 	}
 
 	@GetMapping("/GetUsers")
-	public List<User> getAll() {
+	public List<User> getAllUsers() {
 		List<User> users = this.userRepository.findAll();
 		for (int i = 0; i <= this.userRepository.findAll().size() - 1; i++) {
 			LOGGER.info("User: " + users.get(i).getUsername());

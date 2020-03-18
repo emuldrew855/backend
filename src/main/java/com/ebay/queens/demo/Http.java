@@ -178,6 +178,9 @@ public class Http<T> implements CommandLineRunner {
 		httpGet = selectHttpGet(httpGet, typeOfCall);
 		CloseableHttpResponse response = client.execute(httpGet);
 		String result = EntityUtils.toString(response.getEntity());
+		if(result.contains("errors")) {
+			logger.severe("Error in making request due to expired authentication token");
+		}
 		client.close();
 
 		return result.toString();

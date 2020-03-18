@@ -34,10 +34,6 @@ public class UserActionsController {
 	
 	
 	UserActionsController() {
-		/*ViewOnEbay a = new ViewOnEbay(UserGroup.A,true);
-		this.userActionRepository.save(a);
-		ViewOnEbay b = new ViewOnEbay(UserGroup.B,false);
-		this.userActionRepository.save(b);*/
 	}
 	
 	@PostMapping("/AddUserAction")

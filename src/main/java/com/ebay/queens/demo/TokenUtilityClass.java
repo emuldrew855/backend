@@ -43,7 +43,6 @@ public class TokenUtilityClass implements CommandLineRunner {
 		logger = Utilities.LOGGER;
 		logger.info("Token Utility Class");
 		logger.addHandler(Utilities.fileHandler);
-		logger.info("Token Class");
 	}
 	
 	  @PostConstruct
