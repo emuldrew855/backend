@@ -118,7 +118,7 @@ public class Paypal implements CommandLineRunner {
 	@Produces(MediaType.APPLICATION_JSON)
 	public PaypalCharitySearchResponse advancedCharitySearch(@QueryParam("missionArea") String missionArea)
 			throws IOException {
-		logger.info("Searching for api queryid");
+		logger.info("Searching for mission area: " + missionArea);
 		String url = "https://api.paypal.com/v1/customer/charity-search-queries";
 		PaypalCharitySearchRequest paypalCharitySearchRequest = new PaypalCharitySearchRequest();
 		PaypalCharity paypalCharity = new PaypalCharity();
