@@ -18,7 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
-import com.ebay.queens.demo.Version1Api;
+import com.ebay.queens.demo.Ebay;
 import com.ebay.queens.demo.model.User;
 import com.ebay.queens.demo.model.UserActions;
 import com.ebay.queens.demo.model.UserGroup;
@@ -37,15 +37,23 @@ public class UserController {
 	private UserRepository userRepository;
 	
 	UserController() {
-		/*User userA = new User("1","userA","userA");
+		
+	}
+	
+	@GetMapping("/LoadStartUsers")
+	public String loadStartUsers() {
+		User userA = new User("1","userA","userA");
 		userA.setUserGroup(UserGroup.A);
 		User userB = new User("2","userB","userB");
 		userB.setUserGroup(UserGroup.B);
 		User admin = new User("3","admin","admin");
 		admin.setUserGroup(UserGroup.B);
-		this.userRepository.save(userA);
-		this.userRepository.save(userB);
-		this.userRepository.save(admin);*/
+		List<User> startUpUsers = new ArrayList<User>();
+		startUpUsers.add(userA);
+		startUpUsers.add(userB);
+		startUpUsers.add(admin);
+		this.saveAllUsers(startUpUsers);
+		return "Loaded Start Users";
 	}
 	
 	@PostMapping("/GetUser")
@@ -68,7 +76,7 @@ public class UserController {
 	}
 
 	@PostMapping("/AddAllUser")
-	public String saveUser(@RequestBody List<User> users) {
+	public String saveAllUsers(@RequestBody List<User> users) {
 		String addedUsers = "Users added: ";
 		this.userRepository.saveAll(users);
 		for (int i = 0; i <= users.size() - 1; i++) {

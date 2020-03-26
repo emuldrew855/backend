@@ -22,7 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ebay.queens.demo.model.User;
 import com.ebay.queens.demo.resource.UserController;
-
+/**
+ * Represents a class to handle all login functionality and make connections to mongodb to save & retrieve user details
+ */
 @Component
 @RestController
 @RequestMapping("/auth")
@@ -36,7 +38,15 @@ public class Login {
 		LOGGER.addHandler(Utilities.fileHandler);
 		LOGGER.info("Login");
 	}
-
+	
+	/**
+	 * API to log in a user to the system
+	 * 
+	 * @param username - user enters their username 
+	 * @param password - user enters their password to gain entry in to the system 
+	 * @return - returns the username which is then used to fetch the active user logging in
+	 * @throws JAXBException
+	 */
 	@GET
 	@GetMapping("/LogIn")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -48,13 +58,29 @@ public class Login {
 				response = "Admin";
 			} else {
 				if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
+					response = "Access Granted";
 					return username;
 				} else {
 					response = "NoAccess";
 				}
 			}
 		}
-		LOGGER.info(response);
+		LOGGER.info("Login Response: " + response);
 		return response;
+	}
+	
+	@GET
+	@GetMapping("/GetUser")
+	@Produces(MediaType.APPLICATION_JSON)
+	public User getUser(@QueryParam("username") String username) {
+		LOGGER.info("Get User with: " + username);
+		User returnedUser = null;
+		for(User user: userController.getAllUsers()) {
+			if(user.getUsername().equals(username)) {
+				returnedUser = user;
+			}
+		}
+		LOGGER.info("Returned user: " + returnedUser.getUsername());
+		return returnedUser;
 	}
 }
