@@ -18,6 +18,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -87,7 +88,7 @@ public class Paypal implements CommandLineRunner {
 	 * @throws IOException
 	 */
 	@GET
-	@PostMapping("/GetCharity")
+	@GetMapping("/GetCharity")
 	@Produces(MediaType.APPLICATION_JSON)
 	public PaypalGetCharityResponse charitySearch(@QueryParam("missionArea") String missionArea) throws IOException {
 		logger.info("Get Charity");
@@ -114,7 +115,7 @@ public class Paypal implements CommandLineRunner {
 	 * @throws IOException
 	 */
 	@GET
-	@PostMapping("/SearchCharityType")
+	@GetMapping("/SearchCharityType")
 	@Produces(MediaType.APPLICATION_JSON)
 	public PaypalCharitySearchResponse advancedCharitySearch(@QueryParam("missionArea") String missionArea)
 			throws IOException {
