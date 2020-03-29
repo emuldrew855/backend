@@ -17,6 +17,7 @@ public class User {
 	private String password;
 	private UserGroup userGroup;
 	private ArrayList<UserActions> userActions;
+	private String ebayAuthToken; 
 
 	private static UserGroup randomUserGroup() {
 	    int pick = new Random().nextInt(2);
@@ -56,6 +57,10 @@ public class User {
 		return userActions;
 	}
 	
+	public String getEbayAuthToken() {
+		return ebayAuthToken;
+	}
+	
 	// Setters
 	public void setId(String id) {
 		this.id = id;
@@ -75,6 +80,10 @@ public class User {
 	
 	public void setUserActions(ArrayList<UserActions> userActions) {
 		this.userActions = userActions;
+	}
+
+	public void setEbayAuthToken(String ebayAuthToken) {
+		this.ebayAuthToken = ebayAuthToken;
 	}
 	
 	

@@ -215,7 +215,7 @@ public class Http<T> implements CommandLineRunner {
 			httpGet.addHeader("X-EBAY-C-ENDUSERCTX",
 					"contextualLocation=country=<2CharCountryCode>,zip=<5DigitCode>,affiliateCampaignId=<ePNCampaignId>,affiliateReferenceId=<referenceId>");
 			httpGet.addHeader("X-EBAY-C-MARKETPLACE", utilityClass.marktplaceId);
-			httpGet.addHeader("Authorization", "Bearer " + utilityClass.ebayAuth);
+			httpGet.addHeader("Authorization", "Bearer " + Login.activeUser.getEbayAuthToken());
 			break;
 		case "Paypal":
 			httpGet.addHeader("Content-Type", "application/json");
@@ -262,7 +262,7 @@ public class Http<T> implements CommandLineRunner {
 			httpPost.addHeader("X-EBAY-C-ENDUSERCTX",
 					"contextualLocation=country=<2CharCountryCode>,zip=<5DigitCode>,affiliateCampaignId=<ePNCampaignId>,affiliateReferenceId=<referenceId>");
 			httpPost.addHeader("X-EBAY-C-MARKETPLACE", utilityClass.marktplaceId);
-			httpPost.addHeader("Authorization", "Bearer " + utilityClass.ebayAuth);
+			httpPost.addHeader("Authorization", "Bearer " + Login.activeUser.getEbayAuthToken());
 			break;
 		case "Paypal":
 			httpPost.addHeader("Content-Type", "application/json");

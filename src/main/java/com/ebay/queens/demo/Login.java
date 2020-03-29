@@ -32,6 +32,8 @@ public class Login {
 	private Logger LOGGER; 
 	@Autowired
 	private UserController userController;
+	
+	public static User activeUser = new User(); 
 
 	Login() {
 		LOGGER = Utilities.LOGGER;
@@ -45,7 +47,6 @@ public class Login {
 	 * @param username - user enters their username 
 	 * @param password - user enters their password to gain entry in to the system 
 	 * @return - returns the username which is then used to fetch the active user logging in
-	 * @throws JAXBException
 	 */
 	@GET
 	@GetMapping("/LogIn")
@@ -69,6 +70,12 @@ public class Login {
 		return response;
 	}
 	
+	/**
+	 * This method is to help the front-end set the current active user by returning the given user based off username
+	 * 
+	 * @param username - user enters their username
+	 * @return - returns the given user matching the given username
+	 */
 	@GET
 	@GetMapping("/GetUser")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -78,9 +85,23 @@ public class Login {
 		for(User user: userController.getAllUsers()) {
 			if(user.getUsername().equals(username)) {
 				returnedUser = user;
+				activeUser = user; 
 			}
 		}
-		LOGGER.info("Returned user: " + returnedUser.getUsername());
+		LOGGER.info("Active user: " + activeUser.getUsername());
 		return returnedUser;
 	}
+	
+	@PostMapping("/SignOut")
+	@Produces(MediaType.APPLICATION_JSON) 
+	public void signOut(@QueryParam("username") String username){
+		for(User user: userController.getAllUsers()) {
+			if(user.getUsername().equals(username)) {
+				LOGGER.info("Active User Signed Out!" + user.getUsername());
+				activeUser = null; 
+			}
+		}
+	}
+	
+	
 }

@@ -53,7 +53,6 @@ public class TokenUtilityClass implements CommandLineRunner {
     private static final Environment EXECUTION_ENV = Environment.PRODUCTION;
     private static final String EBAY_CONFIG = "C:\\Users\\user\\Documents\\Beng Software Engineering\\CSC3032-Software Engineering Project\\backend\\src\\main\\resources\\ebay-config-sample.yaml";
 
-	
 	private Logger logger;
 	public boolean validToken = false;	
 
@@ -95,7 +94,7 @@ public class TokenUtilityClass implements CommandLineRunner {
 	public String getAccessToken(@QueryParam("code") String code) throws IOException {
 		logger.info("Access Token");
 		OAuthResponse response = oauth2API.exchangeCodeForAccessToken(EXECUTION_ENV, code);
-		utilityClass.setEbayAuth(response.getAccessToken().get().getToken());
+		Login.activeUser.setEbayAuthToken((response.getAccessToken().get().getToken()));
 		logger.info("Utility class ebay auth: " + utilityClass.getEbayAuth());
 		return response.toString();
 	}
