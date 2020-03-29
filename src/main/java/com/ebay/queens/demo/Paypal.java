@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ebay.queens.demo.resource.CharityController;
 import com.ebay.queens.requests.paypalcharitysearch.Charity;
 import com.ebay.queens.requests.paypalcharitysearch.PaypalCharity;
 import com.ebay.queens.requests.paypalcharitysearch.PaypalCharitySearchRequest;
@@ -47,6 +48,9 @@ public class Paypal implements CommandLineRunner {
 	final ObjectMapper mapper = new ObjectMapper();
 	@Autowired
 	private Http httpClass;
+	
+	@Autowired 
+	CharityController charityController;
 
 	@Autowired
 	TokenUtilityClass tokenUtilityClass = new TokenUtilityClass();
@@ -223,6 +227,8 @@ public class Paypal implements CommandLineRunner {
 			// Add charity objects to cache
 			for (GetCharityResult charity : charityResponse.getResults()) {
 				charityCache.addCharity(charity);
+				charityController.addCharity(charity);
+				// Adds new charity cause area if necessary
 				if (charity.getCause_area() != null) {
 					for (CauseArea causeArea : charity.getCause_area()) {
 						charityCache.addCharityCause(causeArea.getName());
