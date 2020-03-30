@@ -22,20 +22,15 @@ public class Utilities {
 	String devName;
 	String certName;
 	String marktplaceId;
-	String paypalAuthorizationToken;
-	String ebayAuth;
 
 	final int SITE_ID = 3;
 
-	Utilities(String devName, String securityAppName, String globalId, String marketplaceId, String certName,
-			String paypalAuth, String ebayAuth) {
+	Utilities(String devName, String securityAppName, String globalId, String marketplaceId, String certName) {
 		this.devName = devName;
 		this.securityAppName = securityAppName;
 		this.globalId = globalId;
 		this.certName = certName;
 		this.marktplaceId = marketplaceId;
-		this.paypalAuthorizationToken = paypalAuth;
-		this.ebayAuth = ebayAuth;
 		try {
 			fileHandler  = new FileHandler("./BackendLogs.log");
 		} catch (SecurityException e) {
@@ -72,14 +67,6 @@ public class Utilities {
 		return marktplaceId;
 	}
 
-	public String getPaypalAuthorizationToken() {
-		return paypalAuthorizationToken;
-	}
-
-	public String getEbayAuth() {
-		return ebayAuth;
-	}
-
 	// Setters
 	public void setDevName(String devName) {
 		this.devName = devName;
@@ -101,12 +88,5 @@ public class Utilities {
 		this.marktplaceId = marktplaceId;
 	}
 
-	public void setPaypalAuthorizationToken(String paypalAuthorizationToken) {
-		this.paypalAuthorizationToken = paypalAuthorizationToken;
-	}
-
-	public void setEbayAuth(String ebayAuth) {
-		this.ebayAuth = ebayAuth;
-	}
 
 }

@@ -95,7 +95,7 @@ public class TokenUtilityClass implements CommandLineRunner {
 		logger.info("Access Token");
 		OAuthResponse response = oauth2API.exchangeCodeForAccessToken(EXECUTION_ENV, code);
 		Login.activeUser.setEbayAuthToken((response.getAccessToken().get().getToken()));
-		logger.info("Utility class ebay auth: " + utilityClass.getEbayAuth());
+		logger.info("Active User ebay auth: " + Login.activeUser.getEbayAuthToken());
 		return response.toString();
 	}
 
@@ -141,6 +141,7 @@ public class TokenUtilityClass implements CommandLineRunner {
 			tokenReceived = true;
 			this.validToken = true;
 		}
+		Login.activeUser.setPaypalAuthToken(response.getacccess_token());
 		return tokenReceived;
 	}
 

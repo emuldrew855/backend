@@ -85,7 +85,7 @@ public class Login {
 		for(User user: userController.getAllUsers()) {
 			if(user.getUsername().equals(username)) {
 				returnedUser = user;
-				activeUser = user; 
+				this.activeUser = user; 
 			}
 		}
 		LOGGER.info("Active user: " + activeUser.getUsername());
@@ -98,7 +98,7 @@ public class Login {
 		for(User user: userController.getAllUsers()) {
 			if(user.getUsername().equals(username)) {
 				LOGGER.info("Active User Signed Out!" + user.getUsername());
-				activeUser = null; 
+				this.activeUser = null; 
 			}
 		}
 	}

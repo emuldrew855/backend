@@ -77,7 +77,7 @@ public class Ebay implements CommandLineRunner {
 	@Produces(MediaType.APPLICATION_JSON)
 	public CharityItemResponse advancedFindCharityItems(@QueryParam("charityId") String charityId)
 			throws IOException, JAXBException {
-		FindNonProfitResponse findNonProfitResponse = findNonProfit(charityId);
+		FindNonProfitResponse findNonProfitResponse = findSingleNonProfit(charityId);
 		String nonProfitId = findNonProfitResponse.getNonProfit().getExternalId();
 		LOGGER.info("Non Profit Id: " + nonProfitId);
 		CharityItemResponse charityItemResponse = findCharityItems(nonProfitId);
@@ -180,7 +180,7 @@ public class Ebay implements CommandLineRunner {
 	}
 
 	/**
-	 * Represents an api to bring information on non profits
+	 * Represents an api to bring information on non profits [NOT CURRENTLY WORKING]
 	 * 
 	 * @param nonProfitInput
 	 *            - uses the externalId to bring up information on nonprofits
