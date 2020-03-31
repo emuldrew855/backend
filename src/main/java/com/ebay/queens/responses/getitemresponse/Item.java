@@ -43,41 +43,36 @@ public class Item {
 		return charity;
 	}
 
+	@XmlElement(name = "ConditionDescription")
+	public String getConditionDescription() {
+		return conditionDescription;
+	}
+	
 	@XmlElement(name = "Country")
 	public String getCountry() {
 		return country;
 	}
 	
-	@XmlElement(name = "StartPrice")
-	public String getStartPrice() {
-		return startPrice;
-	}
-	
-	@XmlElement(name = "ConditionDescription")
-	public String getConditionDescription() {
-		return conditionDescription;
-	}
-	@XmlElement(name = "Title")
-	public String getTitle() {
-		return title;
-	}
-	
-	@XmlElement(name = "PrimaryCategory")
-	public PrimaryCategory getPrimarycategory() {
-		return primarycategory;
-	}
-	@XmlElement(name = "StartPrice")
-	public String getStartprice() {
-		return startprice;
+	@XmlElement(name ="ListingDetails")
+	public ListingDetails getListingDetails() {
+		return listingDetails;
 	}
 	@XmlElement(name = "PictureDetails")
 	public PictureDetails getPictureDetails() {
 		return pictureDetails;
 	}
 	
-	@XmlElement(name ="ListingDetails")
-	public ListingDetails getListingDetails() {
-		return listingDetails;
+	@XmlElement(name = "PrimaryCategory")
+	public PrimaryCategory getPrimarycategory() {
+		return primarycategory;
+	}
+	@XmlElement(name ="ProductListingDetails")
+	public ProductListingDetails getProductListingDetails() {
+		return productListingDetails;
+	}
+	@XmlElement(name ="Quantity")
+	public String getQuantity() {
+		return quantity;
 	}
 	
 	@XmlElement(name ="SellingStatus")
@@ -85,14 +80,19 @@ public class Item {
 		return sellingStatus;
 	}
 	
-	@XmlElement(name ="ProductListingDetails")
-	public ProductListingDetails getProductListingDetails() {
-		return productListingDetails;
+	@XmlElement(name = "StartPrice")
+	public String getStartprice() {
+		return startprice;
 	}
 	
-	@XmlElement(name ="Quantity")
-	public String getQuantity() {
-		return quantity;
+	@XmlElement(name = "StartPrice")
+	public String getStartPrice() {
+		return startPrice;
+	}
+	
+	@XmlElement(name = "Title")
+	public String getTitle() {
+		return title;
 	}
 
 	// Setters
@@ -112,48 +112,48 @@ public class Item {
 		this.charity = charity;
 	}
 
-	public void setCountry(String country) {
-		this.country = country;
-	}
-	
-	public void setStartPrice(String startPrice) {
-		this.startPrice = startPrice;
-	}
-
 	public void setConditionDescription(String conditionDescription) {
 		this.conditionDescription = conditionDescription;
 	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public void setPrimarycategory(PrimaryCategory primarycategory) {
-		this.primarycategory = primarycategory;
-	}
-
-	public void setStartprice(String startprice) {
-		this.startprice = startprice;
-	}
-
-	public void setPictureDetails(PictureDetails pictureDetails) {
-		this.pictureDetails = pictureDetails;
+	
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 	public void setListingDetails(ListingDetails listingDetails) {
 		this.listingDetails = listingDetails;
 	}
 
-	public void setSellingStatus(SellingStatus sellingStatus) {
-		this.sellingStatus = sellingStatus;
+	public void setPictureDetails(PictureDetails pictureDetails) {
+		this.pictureDetails = pictureDetails;
+	}
+
+	public void setPrimarycategory(PrimaryCategory primarycategory) {
+		this.primarycategory = primarycategory;
+	}
+
+	public void setProductListingDetails(ProductListingDetails productListingDetails) {
+		this.productListingDetails = productListingDetails;
 	}
 
 	public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
 
-	public void setProductListingDetails(ProductListingDetails productListingDetails) {
-		this.productListingDetails = productListingDetails;
+	public void setSellingStatus(SellingStatus sellingStatus) {
+		this.sellingStatus = sellingStatus;
+	}
+
+	public void setStartprice(String startprice) {
+		this.startprice = startprice;
+	}
+
+	public void setStartPrice(String startPrice) {
+		this.startPrice = startPrice;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 

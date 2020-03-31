@@ -1,11 +1,11 @@
 package com.ebay.queens.requests.charityitems;
 
 public class Constraints {
-	GlobalAspect globalAspect[];
-
 	public Constraints(GlobalAspect[] globalAspect) {
 		this.globalAspect = globalAspect;
 	}
+
+	GlobalAspect globalAspect[];
 
 	public GlobalAspect[] getGlobalAspect() {
 		return globalAspect;

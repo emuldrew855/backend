@@ -7,12 +7,10 @@ import java.util.TimerTask;
 import java.util.logging.Logger;
 
 import javax.ws.rs.GET;
-import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Lazy;
@@ -36,7 +34,7 @@ import com.ebay.queens.responses.paypalgetcharityresponse.PaypalGetCharityRespon
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * Represents a class to access and hit all of the Paypal api's
+ * Represents a class to access and manage all of the Paypal api's
  */
 @Order(3)
 @Lazy(true)
@@ -46,15 +44,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class Paypal implements CommandLineRunner {
 	private Logger logger;
 	final ObjectMapper mapper = new ObjectMapper();
+	
 	@Autowired
 	private Http httpClass;
-	
+
 	@Autowired 
 	CharityController charityController;
 
 	@Autowired
 	TokenUtilityClass tokenUtilityClass = new TokenUtilityClass();
-
+	
 	Paypal() {
 		logger = Utilities.LOGGER;
 		logger.info("Paypal Class");
@@ -62,7 +61,7 @@ public class Paypal implements CommandLineRunner {
 			@Override
 			public void run() {
 				if(tokenUtilityClass.validToken) {
-					//tokenTimer();
+					//gatherCharityDataOnLoop();
 				}
 			}
 		};
@@ -73,68 +72,10 @@ public class Paypal implements CommandLineRunner {
 		timer.scheduleAtFixedRate(repeatedTask, delay, period);
 	}
 
+	
 	@Override
 	public void run(String... args) throws Exception {
-		// this.advancedCharitySearch("animals");
-		// test.authenticationToken();
-	}
-
-	/**
-	 * API which fetches a list of charities based off their charity cause area
-	 * 
-	 * @param missionArea
-	 *            - String containing the name of the mission area the user wishes
-	 *            to search for
-	 * 
-	 * @returns a PaypalGetCharityResponse object which contains JSON of a list of
-	 *          charities related to the mission area input
-	 * 
-	 * @throws IOException
-	 */
-	@GET
-	@GetMapping("/GetCharity")
-	@Produces(MediaType.APPLICATION_JSON)
-	public PaypalGetCharityResponse charitySearch(@QueryParam("missionArea") String missionArea) throws IOException {
-		logger.info("Get Charity");
-		PaypalCharitySearchResponse charitySearchResponse = this.advancedCharitySearch(missionArea);
-		String queryId = charitySearchResponse.getQuery_id();
-		String url = "https://api.paypal.com/v1/customer/charities?query_id=" + queryId;
-		String response = httpClass.genericSendGET(url, "Paypal");
-		logger.info("Response: " + response);
-		final PaypalGetCharityResponse paypalGetCharityResponse = mapper.readValue(response,
-				PaypalGetCharityResponse.class);
-		return paypalGetCharityResponse;
-	}
-
-	/**
-	 * API which fetches a query id to facilitate the next api call of finding a
-	 * list of charities
-	 * 
-	 * @param missionArea
-	 *            - String containing the name of the mission area the user wishes
-	 *            to search for
-	 * 
-	 * @return a PaypalCharitySearchResponse - object of JSON containing a query id
-	 * 
-	 * @throws IOException
-	 */
-	@GET
-	@GetMapping("/SearchCharityType")
-	@Produces(MediaType.APPLICATION_JSON)
-	public PaypalCharitySearchResponse advancedCharitySearch(@QueryParam("missionArea") String missionArea)
-			throws IOException {
-		logger.info("Searching for mission area: " + missionArea);
-		String url = "https://api.paypal.com/v1/customer/charity-search-queries";
-		PaypalCharitySearchRequest paypalCharitySearchRequest = new PaypalCharitySearchRequest();
-		PaypalCharity paypalCharity = new PaypalCharity();
-		paypalCharity.setMissionArea(missionArea);
-		Charity charity = new Charity();
-		charity.setPaypalCharity(paypalCharity);
-		paypalCharitySearchRequest.setCharity(charity);
-		String response = httpClass.genericJSONSendPOST(url, charity, "Paypal");
-		final PaypalCharitySearchResponse charityItemResponse = mapper.readValue(response,
-				PaypalCharitySearchResponse.class);
-		return charityItemResponse;
+		// Method may be used to test code locally directly from source class
 	}
 
 	/**
@@ -158,7 +99,7 @@ public class Paypal implements CommandLineRunner {
 	}
 
 	/**
-	 * API which returns a static list of Cause Area's
+	 * API which returns a static list of Cause Area's [MAY NOT BE NEEDED]
 	 * 
 	 * @return Map<Integer, String> - Map object containing a list of all the
 	 *         Charity Cause areas available
@@ -169,27 +110,6 @@ public class Paypal implements CommandLineRunner {
 	public Map<Integer, String> getAllCharityCause() {
 		CharityCache charityCache = new CharityCache();
 		return charityCache.getCurrentCauseAreas();
-	}
-
-	/**
-	 * Runs the GetAllCharityCause method on a timer
-	 */
-	public void tokenTimer() {
-		TimerTask repeatedTask = new TimerTask() {
-			@Override
-			public void run() {
-				try {
-					getCharityCause();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		};
-		Timer timer = new Timer("Timer");
-
-		long delay = 1L;
-		long period = 3600000L; // Task repeats every hour
-		timer.scheduleAtFixedRate(repeatedTask, delay, period);
 	}
 
 	/**
@@ -246,4 +166,84 @@ public class Paypal implements CommandLineRunner {
 
 	}
 
+	/**
+	 * Runs the GetAllCharityCause method on a timer
+	 */
+	public void gatherCharityDataOnLoop() {
+		TimerTask repeatedTask = new TimerTask() {
+			@Override
+			public void run() {
+				try {
+					getCharityCause();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		};
+		Timer timer = new Timer("Timer");
+
+		long delay = 1L;
+		long period = 3600000L; // Task repeats every hour
+		timer.scheduleAtFixedRate(repeatedTask, delay, period);
+	}
+	
+	// Code which was previously used to gather charities from paypal api directly
+	/**
+	 * API which fetches a query id to facilitate the next api call of finding a list of charities 
+	 * [CURRENTLY NOT WORKING AFTER CHANGE TO PAYPAL API- MAY BE USED IN FUTURE]
+	 * 
+	 * @param missionArea
+	 *            - String containing the name of the mission area the user wishes
+	 *            to search for
+	 * 
+	 * @return a PaypalCharitySearchResponse - object of JSON containing a query id
+	 * 
+	 * @throws IOException
+	 */
+	@GET
+	@GetMapping("/SearchCharityType")
+	@Produces(MediaType.APPLICATION_JSON)
+	public PaypalCharitySearchResponse advancedCharitySearch(@QueryParam("missionArea") String missionArea)
+			throws IOException {
+		logger.info("Searching for mission area: " + missionArea);
+		String url = "https://api.paypal.com/v1/customer/charity-search-queries";
+		PaypalCharitySearchRequest paypalCharitySearchRequest = new PaypalCharitySearchRequest();
+		PaypalCharity paypalCharity = new PaypalCharity();
+		paypalCharity.setMissionArea(missionArea);
+		Charity charity = new Charity();
+		charity.setPaypalCharity(paypalCharity);
+		paypalCharitySearchRequest.setCharity(charity);
+		String response = httpClass.genericJSONSendPOST(url, charity, "Paypal");
+		final PaypalCharitySearchResponse charityItemResponse = mapper.readValue(response,
+				PaypalCharitySearchResponse.class);
+		return charityItemResponse;
+	}
+
+	/**
+	 * API which fetches a list of charities based off their charity cause area 
+	 * [CURRENTLY NOT WORKING AFTER CHANGE TO PAYPAL API- MAY BE USED IN FUTURE]
+	 * 
+	 * @param missionArea
+	 *            - String containing the name of the mission area the user wishes
+	 *            to search for
+	 * 
+	 * @returns a PaypalGetCharityResponse object which contains JSON of a list of
+	 *          charities related to the mission area input
+	 * 
+	 * @throws IOException
+	 */
+	@GET
+	@GetMapping("/GetCharity")
+	@Produces(MediaType.APPLICATION_JSON)
+	public PaypalGetCharityResponse charitySearch(@QueryParam("missionArea") String missionArea) throws IOException {
+		logger.info("Get Charity");
+		PaypalCharitySearchResponse charitySearchResponse = this.advancedCharitySearch(missionArea);
+		String queryId = charitySearchResponse.getQuery_id();
+		String url = "https://api.paypal.com/v1/customer/charities?query_id=" + queryId;
+		String response = httpClass.genericSendGET(url, "Paypal");
+		logger.info("Response: " + response);
+		final PaypalGetCharityResponse paypalGetCharityResponse = mapper.readValue(response,
+				PaypalGetCharityResponse.class);
+		return paypalGetCharityResponse;
+	}
 }

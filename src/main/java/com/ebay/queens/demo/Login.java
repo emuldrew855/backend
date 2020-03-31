@@ -1,19 +1,13 @@
 package com.ebay.queens.demo;
 
-import java.io.IOException;
-import java.util.logging.FileHandler;
-import java.util.logging.Handler;
 import java.util.logging.Logger;
 
 import javax.ws.rs.GET;
-import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import javax.xml.bind.JAXBException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,16 +23,38 @@ import com.ebay.queens.demo.resource.UserController;
 @RestController
 @RequestMapping("/auth")
 public class Login {
-	private Logger LOGGER; 
-	@Autowired
-	private UserController userController;
-	
 	public static User activeUser = new User(); 
-
 	Login() {
 		LOGGER = Utilities.LOGGER;
 		LOGGER.addHandler(Utilities.fileHandler);
 		LOGGER.info("Login");
+	}
+	
+	private Logger LOGGER; 
+
+	@Autowired
+	private UserController userController;
+	
+	/**
+	 * This method is to help the front-end set the current active user by returning the given user based off username
+	 * 
+	 * @param username - user enters their username
+	 * @return - returns the given user matching the given username
+	 */
+	@GET
+	@GetMapping("/GetUser")
+	@Produces(MediaType.APPLICATION_JSON)
+	public User getUser(@QueryParam("username") String username) {
+		LOGGER.info("Get User with: " + username);
+		User returnedUser = null;
+		for(User user: userController.getAllUsers()) {
+			if(user.getUsername().equals(username)) {
+				returnedUser = user;
+				Login.activeUser = user; 
+			}
+		}
+		LOGGER.info("Active user: " + activeUser.getUsername());
+		return returnedUser;
 	}
 	
 	/**
@@ -71,34 +87,17 @@ public class Login {
 	}
 	
 	/**
-	 * This method is to help the front-end set the current active user by returning the given user based off username
+	 * API to sign out the current active user
 	 * 
-	 * @param username - user enters their username
-	 * @return - returns the given user matching the given username
+	 * @param username - user enters their username 
 	 */
-	@GET
-	@GetMapping("/GetUser")
-	@Produces(MediaType.APPLICATION_JSON)
-	public User getUser(@QueryParam("username") String username) {
-		LOGGER.info("Get User with: " + username);
-		User returnedUser = null;
-		for(User user: userController.getAllUsers()) {
-			if(user.getUsername().equals(username)) {
-				returnedUser = user;
-				this.activeUser = user; 
-			}
-		}
-		LOGGER.info("Active user: " + activeUser.getUsername());
-		return returnedUser;
-	}
-	
 	@PostMapping("/SignOut")
 	@Produces(MediaType.APPLICATION_JSON) 
 	public void signOut(@QueryParam("username") String username){
 		for(User user: userController.getAllUsers()) {
 			if(user.getUsername().equals(username)) {
 				LOGGER.info("Active User Signed Out!" + user.getUsername());
-				this.activeUser = null; 
+				Login.activeUser = null; 
 			}
 		}
 	}

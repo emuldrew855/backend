@@ -2,14 +2,11 @@ package com.ebay.queens.demo;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.StringReader;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.logging.FileHandler;
-import java.util.logging.Handler;
 import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
@@ -18,11 +15,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
 
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
@@ -37,7 +30,6 @@ import com.ebay.api.client.auth.oauth2.OAuth2Api;
 import com.ebay.api.client.auth.oauth2.model.Environment;
 import com.ebay.api.client.auth.oauth2.model.OAuthResponse;
 import com.ebay.queens.responses.PaypalTokenResponse;
-import com.ebay.queens.responses.findnonprofitresponse.FindNonProfitResponse;
 
 /**
  * Represents an object to hold all the authorization tokens needed to access
@@ -48,34 +40,33 @@ import com.ebay.queens.responses.findnonprofitresponse.FindNonProfitResponse;
 @RestController
 @RequestMapping("/token")
 public class TokenUtilityClass implements CommandLineRunner {
-	private OAuth2Api oauth2API = new OAuth2Api();
 	private static final List<String> authorizationScopesList = Arrays.asList("https://api.ebay.com/oauth/api_scope", "https://api.ebay.com/oauth/api_scope/sell.marketing.readonly");
-    private static final Environment EXECUTION_ENV = Environment.PRODUCTION;
+	private static final Environment EXECUTION_ENV = Environment.PRODUCTION;
     private static final String EBAY_CONFIG = "C:\\Users\\user\\Documents\\Beng Software Engineering\\CSC3032-Software Engineering Project\\backend\\src\\main\\resources\\ebay-config-sample.yaml";
-
-	private Logger logger;
-	public boolean validToken = false;	
-
-	public TokenUtilityClass()  {
+    public TokenUtilityClass()  {
 		logger = Utilities.LOGGER;
 		logger.info("Token Utility Class");
 		logger.addHandler(Utilities.fileHandler);
 	}
+
+	private OAuth2Api oauth2API = new OAuth2Api();
+	private Logger logger;	
+	public boolean validToken = false;
 	
-	  @PostConstruct
-	  public void postConstruct() throws IOException {
-		  tokenTimer();
-	  }
+	 @Autowired
+	private Http httpClass;
 
 	@Autowired
-	private Http httpClass;
-	
-	@Autowired
 	private Utilities utilityClass;
+	
+	@PostConstruct
+	 public void postConstruct() throws IOException {
+		  paypalTokenTimer();
+	  }
 
 	@Override
 	public void run(String... args) throws Exception {
-		
+		// Method may be used to test code locally directly from source class
 	}
 	
 	/**
@@ -96,6 +87,12 @@ public class TokenUtilityClass implements CommandLineRunner {
 		return authUrl;
 	}
 	
+	/**
+	 * Represents an api to retrieve the access token which allows a user to gain access to ebay's api
+	 * 
+	 * @returns - the response from eBays api
+	 * @throws IOException
+	 */
 	@GET
 	@GetMapping("/accessToken")
 	public String getEbayAccessToken(@QueryParam("code") String code) throws IOException {
@@ -107,6 +104,12 @@ public class TokenUtilityClass implements CommandLineRunner {
 		return response.toString();
 	}
 	
+	/**
+	 * Represents an api to retrieve a refresh access token once an access token has expired
+	 * 
+	 * @returns - the response from eBays api
+	 * @throws IOException
+	 */
 	@GET
 	@GetMapping("/refreshToken")
 	@RequestMapping(value = "/somethingElse", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED)
@@ -116,24 +119,6 @@ public class TokenUtilityClass implements CommandLineRunner {
 		return null;
 	}
 	
-	public void tokenTimer() {
-		TimerTask repeatedTask = new TimerTask() {
-			@Override
-			public void run() {
-				try {
-					paypalAuthenticationToken();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		};
-		Timer timer = new Timer("Timer");
-
-		long delay = 1L;
-		long period = 3600000L; // Task repeats every hour
-		timer.scheduleAtFixedRate(repeatedTask, delay, period);
-	}
-
 	/**
 	 * Represents an api to retrieve the paypal authentication token which allows
 	 * access to Paypals' API
@@ -161,6 +146,23 @@ public class TokenUtilityClass implements CommandLineRunner {
 		Login.activeUser.setPaypalAuthToken(response.getacccess_token());
 		return tokenReceived;
 	}
+	
+	public void paypalTokenTimer() {
+		TimerTask repeatedTask = new TimerTask() {
+			@Override
+			public void run() {
+				try {
+					paypalAuthenticationToken();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		};
+		Timer timer = new Timer("Timer");
 
+		long delay = 1L;
+		long period = 3600000L; // Task repeats every hour
+		timer.scheduleAtFixedRate(repeatedTask, delay, period);
+	}
 
 }

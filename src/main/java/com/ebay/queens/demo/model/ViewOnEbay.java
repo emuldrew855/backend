@@ -1,22 +1,18 @@
 package com.ebay.queens.demo.model;
 
-import java.awt.List;
-import java.util.ArrayList;
-import java.util.HashMap;
-
 public class ViewOnEbay {
-	private UserGroup userGroup; 
-	private boolean viewedOnEbay;
-	
-	
+	public ViewOnEbay() {
+		// TODO Auto-generated constructor stub
+	} 
 	public ViewOnEbay(UserGroup userGroup, boolean viewedOnEbay) {
 		this.userGroup = userGroup;
 		this.viewedOnEbay = viewedOnEbay;
 	}
 	
-	public ViewOnEbay() {
-		// TODO Auto-generated constructor stub
-	}
+	
+	private UserGroup userGroup;
+	
+	private boolean viewedOnEbay;
 
 	// Getters
 	public UserGroup getUserGroup() {

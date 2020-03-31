@@ -7,6 +7,10 @@ public class PromotionalSaleDetails {
 	private String startTime;
 	private String endTime;
 	
+	@XmlElement(name = "EndTime")
+	public String getEndTime() {
+		return endTime;
+	}
 	// Getters
 	@XmlElement(name = "OriginalPrice")
 	public String getOriginalPrice() {
@@ -16,20 +20,16 @@ public class PromotionalSaleDetails {
 	public String getStartTime() {
 		return startTime;
 	}
-	@XmlElement(name = "EndTime")
-	public String getEndTime() {
-		return endTime;
-	}
 	
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
 	// Setters
 	public void setOriginalPrice(String originalPrice) {
 		this.originalPrice = originalPrice;
 	}
 	public void setStartTime(String startTime) {
 		this.startTime = startTime;
-	}
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
 	} 
 
 }

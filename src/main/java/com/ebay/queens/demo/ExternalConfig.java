@@ -15,19 +15,15 @@ public class ExternalConfig {
 	private String globalId;
 	private String paypalAppId; 
 
+	public String getCertName() {
+		return certName;
+	}
+
 	// Getters
 	public String getDeveloperName() {
 		return developerName;
 	}
 
-	public String getSecurityAppName() {
-		return securityAppName;
-	}
-
-	public String getCertName() {
-		return certName;
-	}
-	
 	public String getGlobalId() {
 		return globalId;
 	}
@@ -35,27 +31,31 @@ public class ExternalConfig {
 	public String getPaypalAppId() {
 		return paypalAppId;
 	}
+	
+	public String getSecurityAppName() {
+		return securityAppName;
+	}
 
+
+	public void setCertName(String certName) {
+		this.certName = certName;
+	}
 
 	// Setters
 	public void setDeveloperName(String developerName) {
 		this.developerName = developerName;
 	}
 
-	public void setSecurityAppName(String securityAppName) {
-		this.securityAppName = securityAppName;
-	}
-
-	public void setCertName(String certName) {
-		this.certName = certName;
-	}
-
 	public void setGlobalId(String globalId) {
 		this.globalId = globalId;
 	}
-	
+
 	public void setPaypalAppId(String paypalAppId) {
 		this.paypalAppId = paypalAppId;
+	}
+	
+	public void setSecurityAppName(String securityAppName) {
+		this.securityAppName = securityAppName;
 	}
 
 }

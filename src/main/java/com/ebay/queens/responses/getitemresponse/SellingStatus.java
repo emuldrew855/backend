@@ -22,13 +22,13 @@ public class SellingStatus {
 	public String getMimimumToBid() {
 		return mimimumToBid;
 	}
-	@XmlElement(name = "QuantitySold")
-	public String getQuantitySold() {
-		return quantitySold;
-	}
 	@XmlElement(name = "PromotionalSaleDetails")
 	public PromotionalSaleDetails getPromotionalSaleDetails() {
 		return promotionalSaleDetails;
+	}
+	@XmlElement(name = "QuantitySold")
+	public String getQuantitySold() {
+		return quantitySold;
 	}
 	
 	// Setters
@@ -41,11 +41,11 @@ public class SellingStatus {
 	public void setMimimumToBid(String mimimumToBid) {
 		this.mimimumToBid = mimimumToBid;
 	}
-	public void setQuantitySold(String quantitySold) {
-		this.quantitySold = quantitySold;
-	}
 	public void setPromotionalSaleDetails(PromotionalSaleDetails promotionalSaleDetails) {
 		this.promotionalSaleDetails = promotionalSaleDetails;
+	}
+	public void setQuantitySold(String quantitySold) {
+		this.quantitySold = quantitySold;
 	} 
 	
 	

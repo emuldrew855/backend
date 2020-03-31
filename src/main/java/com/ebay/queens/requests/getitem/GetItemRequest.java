@@ -4,43 +4,43 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "GetItemRequest")
 public class GetItemRequest {
-	private RequesterCredentials requesterCredentials;
-	private String ItemID;
-	private String DetailLevel;
-	
+	public GetItemRequest() {
+		
+	}
 	public GetItemRequest(RequesterCredentials requesterCredentials, String ItemID, String DetailLevel) {
 		super();
 		this.requesterCredentials = requesterCredentials;
 		this.ItemID = ItemID;
 		this.DetailLevel = DetailLevel;
 	}
+	private RequesterCredentials requesterCredentials;
 	
-	public GetItemRequest() {
-		
-	}
+	private String ItemID;
 	
-	// Getters
-	public RequesterCredentials getRequesterCredentials() {
-		return requesterCredentials;
+	private String DetailLevel;
+	
+	@XmlElement(name="DetailLevel")
+	public String getDetailLevel() {
+		return DetailLevel;
 	}
 	@XmlElement(name="ItemID")
 	public String getItemID() {
 		return ItemID;
 	}
-	@XmlElement(name="DetailLevel")
-	public String getDetailLevel() {
-		return DetailLevel;
+	// Getters
+	public RequesterCredentials getRequesterCredentials() {
+		return requesterCredentials;
 	}
 
-	// Setters
-	public void setRequesterCredentials(RequesterCredentials requesterCredentials) {
-		this.requesterCredentials = requesterCredentials;
+	public void setDetailLevel(String DetailLevel) {
+		this.DetailLevel = DetailLevel;
 	}
 	public void setItemID(String ItemID) {
 		this.ItemID = ItemID;
 	}
-	public void setDetailLevel(String DetailLevel) {
-		this.DetailLevel = DetailLevel;
+	// Setters
+	public void setRequesterCredentials(RequesterCredentials requesterCredentials) {
+		this.requesterCredentials = requesterCredentials;
 	}
 
 

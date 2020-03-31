@@ -1,7 +1,5 @@
 package com.ebay.queens.demo.resource;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.ws.rs.QueryParam;
@@ -14,27 +12,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ebay.queens.demo.model.SearchType;
-import com.ebay.queens.demo.model.User;
 import com.ebay.queens.demo.model.UserGroup;
 import com.ebay.queens.demo.model.ViewOnEbay;
 import com.ebay.queens.demo.repository.UserActionRepository;
-import com.ebay.queens.demo.repository.UserRepository;
 
 
 @RestController
 @RequestMapping("/UserActions")
 public class UserActionsController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserActionsController.class);
+	UserActionsController() {
+	}
 	public ViewOnEbay userViewedItemOnEbay = new ViewOnEbay();
+	
 	int index = 0;
+	
 	
 	@Autowired
 	private UserActionRepository userActionRepository;
-	
-	
-	UserActionsController() {
-	}
 	
 	@PostMapping("/AddUserAction")
 	public String addUser(@QueryParam("userGroup") String userGroup, @QueryParam("viewOnEbay") String viewOnEbay) {

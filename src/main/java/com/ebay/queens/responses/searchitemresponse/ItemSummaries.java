@@ -22,29 +22,16 @@ public class ItemSummaries {
 	private Categories categories;
 	private AdditionalImages additionalImages[];
 
-	// Getters
-	public String getItemId() {
-		return itemId;
+	public AdditionalImages[] getAdditionalImages() {
+		return additionalImages;
 	}
 
-	public String getTitle() {
-		return title;
+	public String[] getBuyingOptions() {
+		return buyingOptions;
 	}
 
-	public Image getImage() {
-		return image;
-	}
-
-	public Price getPrice() {
-		return price;
-	}
-
-	public String getItemHref() {
-		return itemHref;
-	}
-
-	public Seller getSeller() {
-		return seller;
+	public Categories getCategories() {
+		return categories;
 	}
 
 	public String getCondition() {
@@ -55,61 +42,61 @@ public class ItemSummaries {
 		return conditionId;
 	}
 
-	public ThumbnailImages[] getThumbnailImages() {
-		return thumbnailImages;
-	}
-
-	public ShippingOptions[] getShippingOptions() {
-		return shippingOptions;
-	}
-
-	public String[] getBuyingOptions() {
-		return buyingOptions;
-	}
-
 	public String getEpid() {
 		return epid;
 	}
 
-	public String getItemWebUrl() {
-		return itemWebUrl;
+	public Image getImage() {
+		return image;
+	}
+
+	public String getItemHref() {
+		return itemHref;
+	}
+
+	// Getters
+	public String getItemId() {
+		return itemId;
 	}
 
 	public ItemLocation getItemLocation() {
 		return itemLocation;
 	}
 
-	public Categories getCategories() {
-		return categories;
+	public String getItemWebUrl() {
+		return itemWebUrl;
 	}
 
-	public AdditionalImages[] getAdditionalImages() {
-		return additionalImages;
+	public Price getPrice() {
+		return price;
 	}
 
-	// Setters
-	public void setItemId(String itemId) {
-		this.itemId = itemId;
+	public Seller getSeller() {
+		return seller;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public ShippingOptions[] getShippingOptions() {
+		return shippingOptions;
 	}
 
-	public void setImage(Image image) {
-		this.image = image;
+	public ThumbnailImages[] getThumbnailImages() {
+		return thumbnailImages;
 	}
 
-	public void setPrice(Price price) {
-		this.price = price;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setItemHref(String itemHref) {
-		this.itemHref = itemHref;
+	public void setAdditionalImages(AdditionalImages[] additionalImages) {
+		this.additionalImages = additionalImages;
 	}
 
-	public void setSeller(Seller seller) {
-		this.seller = seller;
+	public void setBuyingOptions(String[] buyingOptions) {
+		this.buyingOptions = buyingOptions;
+	}
+
+	public void setCategories(Categories categories) {
+		this.categories = categories;
 	}
 
 	public void setCondition(String condition) {
@@ -120,36 +107,49 @@ public class ItemSummaries {
 		this.conditionId = conditionId;
 	}
 
-	public void setThumbnailImages(ThumbnailImages[] thumbnailImages) {
-		this.thumbnailImages = thumbnailImages;
-	}
-
-	public void setShippingOptions(ShippingOptions[] shippingOptions) {
-		this.shippingOptions = shippingOptions;
-	}
-
-	public void setBuyingOptions(String[] buyingOptions) {
-		this.buyingOptions = buyingOptions;
-	}
-
 	public void setEpid(String epid) {
 		this.epid = epid;
 	}
 
-	public void setItemWebUrl(String itemWebUrl) {
-		this.itemWebUrl = itemWebUrl;
+	public void setImage(Image image) {
+		this.image = image;
+	}
+
+	public void setItemHref(String itemHref) {
+		this.itemHref = itemHref;
+	}
+
+	// Setters
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
 	}
 
 	public void setItemLocation(ItemLocation itemLocation) {
 		this.itemLocation = itemLocation;
 	}
 
-	public void setCategories(Categories categories) {
-		this.categories = categories;
+	public void setItemWebUrl(String itemWebUrl) {
+		this.itemWebUrl = itemWebUrl;
 	}
 
-	public void setAdditionalImages(AdditionalImages[] additionalImages) {
-		this.additionalImages = additionalImages;
+	public void setPrice(Price price) {
+		this.price = price;
+	}
+
+	public void setSeller(Seller seller) {
+		this.seller = seller;
+	}
+
+	public void setShippingOptions(ShippingOptions[] shippingOptions) {
+		this.shippingOptions = shippingOptions;
+	}
+
+	public void setThumbnailImages(ThumbnailImages[] thumbnailImages) {
+		this.thumbnailImages = thumbnailImages;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 }

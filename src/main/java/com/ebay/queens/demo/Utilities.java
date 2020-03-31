@@ -1,8 +1,6 @@
 package com.ebay.queens.demo;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.FileHandler;
 import java.util.logging.Handler;
 import java.util.logging.Logger;
@@ -21,9 +19,13 @@ public class Utilities {
 	private String devName;
 	private String certName;
 	private String marketplaceId;
-	private String paypalAppId;
-	final int SITE_ID = 3;
 
+	private String paypalAppId;
+
+	final int SITE_ID = 3;
+	Utilities() {
+
+	}
 	Utilities(String devName, String securityAppName, String globalId, String marketplaceId, String certName, String paypalAppId) {
 		this.devName = devName;
 		this.securityAppName = securityAppName;
@@ -42,8 +44,8 @@ public class Utilities {
 		}
 	}
 
-	Utilities() {
-
+	public String getCertName() {
+		return certName;
 	}
 
 	// Getters
@@ -55,14 +57,6 @@ public class Utilities {
 		return globalId;
 	}
 
-	public String getSecurityAppName() {
-		return securityAppName;
-	}
-
-	public String getCertName() {
-		return certName;
-	}
-
 	public String getMarktplaceId() {
 		return marketplaceId;
 	}
@@ -71,21 +65,21 @@ public class Utilities {
 		return paypalAppId;
 	}
 
+	public String getSecurityAppName() {
+		return securityAppName;
+	}
+
+	public void setCertName(String certName) {
+		this.certName = certName;
+	}
+
 	// Setters
 	public void setDevName(String devName) {
 		this.devName = devName;
 	}
 
-	public void setSecurityAppName(String securityAppName) {
-		this.securityAppName = securityAppName;
-	}
-
 	public void setGlobalId(String globalId) {
 		this.globalId = globalId;
-	}
-
-	public void setCertName(String certName) {
-		this.certName = certName;
 	}
 
 	public void setMarktplaceId(String marktplaceId) {
@@ -94,6 +88,10 @@ public class Utilities {
 
 	public void setPaypalAppId(String paypalAppId) {
 		this.paypalAppId = paypalAppId;
+	}
+
+	public void setSecurityAppName(String securityAppName) {
+		this.securityAppName = securityAppName;
 	}
 
 }

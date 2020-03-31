@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ebay.queens.demo.model.User;
 import com.ebay.queens.demo.repository.CharityRepository;
-import com.ebay.queens.demo.repository.SearchTypeRepository;
 import com.ebay.queens.responses.paypalgetcharityresponse.GetCharityResult;
 
 @RestController
@@ -40,6 +38,12 @@ public class CharityController {
 		}
 	}
 
+	@GetMapping("/DeleteCharities")
+	public String deleteAllCharities() {
+		charityRepository.deleteAll();
+		return "Charities Deleted";
+	}
+
 	@GetMapping("/GetCharities")
 	public String getAllCharities() {
 		String returnedCharities = "";
@@ -48,12 +52,6 @@ public class CharityController {
 		}
 		LOGGER.info("Charity list size: " + charityRepository.findAll().size());
 		return returnedCharities;
-	}
-
-	@GetMapping("/DeleteCharities")
-	public String deleteAllCharities() {
-		charityRepository.deleteAll();
-		return "Charities Deleted";
 	}
 
 	@GetMapping("/GetCharityType")

@@ -22,13 +22,12 @@ public class GetCharityResult {
 	private Links links[];
 	private CauseArea cause_area[];
 
-	// Getters
-	public String getNonprofit_id() {
-		return nonprofit_id;
+	public CauseArea[] getCause_area() {
+		return cause_area;
 	}
 
-	public String getName() {
-		return name;
+	public String getDescription() {
+		return description;
 	}
 
 	public String getEin() {
@@ -39,50 +38,50 @@ public class GetCharityResult {
 		return giving_fund_status;
 	}
 
-	public String getRegistration_date() {
-		return registration_date;
+	public String getKeywords() {
+		return keywords;
 	}
 
 	public String getLast_modified_date() {
 		return last_modified_date;
 	}
 
-	public String getWebsite_url() {
-		return website_url;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public String getKeywords() {
-		return keywords;
-	}
-
-	public String getSlogan() {
-		return slogan;
+	public Links[] getLinks() {
+		return links;
 	}
 
 	public String getLogo_url() {
 		return logo_url;
 	}
 
-	public Links[] getLinks() {
-		return links;
+	public String getName() {
+		return name;
+	}
+
+	// Getters
+	public String getNonprofit_id() {
+		return nonprofit_id;
+	}
+
+	public String getRegistration_date() {
+		return registration_date;
+	}
+
+	public String getSlogan() {
+		return slogan;
 	}
 	
-	public CauseArea[] getCause_area() {
-		return cause_area;
+	public String getWebsite_url() {
+		return website_url;
 	}
 
 
-	// Setters
-	public void setNonprofit_id(String nonprofit_id) {
-		this.nonprofit_id = nonprofit_id;
+	public void setCause_area(CauseArea cause_area[]) {
+		this.cause_area = cause_area;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public void setEin(String ein) {
@@ -93,40 +92,41 @@ public class GetCharityResult {
 		this.giving_fund_status = giving_fund_status;
 	}
 
-	public void setRegistration_date(String registration_date) {
-		this.registration_date = registration_date;
+	public void setKeywords(String keywords) {
+		this.keywords = keywords;
 	}
 
 	public void setLast_modified_date(String last_modified_date) {
 		this.last_modified_date = last_modified_date;
 	}
 
-	public void setWebsite_url(String website_url) {
-		this.website_url = website_url;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public void setKeywords(String keywords) {
-		this.keywords = keywords;
-	}
-
-	public void setSlogan(String slogan) {
-		this.slogan = slogan;
+	public void setLinks(Links links[]) {
+		this.links = links;
 	}
 
 	public void setLogo_url(String logo_url) {
 		this.logo_url = logo_url;
 	}
 
-	public void setLinks(Links links[]) {
-		this.links = links;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setCause_area(CauseArea cause_area[]) {
-		this.cause_area = cause_area;
+	// Setters
+	public void setNonprofit_id(String nonprofit_id) {
+		this.nonprofit_id = nonprofit_id;
+	}
+
+	public void setRegistration_date(String registration_date) {
+		this.registration_date = registration_date;
+	}
+
+	public void setSlogan(String slogan) {
+		this.slogan = slogan;
+	}
+
+	public void setWebsite_url(String website_url) {
+		this.website_url = website_url;
 	}
 
 }

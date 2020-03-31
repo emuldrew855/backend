@@ -5,11 +5,6 @@ public class Seller {
 	private String feedbackPercentage;
 	private String feedbackScore;
 
-	// Getters
-	public String getUsername() {
-		return username;
-	}
-
 	public String getFeedbackPercentage() {
 		return feedbackPercentage;
 	}
@@ -18,9 +13,9 @@ public class Seller {
 		return feedbackScore;
 	}
 
-	// Setters
-	public void setUsername(String username) {
-		this.username = username;
+	// Getters
+	public String getUsername() {
+		return username;
 	}
 
 	public void setFeedbackPercentage(String feedbackPercentage) {
@@ -29,5 +24,10 @@ public class Seller {
 
 	public void setFeedbackScore(String feedbackScore) {
 		this.feedbackScore = feedbackScore;
+	}
+
+	// Setters
+	public void setUsername(String username) {
+		this.username = username;
 	}
 }

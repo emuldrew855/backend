@@ -10,27 +10,27 @@ public class UserActions {
 	public int getOrder() {
 		return order;
 	}
-	public String getWebPage() {
-		return webPage;
-	}
 	public String getUserAction() {
 		return userAction;
+	}
+	public String getWebPage() {
+		return webPage;
 	}
 	public boolean isEbayButtonClick() {
 		return ebayButtonClick;
 	}
 	
+	public void setEbayButtonClick(boolean ebayButtonClick) {
+		this.ebayButtonClick = ebayButtonClick;
+	}
+	public void setOrder(int order) {
+		this.order = order;
+	} 
+	public void setUserAction(String userAction) {
+		this.userAction = userAction;
+	}
 	// Setters
 	public void setWebPage(String webPage) {
 		this.webPage = webPage;
-	}
-	public void setUserAction(String userAction) {
-		this.userAction = userAction;
-	} 
-	public void setOrder(int order) {
-		this.order = order;
-	}
-	public void setEbayButtonClick(boolean ebayButtonClick) {
-		this.ebayButtonClick = ebayButtonClick;
 	}
 }

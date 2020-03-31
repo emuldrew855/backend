@@ -1,7 +1,5 @@
 package com.ebay.queens.demo.resource;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.ws.rs.QueryParam;
@@ -15,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ebay.queens.demo.model.SearchType;
-import com.ebay.queens.demo.model.User;
 import com.ebay.queens.demo.repository.SearchTypeRepository;
-import com.ebay.queens.demo.repository.UserRepository;
 
 @RestController
 @RequestMapping("/SearchType")

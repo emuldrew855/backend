@@ -7,22 +7,22 @@ public class Price {
 	private String value;
 	private String currency;
 
+	public String getCurrency() {
+		return currency;
+	}
+
 	// Getters
 	public String getValue() {
 		return value;
 	}
 
-	public String getCurrency() {
-		return currency;
+	public void setCurrency(String currency) {
+		this.currency = currency;
 	}
 
 	// Setters
 	public void setValue(String value) {
 		this.value = value;
-	}
-
-	public void setCurrency(String currency) {
-		this.currency = currency;
 	}
 
 }

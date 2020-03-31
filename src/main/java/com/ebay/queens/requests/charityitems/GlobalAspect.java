@@ -1,13 +1,13 @@
 package com.ebay.queens.requests.charityitems;
 
 public class GlobalAspect {
-	private String constraintType;
-	private String value[];
-
 	public GlobalAspect(String constraintType, String[] value) {
 		this.constraintType = constraintType;
 		this.value = value;
 	}
+	private String constraintType;
+
+	private String value[];
 
 	// Getters
 	public String getConstraintType() {

@@ -11,6 +11,11 @@ public class Charity {
 	private String logoURL;
 	private String status;
 
+	@XmlElement(name = "CharityID")
+	public String getCharityID() {
+		return charityID;
+	}
+
 	// Getters
 	@XmlElement(name = "CharityName")
 	public String getCharityName() {
@@ -27,9 +32,9 @@ public class Charity {
 		return donationPercent;
 	}
 
-	@XmlElement(name = "CharityID")
-	public String getCharityID() {
-		return charityID;
+	@XmlElement(name = "LogoURL")
+	public String getLogoURL() {
+		return logoURL;
 	}
 
 	@XmlElement(name = "Mission")
@@ -37,14 +42,13 @@ public class Charity {
 		return mission;
 	}
 
-	@XmlElement(name = "LogoURL")
-	public String getLogoURL() {
-		return logoURL;
-	}
-
 	@XmlElement(name = "Status")
 	public String getStatus() {
 		return status;
+	}
+
+	public void setCharityID(String charityID) {
+		this.charityID = charityID;
 	}
 
 	// Setters
@@ -60,16 +64,12 @@ public class Charity {
 		this.donationPercent = donationPercent;
 	}
 
-	public void setCharityID(String charityID) {
-		this.charityID = charityID;
+	public void setLogoURL(String logoURL) {
+		this.logoURL = logoURL;
 	}
 
 	public void setMission(String mission) {
 		this.mission = mission;
-	}
-
-	public void setLogoURL(String logoURL) {
-		this.logoURL = logoURL;
 	}
 
 	public void setStatus(String status) {

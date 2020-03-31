@@ -10,12 +10,12 @@ public class Links {
 		return href;
 	}
 
-	public String getRel() {
-		return rel;
-	}
-
 	public String getMethod() {
 		return method;
+	}
+
+	public String getRel() {
+		return rel;
 	}
 
 	// Setters
@@ -23,12 +23,12 @@ public class Links {
 		this.href = href;
 	}
 
-	public void setRel(String rel) {
-		this.rel = rel;
-	}
-
 	public void setMethod(String method) {
 		this.method = method;
+	}
+
+	public void setRel(String rel) {
+		this.rel = rel;
 	}
 
 }

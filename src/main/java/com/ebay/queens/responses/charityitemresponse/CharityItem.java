@@ -14,51 +14,51 @@ public class CharityItem {
 	private ListingInfo listingInfo;
 	private ItemImageInfo[] itemImageInfo;
 	
-	// Getters
-	public String getItemId() {
-		return itemId;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public String getListingSiteId() {
-		return listingSiteId;
-	}
 	public String getBrand() {
 		return brand;
 	}
 	public Category[] getCategory() {
 		return category;
 	}
-	public ListingInfo getListingInfo() {
-		return listingInfo;
+	// Getters
+	public String getItemId() {
+		return itemId;
 	}
-	
 	public ItemImageInfo[] getItemImageInfo() {
 		return itemImageInfo;
 	}
+	public ListingInfo getListingInfo() {
+		return listingInfo;
+	}
+	public String getListingSiteId() {
+		return listingSiteId;
+	}
 	
-	// Setters
-	public void setItemId(String itemId) {
-		this.itemId = itemId;
+	public String getTitle() {
+		return title;
 	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public void setListingSiteId(String listingSiteId) {
-		this.listingSiteId = listingSiteId;
-	}
+	
 	public void setBrand(String brand) {
 		this.brand = brand;
 	}
 	public void setCategory(Category[] category) {
 		this.category = category;
 	}
-	public void setListingInfo(ListingInfo listingInfo) {
-		this.listingInfo = listingInfo;
+	// Setters
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
 	}
 	public void setItemImageInfo(ItemImageInfo[] itemImageInfo) {
 		this.itemImageInfo = itemImageInfo;
+	}
+	public void setListingInfo(ListingInfo listingInfo) {
+		this.listingInfo = listingInfo;
+	}
+	public void setListingSiteId(String listingSiteId) {
+		this.listingSiteId = listingSiteId;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	

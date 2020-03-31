@@ -11,17 +11,8 @@ public class PaypalTokenResponse {
 	private String expires_in;
 	private String nonce;
 
-	// Getters
-	public String getScope() {
-		return scope;
-	}
-
 	public String getacccess_token() {
 		return access_token;
-	}
-
-	public String gettoken_type() {
-		return token_type;
 	}
 
 	public String getapp_id() {
@@ -36,17 +27,17 @@ public class PaypalTokenResponse {
 		return nonce;
 	}
 
-	// Setters
-	public void setScope(String scope) {
-		this.scope = scope;
+	// Getters
+	public String getScope() {
+		return scope;
+	}
+
+	public String gettoken_type() {
+		return token_type;
 	}
 
 	public void setaccess_token(String access_token) {
 		this.access_token = access_token;
-	}
-
-	public void settoken_type(String tokenType) {
-		this.token_type = tokenType;
 	}
 
 	public void setapp_id(String appID) {
@@ -59,6 +50,15 @@ public class PaypalTokenResponse {
 
 	public void setNonce(String nonce) {
 		this.nonce = nonce;
+	}
+
+	// Setters
+	public void setScope(String scope) {
+		this.scope = scope;
+	}
+
+	public void settoken_type(String tokenType) {
+		this.token_type = tokenType;
 	}
 
 }

@@ -4,11 +4,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties({"answers","layout","errorMessage"})
 public class CharityItemResponse {
-	private ItemsHolder items;
-
 	public CharityItemResponse() {
 
 	}
+
+	private ItemsHolder items;
 
 	public ItemsHolder getItems() {
 		return items;
