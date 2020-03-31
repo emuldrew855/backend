@@ -41,33 +41,42 @@ public class Http<T> implements CommandLineRunner {
 	Http(ExternalConfig externalConfig) {
 		logger = Utilities.LOGGER;
 		logger.info("HTTP Class");
-		System.out.println(externalConfig.getCertName());
 		this.externalConfig = externalConfig;
 	}
 	@Autowired
-	private Utilities utilityClass = new Utilities("test", "test", "EBAY-US", "EBAY-UK", "test");
+	private Utilities utilityClass = new Utilities("","","","","","");
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
 		utilityClass.setDevName(externalConfig.getDeveloperName());
 		utilityClass.setSecurityAppName(externalConfig.getSecurityAppName());
 		utilityClass.setCertName(externalConfig.getCertName());
-		utilityClass.setGlobalId("EBAY-US");
+		utilityClass.setGlobalId(externalConfig.getGlobalId());
+		utilityClass.setPaypalAppId(externalConfig.getPaypalAppId());
+	}
+	
+	
+	public void ebayRefreshTokenPost(String url,String typeOfCall)
+			throws IOException {
+		CloseableHttpClient client = HttpClients.createDefault();
+		HttpPost httpPost = new HttpPost(url);
+		ArrayList<BasicNameValuePair> nvps = new ArrayList<BasicNameValuePair>();
+		nvps.add(new BasicNameValuePair("grant_type", Login.activeUser.getUserRefreshToken()));
+		httpPost.setEntity(new UrlEncodedFormEntity(nvps, "UTF-8"));
+		httpPost = selectHeader(httpPost, typeOfCall);
+		CloseableHttpResponse response = client.execute(httpPost);
+		String result = EntityUtils.toString(response.getEntity());
+		logger.info("Ebay Refresh Token result: " + result);
+		client.close();
 	}
 
+
 	/**
-	 * Represents a method to make a call to Paypal's api to set the authorization
-	 * token
-	 * 
-	 * @param url
-	 *            - uses url to reach specific api point
-	 * @param requestBody
-	 *            - requestBody makes up the request that will be sent.
-	 * @param typeOfCall
-	 *            - typeOfCall is used to add specific headers to call
+	 * Represents a method to make a call to Paypal's api to set the authorization token
+	 * @param url - uses url to reach specific api point
+	 * @param typeOfCall - typeOfCall is used to add specific headers to call
 	 */
-	public PaypalTokenResponse authenticationPost(String url, String requestBody, String typeOfCall)
+	public PaypalTokenResponse paypalAuthenticationPost(String url, String typeOfCall)
 			throws IOException {
 		CloseableHttpClient client = HttpClients.createDefault();
 		HttpPost httpPost = new HttpPost(url);
@@ -77,13 +86,12 @@ public class Http<T> implements CommandLineRunner {
 		httpPost = selectHeader(httpPost, typeOfCall);
 		CloseableHttpResponse response = client.execute(httpPost);
 		String result = EntityUtils.toString(response.getEntity());
-
 		final ObjectMapper mapper = new ObjectMapper();
 		final PaypalTokenResponse paypalTokenResponse = mapper.readValue(result, PaypalTokenResponse.class);
 		client.close();
 		return paypalTokenResponse;
 	}
-
+	
 	public String sendPOST(String url, String request, String typeOfCall) throws IOException {
 		CloseableHttpClient client = HttpClients.createDefault();
 		HttpPost httpPost = new HttpPost(url);
@@ -99,12 +107,9 @@ public class Http<T> implements CommandLineRunner {
 	/**
 	 * Represents a method make a generic http post request to reach the api's
 	 * 
-	 * @param url
-	 *            - uses url to reach specific api point
-	 * @param requestBody
-	 *            - requestBody makes up the request that will be sent.
-	 * @param typeOfCall
-	 *            - typeOfCall is used to add specific headers to call
+	 * @param url - uses url to reach specific api point
+	 * @param request  - request makes up the request that will be sent.
+	 * @param typeOfCall  - typeOfCall is used to add specific headers to call
 	 */
 	public <T> String genericXMLSendPOST(String url, T request, String typeOfCall) throws IOException {
 		// Object to XML
@@ -136,13 +141,9 @@ public class Http<T> implements CommandLineRunner {
 
 	/**
 	 * Represents a method make a generic http post request to reach the api's
-	 * 
-	 * @param url
-	 *            - uses url to reach specific api point
-	 * @param requestBody
-	 *            - requestBody makes up the request that will be sent.
-	 * @param typeOfCall
-	 *            - typeOfCall is used to add specific headers to call
+	 * @param url - uses url to reach specific api point
+	 * @param requestBody- requestBody makes up the request that will be sent.
+	 * @param typeOfCall  - typeOfCall is used to add specific headers to call
 	 */
 	public <T> String genericJSONSendPOST(String url, T request, String typeOfCall) throws IOException {
 		// Object to JSON
@@ -164,8 +165,7 @@ public class Http<T> implements CommandLineRunner {
 	/**
 	 * Represents a method to make a generic http get requests to reach the api's
 	 * 
-	 * @param url
-	 *            - uses url to reach specific api point
+	 * @param url - uses url to reach specific api point
 	 * @param typeOfCall
 	 *            -
 	 */
@@ -188,8 +188,8 @@ public class Http<T> implements CommandLineRunner {
 		case "nonProfit":
 			httpGet.addHeader("Content-Type", "application/xml");
 			httpGet.addHeader("X-EBAY-SOA-OPERATION-NAME", "findNonprofit");
-			httpGet.addHeader("X-EBAY-SOA-GLOBAL-ID", utilityClass.globalId);
-			httpGet.addHeader("X-EBAY-SOA-SECURITY-APPNAME", utilityClass.securityAppName);
+			httpGet.addHeader("X-EBAY-SOA-GLOBAL-ID", utilityClass.getGlobalId());
+			httpGet.addHeader("X-EBAY-SOA-SECURITY-APPNAME", utilityClass.getSecurityAppName());
 			break;
 		case "getItem":
 			httpGet.addHeader("Content-Type", "application/xml");
@@ -197,32 +197,35 @@ public class Http<T> implements CommandLineRunner {
 			httpGet.addHeader("X-EBAY-API-SITEID", "3");
 			httpGet.addHeader("X-EBAY-API-CALL-NAME", "GetItem");
 			httpGet.addHeader("X-EBAY-API-COMPATIBILITY-LEVEL", "1107");
-			httpGet.addHeader("X-EBAY-API-APP-NAME", utilityClass.securityAppName);
-			httpGet.addHeader("X-EBAY-API-DEV-NAME", utilityClass.devName);
-			httpGet.addHeader("X-EBAY-API-CERT-NAME", utilityClass.certName);
+			httpGet.addHeader("X-EBAY-API-APP-NAME", utilityClass.getSecurityAppName());
+			httpGet.addHeader("X-EBAY-API-DEV-NAME", utilityClass.getDevName());
+			httpGet.addHeader("X-EBAY-API-CERT-NAME", utilityClass.getCertName());
 			break;
 		case "charityItem":
 			httpGet.addHeader("Content-Type", "application/json");
 			httpGet.addHeader("Accept", "application/json");
-			httpGet.addHeader("X-EBAY-C-MARKETPLACE-ID", utilityClass.marktplaceId);
-			httpGet.addHeader("Authorization", "APP " + utilityClass.securityAppName);
+			httpGet.addHeader("X-EBAY-C-MARKETPLACE-ID", utilityClass.getMarktplaceId());
+			httpGet.addHeader("Authorization", "APP " + utilityClass.getSecurityAppName());
 			break;
 		case "searchItem":
 			httpGet.addHeader("Content-Type", "application/json");
 			httpGet.addHeader("X-EBAY-C-ENDUSERCTX",
 					"contextualLocation=country=<2CharCountryCode>,zip=<5DigitCode>,affiliateCampaignId=<ePNCampaignId>,affiliateReferenceId=<referenceId>");
-			httpGet.addHeader("X-EBAY-C-MARKETPLACE", utilityClass.marktplaceId);
+			httpGet.addHeader("X-EBAY-C-MARKETPLACE", utilityClass.getMarktplaceId());
 			httpGet.addHeader("Authorization", "Bearer " + Login.activeUser.getEbayAuthToken());
 			break;
 		case "Paypal":
 			httpGet.addHeader("Content-Type", "application/json");
 			httpGet.addHeader("Authorization", ("Bearer " + Login.activeUser.getPaypalAuthToken()));
 			break;
+		case "PaypalAuth":
+			httpGet.addHeader("Content-Type", "application/x-www-form-urlencoded");
+			httpGet.addHeader("Authorization",
+					("Basic QWJwMkQzNjI4X3U0emJPNEVhcVlxSDBHbkNqX0xqdVlwYXlscVQ3ampkZEFFeWRTSFdVYWpPVGJiY1J6X0RfTDZnX2REd2VDQ0t3VE5tQ1o6RU1XdWtTNWpmZlpwa2lKOE54X3NnUDNzRDFqVEstejh6dDVnUlg3czk4VFdnOVZRUFBjMkZWNFJLS0ZMWk82azJJa3FHalRNUmZHZmFyMFk="));
 		default:
 			logger.info("Default value");
 			break;
 		}
-
 		return httpGet;
 	}
 
@@ -231,40 +234,43 @@ public class Http<T> implements CommandLineRunner {
 		case "nonProfit":
 			httpPost.addHeader("Content-Type", "application/xml");
 			httpPost.addHeader("X-EBAY-SOA-OPERATION-NAME", "findNonprofit");
-			httpPost.addHeader("X-EBAY-SOA-GLOBAL-ID", utilityClass.globalId);
-			httpPost.addHeader("X-EBAY-SOA-SECURITY-APPNAME", utilityClass.securityAppName);
+			httpPost.addHeader("X-EBAY-SOA-GLOBAL-ID", utilityClass.getGlobalId());
+			httpPost.addHeader("X-EBAY-SOA-SECURITY-APPNAME", utilityClass.getSecurityAppName());
 			break;
 		case "getItem":
 			httpPost.addHeader("Content-Type", "application/xml");
 			httpPost.addHeader("X-EBAY-API-SITEID", "0");
 			httpPost.addHeader("X-EBAY-API-CALL-NAME", "GetItem");
 			httpPost.addHeader("X-EBAY-API-COMPATIBILITY-LEVEL", "1107");
-			httpPost.addHeader("X-EBAY-API-APP-NAME", utilityClass.securityAppName);
-			httpPost.addHeader("X-EBAY-API-DEV-NAME", utilityClass.devName);
-			httpPost.addHeader("X-EBAY-API-CERT-NAME", utilityClass.certName);
+			httpPost.addHeader("X-EBAY-API-APP-NAME", utilityClass.getSecurityAppName());
+			httpPost.addHeader("X-EBAY-API-DEV-NAME", utilityClass.getDevName());
+			httpPost.addHeader("X-EBAY-API-CERT-NAME", utilityClass.getCertName());
 			break;
 		case "charityItem":
 			httpPost.addHeader("Content-Type", "application/json");
 			httpPost.addHeader("Accept", "application/json");
-			httpPost.addHeader("X-EBAY-C-MARKETPLACE-ID", utilityClass.marktplaceId);
-			httpPost.addHeader("Authorization", "APP " + utilityClass.securityAppName);
+			httpPost.addHeader("X-EBAY-C-MARKETPLACE-ID", utilityClass.getMarktplaceId());
+			httpPost.addHeader("Authorization", "APP " + utilityClass.getCertName());
 			break;
 		case "searchItem":
 			httpPost.addHeader("Content-Type", "application/json");
 			httpPost.addHeader("X-EBAY-C-ENDUSERCTX",
 					"contextualLocation=country=<2CharCountryCode>,zip=<5DigitCode>,affiliateCampaignId=<ePNCampaignId>,affiliateReferenceId=<referenceId>");
-			httpPost.addHeader("X-EBAY-C-MARKETPLACE", utilityClass.marktplaceId);
+			httpPost.addHeader("X-EBAY-C-MARKETPLACE", utilityClass.getMarktplaceId());
 			httpPost.addHeader("Authorization", "Bearer " + Login.activeUser.getEbayAuthToken());
 			break;
 		case "Paypal":
 			httpPost.addHeader("Content-Type", "application/json");
 			httpPost.addHeader("Authorization", ("Bearer " + Login.activeUser.getPaypalAuthToken()));
 			break;
+		case "PaypalAuth":
+			httpPost.addHeader("Content-Type", "application/x-www-form-urlencoded");
+			httpPost.addHeader("Authorization",
+					("Basic QWJwMkQzNjI4X3U0emJPNEVhcVlxSDBHbkNqX0xqdVlwYXlscVQ3ampkZEFFeWRTSFdVYWpPVGJiY1J6X0RfTDZnX2REd2VDQ0t3VE5tQ1o6RU1XdWtTNWpmZlpwa2lKOE54X3NnUDNzRDFqVEstejh6dDVnUlg3czk4VFdnOVZRUFBjMkZWNFJLS0ZMWk82azJJa3FHalRNUmZHZmFyMFk="));
 		default:
 			logger.info("Default value");
 			break;
 		}
-
 		return httpPost;
 	}
 

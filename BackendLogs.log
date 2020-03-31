@@ -2,413 +2,189 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2020-03-20T15:59:21</date>
-  <millis>1584719961279</millis>
-  <sequence>5</sequence>
+  <date>2020-03-31T14:05:43</date>
+  <millis>1585659943289</millis>
+  <sequence>16</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.Login</class>
   <method>&lt;init&gt;</method>
-  <thread>12</thread>
+  <thread>13</thread>
   <message>Login</message>
 </record>
 <record>
-  <date>2020-03-20T15:59:24</date>
-  <millis>1584719964879</millis>
-  <sequence>6</sequence>
+  <date>2020-03-31T14:05:45</date>
+  <millis>1585659945841</millis>
+  <sequence>17</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.SignUp</class>
   <method>&lt;init&gt;</method>
-  <thread>12</thread>
+  <thread>13</thread>
   <message>SignUp</message>
 </record>
 <record>
-  <date>2020-03-20T15:59:24</date>
-  <millis>1584719964894</millis>
-  <sequence>7</sequence>
+  <date>2020-03-31T14:05:45</date>
+  <millis>1585659945855</millis>
+  <sequence>18</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.TokenUtilityClass</class>
   <method>&lt;init&gt;</method>
-  <thread>12</thread>
+  <thread>13</thread>
   <message>Token Utility Class</message>
 </record>
 <record>
-  <date>2020-03-20T15:59:24</date>
-  <millis>1584719964968</millis>
-  <sequence>8</sequence>
+  <date>2020-03-31T14:05:45</date>
+  <millis>1585659945903</millis>
+  <sequence>19</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.TokenUtilityClass</class>
-  <method>authenticationToken</method>
+  <method>paypalAuthenticationToken</method>
   <thread>22</thread>
-  <message>Authentication token</message>
+  <message>Paypal Authentication token</message>
 </record>
 <record>
-  <date>2020-03-20T15:59:24</date>
-  <millis>1584719964968</millis>
-  <sequence>8</sequence>
+  <date>2020-03-31T14:05:45</date>
+  <millis>1585659945903</millis>
+  <sequence>19</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.TokenUtilityClass</class>
-  <method>authenticationToken</method>
+  <method>paypalAuthenticationToken</method>
   <thread>22</thread>
-  <message>Authentication token</message>
+  <message>Paypal Authentication token</message>
 </record>
 <record>
-  <date>2020-03-20T15:59:29</date>
-  <millis>1584719969100</millis>
-  <sequence>9</sequence>
+  <date>2020-03-31T14:05:46</date>
+  <millis>1585659946392</millis>
+  <sequence>20</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Http</class>
+  <method>selectHeader</method>
+  <thread>22</thread>
+  <message>Default value</message>
+</record>
+<record>
+  <date>2020-03-31T14:05:46</date>
+  <millis>1585659946392</millis>
+  <sequence>20</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Http</class>
+  <method>selectHeader</method>
+  <thread>22</thread>
+  <message>Default value</message>
+</record>
+<record>
+  <date>2020-03-31T14:05:47</date>
+  <millis>1585659947901</millis>
+  <sequence>61</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.TokenUtilityClass</class>
-  <method>authenticationToken</method>
+  <method>paypalAuthenticationToken</method>
   <thread>22</thread>
-  <message>A21AAEZczyzno_ayI-yR_k1_mmBweKEZM9qfF8-bGhLBctZsIMt0Smq3v-LnLY1tHHP9UVBRMmeGXVgRV4YgJ53rxwNTfcXWw</message>
+  <message>A21AAEnlGqAnfushirp9P2Kf9-UXSNPW09ZcG9EgVMn9G5u3-r2NryKKEzxLY3nA1whHhrWv4-19TPNaVnfCbdtpIRIU7E0_g</message>
 </record>
 <record>
-  <date>2020-03-20T15:59:29</date>
-  <millis>1584719969100</millis>
-  <sequence>9</sequence>
+  <date>2020-03-31T14:05:47</date>
+  <millis>1585659947901</millis>
+  <sequence>61</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.TokenUtilityClass</class>
-  <method>authenticationToken</method>
+  <method>paypalAuthenticationToken</method>
   <thread>22</thread>
-  <message>A21AAEZczyzno_ayI-yR_k1_mmBweKEZM9qfF8-bGhLBctZsIMt0Smq3v-LnLY1tHHP9UVBRMmeGXVgRV4YgJ53rxwNTfcXWw</message>
+  <message>A21AAEnlGqAnfushirp9P2Kf9-UXSNPW09ZcG9EgVMn9G5u3-r2NryKKEzxLY3nA1whHhrWv4-19TPNaVnfCbdtpIRIU7E0_g</message>
 </record>
 <record>
-  <date>2020-03-20T15:59:31</date>
-  <millis>1584719971205</millis>
-  <sequence>10</sequence>
+  <date>2020-03-31T14:05:49</date>
+  <millis>1585659949261</millis>
+  <sequence>67</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.TokenUtilityClass</class>
   <method>&lt;init&gt;</method>
-  <thread>12</thread>
+  <thread>13</thread>
   <message>Token Utility Class</message>
 </record>
 <record>
-  <date>2020-03-20T15:59:31</date>
-  <millis>1584719971205</millis>
-  <sequence>10</sequence>
+  <date>2020-03-31T14:05:49</date>
+  <millis>1585659949261</millis>
+  <sequence>67</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.TokenUtilityClass</class>
   <method>&lt;init&gt;</method>
-  <thread>12</thread>
+  <thread>13</thread>
   <message>Token Utility Class</message>
 </record>
 <record>
-  <date>2020-03-20T15:59:31</date>
-  <millis>1584719971207</millis>
-  <sequence>11</sequence>
+  <date>2020-03-31T14:05:49</date>
+  <millis>1585659949262</millis>
+  <sequence>68</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.Paypal</class>
   <method>&lt;init&gt;</method>
-  <thread>12</thread>
+  <thread>13</thread>
   <message>Paypal Class</message>
 </record>
 <record>
-  <date>2020-03-20T15:59:31</date>
-  <millis>1584719971207</millis>
-  <sequence>11</sequence>
+  <date>2020-03-31T14:05:49</date>
+  <millis>1585659949262</millis>
+  <sequence>68</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.Paypal</class>
   <method>&lt;init&gt;</method>
-  <thread>12</thread>
+  <thread>13</thread>
   <message>Paypal Class</message>
 </record>
 <record>
-  <date>2020-03-20T15:59:31</date>
-  <millis>1584719971207</millis>
-  <sequence>11</sequence>
+  <date>2020-03-31T14:05:49</date>
+  <millis>1585659949262</millis>
+  <sequence>68</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.Paypal</class>
   <method>&lt;init&gt;</method>
-  <thread>12</thread>
+  <thread>13</thread>
   <message>Paypal Class</message>
 </record>
 <record>
-  <date>2020-03-20T15:59:31</date>
-  <millis>1584719971215</millis>
-  <sequence>12</sequence>
+  <date>2020-03-31T14:05:49</date>
+  <millis>1585659949280</millis>
+  <sequence>69</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
-  <class>com.ebay.queens.demo.Version1Api</class>
+  <class>com.ebay.queens.demo.Ebay</class>
   <method>run</method>
-  <thread>12</thread>
-  <message>Version 1 API</message>
+  <thread>13</thread>
+  <message>Ebay API</message>
 </record>
 <record>
-  <date>2020-03-20T15:59:31</date>
-  <millis>1584719971215</millis>
-  <sequence>12</sequence>
+  <date>2020-03-31T14:05:49</date>
+  <millis>1585659949280</millis>
+  <sequence>69</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
-  <class>com.ebay.queens.demo.Version1Api</class>
+  <class>com.ebay.queens.demo.Ebay</class>
   <method>run</method>
-  <thread>12</thread>
-  <message>Version 1 API</message>
+  <thread>13</thread>
+  <message>Ebay API</message>
 </record>
 <record>
-  <date>2020-03-20T15:59:31</date>
-  <millis>1584719971215</millis>
-  <sequence>12</sequence>
+  <date>2020-03-31T14:05:49</date>
+  <millis>1585659949280</millis>
+  <sequence>69</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
-  <class>com.ebay.queens.demo.Version1Api</class>
+  <class>com.ebay.queens.demo.Ebay</class>
   <method>run</method>
-  <thread>12</thread>
-  <message>Version 1 API</message>
-</record>
-<record>
-  <date>2020-03-20T16:05:25</date>
-  <millis>1584720325261</millis>
-  <sequence>14</sequence>
-  <logger>com.ebay.queens.demo.Utilities</logger>
-  <level>INFO</level>
-  <class>com.ebay.queens.demo.Version1Api</class>
-  <method>searchItem</method>
-  <thread>36</thread>
-  <message>Search Item: drone</message>
-</record>
-<record>
-  <date>2020-03-20T16:05:25</date>
-  <millis>1584720325261</millis>
-  <sequence>14</sequence>
-  <logger>com.ebay.queens.demo.Utilities</logger>
-  <level>INFO</level>
-  <class>com.ebay.queens.demo.Version1Api</class>
-  <method>searchItem</method>
-  <thread>36</thread>
-  <message>Search Item: drone</message>
-</record>
-<record>
-  <date>2020-03-20T16:05:25</date>
-  <millis>1584720325261</millis>
-  <sequence>14</sequence>
-  <logger>com.ebay.queens.demo.Utilities</logger>
-  <level>INFO</level>
-  <class>com.ebay.queens.demo.Version1Api</class>
-  <method>searchItem</method>
-  <thread>36</thread>
-  <message>Search Item: drone</message>
-</record>
-<record>
-  <date>2020-03-20T16:05:26</date>
-  <millis>1584720326064</millis>
-  <sequence>15</sequence>
-  <logger>com.ebay.queens.demo.Utilities</logger>
-  <level>SEVERE</level>
-  <class>com.ebay.queens.demo.Http</class>
-  <method>genericSendGET</method>
-  <thread>36</thread>
-  <message>Error in making request due to expired authentication token</message>
-</record>
-<record>
-  <date>2020-03-20T16:05:26</date>
-  <millis>1584720326064</millis>
-  <sequence>15</sequence>
-  <logger>com.ebay.queens.demo.Utilities</logger>
-  <level>SEVERE</level>
-  <class>com.ebay.queens.demo.Http</class>
-  <method>genericSendGET</method>
-  <thread>36</thread>
-  <message>Error in making request due to expired authentication token</message>
-</record>
-<record>
-  <date>2020-03-20T16:05:26</date>
-  <millis>1584720326064</millis>
-  <sequence>15</sequence>
-  <logger>com.ebay.queens.demo.Utilities</logger>
-  <level>SEVERE</level>
-  <class>com.ebay.queens.demo.Http</class>
-  <method>genericSendGET</method>
-  <thread>36</thread>
-  <message>Error in making request due to expired authentication token</message>
-</record>
-<record>
-  <date>2020-03-20T16:05:26</date>
-  <millis>1584720326068</millis>
-  <sequence>16</sequence>
-  <logger>com.ebay.queens.demo.Utilities</logger>
-  <level>INFO</level>
-  <class>com.ebay.queens.demo.Version1Api</class>
-  <method>searchItem</method>
-  <thread>36</thread>
-  <message>{
-  "errors" : [ {
-    "errorId" : 1001,
-    "domain" : "OAuth",
-    "category" : "REQUEST",
-    "message" : "Invalid access token",
-    "longMessage" : "Invalid access token. Check the value of the Authorization HTTP request header."
-  } ]
-}</message>
-</record>
-<record>
-  <date>2020-03-20T16:05:26</date>
-  <millis>1584720326068</millis>
-  <sequence>16</sequence>
-  <logger>com.ebay.queens.demo.Utilities</logger>
-  <level>INFO</level>
-  <class>com.ebay.queens.demo.Version1Api</class>
-  <method>searchItem</method>
-  <thread>36</thread>
-  <message>{
-  "errors" : [ {
-    "errorId" : 1001,
-    "domain" : "OAuth",
-    "category" : "REQUEST",
-    "message" : "Invalid access token",
-    "longMessage" : "Invalid access token. Check the value of the Authorization HTTP request header."
-  } ]
-}</message>
-</record>
-<record>
-  <date>2020-03-20T16:05:26</date>
-  <millis>1584720326068</millis>
-  <sequence>16</sequence>
-  <logger>com.ebay.queens.demo.Utilities</logger>
-  <level>INFO</level>
-  <class>com.ebay.queens.demo.Version1Api</class>
-  <method>searchItem</method>
-  <thread>36</thread>
-  <message>{
-  "errors" : [ {
-    "errorId" : 1001,
-    "domain" : "OAuth",
-    "category" : "REQUEST",
-    "message" : "Invalid access token",
-    "longMessage" : "Invalid access token. Check the value of the Authorization HTTP request header."
-  } ]
-}</message>
-</record>
-<record>
-  <date>2020-03-20T16:06:22</date>
-  <millis>1584720382154</millis>
-  <sequence>18</sequence>
-  <logger>com.ebay.queens.demo.Utilities</logger>
-  <level>INFO</level>
-  <class>com.ebay.queens.demo.Version1Api</class>
-  <method>searchItem</method>
-  <thread>34</thread>
-  <message>Search Item: DRONE</message>
-</record>
-<record>
-  <date>2020-03-20T16:06:22</date>
-  <millis>1584720382154</millis>
-  <sequence>18</sequence>
-  <logger>com.ebay.queens.demo.Utilities</logger>
-  <level>INFO</level>
-  <class>com.ebay.queens.demo.Version1Api</class>
-  <method>searchItem</method>
-  <thread>34</thread>
-  <message>Search Item: DRONE</message>
-</record>
-<record>
-  <date>2020-03-20T16:06:22</date>
-  <millis>1584720382154</millis>
-  <sequence>18</sequence>
-  <logger>com.ebay.queens.demo.Utilities</logger>
-  <level>INFO</level>
-  <class>com.ebay.queens.demo.Version1Api</class>
-  <method>searchItem</method>
-  <thread>34</thread>
-  <message>Search Item: DRONE</message>
-</record>
-<record>
-  <date>2020-03-20T16:06:22</date>
-  <millis>1584720382984</millis>
-  <sequence>19</sequence>
-  <logger>com.ebay.queens.demo.Utilities</logger>
-  <level>SEVERE</level>
-  <class>com.ebay.queens.demo.Http</class>
-  <method>genericSendGET</method>
-  <thread>34</thread>
-  <message>Error in making request due to expired authentication token</message>
-</record>
-<record>
-  <date>2020-03-20T16:06:22</date>
-  <millis>1584720382984</millis>
-  <sequence>19</sequence>
-  <logger>com.ebay.queens.demo.Utilities</logger>
-  <level>SEVERE</level>
-  <class>com.ebay.queens.demo.Http</class>
-  <method>genericSendGET</method>
-  <thread>34</thread>
-  <message>Error in making request due to expired authentication token</message>
-</record>
-<record>
-  <date>2020-03-20T16:06:22</date>
-  <millis>1584720382984</millis>
-  <sequence>19</sequence>
-  <logger>com.ebay.queens.demo.Utilities</logger>
-  <level>SEVERE</level>
-  <class>com.ebay.queens.demo.Http</class>
-  <method>genericSendGET</method>
-  <thread>34</thread>
-  <message>Error in making request due to expired authentication token</message>
-</record>
-<record>
-  <date>2020-03-20T16:06:22</date>
-  <millis>1584720382986</millis>
-  <sequence>20</sequence>
-  <logger>com.ebay.queens.demo.Utilities</logger>
-  <level>INFO</level>
-  <class>com.ebay.queens.demo.Version1Api</class>
-  <method>searchItem</method>
-  <thread>34</thread>
-  <message>{
-  "errors" : [ {
-    "errorId" : 1001,
-    "domain" : "OAuth",
-    "category" : "REQUEST",
-    "message" : "Invalid access token",
-    "longMessage" : "Invalid access token. Check the value of the Authorization HTTP request header."
-  } ]
-}</message>
-</record>
-<record>
-  <date>2020-03-20T16:06:22</date>
-  <millis>1584720382986</millis>
-  <sequence>20</sequence>
-  <logger>com.ebay.queens.demo.Utilities</logger>
-  <level>INFO</level>
-  <class>com.ebay.queens.demo.Version1Api</class>
-  <method>searchItem</method>
-  <thread>34</thread>
-  <message>{
-  "errors" : [ {
-    "errorId" : 1001,
-    "domain" : "OAuth",
-    "category" : "REQUEST",
-    "message" : "Invalid access token",
-    "longMessage" : "Invalid access token. Check the value of the Authorization HTTP request header."
-  } ]
-}</message>
-</record>
-<record>
-  <date>2020-03-20T16:06:22</date>
-  <millis>1584720382986</millis>
-  <sequence>20</sequence>
-  <logger>com.ebay.queens.demo.Utilities</logger>
-  <level>INFO</level>
-  <class>com.ebay.queens.demo.Version1Api</class>
-  <method>searchItem</method>
-  <thread>34</thread>
-  <message>{
-  "errors" : [ {
-    "errorId" : 1001,
-    "domain" : "OAuth",
-    "category" : "REQUEST",
-    "message" : "Invalid access token",
-    "longMessage" : "Invalid access token. Check the value of the Authorization HTTP request header."
-  } ]
-}</message>
+  <thread>13</thread>
+  <message>Ebay API</message>
 </record>

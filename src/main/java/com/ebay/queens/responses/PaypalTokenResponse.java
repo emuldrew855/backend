@@ -1,5 +1,8 @@
 package com.ebay.queens.responses;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties({ "name"})
 public class PaypalTokenResponse {
 	private String scope;
 	private String access_token;

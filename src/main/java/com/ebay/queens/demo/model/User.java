@@ -18,6 +18,7 @@ public class User {
 	private UserGroup userGroup;
 	private ArrayList<UserActions> userActions;
 	private String ebayAuthToken; 
+	private String userRefreshToken; 
 	private String paypalAuthToken;
 
 	private static UserGroup randomUserGroup() {
@@ -65,7 +66,10 @@ public class User {
 	public String getPaypalAuthToken() {
 		return paypalAuthToken;
 	}
-
+	
+	public String getUserRefreshToken() {
+		return userRefreshToken;
+	}
 	
 	// Setters
 	public void setId(String id) {
@@ -96,6 +100,8 @@ public class User {
 		this.paypalAuthToken = paypalAuthToken;
 	}
 	
-	
+	public void setUserRefreshToken(String userRefreshToken) {
+		this.userRefreshToken = userRefreshToken;
+	}
 	
 }

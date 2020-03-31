@@ -27,41 +27,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/user/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1/javax.ws.rs-api-2.1.jar">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="maven.groupId" value="javax.ws.rs"/>
-			<attribute name="maven.artifactId" value="javax.ws.rs-api"/>
-			<attribute name="maven.version" value="2.1"/>
-			<attribute name="maven.scope" value="compile"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/user/.m2/repository/org/apache/httpcomponents/httpclient/4.5.5/httpclient-4.5.5.jar">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="maven.groupId" value="org.apache.httpcomponents"/>
-			<attribute name="maven.artifactId" value="httpclient"/>
-			<attribute name="maven.version" value="4.5.5"/>
-			<attribute name="maven.scope" value="compile"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/user/.m2/repository/org/glassfish/jersey/core/jersey-server/2.26/jersey-server-2.26.jar">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="maven.groupId" value="org.glassfish.jersey.core"/>
-			<attribute name="maven.artifactId" value="jersey-server"/>
-			<attribute name="maven.version" value="2.26"/>
-			<attribute name="maven.scope" value="compile"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/user/.m2/repository/org/apache/httpcomponents/httpcore/4.4.9/httpcore-4.4.9.jar">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="maven.groupId" value="org.apache.httpcomponents"/>
-			<attribute name="maven.artifactId" value="httpcore"/>
-			<attribute name="maven.version" value="4.4.9"/>
-			<attribute name="maven.scope" value="compile"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

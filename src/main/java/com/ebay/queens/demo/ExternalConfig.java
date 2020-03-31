@@ -3,23 +3,19 @@ package com.ebay.queens.demo;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+/**
+ * Represents a class to manage retrieving all the external config information from the application.properties file
+ */
 @Component
 @ConfigurationProperties(prefix = "queens.props")
 public class ExternalConfig {
-
 	private String developerName;
-
 	private String securityAppName;
-
 	private String certName;
-
-	private String ebayAuth;
+	private String globalId;
+	private String paypalAppId; 
 
 	// Getters
-	public String getEbayAuth() {
-		return ebayAuth;
-	}
-
 	public String getDeveloperName() {
 		return developerName;
 	}
@@ -31,6 +27,15 @@ public class ExternalConfig {
 	public String getCertName() {
 		return certName;
 	}
+	
+	public String getGlobalId() {
+		return globalId;
+	}
+	
+	public String getPaypalAppId() {
+		return paypalAppId;
+	}
+
 
 	// Setters
 	public void setDeveloperName(String developerName) {
@@ -45,8 +50,12 @@ public class ExternalConfig {
 		this.certName = certName;
 	}
 
-	public void setEbayAuth(String ebayAuth) {
-		this.ebayAuth = ebayAuth;
+	public void setGlobalId(String globalId) {
+		this.globalId = globalId;
+	}
+	
+	public void setPaypalAppId(String paypalAppId) {
+		this.paypalAppId = paypalAppId;
 	}
 
 }

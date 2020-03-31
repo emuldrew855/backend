@@ -10,27 +10,27 @@ import java.util.logging.Logger;
 import org.springframework.stereotype.Component;
 
 /**
- * Represents a class to manage application information and promote code
- * reusability
+ * Represents a class to manage generic application information and promote code reusability
  */
 @Component
 public class Utilities {
 	public static Logger LOGGER = Logger.getLogger(Utilities.class.getName());
 	public static Handler fileHandler  = null;
-	String securityAppName;
-	String globalId;
-	String devName;
-	String certName;
-	String marktplaceId;
-
+	private String securityAppName;
+	private String globalId;
+	private String devName;
+	private String certName;
+	private String marketplaceId;
+	private String paypalAppId;
 	final int SITE_ID = 3;
 
-	Utilities(String devName, String securityAppName, String globalId, String marketplaceId, String certName) {
+	Utilities(String devName, String securityAppName, String globalId, String marketplaceId, String certName, String paypalAppId) {
 		this.devName = devName;
 		this.securityAppName = securityAppName;
 		this.globalId = globalId;
 		this.certName = certName;
-		this.marktplaceId = marketplaceId;
+		this.marketplaceId = marketplaceId;
+		this.setPaypalAppId(paypalAppId);
 		try {
 			fileHandler  = new FileHandler("./BackendLogs.log");
 		} catch (SecurityException e) {
@@ -64,7 +64,11 @@ public class Utilities {
 	}
 
 	public String getMarktplaceId() {
-		return marktplaceId;
+		return marketplaceId;
+	}
+
+	public String getPaypalAppId() {
+		return paypalAppId;
 	}
 
 	// Setters
@@ -85,8 +89,11 @@ public class Utilities {
 	}
 
 	public void setMarktplaceId(String marktplaceId) {
-		this.marktplaceId = marktplaceId;
+		this.marketplaceId = marktplaceId;
 	}
 
+	public void setPaypalAppId(String paypalAppId) {
+		this.paypalAppId = paypalAppId;
+	}
 
 }

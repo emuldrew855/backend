@@ -78,6 +78,13 @@ public class TokenUtilityClass implements CommandLineRunner {
 		
 	}
 	
+	/**
+	 * Represents an api to retrieve the ebay authorization url to authenticate a valid url
+	 * 
+	 * @returns - authUrl - the URL which a user is required to use to sign in
+	 * 
+	 * @throws IOException
+	 */
 	@GET
 	@GetMapping("/ebayToken")
 	public String ebayToken() throws IOException {
@@ -91,20 +98,30 @@ public class TokenUtilityClass implements CommandLineRunner {
 	
 	@GET
 	@GetMapping("/accessToken")
-	public String getAccessToken(@QueryParam("code") String code) throws IOException {
+	public String getEbayAccessToken(@QueryParam("code") String code) throws IOException {
 		logger.info("Access Token");
 		OAuthResponse response = oauth2API.exchangeCodeForAccessToken(EXECUTION_ENV, code);
+		Login.activeUser.setUserRefreshToken(response.getRefreshToken().toString());
 		Login.activeUser.setEbayAuthToken((response.getAccessToken().get().getToken()));
 		logger.info("Active User ebay auth: " + Login.activeUser.getEbayAuthToken());
 		return response.toString();
 	}
-
+	
+	@GET
+	@GetMapping("/refreshToken")
+	@RequestMapping(value = "/somethingElse", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED)
+	public String getRefreshToken() throws IOException {
+		String url = "https://api.ebay.com/identity/v1/oauth2/token";
+		httpClass.ebayRefreshTokenPost(url,  "refreshToken");
+		return null;
+	}
+	
 	public void tokenTimer() {
 		TimerTask repeatedTask = new TimerTask() {
 			@Override
 			public void run() {
 				try {
-					authenticationToken();
+					paypalAuthenticationToken();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -127,15 +144,15 @@ public class TokenUtilityClass implements CommandLineRunner {
 	 * @throws IOException
 	 */
 	@GET
-	@Path("/AuthenticationToken")
+	@Path("/PaypalAuthenticationToken")
 	@Produces(MediaType.APPLICATION_JSON)
 	@RequestMapping(value = "/patientdetails", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED)
-	public boolean authenticationToken() throws IOException {
-		logger.info("Authentication token");
+	public boolean paypalAuthenticationToken() throws IOException {
+		logger.info("Paypal Authentication token");
 		boolean tokenReceived = false;
 		String url = "https://api.paypal.com/v1/oauth2/token";
 		PaypalTokenResponse response = new PaypalTokenResponse();
-		response = httpClass.authenticationPost(url, "", "PaypalAuth");
+		response = httpClass.paypalAuthenticationPost(url, "PaypalAuth");
 		logger.info(response.getacccess_token());
 		if (response.getacccess_token() != null) {
 			tokenReceived = true;
@@ -144,5 +161,6 @@ public class TokenUtilityClass implements CommandLineRunner {
 		Login.activeUser.setPaypalAuthToken(response.getacccess_token());
 		return tokenReceived;
 	}
+
 
 }
