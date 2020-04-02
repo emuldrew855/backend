@@ -52,7 +52,7 @@ public class UserActionsController {
 		return "User action added";
 	}
 	
-	@PostMapping("/DeleteUserActions")
+	@GetMapping("/DeleteUserActions")
 	public String deleteUser() {
 		String deletedViewCounts = "User Action deleted: ";
 		List<ViewOnEbay> viewedOnEbay = this.userActionRepository.findAll();

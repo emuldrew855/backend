@@ -219,7 +219,7 @@ public class Http implements CommandLineRunner {
 		case "charityItem":
 			httpPost.addHeader("Content-Type", "application/json");
 			httpPost.addHeader("Accept", "application/json");
-			httpPost.addHeader("X-EBAY-C-MARKETPLACE-ID", utilityClass.getMarktplaceId());
+			httpPost.addHeader("X-EBAY-C-MARKETPLACE-ID", utilityClass.getGlobalId());
 			httpPost.addHeader("Authorization", "APP " + utilityClass.getCertName());
 			break;
 		case "searchItem":
@@ -271,7 +271,7 @@ public class Http implements CommandLineRunner {
 		case "charityItem":
 			httpGet.addHeader("Content-Type", "application/json");
 			httpGet.addHeader("Accept", "application/json");
-			httpGet.addHeader("X-EBAY-C-MARKETPLACE-ID", utilityClass.getMarktplaceId());
+			httpGet.addHeader("X-EBAY-C-MARKETPLACE-ID", utilityClass.getGlobalId());
 			httpGet.addHeader("Authorization", "APP " + utilityClass.getSecurityAppName());
 			break;
 		case "searchItem":

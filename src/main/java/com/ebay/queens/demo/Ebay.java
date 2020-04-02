@@ -245,6 +245,11 @@ public class Ebay implements CommandLineRunner {
 	@GetMapping("/SearchItem")
 	@Produces(MediaType.APPLICATION_JSON)
 	public SearchItemResponse searchItem(@QueryParam("searchTerm") String searchTerm,@QueryParam("limitOffset") String limitOffset) throws IOException {
+
+		if(searchTerm.contains(" ")) {
+				searchTerm = searchTerm.replaceAll("\\s", "%20");
+				LOGGER.info(searchTerm);
+		}
 		LOGGER.info("Search Item: " + searchTerm);
 		String url = "https://api.ebay.com/buy/browse/v1/item_summary/search?q=" + searchTerm+"&limit="+ limitOffset + "&offset=" + limitOffset;
 		String response = httpClass.genericSendGET(url, "searchItem");

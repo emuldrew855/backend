@@ -1,5 +1,8 @@
 package com.ebay.queens.demo;
 
+import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Logger;
 
 import javax.ws.rs.GET;
@@ -7,6 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -75,7 +79,7 @@ public class Login {
 				response = "Admin";
 			} else {
 				if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
-					response = "Access Granted";
+					response = "AccessGranted";
 					return username;
 				} else {
 					response = "NoAccess";
@@ -85,6 +89,27 @@ public class Login {
 		LOGGER.info("Login Response: " + response);
 		return response;
 	}
+	
+	@GET
+	@GetMapping("/CheckAccessToken")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String validAccessToken() throws InterruptedException {	
+		Thread.sleep(1000);
+	if(StringUtils.isNotEmpty(Login.activeUser.getEbayAuthToken())) {
+		if(Login.activeUser.getEbayAuthToken() != null) {
+			LOGGER.info("Valid Access Token");
+			return "ValidAccessToken";
+		}else {
+			LOGGER.info("Not Access Token");
+			return "NotValidAccessToken";
+		}
+	}else {
+		LOGGER.info("Not Access Token");
+		return "NotValidAccessToken";
+	}
+	
+	}
+
 	
 	/**
 	 * API to sign out the current active user

@@ -39,5 +39,11 @@ public class SearchTypeController {
 		}
 		return searchTypes;
 	}
+	
+	@GetMapping("/DeleteSearchData")
+	public String deleteSearchTypeData() {
+		searchTypeRepository.deleteAll();
+		return "Deleted All Search Type Data";
+	}
 
 }
