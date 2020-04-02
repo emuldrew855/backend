@@ -77,7 +77,7 @@ public class Ebay implements CommandLineRunner {
 	public CharityItemResponse advancedFindCharityItems(@QueryParam("charityId") String charityId)
 			throws IOException, JAXBException {
 		FindNonProfitResponse findNonProfitResponse = findSingleNonProfit(charityId);
-		String nonProfitId = findNonProfitResponse.getNonProfit().getExternalId();
+		String nonProfitId = findNonProfitResponse.getNonProfit().getNonProfitId();
 		LOGGER.info("Non Profit Id: " + nonProfitId);
 		CharityItemResponse charityItemResponse = findCharityItems(nonProfitId);
 		System.out.println("Advanced find charity item: " + charityItemResponse.toString());
@@ -102,7 +102,7 @@ public class Ebay implements CommandLineRunner {
 	public CharityItemResponse findCharityItems(@QueryParam("charityItemId") String charityItemId) throws IOException {
 		LOGGER.info("Find Charity Items");
 		PaginationInput paginationInput = new PaginationInput("1", "25");
-		String[] valueIds = { "88" };
+		String[] valueIds = { charityItemId };
 		String[] charityOnly = { "true" };
 		GlobalAspect globalAspect1 = new GlobalAspect("CharityIds", valueIds);
 		GlobalAspect globalAspect2 = new GlobalAspect("CharityOnly", charityOnly);

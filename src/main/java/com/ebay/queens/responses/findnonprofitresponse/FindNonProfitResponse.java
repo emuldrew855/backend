@@ -11,19 +11,20 @@ public class FindNonProfitResponse {
 	private NonProfit nonProfit;
 
 	// Getters
+	@XmlElement(name ="ack")
 	public String getAck() {
 		return ack;
 	}
 
-	@XmlElement(name = "nonprofit")
+	@XmlElement(name ="nonprofit")
 	public NonProfit getNonProfit() {
 		return nonProfit;
 	}
-
+	@XmlElement(name ="timestamp")
 	public String getTimestamp() {
 		return timestamp;
 	}
-
+	@XmlElement(name ="version")
 	public String getVersion() {
 		return version;
 	}

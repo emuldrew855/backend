@@ -220,7 +220,7 @@ public class Http implements CommandLineRunner {
 			httpPost.addHeader("Content-Type", "application/json");
 			httpPost.addHeader("Accept", "application/json");
 			httpPost.addHeader("X-EBAY-C-MARKETPLACE-ID", utilityClass.getGlobalId());
-			httpPost.addHeader("Authorization", "APP " + utilityClass.getCertName());
+			httpPost.addHeader("Authorization", "APP " + utilityClass.getSecurityAppName());
 			break;
 		case "searchItem":
 			httpPost.addHeader("Content-Type", "application/json");
