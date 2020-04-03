@@ -78,7 +78,11 @@ public class Ebay implements CommandLineRunner {
 			throws IOException, JAXBException {
 		FindNonProfitResponse findNonProfitResponse = findSingleNonProfit(charityId);
 		String nonProfitId = findNonProfitResponse.getNonProfit().getNonProfitId();
-		LOGGER.info("Non Profit Id: " + nonProfitId);
+		if(findNonProfitResponse.getAck().equals("Warning")) {
+			LOGGER.severe("Problem with finding charity");
+		}else {
+			LOGGER.info("Non Profit Id: " + nonProfitId);
+		}
 		CharityItemResponse charityItemResponse = findCharityItems(nonProfitId);
 		System.out.println("Advanced find charity item: " + charityItemResponse.toString());
 		LOGGER.info(charityItemResponse.toString());
@@ -169,7 +173,7 @@ public class Ebay implements CommandLineRunner {
 	@Produces(MediaType.APPLICATION_JSON)
 	public FindNonProfitResponse findSingleNonProfit(@QueryParam("charityItemId") String charityItemId)
 			throws IOException {
-		LOGGER.info("FindSingleNonProfit: " + charityItemId);
+		LOGGER.info("Non Profit ExternalId: " + charityItemId);
 		String requestBody = "<findNonprofitRequest xmlns=\"http://www.ebay.com/marketplace/fundraising/v1/services\">\r\n"
 				+ "    <searchFilter>\r\n" + "        <externalId>" + charityItemId + "</externalId>\r\n"
 				+ "    </searchFilter>\r\n" + "    <outputSelector>Mission</outputSelector>\r\n"
@@ -244,14 +248,14 @@ public class Ebay implements CommandLineRunner {
 	@GET
 	@GetMapping("/SearchItem")
 	@Produces(MediaType.APPLICATION_JSON)
-	public SearchItemResponse searchItem(@QueryParam("searchTerm") String searchTerm,@QueryParam("limitOffset") String limitOffset) throws IOException {
+	public SearchItemResponse searchItem(@QueryParam("searchTerm") String searchTerm,@QueryParam("limit") String limit, @QueryParam("offset") String offset) throws IOException {
 
 		if(searchTerm.contains(" ")) {
 				searchTerm = searchTerm.replaceAll("\\s", "%20");
 				LOGGER.info(searchTerm);
 		}
 		LOGGER.info("Search Item: " + searchTerm);
-		String url = "https://api.ebay.com/buy/browse/v1/item_summary/search?q=" + searchTerm+"&limit="+ limitOffset + "&offset=" + limitOffset;
+		String url = "https://api.ebay.com/buy/browse/v1/item_summary/search?q=" + searchTerm+"&limit="+ limit + "&offset=" + offset;
 		String response = httpClass.genericSendGET(url, "searchItem");
 		LOGGER.info(response.toString());
 		final SearchItemResponse searchItemResponse = mapper.readValue(response, SearchItemResponse.class);

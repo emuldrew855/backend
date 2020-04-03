@@ -139,7 +139,7 @@ public class Paypal implements CommandLineRunner {
 		CharityCache charityCache = new CharityCache();
 		String url = "https://api.paypal.com/v1/customer/charities?page_size=15&page=";
 		String newUrl = "";
-		for (int i = 1; i <= lastReference; i++) {
+		for (int i = 200; i <= lastReference; i++) {
 			String num = String.valueOf(i);
 			newUrl = (url + num);
 			String response = httpClass.genericSendGET(newUrl, "Paypal");

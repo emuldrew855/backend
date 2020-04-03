@@ -60,7 +60,7 @@ public class CharityController {
 		for (GetCharityResult charity : charityRepository.findAll()) {
 			if (charity.getCause_area() != null) {
 				if (charity.getCause_area()[0].getName().equals(charityType)) {
-					if (charityResults.size() <= 15) {
+					if (charityResults.size() <= 100) {
 						charityResults.add(charity);
 					}
 				}

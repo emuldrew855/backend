@@ -272,7 +272,7 @@ public class Http implements CommandLineRunner {
 			httpGet.addHeader("Content-Type", "application/json");
 			httpGet.addHeader("Accept", "application/json");
 			httpGet.addHeader("X-EBAY-C-MARKETPLACE-ID", utilityClass.getGlobalId());
-			httpGet.addHeader("Authorization", "APP " + utilityClass.getSecurityAppName());
+			httpGet.addHeader("Authorization", "APP " +utilityClass.getSecurityAppName());
 			break;
 		case "searchItem":
 			httpGet.addHeader("Content-Type", "application/json");

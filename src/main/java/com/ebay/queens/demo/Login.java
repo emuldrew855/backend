@@ -100,11 +100,11 @@ public class Login {
 			LOGGER.info("Valid Access Token");
 			return "ValidAccessToken";
 		}else {
-			LOGGER.info("Not Access Token");
+			LOGGER.info("Not Valid Access Token");
 			return "NotValidAccessToken";
 		}
 	}else {
-		LOGGER.info("Not Access Token");
+		LOGGER.info("Not Valid Access Token");
 		return "NotValidAccessToken";
 	}
 	
@@ -122,7 +122,7 @@ public class Login {
 		for(User user: userController.getAllUsers()) {
 			if(user.getUsername().equals(username)) {
 				LOGGER.info("Active User Signed Out!" + user.getUsername());
-				Login.activeUser = null; 
+				Login.activeUser.setEbayAuthToken(null); 
 			}
 		}
 	}
