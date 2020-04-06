@@ -248,17 +248,21 @@ public class Ebay implements CommandLineRunner {
 	@GET
 	@GetMapping("/SearchItem")
 	@Produces(MediaType.APPLICATION_JSON)
-	public SearchItemResponse searchItem(@QueryParam("searchTerm") String searchTerm,@QueryParam("limit") String limit, @QueryParam("offset") String offset) throws IOException {
-
-		if(searchTerm.contains(" ")) {
-				searchTerm = searchTerm.replaceAll("\\s", "%20");
-				LOGGER.info(searchTerm);
-		}
-		LOGGER.info("Search Item: " + searchTerm);
-		String url = "https://api.ebay.com/buy/browse/v1/item_summary/search?q=" + searchTerm+"&limit="+ limit + "&offset=" + offset;
-		String response = httpClass.genericSendGET(url, "searchItem");
-		LOGGER.info(response.toString());
-		final SearchItemResponse searchItemResponse = mapper.readValue(response, SearchItemResponse.class);
-		return searchItemResponse;
+	public CharityItemResponse searchItem(@QueryParam("searchTerm") String searchTerm) throws IOException {
+		PaginationInput paginationInput = new PaginationInput("1", "25");
+		String[] charityOnly = { "true" };
+		GlobalAspect globalAspect1 = new GlobalAspect("CharityOnly", charityOnly);
+		GlobalAspect globalAspectList[] = new GlobalAspect[1];
+		globalAspectList[0] = globalAspect1;
+		String keyword = searchTerm;
+		Constraints constraints = new Constraints(globalAspectList);
+		SearchRequest searchRequest = new SearchRequest("StartTimeNewest", paginationInput, constraints);
+		searchRequest.setKeyword(keyword);
+		CharityItemRequest charityItemRequest = new CharityItemRequest(searchRequest);
+		String response = httpClass.genericJSONSendPOST("https://api.ebay.com/buying/search/v2", charityItemRequest,
+				"charityItem");
+		LOGGER.info(response);
+		final CharityItemResponse charityItemResponse = mapper.readValue(response, CharityItemResponse.class);
+		return charityItemResponse;
 	}
 }

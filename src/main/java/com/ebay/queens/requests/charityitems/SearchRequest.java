@@ -10,9 +10,14 @@ public class SearchRequest {
 	}
 	private String sortOrder;
 	private PaginationInput paginationInput;
-
 	private Constraints constraints;
+	private String keyword; 
 
+	// Getters
+	public String getSortOrder() {
+		return sortOrder;
+	}
+	
 	public Constraints getConstraints() {
 		return constraints;
 	}
@@ -20,12 +25,18 @@ public class SearchRequest {
 	public PaginationInput getPaginationInput() {
 		return paginationInput;
 	}
-
-	// Getters
-	public String getSortOrder() {
-		return sortOrder;
+	
+	public String getKeyword() {
+		return keyword;
 	}
 
+
+
+	// Setters
+	public void setSortOrder(String sortOrder) {
+		this.sortOrder = sortOrder;
+	}
+	
 	public void setConstraints(Constraints constraints) {
 		this.constraints = constraints;
 	}
@@ -34,9 +45,8 @@ public class SearchRequest {
 		this.paginationInput = paginationInput;
 	}
 
-	// Setters
-	public void setSortOrder(String sortOrder) {
-		this.sortOrder = sortOrder;
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
 
 }
