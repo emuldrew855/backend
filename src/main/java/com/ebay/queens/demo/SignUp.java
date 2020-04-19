@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ebay.queens.demo.model.User;
-import com.ebay.queens.demo.resource.UserController;
+import com.ebay.queens.demo.mongodb.model.User;
+import com.ebay.queens.demo.mongodb.resource.UserController;
 /**
  * Represents a class to handle all the user registration/sign up functionality
  */
@@ -29,8 +29,6 @@ public class SignUp {
 	private Logger LOGGER;
 	@Autowired
 	private UserController userController;
-
-	int userIndex = 3;
 	
 	/**
 	 * This method is used to sign up new users
@@ -52,8 +50,8 @@ public class SignUp {
 			}	
 		}
 		if(createNewUser) {
+			int userIndex = userController.getAllUsers().size() + 1;
 			LOGGER.info("User Signed Up: " + username );
-			this.userIndex = this.userIndex + 1;
 			newUser = new User(Integer.toString(userIndex),username, password);
 			userController.saveUser(newUser);
 			return "UserSignedUp";

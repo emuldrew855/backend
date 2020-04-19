@@ -1,4 +1,4 @@
-package com.ebay.queens.demo.repository;
+package com.ebay.queens.demo.mongodb.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;

@@ -1,4 +1,4 @@
-package com.ebay.queens.demo.model;
+package com.ebay.queens.demo.mongodb.model;
 
 public class UserActions {
 	private String webPage; 

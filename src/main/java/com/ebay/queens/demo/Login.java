@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ebay.queens.demo.model.User;
-import com.ebay.queens.demo.resource.UserController;
+import com.ebay.queens.demo.mongodb.model.User;
+import com.ebay.queens.demo.mongodb.resource.UserController;
+
+
 /**
  * Represents a class to handle all login functionality and make connections to mongodb to save & retrieve user details
  */
@@ -72,7 +74,7 @@ public class Login {
 	@GetMapping("/LogIn")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String logIn(@QueryParam("username") String username, @QueryParam("password") String password) {
-		LOGGER.info("Log In Method" + username + " " + password);
+		LOGGER.info("Log In - Username: " + username + " Password: " + password);
 		String response = "";
 		for (User user : userController.getAllUsers()) {
 			if (username.equals("admin") && password.equals("admin")) {

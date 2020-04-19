@@ -1,4 +1,4 @@
-package com.ebay.queens.demo.resource;
+package com.ebay.queens.demo.mongodb.resource;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ebay.queens.demo.model.User;
-import com.ebay.queens.demo.model.UserGroup;
-import com.ebay.queens.demo.repository.UserRepository;
+import com.ebay.queens.demo.mongodb.model.User;
+import com.ebay.queens.demo.mongodb.model.UserGroup;
+import com.ebay.queens.demo.mongodb.repository.UserRepository;
 
 @Component
 @RestController
@@ -99,7 +99,7 @@ public class UserController {
 		LOGGER.info("Added Users: " + addedUsers);
 		return addedUsers;
 	}
-
+	
 	@PostMapping("/AddUser")
 	public String saveUser(@RequestBody User user) {
 		this.userRepository.save(user);

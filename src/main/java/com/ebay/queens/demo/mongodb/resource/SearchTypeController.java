@@ -1,4 +1,4 @@
-package com.ebay.queens.demo.resource;
+package com.ebay.queens.demo.mongodb.resource;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ebay.queens.demo.model.SearchType;
-import com.ebay.queens.demo.repository.SearchTypeRepository;
+import com.ebay.queens.demo.mongodb.model.SearchType;
+import com.ebay.queens.demo.mongodb.repository.SearchTypeRepository;
 
 @RestController
 @RequestMapping("/SearchType")

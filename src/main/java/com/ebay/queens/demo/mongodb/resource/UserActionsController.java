@@ -1,4 +1,4 @@
-package com.ebay.queens.demo.resource;
+package com.ebay.queens.demo.mongodb.resource;
 
 import java.util.List;
 
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ebay.queens.demo.model.UserGroup;
-import com.ebay.queens.demo.model.ViewOnEbay;
-import com.ebay.queens.demo.repository.UserActionRepository;
+import com.ebay.queens.demo.mongodb.model.UserGroup;
+import com.ebay.queens.demo.mongodb.model.ViewOnEbay;
+import com.ebay.queens.demo.mongodb.repository.UserActionRepository;
 
 
 @RestController

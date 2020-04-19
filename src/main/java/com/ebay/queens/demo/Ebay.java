@@ -77,12 +77,11 @@ public class Ebay implements CommandLineRunner {
 	public CharityItemResponse advancedFindCharityItems(@QueryParam("charityId") String charityId)
 			throws IOException, JAXBException {
 		FindNonProfitResponse findNonProfitResponse = findSingleNonProfit(charityId);
-		String nonProfitId = findNonProfitResponse.getNonProfit().getNonProfitId();
-		if(findNonProfitResponse.getAck().equals("Warning")) {
+		if(findNonProfitResponse.getAck().equals("Warning") || findNonProfitResponse.equals(null)) {
 			LOGGER.severe("Problem with finding charity");
-		}else {
-			LOGGER.info("Non Profit Id: " + nonProfitId);
+			return null;
 		}
+		String nonProfitId = findNonProfitResponse.getNonProfit().getNonProfitId();
 		CharityItemResponse charityItemResponse = findCharityItems(nonProfitId);
 		System.out.println("Advanced find charity item: " + charityItemResponse.toString());
 		LOGGER.info(charityItemResponse.toString());
@@ -173,7 +172,7 @@ public class Ebay implements CommandLineRunner {
 	@Produces(MediaType.APPLICATION_JSON)
 	public FindNonProfitResponse findSingleNonProfit(@QueryParam("charityItemId") String charityItemId)
 			throws IOException {
-		LOGGER.info("Non Profit ExternalId: " + charityItemId);
+		LOGGER.info("Non Profit Id: " + charityItemId);
 		String requestBody = "<findNonprofitRequest xmlns=\"http://www.ebay.com/marketplace/fundraising/v1/services\">\r\n"
 				+ "    <searchFilter>\r\n" + "        <externalId>" + charityItemId + "</externalId>\r\n"
 				+ "    </searchFilter>\r\n" + "    <outputSelector>Mission</outputSelector>\r\n"

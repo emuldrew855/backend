@@ -98,7 +98,6 @@ public class TokenUtilityClass implements CommandLineRunner {
 	public String getEbayAccessToken(@QueryParam("code") String code) throws IOException {
 		logger.info("Access Token");
 		OAuthResponse response = oauth2API.exchangeCodeForAccessToken(EXECUTION_ENV, code);
-		//Login.activeUser.setUserRefreshToken(response.getRefreshToken().toString());
 		Login.activeUser.setEbayAuthToken((response.getAccessToken().get().getToken()));
 		logger.info("Active User ebay auth: " + Login.activeUser.getEbayAuthToken());
 		return response.toString();
@@ -112,7 +111,7 @@ public class TokenUtilityClass implements CommandLineRunner {
 	 */
 	@GET
 	@GetMapping("/refreshToken")
-	@RequestMapping(value = "/somethingElse", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED)
+	@RequestMapping(value = "/somethingElse", method = RequestMethod.GET, consumes = MediaType.APPLICATION_FORM_URLENCODED)
 	public String getRefreshToken() throws IOException {
 		String url = "https://api.ebay.com/identity/v1/oauth2/token";
 		httpClass.ebayRefreshTokenPost(url,  "refreshToken");

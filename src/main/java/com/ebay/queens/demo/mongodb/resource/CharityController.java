@@ -1,4 +1,4 @@
-package com.ebay.queens.demo.resource;
+package com.ebay.queens.demo.mongodb.resource;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ebay.queens.demo.repository.CharityRepository;
+import com.ebay.queens.demo.mongodb.repository.CharityRepository;
 import com.ebay.queens.responses.paypalgetcharityresponse.GetCharityResult;
 
 @RestController
@@ -67,7 +67,11 @@ public class CharityController {
 			}
 		}
 		return charityResults;
-
+	}
+	
+	@GetMapping("/GetAllCharities")
+	public List<GetCharityResult> getAllChartiesInSystem() {
+		return charityRepository.findAll();
 	}
 
 }

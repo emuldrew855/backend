@@ -1,4 +1,4 @@
-package com.ebay.queens.demo.model;
+package com.ebay.queens.demo.mongodb.model;
 
 import java.util.ArrayList;
 import java.util.Random;

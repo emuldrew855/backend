@@ -2,7 +2,7 @@ package com.ebay.queens.responses.charityitemresponse;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties({"sellingStatus", "unitPrice","paymentMethod","autoPay","shippingInfo","itemFeature","gtcItem","cbtItem",
+@JsonIgnoreProperties({"unitPrice","paymentMethod","autoPay","shippingInfo","itemFeature","gtcItem","cbtItem",
 	"errorMessage", "adult","returnPolicyInfo","itemLocation","topRatedListing","viewItemURL","watchCount","productInfo","discountPriceInfo",
 	"superGalleryImageInfo", "subtitle","smeInfo","fitmentInfo","multiVariationListingInfo"})
 public class CharityItem {
@@ -13,6 +13,7 @@ public class CharityItem {
 	private Category[] category;
 	private ListingInfo listingInfo;
 	private ItemImageInfo[] itemImageInfo;
+	private SellingStatus sellingStatus;
 	
 	public String getBrand() {
 		return brand;
@@ -59,6 +60,12 @@ public class CharityItem {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public SellingStatus getSellingStatus() {
+		return sellingStatus;
+	}
+	public void setSellingStatus(SellingStatus sellingStatus) {
+		this.sellingStatus = sellingStatus;
 	}
 
 	

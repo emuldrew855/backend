@@ -66,6 +66,7 @@ public class Http implements CommandLineRunner {
 		nvps.add(new BasicNameValuePair("redirect_uri", Login.activeUser.getUserRefreshToken()));
 		httpPost.setEntity(new UrlEncodedFormEntity(nvps, "UTF-8"));
 		httpPost = selectHeader(httpPost, typeOfCall);
+		System.out.println(httpPost.toString());
 		CloseableHttpResponse response = client.execute(httpPost);
 		String result = EntityUtils.toString(response.getEntity());
 		logger.info("Ebay Refresh Token result: " + result);

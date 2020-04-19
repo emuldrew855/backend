@@ -1,6 +1,10 @@
 package com.ebay.queens.demo;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -10,6 +14,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import javax.xml.bind.JAXBException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -21,11 +26,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ebay.queens.demo.resource.CharityController;
+import com.ebay.queens.demo.mongodb.resource.CharityController;
 import com.ebay.queens.requests.paypalcharitysearch.Charity;
 import com.ebay.queens.requests.paypalcharitysearch.PaypalCharity;
 import com.ebay.queens.requests.paypalcharitysearch.PaypalCharitySearchRequest;
 import com.ebay.queens.responses.CharityCache;
+import com.ebay.queens.responses.CharityCause;
+import com.ebay.queens.responses.charityitemresponse.CharityItemResponse;
 import com.ebay.queens.responses.paypalcharitysearchresponse.PaypalCharitySearchResponse;
 import com.ebay.queens.responses.paypalgetcharityresponse.CauseArea;
 import com.ebay.queens.responses.paypalgetcharityresponse.GetCharityResult;
@@ -47,6 +54,9 @@ public class Paypal implements CommandLineRunner {
 	
 	@Autowired
 	private Http httpClass;
+	
+	@Autowired
+	private Ebay ebay;
 
 	@Autowired 
 	CharityController charityController;
@@ -68,7 +78,7 @@ public class Paypal implements CommandLineRunner {
 		Timer timer = new Timer("Timer");
 
 		long delay = 1L;
-		long period = 20000L; // Task repeats every hour
+		long period = 360000L; // Task repeats every hour
 		timer.scheduleAtFixedRate(repeatedTask, delay, period);
 	}
 
@@ -91,11 +101,24 @@ public class Paypal implements CommandLineRunner {
 	@PostMapping("/GetAllCharity")
 	@Produces(MediaType.APPLICATION_JSON)
 	public PaypalGetCharityResponse getAllCharity() throws IOException {
-		logger.info("Get Charity");
 		String url = "https://api.paypal.com/v1/customer/charities";
 		String response = httpClass.genericSendGET(url, "Paypal");
 		final PaypalGetCharityResponse charityItemResponse = mapper.readValue(response, PaypalGetCharityResponse.class);
 		return charityItemResponse;
+	}
+	
+	
+	@GET
+	@GetMapping("/SearchCharity")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<GetCharityResult> searchCharity(@QueryParam("searchCharity") String searchCharity) throws IOException {
+		List<GetCharityResult> charitySearchResults = new ArrayList();
+		for(GetCharityResult charity: charityController.getAllChartiesInSystem()) {
+			if(charity.getName().contains(searchCharity)) {
+				charitySearchResults.add(charity);
+			}
+		}
+		return charitySearchResults;
 	}
 
 	/**
@@ -107,7 +130,7 @@ public class Paypal implements CommandLineRunner {
 	@GET
 	@PostMapping("/GetCharityCauses")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Map<Integer, String> getAllCharityCause() {
+	public Map<Integer, CharityCause> getAllCharityCause() {
 		CharityCache charityCache = new CharityCache();
 		return charityCache.getCurrentCauseAreas();
 	}
@@ -118,11 +141,12 @@ public class Paypal implements CommandLineRunner {
 	 * 
 	 * Shouldn't need to return anything as it's purpose is to run and gather all
 	 * charity data.
+	 * @throws JAXBException 
 	 */
 	@GET
 	@PostMapping("/GetAllCharityCause")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String[] getCharityCause() throws IOException {
+	public String[] getCharityCause() throws IOException, JAXBException {
 		logger.info("GetAllCharityMethod");
 		PaypalGetCharityResponse getCharityResponse = this.getAllCharity();
 		Links[] links = getCharityResponse.getLinks();
@@ -139,29 +163,32 @@ public class Paypal implements CommandLineRunner {
 		CharityCache charityCache = new CharityCache();
 		String url = "https://api.paypal.com/v1/customer/charities?page_size=15&page=";
 		String newUrl = "";
-		for (int i = 200; i <= lastReference; i++) {
+		for (int i = 1000; i <= lastReference; i++) {
 			String num = String.valueOf(i);
 			newUrl = (url + num);
 			String response = httpClass.genericSendGET(newUrl, "Paypal");
 			PaypalGetCharityResponse charityResponse = mapper.readValue(response, PaypalGetCharityResponse.class);
 			// Add charity objects to cache
 			for (GetCharityResult charity : charityResponse.getResults()) {
-				charityCache.addCharity(charity);
-				charityController.addCharity(charity);
+				//charityCache.addCharity(charity);
+				CharityItemResponse charityItemResponse = ebay.advancedFindCharityItems(charity.getNonprofit_id());
+				if(charityItemResponse == null) {
+					logger.info("Charity not in current global id configuration");
+				}else if( charityItemResponse.getItems().getItems() == null){
+					logger.info("No Charity Products Available");
+				}else {
+					charityController.addCharity(charity);
+				}
 				// Adds new charity cause area if necessary
 				if (charity.getCause_area() != null) {
 					for (CauseArea causeArea : charity.getCause_area()) {
-						charityCache.addCharityCause(causeArea.getName());
+						charityCache.addCharityCause(new CharityCause(causeArea.getName(),""));
 					}
 				}
 			}
 		}
 		logger.info("All Charities Method Complete");
-		// Printing all Charity Causes
-		for (Map.Entry<Integer, String> entry : charityCache.getCurrentCauseAreas().entrySet()) {
-			System.out.println("Cause Area = " + entry.getValue());
-		}
-		logger.info("Amount of Charities: " + charityCache.getCurrentCharityResponses().size());
+	
 		return lastLink;
 
 	}
@@ -174,7 +201,12 @@ public class Paypal implements CommandLineRunner {
 			@Override
 			public void run() {
 				try {
-					getCharityCause();
+					try {
+						getCharityCause();
+					} catch (JAXBException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
