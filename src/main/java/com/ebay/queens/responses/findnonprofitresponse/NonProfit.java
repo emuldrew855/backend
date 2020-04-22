@@ -9,20 +9,6 @@ public class NonProfit {
 	private String externalId;
 	private String homePageURL;
 
-	// Getters
-	public String getName() {
-		return name;
-	}
-
-	public String getLogoURL() {
-		return logoURL;
-	}
-
-	@XmlElement(name = "nonprofitId")
-	public String getNonProfitId() {
-		return nonprofitId;
-	}
-
 	public String getExternalId() {
 		return externalId;
 	}
@@ -31,17 +17,18 @@ public class NonProfit {
 		return homePageURL;
 	}
 
-	// Setters
-	public void setName(String name) {
-		this.name = name;
+	public String getLogoURL() {
+		return logoURL;
 	}
 
-	public void setLogoURL(String logoURL) {
-		this.logoURL = logoURL;
+	// Getters
+	public String getName() {
+		return name;
 	}
 
-	public void setNonProfitId(String nonProfitId) {
-		this.nonprofitId = nonProfitId;
+	@XmlElement(name = "nonprofitId")
+	public String getNonProfitId() {
+		return nonprofitId;
 	}
 
 	public void setExternalId(String externalId) {
@@ -50,6 +37,19 @@ public class NonProfit {
 
 	public void setHomePageURL(String homePageURL) {
 		this.homePageURL = homePageURL;
+	}
+
+	public void setLogoURL(String logoURL) {
+		this.logoURL = logoURL;
+	}
+
+	// Setters
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setNonProfitId(String nonProfitId) {
+		this.nonprofitId = nonProfitId;
 	}
 
 }

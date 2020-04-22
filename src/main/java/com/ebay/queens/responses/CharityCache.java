@@ -5,101 +5,101 @@ import java.util.Map;
 import com.ebay.queens.responses.paypalgetcharityresponse.GetCharityResult;
 
 public class CharityCache {
-	private Map<Integer, GetCharityResult> currentCharityResponses;
-	private Map<Integer, GetCharityResult> _tempCharityResponse;
-	private Map<Integer, String> currentCauseAreas;
-	private Map<Integer, String> _tempCurrentCauseAreas;
-	int charityKey = 0;
-	int causeAreaKey = 18;
-	
 	public CharityCache() {
 		Map<Integer, GetCharityResult> currentCharityResponses = new HashMap<>();
 		this.currentCharityResponses = currentCharityResponses;
-		Map<Integer, String> currentCauseArea = new HashMap<>();
-		Map<Integer, String> causeAreas  = new HashMap<Integer, String>() {{
-		    put(1, "Animals");
-		    put(2, "Arts and Culture");
-		    put(3, "Children and Youth Development");
-		    put(4, "Crime Prevention and Justice");
-		    put(5, "Disaster Relief");
-		    put(6, "Environment");
-		    put(7, "Employment and Professional Associations");
-		    put(8, "Health and Medicine");
-		    put(9, "Human Services");
-		    put(10, "Housing, Homelessness and Hunger");
-		    put(11, "International");
-		    put(12, "Military and Veterans");
-		    put(13, "Philanthropy, Grants, Other");
-		    put(14, "Religion and Spirituality");
-		    put(15, "Schools and Education");
-		    put(16, "Science and Research");
-		    put(17, "Schools and Education");
-		    put(18, "Sports and Recreation");
+		Map<Integer, CharityCause> currentCauseArea = new HashMap<>();
+		Map<Integer, CharityCause> causeAreas  = new HashMap<Integer, CharityCause>() {{
+		    put(1, new CharityCause("Animals","https://images.pexels.com/photos/66898/elephant-cub-tsavo-kenya-66898.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"));
+		    put(2, new CharityCause("Arts and Culture","https://m.hindustantimes.com/rf/image_size_960x540/HT/p2/2016/12/28/Pictures/jewel-in-the-crown_d6a83268-ccef-11e6-b3cb-dcd306bf19b8.JPG"));
+		    put(3, new CharityCause("Children and Youth Development","https://rs.projects-abroad.net/v1/products/product-5d9d8f98eae10.[1090].jpeg"));
+		    put(4, new CharityCause("Crime Prevention and Justice","https://miro.medium.com/max/420/1*T7MS7UvE0PfReaFJIYdDqQ.jpeg"));
+		    put(5, new CharityCause("Disaster Relief","https://www.pointsoflight.org/wp-content/uploads/2018/09/mayflower_arizona_disaster_relief.jpg"));
+		    put(6, new CharityCause("Environment","https://eeas.europa.eu/sites/eeas/files/styles/eeas_full_screen/public/2019/06/05/environment-modified.jpg?itok=iABQZJGJ"));
+		    put(7, new CharityCause("Employment and Professional Associations","https://www.tutorialspoint.com/professional_ethics/images/rights_of_an_employee.jpg"));
+		    put(8, new CharityCause("Health and Medicine","https://images.collegexpress.com/article/health-and-medicine.jpg"));
+		    put(9, new CharityCause("Human Services","data:image/jpeg;base64,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"));
+		    put(10,new CharityCause("Housing, Homelessness and Hunger","https://loveincorporated.blob.core.windows.net/contentimages/main/0cb201eb-f3d4-4ed4-ada5-1298bf42e5c4-shutterstock713686756.jpg"));
+		    put(11, new CharityCause("International","https://www.egypttoday.com/images/larg/20629.jpg"));
+		    put(12, new CharityCause("Military and Veterans","https://cdni.rt.com/files/2016.08/article/57c00515c36188635d8b4567.jpg"));
+		    put(13, new CharityCause("Philanthropy, Grants, Other","https://wiki.optimy.com/wp-content/uploads/2017/07/philanthropy-money-grow-770x427.jpg"));
+		    put(14, new CharityCause("Religion and Spirituality","https://spiritualityhealth.com/assets/images/Articles/_articleSummaryImage/981253861.jpg"));
+		    put(15, new CharityCause("Schools and Education","https://cdn.pembrokeshire.gov.uk/images/school_ad.jpg"));
+		    put(16, new CharityCause("Science and Research","https://biochemistry.blob.core.windows.net/public/2019/08/Research-web.jpg"));
+		    put(17, new CharityCause("Society and Communities","https://www.alliance-scotland.org.uk/wp-content/uploads/2018/08/ALLIANCE-homepage-holding-community-2017-01.jpg"));
+		    put(18, new CharityCause("Sports and Recreation","https://www.thecompleteuniversityguide.co.uk/media/4928283/istock-949190756.jpg"));
 		}};
 		currentCauseArea.putAll(causeAreas);
 		this.currentCauseAreas = currentCauseArea;
 	}
+	private Map<Integer, GetCharityResult> currentCharityResponses;
+	private Map<Integer, GetCharityResult> _tempCharityResponse;
+	private Map<Integer, CharityCause> currentCauseAreas;
+	private Map<Integer, CharityCause> _tempCurrentCauseAreas;
+	int charityKey = 0;
+	
+	int causeAreaKey = 18;
 
 	// Methods
 	public void addCharity(GetCharityResult paypalCharity) {
 		currentCharityResponses.put(Integer.parseInt(paypalCharity.getNonprofit_id()), paypalCharity);
 	}
 	
-	public void addCharityCause(String causeArea) {
+	public void addCharityCause(CharityCause causeArea) {
 		if(!this.currentCauseAreas.containsValue(causeArea)) {			
 			charityKey = charityKey + 1;
 			currentCauseAreas.put(charityKey, causeArea);
 		}
 	}
 	
-	// Setters
-	public Map<Integer, GetCharityResult> getCurrentCharityResponses() {
-		return currentCharityResponses;
-	}
-
 	public Map<Integer, GetCharityResult> get_tempCharityResponse() {
 		return _tempCharityResponse;
 	}
 
-	public Map<Integer, String> getCurrentCauseAreas() {
-		return currentCauseAreas;
+	public Map<Integer, CharityCause> get_tempCurrentCauseAreas() {
+		return _tempCurrentCauseAreas;
 	}
 
-	public Map<Integer, String> get_tempCurrentCauseAreas() {
-		return _tempCurrentCauseAreas;
+	public int getCauseAreaKey() {
+		return causeAreaKey;
 	}
 
 	public int getCharityKey() {
 		return charityKey;
 	}
 
-	public int getCauseAreaKey() {
-		return causeAreaKey;
-	}
-	
-	// Setters
-	public void setCurrentCharityResponses(Map<Integer, GetCharityResult> currentCharityResponses) {
-		this.currentCharityResponses = currentCharityResponses;
+	public Map<Integer, CharityCause> getCurrentCauseAreas() {
+		return currentCauseAreas;
 	}
 
+	// Setters
+	public Map<Integer, GetCharityResult> getCurrentCharityResponses() {
+		return currentCharityResponses;
+	}
+	
 	public void set_tempCharityResponse(Map<Integer, GetCharityResult> _tempCharityResponse) {
 		this._tempCharityResponse = _tempCharityResponse;
 	}
 
-	public void setCurrentCauseAreas(Map<Integer, String> currentCauseAreas) {
-		this.currentCauseAreas = currentCauseAreas;
+	public void set_tempCurrentCauseAreas(Map<Integer, CharityCause> _tempCurrentCauseAreas) {
+		this._tempCurrentCauseAreas = _tempCurrentCauseAreas;
 	}
 
-	public void set_tempCurrentCauseAreas(Map<Integer, String> _tempCurrentCauseAreas) {
-		this._tempCurrentCauseAreas = _tempCurrentCauseAreas;
+	public void setCauseAreaKey(int causeAreaKey) {
+		this.causeAreaKey = causeAreaKey;
 	}
 
 	public void setCharityKey(int charityKey) {
 		this.charityKey = charityKey;
 	}
 
-	public void setCauseAreaKey(int causeAreaKey) {
-		this.causeAreaKey = causeAreaKey;
+	public void setCurrentCauseAreas(Map<Integer, CharityCause> currentCauseAreas) {
+		this.currentCauseAreas = currentCauseAreas;
+	}
+
+	// Setters
+	public void setCurrentCharityResponses(Map<Integer, GetCharityResult> currentCharityResponses) {
+		this.currentCharityResponses = currentCharityResponses;
 	}
 	
 }

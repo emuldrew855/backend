@@ -4,16 +4,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "findNonprofitRequest")
 public class FindNonProfitRequest {
-	private SearchFilter searchFilter;
-	private PaginationInput paginationInput;
+	public FindNonProfitRequest() {
 
+	}
 	public FindNonProfitRequest(SearchFilter searchFilter, PaginationInput paginationInput) {
 		this.searchFilter = searchFilter;
 		this.paginationInput = paginationInput;
 	}
 
-	public FindNonProfitRequest() {
+	private SearchFilter searchFilter;
 
+	private PaginationInput paginationInput;
+
+	public PaginationInput getPaginationInput() {
+		return paginationInput;
 	}
 
 	// Getters
@@ -21,17 +25,13 @@ public class FindNonProfitRequest {
 		return searchFilter;
 	}
 
-	public PaginationInput getPaginationInput() {
-		return paginationInput;
+	public void setPaginationInput(PaginationInput paginationInput) {
+		this.paginationInput = paginationInput;
 	}
 
 	// Setters
 	public void setSearchFilter(SearchFilter searchFilter) {
 		this.searchFilter = searchFilter;
-	}
-
-	public void setPaginationInput(PaginationInput paginationInput) {
-		this.paginationInput = paginationInput;
 	}
 
 }

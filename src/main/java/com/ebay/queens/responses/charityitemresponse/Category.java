@@ -7,25 +7,29 @@ public class Category {
 	private String categoryGroup;
 	private String localizedName;
 
+	public String getCategoryGroup() {
+		return categoryGroup;
+	}
+
 	// Getters
 	public String getId() {
 		return id;
-	}
-
-	public String getName() {
-		return name;
 	}
 
 	public String getLeafCategory() {
 		return leafCategory;
 	}
 
-	public String getCategoryGroup() {
-		return categoryGroup;
-	}
-	
 	public String getLocalizedName() {
 		return localizedName;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setCategoryGroup(String categoryGroup) {
+		this.categoryGroup = categoryGroup;
 	}
 
 	// Setters
@@ -33,20 +37,16 @@ public class Category {
 		this.id = id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public void setLeafCategory(String leafCategory) {
 		this.leafCategory = leafCategory;
 	}
 
-	public void setCategoryGroup(String categoryGroup) {
-		this.categoryGroup = categoryGroup;
-	}
-
 	public void setLocalizedName(String localizedName) {
 		this.localizedName = localizedName;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

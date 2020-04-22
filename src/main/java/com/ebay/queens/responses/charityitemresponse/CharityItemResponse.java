@@ -2,13 +2,13 @@ package com.ebay.queens.responses.charityitemresponse;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties({"answers","layout","errorMessage"})
+@JsonIgnoreProperties({"answers","layout","errorMessage","diagnostics"})
 public class CharityItemResponse {
-	private ItemsHolder items;
-
 	public CharityItemResponse() {
 
 	}
+
+	private ItemsHolder items;
 
 	public ItemsHolder getItems() {
 		return items;

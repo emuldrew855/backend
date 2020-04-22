@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-03-31T14:24:13</date>
+  <millis>1585661053069</millis>
+  <sequence>16</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Login</class>
+  <method>&lt;init&gt;</method>
+  <thread>13</thread>
+  <message>Login</message>
+</record>
+<record>
+  <date>2020-03-31T14:24:16</date>
+  <millis>1585661056017</millis>
+  <sequence>17</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.SignUp</class>
+  <method>&lt;init&gt;</method>
+  <thread>13</thread>
+  <message>SignUp</message>
+</record>
+<record>
+  <date>2020-03-31T14:24:16</date>
+  <millis>1585661056031</millis>
+  <sequence>18</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>13</thread>
+  <message>Token Utility Class</message>
+</record>
+<record>
+  <date>2020-03-31T14:24:16</date>
+  <millis>1585661056064</millis>
+  <sequence>19</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>paypalAuthenticationToken</method>
+  <thread>22</thread>
+  <message>Paypal Authentication token</message>
+</record>
+<record>
+  <date>2020-03-31T14:24:16</date>
+  <millis>1585661056064</millis>
+  <sequence>19</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>paypalAuthenticationToken</method>
+  <thread>22</thread>
+  <message>Paypal Authentication token</message>
+</record>
+<record>
+  <date>2020-03-31T14:24:16</date>
+  <millis>1585661056337</millis>
+  <sequence>20</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Http</class>
+  <method>selectHeader</method>
+  <thread>22</thread>
+  <message>Default value</message>
+</record>
+<record>
+  <date>2020-03-31T14:24:16</date>
+  <millis>1585661056337</millis>
+  <sequence>20</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Http</class>
+  <method>selectHeader</method>
+  <thread>22</thread>
+  <message>Default value</message>
+</record>
+<record>
+  <date>2020-03-31T14:24:19</date>
+  <millis>1585661059747</millis>
+  <sequence>66</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>13</thread>
+  <message>Token Utility Class</message>
+</record>
+<record>
+  <date>2020-03-31T14:24:19</date>
+  <millis>1585661059747</millis>
+  <sequence>66</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>&lt;init&gt;</method>
+  <thread>13</thread>
+  <message>Token Utility Class</message>
+</record>
+<record>
+  <date>2020-03-31T14:24:19</date>
+  <millis>1585661059748</millis>
+  <sequence>67</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Paypal</class>
+  <method>&lt;init&gt;</method>
+  <thread>13</thread>
+  <message>Paypal Class</message>
+</record>
+<record>
+  <date>2020-03-31T14:24:19</date>
+  <millis>1585661059748</millis>
+  <sequence>67</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Paypal</class>
+  <method>&lt;init&gt;</method>
+  <thread>13</thread>
+  <message>Paypal Class</message>
+</record>
+<record>
+  <date>2020-03-31T14:24:19</date>
+  <millis>1585661059748</millis>
+  <sequence>67</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Paypal</class>
+  <method>&lt;init&gt;</method>
+  <thread>13</thread>
+  <message>Paypal Class</message>
+</record>
+<record>
+  <date>2020-03-31T14:24:19</date>
+  <millis>1585661059759</millis>
+  <sequence>68</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Ebay</class>
+  <method>run</method>
+  <thread>13</thread>
+  <message>Ebay API</message>
+</record>
+<record>
+  <date>2020-03-31T14:24:19</date>
+  <millis>1585661059759</millis>
+  <sequence>68</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Ebay</class>
+  <method>run</method>
+  <thread>13</thread>
+  <message>Ebay API</message>
+</record>
+<record>
+  <date>2020-03-31T14:24:19</date>
+  <millis>1585661059759</millis>
+  <sequence>68</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Ebay</class>
+  <method>run</method>
+  <thread>13</thread>
+  <message>Ebay API</message>
+</record>

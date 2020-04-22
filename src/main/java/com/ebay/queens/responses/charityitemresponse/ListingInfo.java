@@ -10,25 +10,29 @@ public class ListingInfo {
 	private String endTime;
 	private String listingType;
 
-	// Getters
-	public String getBuyItNowAvailable() {
-		return buyItNowAvailable;
-	}
-
 	public String getBestOfferEnabled() {
 		return bestOfferEnabled;
 	}
 
-	public String getListedTime() {
-		return listedTime;
+	// Getters
+	public String getBuyItNowAvailable() {
+		return buyItNowAvailable;
 	}
 
 	public String getEndTime() {
 		return endTime;
 	}
 
+	public String getListedTime() {
+		return listedTime;
+	}
+
 	public String getListingType() {
 		return listingType;
+	}
+
+	public void setBestOfferEnabled(String bestOfferEnabled) {
+		this.bestOfferEnabled = bestOfferEnabled;
 	}
 
 	// Setters
@@ -36,16 +40,12 @@ public class ListingInfo {
 		this.buyItNowAvailable = buyItNowAvailable;
 	}
 
-	public void setBestOfferEnabled(String bestOfferEnabled) {
-		this.bestOfferEnabled = bestOfferEnabled;
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
 	}
 
 	public void setListedTime(String listedTime) {
 		this.listedTime = listedTime;
-	}
-
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
 	}
 
 	public void setListingType(String listingType) {

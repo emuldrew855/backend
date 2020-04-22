@@ -9,33 +9,49 @@ public class SearchItemResponse {
 	private String offset;
 	private ItemSummaries itemSummaries[];
 
+	public String getHref() {
+		return href;
+	}
+
 	// Getters
 	public ItemSummaries[] getItemSummaries() {
 		return itemSummaries;
-	}
-
-	public String getOffset() {
-		return offset;
 	}
 
 	public String getLimit() {
 		return limit;
 	}
 
-	public String getHref() {
-		return href;
+	public String getNext() {
+		return next;
 	}
 
+	public String getOffset() {
+		return offset;
+	}
+
+	public String getPrev() {
+		return prev;
+	}
+	
 	public String getTotal() {
 		return total;
 	}
 
-	public String getNext() {
-		return next;
+	public void setHref(String href) {
+		this.href = href;
 	}
-	
-	public String getPrev() {
-		return prev;
+
+	public void setItemSummaries(ItemSummaries[] itemSummaries) {
+		this.itemSummaries = itemSummaries;
+	}
+
+	public void setLimit(String limit) {
+		this.limit = limit;
+	}
+
+	public void setNext(String next) {
+		this.next = next;
 	}
 
 	// Setters
@@ -43,28 +59,12 @@ public class SearchItemResponse {
 		this.offset = offset;
 	}
 
-	public void setLimit(String limit) {
-		this.limit = limit;
-	}
-
-	public void setHref(String href) {
-		this.href = href;
+	public void setPrev(String prev) {
+		this.prev = prev;
 	}
 
 	public void setTotal(String total) {
 		this.total = total;
-	}
-
-	public void setNext(String next) {
-		this.next = next;
-	}
-
-	public void setItemSummaries(ItemSummaries[] itemSummaries) {
-		this.itemSummaries = itemSummaries;
-	}
-
-	public void setPrev(String prev) {
-		this.prev = prev;
 	}
 
 }

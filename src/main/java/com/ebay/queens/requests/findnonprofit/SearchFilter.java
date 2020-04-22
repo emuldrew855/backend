@@ -1,11 +1,11 @@
 package com.ebay.queens.requests.findnonprofit;
 
 public class SearchFilter {
-	private String externalID;
-
 	public SearchFilter(String externalID) {
 		this.externalID = externalID;
 	}
+
+	private String externalID;
 
 	// Getters
 	public String getExternalID() {

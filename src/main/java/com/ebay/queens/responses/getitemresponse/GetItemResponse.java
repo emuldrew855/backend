@@ -11,20 +11,9 @@ public class GetItemResponse {
 	private String build;
 	private Item item;
 
-	// Getters
-	@XmlElement(name = "Timestamp")
-	public String getTimestamp() {
-		return timestamp;
-	}
-
 	@XmlElement(name = "Ack")
 	public String getAck() {
 		return ack;
-	}
-
-	@XmlElement(name = "Version")
-	public String getVersion() {
-		return version;
 	}
 
 	@XmlElement(name = "Build")
@@ -37,17 +26,19 @@ public class GetItemResponse {
 		return item;
 	}
 
-	// Setters
-	public void setTimestamp(String timestamp) {
-		this.timestamp = timestamp;
+	// Getters
+	@XmlElement(name = "Timestamp")
+	public String getTimestamp() {
+		return timestamp;
+	}
+
+	@XmlElement(name = "Version")
+	public String getVersion() {
+		return version;
 	}
 
 	public void setAck(String ack) {
 		this.ack = ack;
-	}
-
-	public void setVersion(String version) {
-		this.version = version;
 	}
 
 	public void setBuild(String build) {
@@ -56,6 +47,15 @@ public class GetItemResponse {
 
 	public void setItem(Item item) {
 		this.item = item;
+	}
+
+	// Setters
+	public void setTimestamp(String timestamp) {
+		this.timestamp = timestamp;
+	}
+
+	public void setVersion(String version) {
+		this.version = version;
 	}
 
 }

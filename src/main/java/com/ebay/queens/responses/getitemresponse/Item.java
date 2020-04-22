@@ -17,6 +17,10 @@ public class Item {
 	private PrimaryCategory primarycategory;
 	private String startprice;
 	private PictureDetails pictureDetails;
+	private ListingDetails listingDetails;
+	private SellingStatus sellingStatus; 
+	private String quantity; 
+	private ProductListingDetails productListingDetails; 
 	
 	// Getters
 	@XmlElement(name = "AutoPay")
@@ -39,9 +43,46 @@ public class Item {
 		return charity;
 	}
 
+	@XmlElement(name = "ConditionDescription")
+	public String getConditionDescription() {
+		return conditionDescription;
+	}
+	
 	@XmlElement(name = "Country")
 	public String getCountry() {
 		return country;
+	}
+	
+	@XmlElement(name ="ListingDetails")
+	public ListingDetails getListingDetails() {
+		return listingDetails;
+	}
+	@XmlElement(name = "PictureDetails")
+	public PictureDetails getPictureDetails() {
+		return pictureDetails;
+	}
+	
+	@XmlElement(name = "PrimaryCategory")
+	public PrimaryCategory getPrimarycategory() {
+		return primarycategory;
+	}
+	@XmlElement(name ="ProductListingDetails")
+	public ProductListingDetails getProductListingDetails() {
+		return productListingDetails;
+	}
+	@XmlElement(name ="Quantity")
+	public String getQuantity() {
+		return quantity;
+	}
+	
+	@XmlElement(name ="SellingStatus")
+	public SellingStatus getSellingStatus() {
+		return sellingStatus;
+	}
+	
+	@XmlElement(name = "StartPrice")
+	public String getStartprice() {
+		return startprice;
 	}
 	
 	@XmlElement(name = "StartPrice")
@@ -49,26 +90,9 @@ public class Item {
 		return startPrice;
 	}
 	
-	@XmlElement(name = "ConditionDescription")
-	public String getConditionDescription() {
-		return conditionDescription;
-	}
 	@XmlElement(name = "Title")
 	public String getTitle() {
 		return title;
-	}
-	
-	@XmlElement(name = "PrimaryCategory")
-	public PrimaryCategory getPrimarycategory() {
-		return primarycategory;
-	}
-	@XmlElement(name = "StartPrice")
-	public String getStartprice() {
-		return startprice;
-	}
-	@XmlElement(name = "PictureDetails")
-	public PictureDetails getPictureDetails() {
-		return pictureDetails;
 	}
 
 	// Setters
@@ -88,32 +112,48 @@ public class Item {
 		this.charity = charity;
 	}
 
-	public void setCountry(String country) {
-		this.country = country;
-	}
-	
-	public void setStartPrice(String startPrice) {
-		this.startPrice = startPrice;
-	}
-
 	public void setConditionDescription(String conditionDescription) {
 		this.conditionDescription = conditionDescription;
 	}
+	
+	public void setCountry(String country) {
+		this.country = country;
+	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setListingDetails(ListingDetails listingDetails) {
+		this.listingDetails = listingDetails;
+	}
+
+	public void setPictureDetails(PictureDetails pictureDetails) {
+		this.pictureDetails = pictureDetails;
 	}
 
 	public void setPrimarycategory(PrimaryCategory primarycategory) {
 		this.primarycategory = primarycategory;
 	}
 
+	public void setProductListingDetails(ProductListingDetails productListingDetails) {
+		this.productListingDetails = productListingDetails;
+	}
+
+	public void setQuantity(String quantity) {
+		this.quantity = quantity;
+	}
+
+	public void setSellingStatus(SellingStatus sellingStatus) {
+		this.sellingStatus = sellingStatus;
+	}
+
 	public void setStartprice(String startprice) {
 		this.startprice = startprice;
 	}
 
-	public void setPictureDetails(PictureDetails pictureDetails) {
-		this.pictureDetails = pictureDetails;
+	public void setStartPrice(String startPrice) {
+		this.startPrice = startPrice;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 

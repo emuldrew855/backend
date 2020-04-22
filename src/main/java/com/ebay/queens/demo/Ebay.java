@@ -2,9 +2,9 @@ package com.ebay.queens.demo;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.logging.Logger;
 
 import javax.ws.rs.GET;
-import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
@@ -12,12 +12,14 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.ebay.queens.requests.charityitems.CharityItemRequest;
 import com.ebay.queens.requests.charityitems.Constraints;
@@ -35,32 +37,27 @@ import com.ebay.queens.responses.searchitemresponse.SearchItemResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * Represents a class to access and hit all of the eBays api's
+ * Represents a class to access and manage all of the eBays api's
  */
 @Component
 @Order(2)
-@Path("/v1")
-public class Version1Api implements CommandLineRunner {
+@RestController
+@RequestMapping("/ebay")
+public class Ebay implements CommandLineRunner {
 	final ObjectMapper mapper = new ObjectMapper();
-	private static final Logger LOGGER = LoggerFactory.getLogger(Version1Api.class);
-
-	@Override
-	public void run(String... args) throws Exception {
-		LOGGER.info("Version 1 API");
-		// this.getItem("333460893922");
-		// this.findSingleNonProfit("10484");
-		// this.findCharityItems("10484");
-		// this.searchItem("snake");
-		// this.advancedFindCharityItems("64163");
-		// this.getAllItemResponses();
-	}
+	private Logger LOGGER;
 
 	@Autowired
 	private Http httpClass;
-
-	public static void main(String[] args) throws IOException {
-
+	
+	
+	@Override
+	public void run(String... args) throws Exception {
+		// Method may be used to test code locally directly from source class
+		LOGGER = Utilities.LOGGER;
+		LOGGER.info("Ebay API");
 	}
+	
 
 	/**
 	 * Represents an api to search for the nonprofit id which is then used to bring
@@ -72,16 +69,19 @@ public class Version1Api implements CommandLineRunner {
 	 *            to return a list of products
 	 * @return CharityItemResponse object which is a JSON object containing a list
 	 *         of items which the charity sells
-	 * @throws JAXBException
+	 * @throws JAXBException, IOException
 	 */
 	@GET
-	@Path("/AdvancedFindCharityItems")
+	@PostMapping("/AdvancedFindCharityItems")
 	@Produces(MediaType.APPLICATION_JSON)
 	public CharityItemResponse advancedFindCharityItems(@QueryParam("charityId") String charityId)
 			throws IOException, JAXBException {
-		FindNonProfitResponse findNonProfitResponse = findNonProfit(charityId);
-		String nonProfitId = findNonProfitResponse.getNonProfit().getExternalId();
-		LOGGER.info("Non Profit Id: " + nonProfitId);
+		FindNonProfitResponse findNonProfitResponse = findSingleNonProfit(charityId);
+		if(findNonProfitResponse.getAck().equals("Warning") || findNonProfitResponse.equals(null)) {
+			LOGGER.severe("Problem with finding charity");
+			return null;
+		}
+		String nonProfitId = findNonProfitResponse.getNonProfit().getNonProfitId();
 		CharityItemResponse charityItemResponse = findCharityItems(nonProfitId);
 		System.out.println("Advanced find charity item: " + charityItemResponse.toString());
 		LOGGER.info(charityItemResponse.toString());
@@ -89,28 +89,70 @@ public class Version1Api implements CommandLineRunner {
 	}
 
 	/**
-	 * Represents an api to return a list of products matching the search term
+	 * Represents an api to return products from multiple charities.
 	 * 
-	 * @param searchTerm
-	 *            - uses a string input search term to return a list of products
-	 *            matching the search term
+	 * @param needs
+	 *            to accept an a charity item id
 	 * 
-	 * @return - SearchItemResponse objects which contains a list of items relating
-	 *         to the input search terms
+	 * @return needs to return a CharityItemResponse which is JSON response of
+	 *         products related to that specific charity
 	 * 
-	 * @throws -
-	 *             IOException
+	 * @throws IOException
 	 */
 	@GET
-	@Path("/SearchItem")
+	@PostMapping("/findcharityItems")
 	@Produces(MediaType.APPLICATION_JSON)
-	public SearchItemResponse searchItem(@QueryParam("searchTerm") String searchTerm) throws IOException {
-		LOGGER.info("Search Item: " + searchTerm);
-		String url = "https://api.ebay.com/buy/browse/v1/item_summary/search?q=" + searchTerm;
-		String response = httpClass.genericSendGET(url, "searchItem");
-		LOGGER.info(response.toString());
-		final SearchItemResponse searchItemResponse = mapper.readValue(response, SearchItemResponse.class);
-		return searchItemResponse;
+	public CharityItemResponse findCharityItems(@QueryParam("charityItemId") String charityItemId) throws IOException {
+		LOGGER.info("Find Charity Items");
+		PaginationInput paginationInput = new PaginationInput("1", "25");
+		String[] valueIds = { charityItemId };
+		String[] charityOnly = { "true" };
+		GlobalAspect globalAspect1 = new GlobalAspect("CharityIds", valueIds);
+		GlobalAspect globalAspect2 = new GlobalAspect("CharityOnly", charityOnly);
+		GlobalAspect globalAspectList[] = new GlobalAspect[2];
+		globalAspectList[0] = globalAspect1;
+		globalAspectList[1] = globalAspect2;
+		Constraints constraints = new Constraints(globalAspectList);
+		SearchRequest searchRequest = new SearchRequest("StartTimeNewest", paginationInput, constraints);
+		CharityItemRequest charityItemRequest = new CharityItemRequest(searchRequest);
+		String response = httpClass.genericJSONSendPOST("https://api.ebay.com/buying/search/v2", charityItemRequest,
+				"charityItem");
+		LOGGER.info(response);
+		final CharityItemResponse charityItemResponse = mapper.readValue(response, CharityItemResponse.class);
+		return charityItemResponse;
+	}
+
+	/**
+	 * Represents an api to bring information on non profits [NOT CURRENTLY WORKING OR UNSURE OF FUNCTIONAL PURPOSE YET]
+	 * 
+	 * @param nonProfitInput
+	 *            - uses the externalId to bring up information on nonprofits
+	 * 
+	 * @returns - a list of non profits.
+	 * 
+	 * @throws JAXBException
+	 */
+	@GET
+	@PostMapping("/FindNonProfit")
+	@Produces(MediaType.APPLICATION_XML)
+	public FindNonProfitResponse findNonProfit(@QueryParam("nonProfitInput") String nonProfitInput)
+			throws IOException, JAXBException {
+		LOGGER.info("Find Non Profit Method");
+		SearchFilter searchFilter = new SearchFilter(nonProfitInput);
+		PaginationInput paginationInput = new PaginationInput("25", "1");
+		FindNonProfitRequest findNonProfitRequest = new FindNonProfitRequest(searchFilter, paginationInput);
+		String response = httpClass.genericXMLSendPOST(
+				"http://svcs.ebay.com/services/fundraising/FundRaisingFindingService/v1", findNonProfitRequest,
+				"nonProfit");
+		FindNonProfitResponse findNonProfitResponse = new FindNonProfitResponse();
+		try {
+			JAXBContext jaxbContext = JAXBContext.newInstance(FindNonProfitResponse.class);
+			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+			findNonProfitResponse = (FindNonProfitResponse) unmarshaller.unmarshal(new StringReader(response));
+		} catch (JAXBException e) {
+			LOGGER.severe("Failed to deserialize XML." + e.toString());
+		}
+		return findNonProfitResponse;
 	}
 
 	/**
@@ -126,11 +168,11 @@ public class Version1Api implements CommandLineRunner {
 	 * @throws IOException
 	 */
 	@GET
-	@Path("/FindSingleNonProfit")
+	@PostMapping("/FindSingleNonProfit")
 	@Produces(MediaType.APPLICATION_JSON)
 	public FindNonProfitResponse findSingleNonProfit(@QueryParam("charityItemId") String charityItemId)
 			throws IOException {
-		LOGGER.info("FindSingleNonProfit: " + charityItemId);
+		LOGGER.info("Non Profit Id: " + charityItemId);
 		String requestBody = "<findNonprofitRequest xmlns=\"http://www.ebay.com/marketplace/fundraising/v1/services\">\r\n"
 				+ "    <searchFilter>\r\n" + "        <externalId>" + charityItemId + "</externalId>\r\n"
 				+ "    </searchFilter>\r\n" + "    <outputSelector>Mission</outputSelector>\r\n"
@@ -150,43 +192,9 @@ public class Version1Api implements CommandLineRunner {
 			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 			findNonProfitResponse = (FindNonProfitResponse) unmarshaller.unmarshal(new StringReader(response));
 		} catch (JAXBException e) {
-			LOGGER.error("Failed to deserialize XML.", e);
+			LOGGER.severe("Failed to deserialize XML." + e.toString());
 		}
 		return findNonProfitResponse;
-	}
-
-	/**
-	 * Represents an api to return products from multiple charities.
-	 * 
-	 * @param needs
-	 *            to accept an a charity item id
-	 * 
-	 * @return needs to return a CharityItemResponse which is JSON response of
-	 *         products related to that specific charity
-	 * 
-	 * @throws IOException
-	 */
-	@GET
-	@Path("/findcharityItems")
-	@Produces(MediaType.APPLICATION_JSON)
-	public CharityItemResponse findCharityItems(@QueryParam("charityItemId") String charityItemId) throws IOException {
-		LOGGER.info("Find Charity Items");
-		PaginationInput paginationInput = new PaginationInput("1", "25");
-		String[] valueIds = { "88" };
-		String[] charityOnly = { "true" };
-		GlobalAspect globalAspect1 = new GlobalAspect("CharityIds", valueIds);
-		GlobalAspect globalAspect2 = new GlobalAspect("CharityOnly", charityOnly);
-		GlobalAspect globalAspectList[] = new GlobalAspect[2];
-		globalAspectList[0] = globalAspect1;
-		globalAspectList[1] = globalAspect2;
-		Constraints constraints = new Constraints(globalAspectList);
-		SearchRequest searchRequest = new SearchRequest("StartTimeNewest", paginationInput, constraints);
-		CharityItemRequest charityItemRequest = new CharityItemRequest(searchRequest);
-		String response = httpClass.genericJSONSendPOST("https://api.ebay.com/buying/search/v2", charityItemRequest,
-				"charityItem");
-		LOGGER.info(response);
-		final CharityItemResponse charityItemResponse = mapper.readValue(response, CharityItemResponse.class);
-		return charityItemResponse;
 	}
 
 	/**
@@ -202,7 +210,7 @@ public class Version1Api implements CommandLineRunner {
 	 * @throws JAXBException
 	 */
 	@GET
-	@Path("/GetItem")
+	@PostMapping("/GetItem")
 	@Produces(MediaType.APPLICATION_XML)
 	public GetItemResponse getItem(@QueryParam("input") String input) throws IOException, JAXBException {
 		LOGGER.info("Get Item Method: " + input);
@@ -218,41 +226,42 @@ public class Version1Api implements CommandLineRunner {
 			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 			getItemResponse = (GetItemResponse) unmarshaller.unmarshal(new StringReader(response));
 		} catch (JAXBException e) {
-			LOGGER.error("Failed to deserialize XML.", e);
+			LOGGER.severe("Failed to deserialize XML."+ e.toString());
 		}
 		return getItemResponse;
 	}
-
+	
 	/**
-	 * Represents an api to bring information on non profits [NOT CURRENTLY WORKING]
+	 * Represents an api to return a list of products matching the search term
 	 * 
-	 * @param nonProfitInput
-	 *            - uses the externalId to bring up information on nonprofits
+	 * @param searchTerm
+	 *            - uses a string input search term to return a list of products
+	 *            matching the search term
 	 * 
-	 * @returns - a list of non profits.
+	 * @return - SearchItemResponse objects which contains a list of items relating
+	 *         to the input search terms
 	 * 
-	 * @throws JAXBException
+	 * @throws -
+	 *             IOException
 	 */
 	@GET
-	@Path("/FindNonProfit")
-	@Produces(MediaType.APPLICATION_XML)
-	public FindNonProfitResponse findNonProfit(@QueryParam("nonProfitInput") String nonProfitInput)
-			throws IOException, JAXBException {
-		LOGGER.info("Find Non Profit Method");
-		SearchFilter searchFilter = new SearchFilter(nonProfitInput);
-		PaginationInput paginationInput = new PaginationInput("25", "1");
-		FindNonProfitRequest findNonProfitRequest = new FindNonProfitRequest(searchFilter, paginationInput);
-		String response = httpClass.genericXMLSendPOST(
-				"http://svcs.ebay.com/services/fundraising/FundRaisingFindingService/v1", findNonProfitRequest,
-				"nonProfit");
-		FindNonProfitResponse findNonProfitResponse = new FindNonProfitResponse();
-		try {
-			JAXBContext jaxbContext = JAXBContext.newInstance(FindNonProfitResponse.class);
-			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-			findNonProfitResponse = (FindNonProfitResponse) unmarshaller.unmarshal(new StringReader(response));
-		} catch (JAXBException e) {
-			LOGGER.error("Failed to deserialize XML.", e);
-		}
-		return findNonProfitResponse;
+	@GetMapping("/SearchItem")
+	@Produces(MediaType.APPLICATION_JSON)
+	public CharityItemResponse searchItem(@QueryParam("searchTerm") String searchTerm) throws IOException {
+		PaginationInput paginationInput = new PaginationInput("1", "25");
+		String[] charityOnly = { "true" };
+		GlobalAspect globalAspect1 = new GlobalAspect("CharityOnly", charityOnly);
+		GlobalAspect globalAspectList[] = new GlobalAspect[1];
+		globalAspectList[0] = globalAspect1;
+		String keyword = searchTerm;
+		Constraints constraints = new Constraints(globalAspectList);
+		SearchRequest searchRequest = new SearchRequest("StartTimeNewest", paginationInput, constraints);
+		searchRequest.setKeyword(keyword);
+		CharityItemRequest charityItemRequest = new CharityItemRequest(searchRequest);
+		String response = httpClass.genericJSONSendPOST("https://api.ebay.com/buying/search/v2", charityItemRequest,
+				"charityItem");
+		LOGGER.info(response);
+		final CharityItemResponse charityItemResponse = mapper.readValue(response, CharityItemResponse.class);
+		return charityItemResponse;
 	}
 }
