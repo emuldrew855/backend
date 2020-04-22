@@ -1,8 +1,5 @@
 package com.ebay.queens.demo;
 
-import java.io.IOException;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.logging.Logger;
 
 import javax.ws.rs.GET;

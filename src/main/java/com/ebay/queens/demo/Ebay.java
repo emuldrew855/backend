@@ -33,7 +33,6 @@ import com.ebay.queens.requests.getitem.RequesterCredentials;
 import com.ebay.queens.responses.charityitemresponse.CharityItemResponse;
 import com.ebay.queens.responses.findnonprofitresponse.FindNonProfitResponse;
 import com.ebay.queens.responses.getitemresponse.GetItemResponse;
-import com.ebay.queens.responses.searchitemresponse.SearchItemResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**

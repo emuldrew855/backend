@@ -9,4 +9,5 @@ public class SpringMongodbApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringMongodbApplication.class, args);
 	}
+	
 }

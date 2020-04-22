@@ -1,7 +1,5 @@
 package com.ebay.queens.demo;
 
-import static org.junit.Assert.assertNotNull;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

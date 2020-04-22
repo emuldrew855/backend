@@ -40,9 +40,11 @@ import com.ebay.queens.responses.PaypalTokenResponse;
 @RestController
 @RequestMapping("/token")
 public class TokenUtilityClass implements CommandLineRunner {
-	private static final List<String> authorizationScopesList = Arrays.asList("https://api.ebay.com/oauth/api_scope", "https://api.ebay.com/oauth/api_scope/sell.marketing.readonly");
+	private static final List<String> authorizationScopesList = Arrays.asList("https://api.ebay.com/oauth/api_scope", 
+			"https://api.ebay.com/oauth/api_scope/sell.marketing.readonly");
 	private static final Environment EXECUTION_ENV = Environment.PRODUCTION;
-    private static final String EBAY_CONFIG = "C:\\Users\\user\\Documents\\Beng Software Engineering\\CSC3032-Software Engineering Project\\backend\\src\\main\\resources\\ebay-config-sample.yaml";
+    private static final String EBAY_CONFIG = 
+    		"C:\\Users\\user\\Documents\\Beng Software Engineering\\CSC3032-Software Engineering Project\\backend\\src\\main\\resources\\ebay-config-sample.yaml";
     public TokenUtilityClass()  {
 		logger = Utilities.LOGGER;
 		logger.info("Token Utility Class");
