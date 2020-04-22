@@ -1,5 +1,6 @@
 package com.ebay.queens.demo;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Arrays;
@@ -19,6 +20,7 @@ import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
+import org.springframework.data.web.ProjectedPayload;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,13 +45,18 @@ public class TokenUtilityClass implements CommandLineRunner {
 	private static final List<String> authorizationScopesList = Arrays.asList("https://api.ebay.com/oauth/api_scope", 
 			"https://api.ebay.com/oauth/api_scope/sell.marketing.readonly");
 	private static final Environment EXECUTION_ENV = Environment.PRODUCTION;
-    private static final String EBAY_CONFIG = 
+    private static String EBAY_CONFIG = 
     		"C:\\Users\\user\\Documents\\Beng Software Engineering\\CSC3032-Software Engineering Project\\backend\\src\\main\\resources\\ebay-config-sample.yaml";
     public TokenUtilityClass()  {
 		logger = Utilities.LOGGER;
 		logger.info("Token Utility Class");
 		logger.addHandler(Utilities.fileHandler);
+		String projDirectory = System.getProperty("user.dir");
+		EBAY_CONFIG = projDirectory + "\\src\\main\\resources\\ebay-config-sample.yaml";
+		System.out.println("Current Dir: " + EBAY_CONFIG);	
 	}
+    
+    
 
 	private OAuth2Api oauth2API = new OAuth2Api();
 	private Logger logger;	
