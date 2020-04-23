@@ -7,7 +7,7 @@ In addition to this it serves up calls to the matching frontend and communicates
 
 2) Download Maven and add it to your systems environment variables. A good website to do this can be found here. https://www.baeldung.com/install-maven-on-windows-linux-mac
 
-3) Step 4: Then navigate to the folder where you cloned the project and enter ‘mvn install’. This will build and package a Spring Boot app into a single executable Jar file with a Maven. 
+3) Then navigate to the folder where you cloned the project and enter ‘mvn install’. This will build and package a Spring Boot app into a single executable Jar file with a Maven. 
 
 4)  Then enter ‘mvn spring-boot:run’ and the backend server should be running
 
