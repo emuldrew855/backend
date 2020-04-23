@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2020-03-31T14:24:13</date>
-  <millis>1585661053069</millis>
+  <date>2020-04-22T17:01:09</date>
+  <millis>1587571269122</millis>
   <sequence>16</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -13,8 +13,8 @@
   <message>Login</message>
 </record>
 <record>
-  <date>2020-03-31T14:24:16</date>
-  <millis>1585661056017</millis>
+  <date>2020-04-22T17:01:11</date>
+  <millis>1587571271233</millis>
   <sequence>17</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -24,8 +24,8 @@
   <message>SignUp</message>
 </record>
 <record>
-  <date>2020-03-31T14:24:16</date>
-  <millis>1585661056031</millis>
+  <date>2020-04-22T17:01:11</date>
+  <millis>1587571271262</millis>
   <sequence>18</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -35,8 +35,8 @@
   <message>Token Utility Class</message>
 </record>
 <record>
-  <date>2020-03-31T14:24:16</date>
-  <millis>1585661056064</millis>
+  <date>2020-04-22T17:01:11</date>
+  <millis>1587571271312</millis>
   <sequence>19</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -46,8 +46,8 @@
   <message>Paypal Authentication token</message>
 </record>
 <record>
-  <date>2020-03-31T14:24:16</date>
-  <millis>1585661056064</millis>
+  <date>2020-04-22T17:01:11</date>
+  <millis>1587571271312</millis>
   <sequence>19</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -57,8 +57,8 @@
   <message>Paypal Authentication token</message>
 </record>
 <record>
-  <date>2020-03-31T14:24:16</date>
-  <millis>1585661056337</millis>
+  <date>2020-04-22T17:01:11</date>
+  <millis>1587571271934</millis>
   <sequence>20</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -68,8 +68,8 @@
   <message>Default value</message>
 </record>
 <record>
-  <date>2020-03-31T14:24:16</date>
-  <millis>1585661056337</millis>
+  <date>2020-04-22T17:01:11</date>
+  <millis>1587571271934</millis>
   <sequence>20</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
@@ -79,9 +79,31 @@
   <message>Default value</message>
 </record>
 <record>
-  <date>2020-03-31T14:24:19</date>
-  <millis>1585661059747</millis>
-  <sequence>66</sequence>
+  <date>2020-04-22T17:01:13</date>
+  <millis>1587571273110</millis>
+  <sequence>22</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>paypalAuthenticationToken</method>
+  <thread>22</thread>
+  <message>A21AAEFnxh3iMMG1SFLH3m5-zl_-MMRuuiSbhwA76poEqAmWXityHxYFwZ4h14wAflTfCWjvGSRO4eJvSUo5O9H3R1H71uaWA</message>
+</record>
+<record>
+  <date>2020-04-22T17:01:13</date>
+  <millis>1587571273110</millis>
+  <sequence>22</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>paypalAuthenticationToken</method>
+  <thread>22</thread>
+  <message>A21AAEFnxh3iMMG1SFLH3m5-zl_-MMRuuiSbhwA76poEqAmWXityHxYFwZ4h14wAflTfCWjvGSRO4eJvSUo5O9H3R1H71uaWA</message>
+</record>
+<record>
+  <date>2020-04-22T17:01:14</date>
+  <millis>1587571274885</millis>
+  <sequence>71</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.TokenUtilityClass</class>
@@ -90,9 +112,9 @@
   <message>Token Utility Class</message>
 </record>
 <record>
-  <date>2020-03-31T14:24:19</date>
-  <millis>1585661059747</millis>
-  <sequence>66</sequence>
+  <date>2020-04-22T17:01:14</date>
+  <millis>1587571274885</millis>
+  <sequence>71</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.TokenUtilityClass</class>
@@ -101,9 +123,9 @@
   <message>Token Utility Class</message>
 </record>
 <record>
-  <date>2020-03-31T14:24:19</date>
-  <millis>1585661059748</millis>
-  <sequence>67</sequence>
+  <date>2020-04-22T17:01:14</date>
+  <millis>1587571274886</millis>
+  <sequence>72</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.Paypal</class>
@@ -112,9 +134,9 @@
   <message>Paypal Class</message>
 </record>
 <record>
-  <date>2020-03-31T14:24:19</date>
-  <millis>1585661059748</millis>
-  <sequence>67</sequence>
+  <date>2020-04-22T17:01:14</date>
+  <millis>1587571274886</millis>
+  <sequence>72</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.Paypal</class>
@@ -123,9 +145,9 @@
   <message>Paypal Class</message>
 </record>
 <record>
-  <date>2020-03-31T14:24:19</date>
-  <millis>1585661059748</millis>
-  <sequence>67</sequence>
+  <date>2020-04-22T17:01:14</date>
+  <millis>1587571274886</millis>
+  <sequence>72</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.Paypal</class>
@@ -134,9 +156,9 @@
   <message>Paypal Class</message>
 </record>
 <record>
-  <date>2020-03-31T14:24:19</date>
-  <millis>1585661059759</millis>
-  <sequence>68</sequence>
+  <date>2020-04-22T17:01:14</date>
+  <millis>1587571274899</millis>
+  <sequence>73</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.Ebay</class>
@@ -145,9 +167,9 @@
   <message>Ebay API</message>
 </record>
 <record>
-  <date>2020-03-31T14:24:19</date>
-  <millis>1585661059759</millis>
-  <sequence>68</sequence>
+  <date>2020-04-22T17:01:14</date>
+  <millis>1587571274899</millis>
+  <sequence>73</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.Ebay</class>
@@ -156,13 +178,310 @@
   <message>Ebay API</message>
 </record>
 <record>
-  <date>2020-03-31T14:24:19</date>
-  <millis>1585661059759</millis>
-  <sequence>68</sequence>
+  <date>2020-04-22T17:01:14</date>
+  <millis>1587571274899</millis>
+  <sequence>73</sequence>
   <logger>com.ebay.queens.demo.Utilities</logger>
   <level>INFO</level>
   <class>com.ebay.queens.demo.Ebay</class>
   <method>run</method>
   <thread>13</thread>
   <message>Ebay API</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:08</date>
+  <millis>1587571688118</millis>
+  <sequence>77</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Login</class>
+  <method>logIn</method>
+  <thread>29</thread>
+  <message>Log In - Username: userA Password: userA</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:08</date>
+  <millis>1587571688118</millis>
+  <sequence>77</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Login</class>
+  <method>logIn</method>
+  <thread>29</thread>
+  <message>Log In - Username: userA Password: userA</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:08</date>
+  <millis>1587571688118</millis>
+  <sequence>77</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Login</class>
+  <method>logIn</method>
+  <thread>29</thread>
+  <message>Log In - Username: userA Password: userA</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:08</date>
+  <millis>1587571688561</millis>
+  <sequence>78</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>ebayToken</method>
+  <thread>33</thread>
+  <message>ebay token</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:08</date>
+  <millis>1587571688561</millis>
+  <sequence>78</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>ebayToken</method>
+  <thread>33</thread>
+  <message>ebay token</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:08</date>
+  <millis>1587571688561</millis>
+  <sequence>78</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>ebayToken</method>
+  <thread>33</thread>
+  <message>ebay token</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:08</date>
+  <millis>1587571688755</millis>
+  <sequence>79</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>ebayToken</method>
+  <thread>33</thread>
+  <message>{APP_ID=EdwardMu-CharityP-PRD-538907625-4999b865, CERT_ID=PRD-38907625e4e8-b6b8-4c83-b069-68ac, REDIRECT_URI=Edward_Muldrew-EdwardMu-Charit-snkpen, DEV_ID=f21ad267-e241-4ed0-8943-721fa90bcf3a}</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:08</date>
+  <millis>1587571688755</millis>
+  <sequence>79</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>ebayToken</method>
+  <thread>33</thread>
+  <message>{APP_ID=EdwardMu-CharityP-PRD-538907625-4999b865, CERT_ID=PRD-38907625e4e8-b6b8-4c83-b069-68ac, REDIRECT_URI=Edward_Muldrew-EdwardMu-Charit-snkpen, DEV_ID=f21ad267-e241-4ed0-8943-721fa90bcf3a}</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:08</date>
+  <millis>1587571688755</millis>
+  <sequence>79</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>ebayToken</method>
+  <thread>33</thread>
+  <message>{APP_ID=EdwardMu-CharityP-PRD-538907625-4999b865, CERT_ID=PRD-38907625e4e8-b6b8-4c83-b069-68ac, REDIRECT_URI=Edward_Muldrew-EdwardMu-Charit-snkpen, DEV_ID=f21ad267-e241-4ed0-8943-721fa90bcf3a}</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:08</date>
+  <millis>1587571688757</millis>
+  <sequence>80</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>ebayToken</method>
+  <thread>33</thread>
+  <message>Authorization URL: https://auth.ebay.com/oauth2/authorize?client_id=EdwardMu-CharityP-PRD-538907625-4999b865&amp;response_type=code&amp;redirect_uri=Edward_Muldrew-EdwardMu-Charit-snkpen&amp;scope=https://api.ebay.com/oauth/api_scope+https://api.ebay.com/oauth/api_scope/sell.marketing.readonly&amp;</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:08</date>
+  <millis>1587571688757</millis>
+  <sequence>80</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>ebayToken</method>
+  <thread>33</thread>
+  <message>Authorization URL: https://auth.ebay.com/oauth2/authorize?client_id=EdwardMu-CharityP-PRD-538907625-4999b865&amp;response_type=code&amp;redirect_uri=Edward_Muldrew-EdwardMu-Charit-snkpen&amp;scope=https://api.ebay.com/oauth/api_scope+https://api.ebay.com/oauth/api_scope/sell.marketing.readonly&amp;</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:08</date>
+  <millis>1587571688757</millis>
+  <sequence>80</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>ebayToken</method>
+  <thread>33</thread>
+  <message>Authorization URL: https://auth.ebay.com/oauth2/authorize?client_id=EdwardMu-CharityP-PRD-538907625-4999b865&amp;response_type=code&amp;redirect_uri=Edward_Muldrew-EdwardMu-Charit-snkpen&amp;scope=https://api.ebay.com/oauth/api_scope+https://api.ebay.com/oauth/api_scope/sell.marketing.readonly&amp;</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:08</date>
+  <millis>1587571688827</millis>
+  <sequence>81</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Login</class>
+  <method>getUser</method>
+  <thread>34</thread>
+  <message>Get User with: userA</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:08</date>
+  <millis>1587571688827</millis>
+  <sequence>81</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Login</class>
+  <method>getUser</method>
+  <thread>34</thread>
+  <message>Get User with: userA</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:08</date>
+  <millis>1587571688827</millis>
+  <sequence>81</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Login</class>
+  <method>getUser</method>
+  <thread>34</thread>
+  <message>Get User with: userA</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:08</date>
+  <millis>1587571688882</millis>
+  <sequence>82</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Login</class>
+  <method>getUser</method>
+  <thread>34</thread>
+  <message>Active user: userA</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:08</date>
+  <millis>1587571688882</millis>
+  <sequence>82</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Login</class>
+  <method>getUser</method>
+  <thread>34</thread>
+  <message>Active user: userA</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:08</date>
+  <millis>1587571688882</millis>
+  <sequence>82</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Login</class>
+  <method>getUser</method>
+  <thread>34</thread>
+  <message>Active user: userA</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:11</date>
+  <millis>1587571691644</millis>
+  <sequence>83</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>getEbayAccessToken</method>
+  <thread>35</thread>
+  <message>Access Token</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:11</date>
+  <millis>1587571691644</millis>
+  <sequence>83</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>getEbayAccessToken</method>
+  <thread>35</thread>
+  <message>Access Token</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:11</date>
+  <millis>1587571691644</millis>
+  <sequence>83</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>getEbayAccessToken</method>
+  <thread>35</thread>
+  <message>Access Token</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:13</date>
+  <millis>1587571693015</millis>
+  <sequence>84</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>getEbayAccessToken</method>
+  <thread>35</thread>
+  <message>Active User ebay auth: v^1.1#i^1#r^0#I^3#f^0#p^3#t^H4sIAAAAAAAAAOVXa2wUVRTu9mlTCypCGyJxmZaANLN757G7MyO7ybbd2gXarrst0jaG3J250w7dnVln7nS7hDRlEwo/iGKIRlAJKj+Mf9BoY6KJj1glUWNQEoypoAE1ivUHKuFhSJ3ZPtiWCNUS0sT9s7nnnjn3fN/57uOAodLy9cPNw5cqHWWFR4bAUKHDQVWA8tKSuiVFhStLCkCeg+PIUO1Qcbbo5w0GTCZSQhQZKU01kHMgmVANIWf0E6auCho0FENQYRIZAhaFWLBls0C7gJDSNayJWoJwhhv9BMPwHpFlOAZA0Sf5kGVVp2O2a37Cx9NAApDjORnRIDdvGCYKqwaGKvYTNKABCViSptsprwA4gQIunqG7COcWpBuKplouLkAEcukKuW/1vFxvnio0DKRjKwgRCAebYm3BcGOotX2DOy9WYIqHGIbYNGaPGjQJObfAhIluvoyR8xZipigiwyDcgckVZgcVgtPJ/If0c1TLHpFnZEh7RR8P4x7utlDZpOlJiG+eh21RJFLOuQpIxQrO3IpRi434diTiqVGrFSLc6LT/HjVhQpEVpPuJUH2wsyMWihLOWCSia/2KhCQbKUVzNOfhKS9PBJJmQtK3mX00oNipdSaDTbE8Z6EGTZUUmzPD2arhemQljWZT4xE8edRYTm1qmx6UsZ1Qvh83TSHNdtk1nSyiiXtVu6woafHgzA1vXYBpRVzXwG3TBJQllhdlxPCMV6J8N2rC3uv/XhcBuzTBSMRt54LiMEMmod6HcCoBRUSKFr1mEumKJDAemWasvU1KXl4mWV6WybhH8pKUjBBAKB4Xee5/JA+MdSVuYjQjkbkTOYx+wqZUUKAsYK0Pqe2ZFCLmeuYOnildDBh+ohfjlOB2p9NpV5pxaXqPmwaAcm9t2RwTe1ESEjO+yq2dSSWnENE6jy1/AVsJ+IkBS4DW4moPEYiGmqKhWPO29rZNodZp8c7KLDDX+g9IY0jUEV5c6CgccXe4KQpEg9rGGBvJbNRCyqbIDrClvb6lHzY0MLTYsOOROrmN9S8MvKilUERLKGLmTjBg7/X5s8DoUgTqOBNDiYRlWBBQwwa6uIpsf29YAWBKcdnbzSVqSbcGrRPbNm3LZeycj5PbsAhyTZ5/VmSXjqCkqYnMgggLplLhZNLEMJ5AYWlxMccCFtCeBcNbZKhCUhrqUotJNvRC3XrBRMhItJH0MBwPfF7aY91dPB/nvAvD3dKj3CHYxdnCnnmfdzznoz2UF3gAoBeErxH1L7a6yjQFJdrrIxHNUiSLJEByPMuQPpqSIQ/ioszABWFuSCjWRb747uhmzcBImi+0OYa8B8oNT1P37NYwUJD7UVnHCMg63rC6S+AGa6gasLq0qKO46O6VhoKRy3rMuAylR7U6Hh25+lAmBRW9sNSR6oDn1+Q1o0ceB9Uz7Wh5EVWR15uCB67PlFBLqyotQliatoTLUaAL1FyfLaZWFN9/auc9J0ec3HtV185f2v/uO2uHCj/FoHLGyeEoKSjOOgqaD50/+8QYHlr50uBo51bNtWt4bNB47q31oQ8f3jW45uqFJcxj3aMnsw92OrJj0a4xpen454OvfdDf/Vdv7U9VX5xtGq7Cr951X7zy12MveuKkNBo5zvzxytdHqd4Xzuz5s/7wy/vOHV1+5UD56XXXPtmXfcY/sRedePb33pqHjjWP9I3/sioawxOvt/ifTMvDdUcvdAk8PlNWsDc40nJxQ/259Egs+GZdWfXHA1VrrziEH378ru3i6upDB1f1fORlD3zT1fz+qHmwbCf+vnpF99vPa+tqQ7V+8K1Z8VXi8sndE5eXVSzf/9naw1fvffrL8RPjkfHtmT27K9ChidOdTy07teO31sGlm/u6J8v3Nx1c6KsmEAAA</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:13</date>
+  <millis>1587571693015</millis>
+  <sequence>84</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>getEbayAccessToken</method>
+  <thread>35</thread>
+  <message>Active User ebay auth: v^1.1#i^1#r^0#I^3#f^0#p^3#t^H4sIAAAAAAAAAOVXa2wUVRTu9mlTCypCGyJxmZaANLN757G7MyO7ybbd2gXarrst0jaG3J250w7dnVln7nS7hDRlEwo/iGKIRlAJKj+Mf9BoY6KJj1glUWNQEoypoAE1ivUHKuFhSJ3ZPtiWCNUS0sT9s7nnnjn3fN/57uOAodLy9cPNw5cqHWWFR4bAUKHDQVWA8tKSuiVFhStLCkCeg+PIUO1Qcbbo5w0GTCZSQhQZKU01kHMgmVANIWf0E6auCho0FENQYRIZAhaFWLBls0C7gJDSNayJWoJwhhv9BMPwHpFlOAZA0Sf5kGVVp2O2a37Cx9NAApDjORnRIDdvGCYKqwaGKvYTNKABCViSptsprwA4gQIunqG7COcWpBuKplouLkAEcukKuW/1vFxvnio0DKRjKwgRCAebYm3BcGOotX2DOy9WYIqHGIbYNGaPGjQJObfAhIluvoyR8xZipigiwyDcgckVZgcVgtPJ/If0c1TLHpFnZEh7RR8P4x7utlDZpOlJiG+eh21RJFLOuQpIxQrO3IpRi434diTiqVGrFSLc6LT/HjVhQpEVpPuJUH2wsyMWihLOWCSia/2KhCQbKUVzNOfhKS9PBJJmQtK3mX00oNipdSaDTbE8Z6EGTZUUmzPD2arhemQljWZT4xE8edRYTm1qmx6UsZ1Qvh83TSHNdtk1nSyiiXtVu6woafHgzA1vXYBpRVzXwG3TBJQllhdlxPCMV6J8N2rC3uv/XhcBuzTBSMRt54LiMEMmod6HcCoBRUSKFr1mEumKJDAemWasvU1KXl4mWV6WybhH8pKUjBBAKB4Xee5/JA+MdSVuYjQjkbkTOYx+wqZUUKAsYK0Pqe2ZFCLmeuYOnildDBh+ohfjlOB2p9NpV5pxaXqPmwaAcm9t2RwTe1ESEjO+yq2dSSWnENE6jy1/AVsJ+IkBS4DW4moPEYiGmqKhWPO29rZNodZp8c7KLDDX+g9IY0jUEV5c6CgccXe4KQpEg9rGGBvJbNRCyqbIDrClvb6lHzY0MLTYsOOROrmN9S8MvKilUERLKGLmTjBg7/X5s8DoUgTqOBNDiYRlWBBQwwa6uIpsf29YAWBKcdnbzSVqSbcGrRPbNm3LZeycj5PbsAhyTZ5/VmSXjqCkqYnMgggLplLhZNLEMJ5AYWlxMccCFtCeBcNbZKhCUhrqUotJNvRC3XrBRMhItJH0MBwPfF7aY91dPB/nvAvD3dKj3CHYxdnCnnmfdzznoz2UF3gAoBeErxH1L7a6yjQFJdrrIxHNUiSLJEByPMuQPpqSIQ/ioszABWFuSCjWRb747uhmzcBImi+0OYa8B8oNT1P37NYwUJD7UVnHCMg63rC6S+AGa6gasLq0qKO46O6VhoKRy3rMuAylR7U6Hh25+lAmBRW9sNSR6oDn1+Q1o0ceB9Uz7Wh5EVWR15uCB67PlFBLqyotQliatoTLUaAL1FyfLaZWFN9/auc9J0ec3HtV185f2v/uO2uHCj/FoHLGyeEoKSjOOgqaD50/+8QYHlr50uBo51bNtWt4bNB47q31oQ8f3jW45uqFJcxj3aMnsw92OrJj0a4xpen454OvfdDf/Vdv7U9VX5xtGq7Cr951X7zy12MveuKkNBo5zvzxytdHqd4Xzuz5s/7wy/vOHV1+5UD56XXXPtmXfcY/sRedePb33pqHjjWP9I3/sioawxOvt/ifTMvDdUcvdAk8PlNWsDc40nJxQ/259Egs+GZdWfXHA1VrrziEH378ru3i6upDB1f1fORlD3zT1fz+qHmwbCf+vnpF99vPa+tqQ7V+8K1Z8VXi8sndE5eXVSzf/9naw1fvffrL8RPjkfHtmT27K9ChidOdTy07teO31sGlm/u6J8v3Nx1c6KsmEAAA</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:13</date>
+  <millis>1587571693015</millis>
+  <sequence>84</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.TokenUtilityClass</class>
+  <method>getEbayAccessToken</method>
+  <thread>35</thread>
+  <message>Active User ebay auth: v^1.1#i^1#r^0#I^3#f^0#p^3#t^H4sIAAAAAAAAAOVXa2wUVRTu9mlTCypCGyJxmZaANLN757G7MyO7ybbd2gXarrst0jaG3J250w7dnVln7nS7hDRlEwo/iGKIRlAJKj+Mf9BoY6KJj1glUWNQEoypoAE1ivUHKuFhSJ3ZPtiWCNUS0sT9s7nnnjn3fN/57uOAodLy9cPNw5cqHWWFR4bAUKHDQVWA8tKSuiVFhStLCkCeg+PIUO1Qcbbo5w0GTCZSQhQZKU01kHMgmVANIWf0E6auCho0FENQYRIZAhaFWLBls0C7gJDSNayJWoJwhhv9BMPwHpFlOAZA0Sf5kGVVp2O2a37Cx9NAApDjORnRIDdvGCYKqwaGKvYTNKABCViSptsprwA4gQIunqG7COcWpBuKplouLkAEcukKuW/1vFxvnio0DKRjKwgRCAebYm3BcGOotX2DOy9WYIqHGIbYNGaPGjQJObfAhIluvoyR8xZipigiwyDcgckVZgcVgtPJ/If0c1TLHpFnZEh7RR8P4x7utlDZpOlJiG+eh21RJFLOuQpIxQrO3IpRi434diTiqVGrFSLc6LT/HjVhQpEVpPuJUH2wsyMWihLOWCSia/2KhCQbKUVzNOfhKS9PBJJmQtK3mX00oNipdSaDTbE8Z6EGTZUUmzPD2arhemQljWZT4xE8edRYTm1qmx6UsZ1Qvh83TSHNdtk1nSyiiXtVu6woafHgzA1vXYBpRVzXwG3TBJQllhdlxPCMV6J8N2rC3uv/XhcBuzTBSMRt54LiMEMmod6HcCoBRUSKFr1mEumKJDAemWasvU1KXl4mWV6WybhH8pKUjBBAKB4Xee5/JA+MdSVuYjQjkbkTOYx+wqZUUKAsYK0Pqe2ZFCLmeuYOnildDBh+ohfjlOB2p9NpV5pxaXqPmwaAcm9t2RwTe1ESEjO+yq2dSSWnENE6jy1/AVsJ+IkBS4DW4moPEYiGmqKhWPO29rZNodZp8c7KLDDX+g9IY0jUEV5c6CgccXe4KQpEg9rGGBvJbNRCyqbIDrClvb6lHzY0MLTYsOOROrmN9S8MvKilUERLKGLmTjBg7/X5s8DoUgTqOBNDiYRlWBBQwwa6uIpsf29YAWBKcdnbzSVqSbcGrRPbNm3LZeycj5PbsAhyTZ5/VmSXjqCkqYnMgggLplLhZNLEMJ5AYWlxMccCFtCeBcNbZKhCUhrqUotJNvRC3XrBRMhItJH0MBwPfF7aY91dPB/nvAvD3dKj3CHYxdnCnnmfdzznoz2UF3gAoBeErxH1L7a6yjQFJdrrIxHNUiSLJEByPMuQPpqSIQ/ioszABWFuSCjWRb747uhmzcBImi+0OYa8B8oNT1P37NYwUJD7UVnHCMg63rC6S+AGa6gasLq0qKO46O6VhoKRy3rMuAylR7U6Hh25+lAmBRW9sNSR6oDn1+Q1o0ceB9Uz7Wh5EVWR15uCB67PlFBLqyotQliatoTLUaAL1FyfLaZWFN9/auc9J0ec3HtV185f2v/uO2uHCj/FoHLGyeEoKSjOOgqaD50/+8QYHlr50uBo51bNtWt4bNB47q31oQ8f3jW45uqFJcxj3aMnsw92OrJj0a4xpen454OvfdDf/Vdv7U9VX5xtGq7Cr951X7zy12MveuKkNBo5zvzxytdHqd4Xzuz5s/7wy/vOHV1+5UD56XXXPtmXfcY/sRedePb33pqHjjWP9I3/sioawxOvt/ifTMvDdUcvdAk8PlNWsDc40nJxQ/259Egs+GZdWfXHA1VrrziEH378ru3i6upDB1f1fORlD3zT1fz+qHmwbCf+vnpF99vPa+tqQ7V+8K1Z8VXi8sndE5eXVSzf/9naw1fvffrL8RPjkfHtmT27K9ChidOdTy07teO31sGlm/u6J8v3Nx1c6KsmEAAA</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:14</date>
+  <millis>1587571694053</millis>
+  <sequence>85</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Login</class>
+  <method>validAccessToken</method>
+  <thread>36</thread>
+  <message>Valid Access Token</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:14</date>
+  <millis>1587571694053</millis>
+  <sequence>85</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Login</class>
+  <method>validAccessToken</method>
+  <thread>36</thread>
+  <message>Valid Access Token</message>
+</record>
+<record>
+  <date>2020-04-22T17:08:14</date>
+  <millis>1587571694053</millis>
+  <sequence>85</sequence>
+  <logger>com.ebay.queens.demo.Utilities</logger>
+  <level>INFO</level>
+  <class>com.ebay.queens.demo.Login</class>
+  <method>validAccessToken</method>
+  <thread>36</thread>
+  <message>Valid Access Token</message>
 </record>
